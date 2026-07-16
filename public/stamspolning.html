@@ -72,6 +72,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     }
     </script>
+    <style>
+        /* Specific overrides for stamspolning landing page */
+        #main-header .nav-links a {
+            color: #111111 !important;
+        }
+        #main-header .nav-links a:hover {
+            color: var(--primary-color) !important;
+        }
+        #main-header #logo-img {
+            filter: none !important;
+            content: url('logo.png') !important;
+        }
+        #main-header .menu-toggle span {
+            background-color: #111111 !important;
+        }
+    </style>
 </head>
 <body class="light-theme">
 <!-- Google Tag Manager (noscript) -->
@@ -386,9 +402,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .service-cta h2, .service-cta p {
                 text-transform: none !important;
             }
+            .service-cta p {
+                font-weight: 400 !important;
+            }
             .service-cta .cta-btn-header-match {
                 background: #ffffff !important;
-                color: #0fb3ff !important;
+                color: #000000 !important;
                 border: 1px solid #ffffff !important;
                 border-radius: 6px !important;
                 padding: 0.75rem 1.75rem !important;
