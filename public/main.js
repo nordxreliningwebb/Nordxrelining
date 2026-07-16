@@ -1153,10 +1153,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update mask eraser
         const maskEraser = document.getElementById('mask-eraser');
         if (maskEraser) {
-            maskEraser.setAttribute('x', startX - 20);
+            const isInspection = document.getElementById('camera-cable-group') !== null;
+            if (isInspection) {
+                // Snail trail for camera inspection
+                maskEraser.setAttribute('x', startX + 25);
+                maskEraser.setAttribute('width', 70);
+            } else {
+                // Full clean for stamspolning
+                maskEraser.setAttribute('x', startX - 20);
+                maskEraser.setAttribute('width', 160); // pipeWidth (120) + 40
+            }
             maskEraser.setAttribute('y', startY);
-            maskEraser.setAttribute('width', 160); // pipeWidth (120) + 40
-            maskEraser.setAttribute('height', currentLength + 60); // erase slightly below nozzle
+            maskEraser.setAttribute('height', currentLength + 30); // erase down to the camera body
         }
 
         // Handle spray animation
