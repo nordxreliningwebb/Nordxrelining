@@ -79,7 +79,95 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+    <!-- PRELOADER: Vatten-dänering -->
+    <div id="preloader-wrapper" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999; pointer-events: none; display: flex; flex-direction: column; justify-content: flex-end;">
+        <style>
+        @keyframes wave-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .preloader-wave-path { fill: #0284c7; }
+        .preloader-wave-path-mid { fill: #38bdf8; }
+        .preloader-wave-path-light { fill: #7dd3fc; }
+        </style>
+        
+        <div id="preloader-curtain" style="width: 100%; height: 100vh; background: #0284c7; position: relative; transition: height 1.8s cubic-bezier(0.5, 0.05, 0.1, 1);">
+            
+            <!-- Vattenvågor på toppen -->
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: absolute; top: -119px; left: 0; width: 200%; height: 120px; z-index: 1; animation: wave-move 5s linear infinite; opacity: 0.4;">
+                <path class="preloader-wave-path-light" d="M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z"></path>
+            </svg>
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: absolute; top: -118px; left: 0; width: 200%; height: 120px; z-index: 2; animation: wave-move 3.5s linear infinite; opacity: 0.7;">
+                <path class="preloader-wave-path-mid" d="M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z"></path>
+            </svg>
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: absolute; top: -115px; left: 0; width: 200%; height: 120px; z-index: 3; animation: wave-move 2.5s linear infinite;">
+                <path class="preloader-wave-path" d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path>
+            </svg>
+            
+            <!-- Logo inside the water area -->
+            <div id="preloader-logo" style="position: absolute; top: 45vh; left: 50%; transform: translate(-50%, -50%); opacity: 1; transition: opacity 0.4s ease; text-align: center; z-index: 3;">
+                <img src="logo.png" alt="Nordx Relining" style="width: 280px; filter: brightness(0) invert(1);">
+                <div style="color: #ffffff; font-family: monospace; letter-spacing: 3px; margin-top: 1.5rem; font-size: 1rem; font-weight: 600;" id="loading-text">INSPEKTERAR RÖR...</div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("hero-video");
+            const preloaderCurtain = document.getElementById("preloader-curtain");
+            const preloaderWrapper = document.getElementById("preloader-wrapper");
+            const preloaderLogo = document.getElementById("preloader-logo");
+            const loadingText = document.getElementById("loading-text");
+            
+            // Prevent scrolling while loading
+            document.body.style.overflow = "hidden";
+
+            // Start a pulse animation on the text
+            let dots = 0;
+            const textInterval = setInterval(() => {
+                dots = (dots + 1) % 4;
+                if(loadingText) loadingText.innerText = "INSPEKTERAR RÖR" + ".".repeat(dots);
+            }, 300);
+
+            const finishLoading = () => {
+                if(preloaderWrapper.dataset.loaded) return;
+                preloaderWrapper.dataset.loaded = "true";
+                
+                clearInterval(textInterval);
+                
+                // Hide logo first
+                if (preloaderLogo) preloaderLogo.style.opacity = "0";
+                
+                // Wait a tiny bit, then sweep down
+                setTimeout(() => {
+                    if (preloaderCurtain) preloaderCurtain.style.height = "0vh";
+                    
+                    // Allow scrolling again
+                    document.body.style.overflow = "";
+                    
+                    // Remove completely after animation
+                    setTimeout(() => {
+                        if (preloaderWrapper) preloaderWrapper.style.display = "none";
+                    }, 1800); // 1.8s matches CSS transition
+                }, 300);
+            };
+
+            // If video is already ready (from cache)
+            if (video && video.readyState >= 3) {
+                // Minimum loading time so the user always sees the cool animation
+                setTimeout(finishLoading, 1200);
+            } else if (video) {
+                // Wait for video to be ready to play
+                video.addEventListener("canplaythrough", finishLoading);
+                video.addEventListener("loadeddata", finishLoading);
+                // Fallback max timeout just in case video fails or takes forever
+                setTimeout(finishLoading, 3000);
+            } else {
+                setTimeout(finishLoading, 1200);
+            }
+        });
+    </script>
 
     <header id="main-header" role="banner">
         <nav class="navbar" aria-label="Huvudnavigering">
@@ -214,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
 
         <!-- TJÄNSTER SEKTION -->
-        <section id="tjanster" class="services-section" aria-labelledby="services-heading">
+        <section id="tjanster" class="services-section" aria-labelledby="services-heading" style="padding-bottom: 12rem;">
             <div class="container">
                 <header class="section-header">
                     <h2 id="services-heading" class="section-title">VÅRA TJÄNSTER</h2>
@@ -243,6 +331,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
+        <!-- Premium Transition Divider (Pure CSS Photorealistic PVC Pipe) TOP -->
+        <div style="width: 100vw; margin-left: calc(-50vw + 50%); height: 100px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; z-index: 5;">
+            <!-- Sned CSS-container för att rotera hela rörsystemet -->
+            <div style="position: absolute; width: 110%; height: 200%; top: -50%; left: -5%; transform: rotate(-1deg); display: flex; align-items: center; background: linear-gradient(to bottom, #ffffff 50%, #0b0b0b 50%);">
+                <!-- Huvudröret -->
+                <div style="width: 100%; height: 26px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <!-- Skarvmuff 1 (Vänster) -->
+                    <div style="position: absolute; left: 15%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
+                    <!-- Skarvmuff 2 (Mitten) -->
+                    <div style="position: absolute; left: 52%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
+                    <!-- Skarvmuff 3 (Höger) -->
+                    <div style="position: absolute; right: 12%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- USPs / OM OSS SEKTION -->
         <section id="om-oss" class="usp-section" aria-labelledby="usp-heading">
             <div class="container usp-container">
@@ -268,39 +378,297 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-        <!-- KONTAKT SEKTION -->
-        <section id="kontakt" class="contact-section" aria-labelledby="contact-heading">
-            <div class="container contact-container">
-                <div class="contact-info-block">
-                    <h2 id="contact-heading" class="section-title">KONTAKTA OSS</h2>
-                    <p class="contact-desc">Har du frågor om relining, behöver du boka stamspolning eller vill du ha en offert? Hör av dig!</p>
-                    
-                    <address class="contact-details">
-                        <p><strong>Telefon:</strong> <a href="tel:+46721826784" aria-label="Ring oss på 072-182 67 84">072 - 182 67 84</a></p>
-                        <p><strong>E-post:</strong> <a href="mailto:info@nordxrelining.se" aria-label="Maila oss på info@nordxrelining.se">info@nordxrelining.se</a></p>
-                        <p><strong>Adress:</strong> Hemvärnsgatan 8, 171 54 Solna</p>
-                    </address>
+        <!-- Premium Transition Divider (Pure CSS Photorealistic PVC Pipe) BOTTOM -->
+        <div style="width: 100vw; margin-left: calc(-50vw + 50%); height: 100px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; z-index: 5;">
+            <!-- Sned CSS-container för att rotera hela rörsystemet -->
+            <div style="position: absolute; width: 110%; height: 200%; top: -50%; left: -5%; transform: rotate(1deg); display: flex; align-items: center; background: linear-gradient(to bottom, #0b0b0b 50%, #f8fafc 50%);">
+                <!-- Huvudröret -->
+                <div style="width: 100%; height: 26px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <!-- Skarvmuff 1 (Vänster) -->
+                    <div style="position: absolute; left: 18%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
+                    <!-- Skarvmuff 2 (Mitten) -->
+                    <div style="position: absolute; left: 48%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
+                    <!-- Skarvmuff 3 (Höger) -->
+                    <div style="position: absolute; right: 15%; top: 50%; transform: translateY(-50%); width: 35px; height: 32px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);">
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 36px; background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); border-radius: 2px; box-shadow: -1px 0 2px rgba(0,0,0,0.1);"></div>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- FAQ SEKTION (Premium Blue Cards) -->
+        <section id="faq" style="padding: 100px 0; background: #f8fafc; position: relative;">
+            <div class="container layout-wrapper" style="max-width: 900px; width: 95%; margin: 0 auto;">
                 
-                <form class="contact-form" action="#" method="POST" aria-label="Kontaktformulär">
-                    <div class="form-group">
-                        <label for="name">Namn / Företag</label>
-                        <input type="text" id="name" name="name" required placeholder="Fyll i ditt namn">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 3vw, 2.5rem); color: #0f172a; margin-bottom: 1rem; font-weight: 800;">Vanliga frågor & svar</h2>
+                    <p style="font-size: 1.125rem; color: #475569;">Allt du behöver veta om rörinspektion, stamspolning och relining.</p>
+                </div>
+
+                <style>
+                    /* Isolate styling to prevent conflict with global style.css */
+                    .nordx-faq-list {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                    }
+                    .nordx-faq-card {
+                        background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%);
+                        border-radius: 12px;
+                        padding: 0 2rem;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+                    .nordx-faq-card:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 15px 40px rgba(15, 179, 255, 0.2);
+                    }
+                    .nordx-faq-btn {
+                        width: 100%;
+                        text-align: left;
+                        padding: 2rem 0;
+                        background: none;
+                        border: none;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        cursor: pointer;
+                        font-size: 1.25rem;
+                        font-weight: 600;
+                        color: #ffffff;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    .nordx-faq-btn:focus {
+                        outline: none;
+                    }
+                    .nordx-faq-icon {
+                        width: 24px;
+                        height: 24px;
+                        transition: transform 0.3s ease;
+                        flex-shrink: 0;
+                        margin-left: 1rem;
+                        color: #ffffff;
+                    }
+                    .nordx-faq-btn[aria-expanded="true"] .nordx-faq-icon {
+                        transform: rotate(180deg);
+                    }
+                    .nordx-faq-answer {
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+                        opacity: 0;
+                    }
+                    .nordx-faq-answer.open {
+                        opacity: 1;
+                        padding-bottom: 2rem; /* Add padding when open */
+                    }
+                    .nordx-faq-answer p {
+                        color: rgba(255, 255, 255, 0.95);
+                        line-height: 1.6;
+                        font-size: 1.05rem;
+                        margin: 0;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    #nordx-hidden-group {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                    }
+                </style>
+
+                <div class="nordx-faq-list" id="faq-accordion">
+                    <!-- Synliga från start -->
+                    <div class="nordx-faq-card">
+                        <button class="nordx-faq-btn" aria-expanded="false">
+                            <span>Hur ofta bör man spola stammarna i en fastighet?</span>
+                            <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                        </button>
+                        <div class="nordx-faq-answer">
+                            <p>För flerbostadshus rekommenderar vi generellt att en stamspolning utförs vart 3:e till 5:e år. Intervallen beror på rörsystemets ålder och skick. Ett regelbundet underhåll minskar risken för akuta stopp och vattenskador avsevärt.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Telefonnummer</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="070-123 45 67">
+
+                    <div class="nordx-faq-card">
+                        <button class="nordx-faq-btn" aria-expanded="false">
+                            <span>Vad är skillnaden på relining och stambyte?</span>
+                            <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                        </button>
+                        <div class="nordx-faq-answer">
+                            <p>Ett traditionellt stambyte innebär att man river ut och byter alla rör, vilket ofta medför att badrum måste totalrenoveras och de boende måste evakueras. Vid relining skapar vi istället ett nytt, självbärande rör inuti det befintliga röret. Det går snabbare, är betydligt billigare och de boende kan bo kvar under processen.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-postadress</label>
-                        <input type="email" id="email" name="email" required placeholder="din@epost.se">
+
+                    <div class="nordx-faq-card">
+                        <button class="nordx-faq-btn" aria-expanded="false">
+                            <span>När är det dags för en rörinspektion?</span>
+                            <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                        </button>
+                        <div class="nordx-faq-answer">
+                            <p>Du bör boka en rörinspektion om du märker att vattnet rinner undan långsamt, vid återkommande stopp, dålig lukt från avloppet, eller om fastigheten är äldre och du vill ha en statusbedömning. En inspektion med kamera är det enda sättet att se rörens exakta skick.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Beskriv ditt ärende</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Berätta hur vi kan hjälpa dig..."></textarea>
+
+                    <div class="nordx-faq-card">
+                        <button class="nordx-faq-btn" aria-expanded="false">
+                            <span>Hur lång garanti har ni på relining?</span>
+                            <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                        </button>
+                        <div class="nordx-faq-answer">
+                            <p>Vi arbetar uteslutande med RISE P-märkta material av absolut högsta kvalitet, och lämnar alltid 20 års garanti på vårt utförda relining-arbete för din trygghet.</p>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" aria-label="Skicka meddelande">SKICKA FÖRFRÅGAN</button>
-                </form>
+
+                    <!-- Dolda FAQ-frågor -->
+                    <div id="nordx-hidden-group-wrapper" style="display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; margin-top: 0;">
+                        <div id="nordx-hidden-group" style="overflow: hidden; display: flex; flex-direction: column; gap: 1.5rem;">
+                            
+                            <div class="nordx-faq-card">
+                                <button class="nordx-faq-btn" aria-expanded="false">
+                                    <span>Kan relining göras på alla typer av rör?</span>
+                                    <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                                </button>
+                                <div class="nordx-faq-answer">
+                                    <p>Ja, modern reliningsteknik kan appliceras på nästan alla rörtyper; gjutjärn, betong, plast och lergods. Vilken specifik metod som används anpassas utifrån rörsystemets dimensioner och nuvarande kondition, vilket vi utvärderar genom en rörinspektion.</p>
+                                </div>
+                            </div>
+
+                            <div class="nordx-faq-card">
+                                <button class="nordx-faq-btn" aria-expanded="false">
+                                    <span>Hur lång tid tar en stamspolning?</span>
+                                    <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                                </button>
+                                <div class="nordx-faq-answer">
+                                    <p>Tidsåtgången varierar kraftigt beroende på fastighetens storlek. För en genomsnittlig lägenhet tar spolningen oftast bara 30-45 minuter per hushåll. Vid större fastigheter lägger vi upp en tydlig tidplan så att påverkan för de boende blir minimal.</p>
+                                </div>
+                            </div>
+
+                            <div class="nordx-faq-card">
+                                <button class="nordx-faq-btn" aria-expanded="false">
+                                    <span>Vad kostar en rörinspektion eller relining?</span>
+                                    <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                                </button>
+                                <div class="nordx-faq-answer">
+                                    <p>Varje fastighet har unika förutsättningar. Kostnaden påverkas av rörsystemets komplexitet, längd och skick. Vi rekommenderar att ni bokar ett kostnadsfritt första besök där vi bedömer situationen och därefter ger er en fast och transparent offert.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <button id="show-more-faq" class="btn btn-outline" style="border: 2px solid #e2e8f0; background: transparent; color: #475569; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">Visa fler FAQs</button>
+                </div>
+
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const faqQuestions = document.querySelectorAll('.nordx-faq-btn');
+
+                    faqQuestions.forEach(question => {
+                        question.addEventListener('click', () => {
+                            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                            const answer = question.nextElementSibling;
+
+                            if (!isExpanded) {
+                                question.setAttribute('aria-expanded', 'true');
+                                answer.classList.add('open');
+                                answer.style.maxHeight = answer.scrollHeight + 40 + "px"; // +40 for padding
+                            } else {
+                                question.setAttribute('aria-expanded', 'false');
+                                answer.classList.remove('open');
+                                answer.style.maxHeight = null;
+                            }
+                        });
+                    });
+
+                    const showMoreBtn = document.getElementById('show-more-faq');
+                    const hiddenGroupWrapper = document.getElementById('nordx-hidden-group-wrapper');
+                    const hiddenGroup = document.getElementById('nordx-hidden-group');
+                    
+                    if (showMoreBtn && hiddenGroupWrapper) {
+                        showMoreBtn.addEventListener('mouseenter', () => {
+                            showMoreBtn.style.borderColor = '#0f172a';
+                            showMoreBtn.style.color = '#0f172a';
+                        });
+                        showMoreBtn.addEventListener('mouseleave', () => {
+                            showMoreBtn.style.borderColor = '#e2e8f0';
+                            showMoreBtn.style.color = '#475569';
+                        });
+
+                        showMoreBtn.addEventListener('click', () => {
+                            const isOpen = hiddenGroupWrapper.style.gridTemplateRows === '1fr';
+                            
+                            if (!isOpen) {
+                                hiddenGroupWrapper.style.gridTemplateRows = '1fr';
+                                hiddenGroupWrapper.style.opacity = '1';
+                                hiddenGroupWrapper.style.marginTop = '1.5rem';
+                                showMoreBtn.textContent = 'Visa färre FAQs';
+                            } else {
+                                hiddenGroupWrapper.style.gridTemplateRows = '0fr';
+                                hiddenGroupWrapper.style.opacity = '0';
+                                hiddenGroupWrapper.style.marginTop = '0';
+                                showMoreBtn.textContent = 'Visa fler FAQs';
+                                
+                                hiddenGroup.querySelectorAll('.nordx-faq-btn').forEach(q => {
+                                    q.setAttribute('aria-expanded', 'false');
+                                    q.nextElementSibling.style.maxHeight = null;
+                                    q.nextElementSibling.classList.remove('open');
+                                });
+                            }
+                        });
+                    }
+                });
+            </script>
+        </section>
+
+        <!-- CTA SEKTION (Ersätter Kontakt) -->
+        <section id="kontakt" class="nordx-landing-cta" style="background: #0284c7; color: #ffffff; padding: 100px 20px; text-align: center; position: relative; overflow: hidden; margin-top: 0; z-index: 2; width: 100%; display: block;">
+            <style>
+                .nordx-landing-cta h2, .nordx-landing-cta p {
+                    text-transform: none !important;
+                }
+                .nordx-landing-cta p {
+                    font-weight: 400 !important;
+                }
+                .nordx-landing-cta .cta-btn-header-match {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+                    border: 1px solid #ffffff !important;
+                    border-radius: 6px !important;
+                    padding: 0.75rem 1.75rem !important;
+                    font-weight: 600 !important;
+                    font-size: 1rem !important;
+                    transition: all 0.3s ease !important;
+                    text-decoration: none;
+                    display: inline-block;
+                    text-transform: uppercase !important;
+                    box-shadow: none !important;
+                    transform: none !important;
+                }
+                .nordx-landing-cta .cta-btn-header-match:hover {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+                    border: 1px solid #ffffff !important;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+                    transform: translateY(-4px) !important;
+                }
+            </style>
+            <!-- Dekoration för high-end känsla -->
+            <div style="position: absolute; top: -50%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+            
+            <div class="container" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; color: #ffffff; line-height: 1.2; white-space: nowrap;">Redo för ett säkrare rörsystem?</h2>
+                <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem; opacity: 0.9;">Hör av er till oss idag så tar vi ett förutsättningslöst möte om er fastighet.</p>
+                <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                    <a href="kontakt.html" class="cta-btn-header-match">Få en kostnadsfri offert</a>
+                    <a href="tel:+46703185110" class="cta-btn-header-match">Ring 070-318 51 10</a>
+                </div>
             </div>
         </section>
     </main>
@@ -412,6 +780,251 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             }
         });
+    </script>
+
+    <!-- KAMPANJ POPUP MED RÖR-RAM -->
+    <div id="campaign-popup" class="campaign-popup-overlay">
+        <div class="pipe-popup-wrapper">
+            <!-- Rör-ram (Exakt samma styling som sektionsavgränsare) -->
+            <div class="p-pipe p-top">
+                <div class="p-muff" style="left: 15%;"></div>
+                <div class="p-muff" style="right: 15%;"></div>
+            </div>
+            <div class="p-pipe p-bottom">
+                <div class="p-muff" style="left: 50%; transform: translateY(-50%) translateX(-50%);"></div>
+            </div>
+            <div class="p-pipe p-left">
+                <div class="p-muff-v" style="top: 25%;"></div>
+            </div>
+            <div class="p-pipe p-right">
+                <div class="p-muff-v" style="top: 75%;"></div>
+            </div>
+            
+            <div class="p-corner p-tl"></div>
+            <div class="p-corner p-tr"></div>
+            <div class="p-corner p-bl"></div>
+            <div class="p-corner p-br"></div>
+
+            <!-- Innehåll -->
+            <div class="pipe-popup-content">
+                <button id="close-campaign" class="campaign-close-btn" aria-label="Stäng popup">&times;</button>
+                <div class="campaign-popup-inner">
+                    <!-- Urgency: Nedräkning -->
+                    <div class="campaign-countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="cd-days">02</span>
+                            <span class="countdown-label">Dagar</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="cd-hours">14</span>
+                            <span class="countdown-label">Timmar</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="cd-mins">45</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="cd-secs">59</span>
+                            <span class="countdown-label">Sek</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="campaign-title">Sommarkampanj på Rörinspektion</h3>
+                    <p class="campaign-text">Boka en komplett rörinspektion innan erbjudandet går ut och få <strong>20% rabatt</strong> på hela arbetskostnaden. Vi säkerställer era rör inför hösten.</p>
+                    <div class="campaign-actions">
+                        <a href="kontakt.html" class="campaign-btn">Ta del av erbjudandet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .campaign-popup-overlay {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px);
+        z-index: 9999; display: flex; align-items: center; justify-content: center;
+        opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .campaign-popup-overlay.active { opacity: 1; visibility: visible; }
+
+    .pipe-popup-wrapper {
+        position: relative; width: 90%; max-width: 480px;
+        transform: translateY(40px) scale(0.97); opacity: 0;
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    }
+    .campaign-popup-overlay.active .pipe-popup-wrapper { transform: translateY(0) scale(1); opacity: 1; }
+
+    /* Pipes - Exact dimensions as divider (26px height) */
+    .p-pipe { position: absolute; z-index: 20; }
+    .p-top { 
+        top: -26px; left: 0; right: 0; height: 26px; 
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-bottom { 
+        bottom: -26px; left: 0; right: 0; height: 26px; 
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-left { 
+        left: -26px; top: 0; bottom: 0; width: 26px; 
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-right { 
+        right: -26px; top: 0; bottom: 0; width: 26px; 
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+
+    /* Corners - L-shaped bent elbows with seamless gradient connection */
+    .p-corner {
+        position: absolute; width: 26px; height: 26px; z-index: 21;
+    }
+    .p-tl { 
+        top: -26px; left: -26px; border-top-left-radius: 26px;
+        background: radial-gradient(circle 26px at bottom right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-tr { 
+        top: -26px; right: -26px; border-top-right-radius: 26px;
+        background: radial-gradient(circle 26px at bottom left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-bl { 
+        bottom: -26px; left: -26px; border-bottom-left-radius: 26px;
+        background: radial-gradient(circle 26px at top right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-br { 
+        bottom: -26px; right: -26px; border-bottom-right-radius: 26px;
+        background: radial-gradient(circle 26px at top left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+
+    /* Skarvmuffar Horisontella */
+    .p-muff {
+        position: absolute; width: 35px; height: 32px; z-index: 22; border-radius: 2px;
+    }
+    .p-muff::after {
+        content: ''; position: absolute; width: 6px; height: 36px; border-radius: 2px;
+    }
+    .p-pipe.p-top .p-muff {
+        top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-top .p-muff::after {
+        right: 0; top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+    }
+    .p-pipe.p-bottom .p-muff {
+        top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-bottom .p-muff::after {
+        right: 0; top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Skarvmuffar Vertikala */
+    .p-muff-v {
+        position: absolute; width: 32px; height: 35px; z-index: 22; border-radius: 2px;
+    }
+    .p-muff-v::after {
+        content: ''; position: absolute; width: 36px; height: 6px; border-radius: 2px;
+    }
+    .p-pipe.p-left .p-muff-v {
+        left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-left .p-muff-v::after {
+        bottom: 0; left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+    }
+    .p-pipe.p-right .p-muff-v {
+        left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-right .p-muff-v::after {
+        bottom: 0; left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Innehållet */
+    .pipe-popup-content {
+        position: relative; z-index: 10; background: #ffffff;
+        border-radius: 12px; padding: 40px 30px; text-align: center;
+    }
+    .campaign-close-btn {
+        position: absolute; top: 15px; right: 15px; background: #f1f5f9;
+        border: none; width: 32px; height: 32px; border-radius: 50%;
+        font-size: 1.4rem; color: #64748b; cursor: pointer; transition: all 0.2s;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .campaign-close-btn:hover { background: #e2e8f0; color: #0f172a; transform: rotate(90deg); }
+    
+    .campaign-title { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
+    .campaign-text { font-size: 1.05rem; color: #475569; margin-bottom: 2rem; line-height: 1.6; }
+    .campaign-text strong { color: #0f172a; }
+    
+    .campaign-btn {
+        display: inline-block; background: #0284c7; color: #ffffff; text-decoration: none;
+        padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+        transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); width: 100%;
+    }
+    .campaign-btn:hover { background: #0369a1; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4); }
+
+    /* Urgency Countdown */
+    .campaign-countdown {
+        display: flex; justify-content: center; gap: 15px; margin-bottom: 24px;
+    }
+    .countdown-item {
+        background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+        padding: 10px 12px; min-width: 65px; text-align: center;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .countdown-value {
+        display: block; font-size: 1.6rem; font-weight: 800; color: #0284c7;
+        line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums;
+    }
+    .countdown-label {
+        display: block; font-size: 0.7rem; text-transform: uppercase; color: #64748b; font-weight: 700;
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const popupOverlay = document.getElementById('campaign-popup');
+        const closeBtn = document.getElementById('close-campaign');
+
+        // Timer logik för urgency
+        let countdownTime = (2 * 24 * 60 * 60) + (14 * 60 * 60) + (45 * 60) + 59; // Exempel: 2 dagar, 14 tim
+        const timerInterval = setInterval(() => {
+            if (countdownTime > 0) countdownTime--;
+            const d = Math.floor(countdownTime / (24 * 3600));
+            const h = Math.floor((countdownTime % (24 * 3600)) / 3600);
+            const m = Math.floor((countdownTime % 3600) / 60);
+            const s = Math.floor(countdownTime % 60);
+            
+            const dEl = document.getElementById('cd-days');
+            if (dEl) {
+                dEl.innerText = d.toString().padStart(2, '0');
+                document.getElementById('cd-hours').innerText = h.toString().padStart(2, '0');
+                document.getElementById('cd-mins').innerText = m.toString().padStart(2, '0');
+                document.getElementById('cd-secs').innerText = s.toString().padStart(2, '0');
+            } else {
+                clearInterval(timerInterval);
+            }
+        }, 1000);
+
+        setTimeout(() => { popupOverlay.classList.add('active'); }, 8000);
+        closeBtn.addEventListener('click', () => { popupOverlay.classList.remove('active'); });
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) { popupOverlay.classList.remove('active'); }
+        });
+    });
     </script>
 </body>
 </html>
