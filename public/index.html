@@ -330,22 +330,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </header>
                 
                 <div class="services-grid">
-                    <article class="service-card" style="display: flex; flex-direction: column;">
+                    <article class="service-card faq-wave-base wave-1" style="display: flex; flex-direction: column;">
                         <h3 class="service-title">Stamspolning</h3>
                         <p class="service-desc" style="flex-grow: 1;">Förebyggande och akut stamspolning för att förhindra stopp och vattenskador. Vi rensar effektivt bort fett och beläggningar.</p>
-                        <a href="#kontakt" class="btn-white" style="text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box; margin-top: 1rem;">Kontakta oss</a>
+                        <a href="stamspolning.html" style="color: #ffffff; text-decoration: underline; margin-top: 1rem; margin-bottom: 1.5rem; font-weight: 600; font-size: 0.95rem;">
+                            Läs mer om stamspolning
+                            <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></span>
+                        </a>
+                        <a href="#kontakt" class="btn-white" style="position: relative; z-index: 2; text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box;">BOKA EN STAMSPOLNING</a>
                     </article>
                     
-                    <article class="service-card" style="display: flex; flex-direction: column;">
+                    <article class="service-card faq-wave-base wave-2" style="display: flex; flex-direction: column;">
                         <h3 class="service-title">Relining</h3>
                         <p class="service-desc" style="flex-grow: 1;">Ett smidigt och kostnadseffektivt alternativ till stambyte. Vi skapar nya, hållbara rör i dina befintliga system utan rivningsarbete.</p>
-                        <a href="kalkylator.html" class="btn-white" style="text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box; margin-top: 1rem;">Prisförslag för er fastighet</a>
+                        <a href="relining.html" style="color: #ffffff; text-decoration: underline; margin-top: 1rem; margin-bottom: 1.5rem; font-weight: 600; font-size: 0.95rem;">
+                            Läs mer om relining
+                            <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></span>
+                        </a>
+                        <a href="kalkylator.html" class="btn-white" style="position: relative; z-index: 2; text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box;">SKAPA EN OFFERTFÖRFRÅGAN</a>
                     </article>
 
-                    <article class="service-card" style="display: flex; flex-direction: column;">
+                    <article class="service-card faq-wave-base wave-3" style="display: flex; flex-direction: column;">
                         <h3 class="service-title">Rörinspektion</h3>
                         <p class="service-desc" style="flex-grow: 1;">Med avancerad kamerateknik inspekterar och dokumenterar vi rörens skick. Upptäck sprickor och problem innan de blir dyra.</p>
-                        <a href="#kontakt" class="btn-white" style="text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box; margin-top: 1rem;">Kostnadsfri inspektion</a>
+                        <a href="rorinspektion.html" style="color: #ffffff; text-decoration: underline; margin-top: 1rem; margin-bottom: 1.5rem; font-weight: 600; font-size: 0.95rem;">
+                            Läs mer om rörinspektion
+                            <span style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></span>
+                        </a>
+                        <a href="#kontakt" class="btn-white" style="position: relative; z-index: 2; text-align: center; font-size: 0.9rem; padding: 12px 20px; width: 100%; box-sizing: border-box;">BOKA EN KOSTNADSFRI RÖRINSPEKTION</a>
                     </article>
                 </div>
             </div>
@@ -1515,7 +1527,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.querySelectorAll('.cd-secs').forEach(el => el.innerText = s.toString().padStart(2, '0'));
         }, 1000);
 
-        setTimeout(() => { popupOverlay.classList.add('active'); }, 8000);
+        setTimeout(() => { popupOverlay.classList.add('active'); }, 20000);
         closeBtn.addEventListener('click', () => { popupOverlay.classList.remove('active'); });
         popupOverlay.addEventListener('click', (e) => {
             if (e.target === popupOverlay) { popupOverlay.classList.remove('active'); }
