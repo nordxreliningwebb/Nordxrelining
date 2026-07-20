@@ -302,6 +302,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
 
         <!-- TJÄNSTER SEKTION -->
+        <style>
+            .services-grid .service-card {
+                background: #0284c7 !important;
+                color: #ffffff !important;
+                border: none !important;
+            }
+            .services-grid .service-card .service-title, 
+            .services-grid .service-card .service-desc {
+                color: #ffffff !important;
+            }
+            .header-cta .btn-ghost {
+                background: #0284c7 !important;
+                color: #ffffff !important;
+                border: none !important;
+            }
+            .header-cta .btn-ghost:hover {
+                background: #0369a1 !important;
+                transform: translateY(-2px);
+            }
+        </style>
         <section id="tjanster" class="services-section" aria-labelledby="services-heading" style="padding-bottom: 12rem;">
             <div class="container">
                 <header class="section-header">
@@ -363,15 +383,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul class="usp-list">
                         <li>
                             <strong>Certifierade Experter</strong>
-                            <span>Vår personal är välutbildad och certifierad för att säkerställa högsta kvalitet.</span>
+                            <span>Våra tekniker har över 10 års erfarenhet och VVS-bakgrund. Vi garanterar ett fackmannamässigt resultat där fullständig återställning alltid är en självklarhet.</span>
                         </li>
                         <li>
                             <strong>Lång Garanti</strong>
-                            <span>Vi lämnar omfattande garantier på alla våra relining- och spolarbeten.</span>
+                            <span>Vi lämnar alltid 5 års garanti på utfört arbete och 20 års materialgaranti. Genom att använda produkter från samma tillverkare gäller alla garantier fullt ut.</span>
                         </li>
                         <li>
                             <strong>Snabb Inställelsetid</strong>
-                            <span>Akuta problem? Vi är snabbt på plats när olyckan är framme.</span>
+                            <span>Akut stopp i avloppet? Vi har jour dygnet runt, alla dagar i veckan, året om. Våra tekniker är snabbt på plats för att lösa problemet.</span>
                         </li>
                     </ul>
                 </div>
@@ -460,20 +480,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     }
                     .review-card {
                         width: 380px;
-                        background: #0f172a;
-                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        background: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 16px;
                         padding: 32px;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
                         flex-shrink: 0;
                         display: flex;
                         flex-direction: column;
-                        transition: transform 0.3s ease, border-color 0.3s ease;
+                        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
                         position: relative;
                     }
                     .review-card:hover {
                         transform: translateY(-5px);
-                        border-color: rgba(56, 189, 248, 0.4);
+                        border-color: rgba(2, 132, 199, 0.3);
+                        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
                     }
                     .r-header {
                         display: flex;
@@ -485,19 +506,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         width: 48px;
                         height: 48px;
                         border-radius: 50%;
-                        background: #1e293b;
+                        background: #f1f5f9;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         font-weight: bold;
-                        color: #38bdf8;
+                        color: #0284c7;
                         font-size: 1.2rem;
                     }
                     .r-meta h4 {
                         margin: 0;
-                        color: #ffffff;
+                        color: #0f172a;
                         font-size: 1.05rem;
-                        font-weight: 600;
+                        font-weight: 700;
                     }
                     .r-meta span {
                         font-size: 0.85rem;
@@ -514,7 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         fill: #fbbf24;
                     }
                     .r-text {
-                        color: #e2e8f0;
+                        color: #334155;
                         line-height: 1.6;
                         font-size: 0.95rem;
                         margin: 0;
@@ -791,7 +812,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         gap: 1.5rem;
                     }
                     .nordx-faq-card {
-                        background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%);
+                        background: #0284c7;
                         border-radius: 12px;
                         padding: 0 2rem;
                         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -852,11 +873,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         flex-direction: column;
                         gap: 1.5rem;
                     }
+                    /* FAQ Waves Styling */
+                    .faq-wave-base {
+                        position: relative;
+                        border-top-left-radius: 0 !important;
+                        border-top-right-radius: 0 !important;
+                        margin-top: 25px; /* Spacing for the wave */
+                    }
+                    .faq-wave-base::before {
+                        content: "";
+                        position: absolute;
+                        top: -15px; /* Significant overlap to prevent tearing */
+                        left: 0;
+                        width: 100%;
+                        height: 25px;
+                        background-size: 100% 100%;
+                        background-position: bottom;
+                        background-repeat: no-repeat;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
+                    /* Wave Variations using inline SVG data URIs */
+                    .wave-1::before {
+                        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,80 C250,130 350,10 600,80 C850,130 950,10 1200,80 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+                    }
+                    .wave-2::before {
+                        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C200,100 400,0 600,40 C800,100 1000,0 1200,40 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,70 C250,10 450,120 600,70 C750,10 950,120 1200,70 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,60 C300,120 400,20 600,60 C800,120 900,20 1200,60 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+                    }
+                    .wave-3::before {
+                        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,80 C150,20 300,120 600,80 C900,20 1050,120 1200,80 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,50 C200,120 350,10 600,50 C850,120 1000,10 1200,50 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,70 C150,120 400,0 600,70 C800,120 1050,0 1200,70 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+                    }
                 </style>
 
                 <div class="nordx-faq-list" id="faq-accordion">
                     <!-- Synliga från start -->
-                    <div class="nordx-faq-card">
+                    <div class="nordx-faq-card faq-wave-base wave-1">
                         <button class="nordx-faq-btn" aria-expanded="false">
                             <span>Hur ofta bör man spola stammarna i en fastighet?</span>
                             <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -866,7 +917,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                    <div class="nordx-faq-card">
+                    <div class="nordx-faq-card faq-wave-base wave-2">
                         <button class="nordx-faq-btn" aria-expanded="false">
                             <span>Vad är skillnaden på relining och stambyte?</span>
                             <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -876,7 +927,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                    <div class="nordx-faq-card">
+                    <div class="nordx-faq-card faq-wave-base wave-3">
                         <button class="nordx-faq-btn" aria-expanded="false">
                             <span>När är det dags för en rörinspektion?</span>
                             <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -886,7 +937,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                    <div class="nordx-faq-card">
+                    <div class="nordx-faq-card faq-wave-base wave-1">
                         <button class="nordx-faq-btn" aria-expanded="false">
                             <span>Hur lång garanti har ni på relining?</span>
                             <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -900,7 +951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div id="nordx-hidden-group-wrapper" style="display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; margin-top: 0;">
                         <div id="nordx-hidden-group" style="overflow: hidden; display: flex; flex-direction: column; gap: 1.5rem;">
                             
-                            <div class="nordx-faq-card">
+                            <div class="nordx-faq-card faq-wave-base wave-2">
                                 <button class="nordx-faq-btn" aria-expanded="false">
                                     <span>Kan relining göras på alla typer av rör?</span>
                                     <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -910,7 +961,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
 
-                            <div class="nordx-faq-card">
+                            <div class="nordx-faq-card faq-wave-base wave-3">
                                 <button class="nordx-faq-btn" aria-expanded="false">
                                     <span>Hur lång tid tar en stamspolning?</span>
                                     <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -920,7 +971,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
 
-                            <div class="nordx-faq-card">
+                            <div class="nordx-faq-card faq-wave-base wave-1">
                                 <button class="nordx-faq-btn" aria-expanded="false">
                                     <span>Vad kostar en rörinspektion eller relining?</span>
                                     <svg class="nordx-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
@@ -1182,31 +1233,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Innehåll -->
             <div class="pipe-popup-content">
                 <button id="close-campaign" class="campaign-close-btn" aria-label="Stäng popup">&times;</button>
-                <div class="campaign-popup-inner">
-                    <!-- Urgency: Nedräkning -->
-                    <div class="campaign-countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="cd-days">02</span>
-                            <span class="countdown-label">Dagar</span>
+                <div class="campaign-slider" id="campaign-slider">
+                    <div class="campaign-slides-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="campaign-slide active">
+                            <!-- Urgency: Nedräkning -->
+                            <div class="campaign-countdown">
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-days">02</span>
+                                    <span class="countdown-label">Dagar</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-hours">14</span>
+                                    <span class="countdown-label">Timmar</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-mins">45</span>
+                                    <span class="countdown-label">Min</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-secs">59</span>
+                                    <span class="countdown-label">Sek</span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="campaign-title">Sommarkampanj på Rörinspektion</h3>
+                            <p class="campaign-text">Boka en komplett rörinspektion innan erbjudandet går ut och få <strong>20% rabatt</strong> på hela arbetskostnaden. Vi säkerställer era rör inför hösten.</p>
+                            <div class="campaign-actions">
+                                <a href="kontakt.html" class="campaign-btn">Ta del av erbjudandet</a>
+                            </div>
                         </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="cd-hours">14</span>
-                            <span class="countdown-label">Timmar</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="cd-mins">45</span>
-                            <span class="countdown-label">Min</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="cd-secs">59</span>
-                            <span class="countdown-label">Sek</span>
+
+                        <!-- Slide 2 -->
+                        <div class="campaign-slide">
+                            <!-- Urgency: Nedräkning -->
+                            <div class="campaign-countdown">
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-days">02</span>
+                                    <span class="countdown-label">Dagar</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-hours">14</span>
+                                    <span class="countdown-label">Timmar</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-mins">45</span>
+                                    <span class="countdown-label">Min</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value cd-secs">59</span>
+                                    <span class="countdown-label">Sek</span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="campaign-title">Gratis fuktmätning</h3>
+                            <p class="campaign-text">Är du orolig för dolda vattenskador? Just nu erbjuder vi en <strong>kostnadsfri fuktmätning</strong> i samband med en rörinspektion. Säkra ditt hem idag!</p>
+                            <div class="campaign-actions">
+                                <a href="kalkylator.html" class="campaign-btn">Beräkna ditt pris</a>
+                            </div>
                         </div>
                     </div>
-                    
-                    <h3 class="campaign-title">Sommarkampanj på Rörinspektion</h3>
-                    <p class="campaign-text">Boka en komplett rörinspektion innan erbjudandet går ut och få <strong>20% rabatt</strong> på hela arbetskostnaden. Vi säkerställer era rör inför hösten.</p>
-                    <div class="campaign-actions">
-                        <a href="kontakt.html" class="campaign-btn">Ta del av erbjudandet</a>
+
+                    <!-- Slide Nav -->
+                    <div class="campaign-slider-nav">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
                     </div>
                 </div>
             </div>
@@ -1339,8 +1430,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     .campaign-close-btn:hover { background: #e2e8f0; color: #0f172a; transform: rotate(90deg); }
     
-    .campaign-title { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2; }
-    .campaign-text { font-size: 1.05rem; color: #475569; margin-bottom: 2rem; line-height: 1.6; }
+    .campaign-title { 
+        font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: #0f172a; 
+        margin-bottom: 1rem; line-height: 1.2;
+        min-height: 2.4em; /* Plats för exakt 2 rader */
+        display: flex; align-items: flex-start; justify-content: center;
+    }
+    .campaign-text { 
+        font-size: 1.05rem; color: #475569; margin-bottom: 2rem; line-height: 1.6;
+        min-height: 4.8em; /* Plats för exakt 3 rader */
+    }
     .campaign-text strong { color: #0f172a; }
     
     .campaign-btn {
@@ -1366,6 +1465,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .countdown-label {
         display: block; font-size: 0.7rem; text-transform: uppercase; color: #64748b; font-weight: 700;
     }
+    
+    /* Slider Styles */
+    .campaign-slider { position: relative; overflow: hidden; padding-bottom: 10px; }
+    .campaign-slides-wrapper {
+        display: grid;
+    }
+    .campaign-slide {
+        grid-area: 1 / 1;
+        opacity: 0; visibility: hidden; pointer-events: none;
+        transform: translateX(20px);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .campaign-slide.active {
+        opacity: 1; visibility: visible; pointer-events: auto;
+        transform: translateX(0);
+        z-index: 2;
+    }
+    .campaign-slider-nav {
+        display: flex; justify-content: center; gap: 8px; margin-top: 25px;
+    }
+    .campaign-slider-nav .dot {
+        width: 10px; height: 10px; border-radius: 50%; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;
+    }
+    .campaign-slider-nav .dot.active {
+        background: #0284c7; width: 24px; border-radius: 10px;
+    }
     </style>
 
     <script>
@@ -1377,20 +1502,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         let countdownTime = (2 * 24 * 60 * 60) + (14 * 60 * 60) + (45 * 60) + 59; // Exempel: 2 dagar, 14 tim
         const timerInterval = setInterval(() => {
             if (countdownTime > 0) countdownTime--;
+            else clearInterval(timerInterval);
+            
             const d = Math.floor(countdownTime / (24 * 3600));
             const h = Math.floor((countdownTime % (24 * 3600)) / 3600);
             const m = Math.floor((countdownTime % 3600) / 60);
             const s = Math.floor(countdownTime % 60);
             
-            const dEl = document.getElementById('cd-days');
-            if (dEl) {
-                dEl.innerText = d.toString().padStart(2, '0');
-                document.getElementById('cd-hours').innerText = h.toString().padStart(2, '0');
-                document.getElementById('cd-mins').innerText = m.toString().padStart(2, '0');
-                document.getElementById('cd-secs').innerText = s.toString().padStart(2, '0');
-            } else {
-                clearInterval(timerInterval);
-            }
+            document.querySelectorAll('.cd-days').forEach(el => el.innerText = d.toString().padStart(2, '0'));
+            document.querySelectorAll('.cd-hours').forEach(el => el.innerText = h.toString().padStart(2, '0'));
+            document.querySelectorAll('.cd-mins').forEach(el => el.innerText = m.toString().padStart(2, '0'));
+            document.querySelectorAll('.cd-secs').forEach(el => el.innerText = s.toString().padStart(2, '0'));
         }, 1000);
 
         setTimeout(() => { popupOverlay.classList.add('active'); }, 8000);
@@ -1398,6 +1520,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         popupOverlay.addEventListener('click', (e) => {
             if (e.target === popupOverlay) { popupOverlay.classList.remove('active'); }
         });
+
+        // Slider Logik
+        const slides = document.querySelectorAll('.campaign-slide');
+        const dots = document.querySelectorAll('.campaign-slider-nav .dot');
+        const sliderContainer = document.getElementById('campaign-slider');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideInterval() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideInterval() {
+            clearInterval(slideInterval);
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+                stopSlideInterval();
+                startSlideInterval();
+            });
+        });
+
+        sliderContainer.addEventListener('mouseenter', stopSlideInterval);
+        sliderContainer.addEventListener('mouseleave', startSlideInterval);
+
+        startSlideInterval();
     });
     </script>
 </body>
