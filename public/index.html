@@ -1503,6 +1503,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .campaign-slider-nav .dot.active {
         background: #0284c7; width: 24px; border-radius: 10px;
     }
+    /* Mobile Adjustments for Popup */
+    @media (max-width: 480px) {
+        .pipe-popup-wrapper { width: calc(100% - 60px); }
+        .pipe-popup-content { padding: 30px 15px; }
+        .campaign-countdown { gap: 6px; margin-bottom: 20px; }
+        .countdown-item { min-width: 55px; padding: 8px 5px; }
+        .countdown-value { font-size: 1.3rem; }
+        .campaign-title { font-size: 1.4rem; }
+        .campaign-text { font-size: 1rem; }
+    }
     </style>
 
     <script>
@@ -1527,7 +1537,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.querySelectorAll('.cd-secs').forEach(el => el.innerText = s.toString().padStart(2, '0'));
         }, 1000);
 
-        setTimeout(() => { popupOverlay.classList.add('active'); }, 20000);
+        // Visa popup efter 20 sekunder
+        const popupDelay = window.innerWidth <= 768 ? 20000 : 20000;
+        setTimeout(() => { popupOverlay.classList.add('active'); }, popupDelay);
         closeBtn.addEventListener('click', () => { popupOverlay.classList.remove('active'); });
         popupOverlay.addEventListener('click', (e) => {
             if (e.target === popupOverlay) { popupOverlay.classList.remove('active'); }
