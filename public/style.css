@@ -2324,13 +2324,14 @@ figure {
         margin: 0;
     }
 
-    nav.footer-links-col h3,
-    address.footer-contact-col h3 {
-        font-size: 1.15rem !important; /* Restored to original global size */
+    .footer-links-col h3,
+    .footer-contact-col h3 {
+        font-size: 1.05rem !important;
         margin-bottom: 1.25rem !important; /* Exactly half of the original 2.5rem global gap */
         text-align: left;
         color: #1b263b !important;
         letter-spacing: 0.05em;
+        white-space: nowrap;
     }
 
     .footer-links-col ul,
@@ -2372,11 +2373,13 @@ figure {
 
     .footer-bottom-left {
         align-items: center;
+        text-align: center;
         gap: 0.75rem;
+        width: 100%;
     }
 
     .footer-bottom-left p {
-        font-size: 0.7rem !important; /* Shrunk to guarantee it fits on one line */
+        font-size: 0.75rem !important;
         white-space: nowrap !important;
     }
 
@@ -2385,6 +2388,8 @@ figure {
         flex-wrap: wrap;
         gap: 0.5rem 0.75rem;
         font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
     }
 
     .footer-socials {
@@ -3938,6 +3943,18 @@ footer address,
 .copyright {
     font-size: 0.9rem;
     color: #4a5568;
+}
+
+.webix-link {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.webix-link:hover {
+    color: #0fb3ff; /* var(--primary-blue) equivalent */
 }
 
 .footer-brand p {
