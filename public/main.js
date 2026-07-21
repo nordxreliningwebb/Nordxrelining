@@ -19,19 +19,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu Toggle
-    if (menuToggle && navLinks) {
+    // Mobile Menu Toggle (Slide-out Drawer)
+    const mobileDrawer = document.getElementById('mobile-drawer-menu');
+    const drawerOverlay = document.getElementById('mobile-drawer-overlay');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+    if (menuToggle && mobileDrawer && drawerOverlay) {
         menuToggle.addEventListener('click', () => {
-            const isOpen = menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isOpen);
-            menuToggle.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-            
-            // Close dropdowns when menu is closed
-            if (!isOpen) {
-                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            mobileDrawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        });
+
+        const closeDrawer = () => {
+            mobileDrawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
+        };
+
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        // Stäng menyn när man klickar på en vanlig länk (inte submenu-togglen)
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            if (link.id !== 'mobile-submenu-toggle') {
+                link.addEventListener('click', closeDrawer);
             }
         });
+
+        // Submeny Dragspel (Accordion)
+        const submenuToggle = document.getElementById('mobile-submenu-toggle');
+        const submenu = document.getElementById('mobile-tjanster-submenu');
+        if (submenuToggle && submenu) {
+            submenuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                submenuToggle.classList.toggle('active');
+                if (submenu.style.maxHeight) {
+                    submenu.style.maxHeight = null;
+                } else {
+                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                }
+            });
+        }
     }
 
     // Mobile Dropdown Toggle (Click-to-expand)
