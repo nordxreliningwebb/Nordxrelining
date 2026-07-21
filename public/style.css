@@ -9411,6 +9411,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
     gap: 2rem !important;
     justify-content: center !important;
 }
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 .service-card {
     width: 100% !important;
     box-sizing: border-box !important;
