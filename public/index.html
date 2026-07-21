@@ -1506,12 +1506,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* Mobile Adjustments for Popup */
     @media (max-width: 480px) {
         .pipe-popup-wrapper { width: calc(100% - 60px); }
-        .pipe-popup-content { padding: 30px 15px; }
+        .pipe-popup-content { padding: 35px 15px 30px 15px; } /* Ökad padding i toppen */
         .campaign-countdown { gap: 6px; margin-bottom: 20px; }
         .countdown-item { min-width: 55px; padding: 8px 5px; }
         .countdown-value { font-size: 1.3rem; }
         .campaign-title { font-size: 1.4rem; }
         .campaign-text { font-size: 1rem; }
+        .campaign-close-btn {
+            top: 8px;
+            right: 8px;
+            width: 26px;
+            height: 26px;
+            font-size: 1.2rem;
+            z-index: 20;
+        }
     }
     </style>
 
