@@ -2295,11 +2295,11 @@ figure {
     }
 
     .footer-grid {
-        grid-template-columns: auto 1fr !important; /* Left column tight, right column gets remaining space */
-        gap: 2.5rem 0.5rem !important; /* Reduced horizontal gap */
+        grid-template-columns: repeat(2, 1fr) !important; /* Båda kolumner tar exakt 50% av bredden */
+        gap: 2.5rem 1rem !important; /* Lite större gap horisontellt */
         text-align: left;
-        margin-bottom: 0 !important; /* Nullify the massive global 4rem margin causing the huge Distance 2 */
-        padding: 3.5rem 1.5rem 2.5rem !important; /* 3.5rem top padding to perfectly match the 3.5rem Distance 2 */
+        margin-bottom: 0 !important;
+        padding: 3.5rem 1.5rem 2.5rem !important;
     }
     
     .footer-brand {
@@ -2331,7 +2331,7 @@ figure {
         text-align: left;
         color: #1b263b !important;
         letter-spacing: 0.05em;
-        white-space: nowrap;
+        white-space: nowrap !important;
     }
 
     .footer-links-col ul,
