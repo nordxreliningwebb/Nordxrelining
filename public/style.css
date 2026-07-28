@@ -10447,3 +10447,9 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     padding-right: 70px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .intro-text-block, .steps-text-block {
+    padding-right: 85px !important;
+  }
+}
