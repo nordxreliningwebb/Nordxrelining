@@ -1233,11 +1233,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const maskEraser = document.getElementById('mask-eraser');
         if (maskEraser) {
             const isInspection = document.getElementById('camera-cable-group') !== null;
+            let eraserHeightOffset = 30; // default for desktop / stamspolning
+            
             if (isInspection) {
                 // Snail trail for camera inspection
                 if (pipeWidth === 35) {
-                    maskEraser.setAttribute('x', startX + 7);
-                    maskEraser.setAttribute('width', 21);
+                    maskEraser.setAttribute('x', startX + 11.5);
+                    maskEraser.setAttribute('width', 12);
+                    eraserHeightOffset = 8; // Erase only behind the camera on mobile
                 } else {
                     maskEraser.setAttribute('x', startX + 25);
                     maskEraser.setAttribute('width', 70);
@@ -1248,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 maskEraser.setAttribute('width', pipeWidth + 40);
             }
             maskEraser.setAttribute('y', startY);
-            maskEraser.setAttribute('height', currentLength + 30); // erase down to the camera body
+            maskEraser.setAttribute('height', currentLength + eraserHeightOffset); // erase down to the correct level
         }
 
         // Handle spray animation
