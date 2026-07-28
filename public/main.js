@@ -1109,14 +1109,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = window.innerWidth <= 768;
         pipeWidth = isMobile ? 35 : 120;
         
+        // Rr-startpunkt
         startX = wrapperRect.left - cRect.left + (wrapperRect.width * 0.75) - (pipeWidth/2); // fallback
         const heroImg = document.querySelector('.swoosh-hero .container > div > div:nth-child(2)');
+        
         if (heroImg) {
             const imgRect = heroImg.getBoundingClientRect();
             if (isMobile) {
                 // Placeras allra lngst t hger med 25px marginal (lite mer padding till skrmkanten)
                 startX = cRect.width - pipeWidth - 25;
             } else {
+                // Centrera rret under den runda bilden. startX r rrets vnsterkant.
                 startX = imgRect.left + (imgRect.width / 2) - cRect.left - (pipeWidth / 2);
             }
         } else if (isMobile) {
@@ -1135,11 +1138,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 patternImage.setAttribute('width', textureWidth);
                 patternImage.setAttribute('height', textureWidth);
             }
-        } else {
-                startX = imgRect.left + (imgRect.width / 2) - cRect.left - (pipeWidth / 2);
-            }
-        } else if (isMobile) {
-            startX = cRect.width - pipeWidth - 10;
         }
 
         startY = -350; 
