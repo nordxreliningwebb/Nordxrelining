@@ -1013,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const turbFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
         turbFilter.setAttribute('id', 'turbulence-mask-filter');
         turbFilter.innerHTML = `
-            <feTurbulence type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="4" result="noise" />
+            <feTurbulence id="turb-noise-mask" type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="4" result="noise" />
             <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 25 -12" result="sharpNoise" />
             <feComposite operator="in" in="SourceGraphic" in2="sharpNoise" />
         `;
@@ -1133,6 +1133,21 @@ document.addEventListener('DOMContentLoaded', () => {
         totalLength = endY - startY;
         
         // Update all static rects
+        
+        
+        const turbNoise = document.getElementById('turb-noise-mask');
+        if (turbNoise) {
+            // Skala upp bruset s det matchar den smalare rrbredden!
+            const freqX = 0.01 * (120 / pipeWidth);
+            turbNoise.setAttribute('baseFrequency', `${freqX} 0.015`);
+        }
+        
+        const dirtPattern = document.getElementById('cartoon-dirt-texture');
+        if (dirtPattern) {
+            // Se till att texturen alltid brjar ritas frn rrets vnsterkant,
+            // s vi inte rkar f en tom/vit del av bilden pga skrmens bredd!
+            dirtPattern.setAttribute('x', startX);
+        }
         
         const organicMaskRect = document.getElementById('organic-mask-rect');
         if (organicMaskRect) {
