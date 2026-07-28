@@ -10441,3 +10441,9 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     color: #fff !important;
     transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .intro-text-block, .steps-text-block {
+    padding-right: 70px !important;
+  }
+}

@@ -1094,6 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let startX = 0;
     let startY = 0;
+    let pipeWidth = 120;
 
     function drawPipe() {
         if (!container || !introText || !stepsHeading) return;
@@ -1105,15 +1106,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const wrapper = container.querySelector('.layout-wrapper');
         const wrapperRect = wrapper.getBoundingClientRect();
         
-        const pipeWidth = 120;
+        const isMobile = window.innerWidth <= 768;
+        pipeWidth = isMobile ? 50 : 120;
         
-        // Rör-startpunkt: I centrum av rör-bilden i sektionen ovanför (som är till höger)
         startX = wrapperRect.left - cRect.left + (wrapperRect.width * 0.75) - (pipeWidth/2); // fallback
         const heroImg = document.querySelector('.swoosh-hero .container > div > div:nth-child(2)');
         if (heroImg) {
             const imgRect = heroImg.getBoundingClientRect();
-            // Centrera röret under den runda bilden. startX är rörets vänsterkant.
-            startX = imgRect.left + (imgRect.width / 2) - cRect.left - (pipeWidth / 2);
+            if (isMobile) {
+                // Placeras allra lngst t hger med 10px marginal
+                startX = cRect.width - pipeWidth - 10;
+            } else {
+                startX = imgRect.left + (imgRect.width / 2) - cRect.left - (pipeWidth / 2);
+            }
+        } else if (isMobile) {
+            startX = cRect.width - pipeWidth - 10;
         }
 
         startY = -350; 
@@ -1174,7 +1181,9 @@ document.addEventListener('DOMContentLoaded', () => {
         nozzleGroup.style.transformOrigin = `100px -5px`;
         // Nozzle svg has its center at X=100. We want its center to match startX + 60.
         // So translate = (startX + 60) - 100
-        nozzleGroup.style.transform = `translate(${startX + 60 - 100}px, ${currentY + 5}px) rotate(0deg)`;
+        // Nozzle center is at 100. We want it at startX + pipeWidth/2
+        const nozzleScale = (typeof pipeWidth !== 'undefined' && pipeWidth === 50) ? 0.45 : 1;
+        nozzleGroup.style.transform = `translate(${startX + (pipeWidth/2) - 100}px, ${currentY + 5}px) scale(${nozzleScale})`;
         
         // Update hose heights
         hoseRect.setAttribute('height', currentLength);
@@ -1192,7 +1201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Full clean for stamspolning
                 maskEraser.setAttribute('x', startX - 20);
-                maskEraser.setAttribute('width', 160); // pipeWidth (120) + 40
+                maskEraser.setAttribute('width', pipeWidth + 40);
             }
             maskEraser.setAttribute('y', startY);
             maskEraser.setAttribute('height', currentLength + 30); // erase down to the camera body
