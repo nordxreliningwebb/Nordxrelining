@@ -1137,8 +1137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const turbNoise = document.getElementById('turb-noise-mask');
         if (turbNoise) {
-            // Skala upp bruset s det matchar den smalare rrbredden!
-            const freqX = 0.01 * (120 / pipeWidth);
+            // Minska frekvensen på mobilen så det inte blir för grynigt/pixligt
+            const freqX = isMobile ? 0.015 : 0.01;
             turbNoise.setAttribute('baseFrequency', `${freqX} 0.015`);
         }
         
@@ -1179,18 +1179,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Setup hoses horizontally (height is animated)
-        const hoseWidth = 14;
+        const hoseWidth = isMobile ? 5 : 14;
         hoseRect.setAttribute('x', startX + (pipeWidth / 2) - (hoseWidth / 2));
         hoseRect.setAttribute('y', startY);
         hoseRect.setAttribute('width', hoseWidth);
         
-        hoseHighlight.setAttribute('x', startX + (pipeWidth / 2) - 3);
+        const hwHighlight = isMobile ? 2 : 6;
+        hoseHighlight.setAttribute('x', startX + (pipeWidth / 2) - (hwHighlight / 2));
         hoseHighlight.setAttribute('y', startY);
-        hoseHighlight.setAttribute('width', 6);
+        hoseHighlight.setAttribute('width', hwHighlight);
         
-        hosePeak.setAttribute('x', startX + (pipeWidth / 2) - 1);
+        const hwPeak = isMobile ? 1 : 2;
+        hosePeak.setAttribute('x', startX + (pipeWidth / 2) - (hwPeak / 2));
         hosePeak.setAttribute('y', startY);
-        hosePeak.setAttribute('width', 2);
+        hosePeak.setAttribute('width', hwPeak);
         
         updateScroll();
     }
