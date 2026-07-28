@@ -345,22 +345,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             if(transformStr) {
                                 // Extrahera X och Y från translate(xpx, ypx)
                                 const match = transformStr.match(/translate\(([^,]+),\s*([^)]+)\)/);
+                                const scaleMatch = transformStr.match(/scale\(([^)]+)\)/);
+                                const scale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+                                
                                 if(match && match[1] && match[2]) {
                                     const x = parseFloat(match[1]);
                                     const y = parseFloat(match[2]);
-                                    // Sätt strumpans X-position för att matcha munstyckets translation
-                                    liner.setAttribute('transform', `translate(${x}, 0)`);
+                                    // Sätt strumpans X-position och skala för att matcha munstyckets translation och skala
+                                    liner.style.transformOrigin = '100px 0px';
+                                    liner.setAttribute('transform', `translate(${x}, 0) scale(${scale})`);
                                     
-                                    // Sätt längden på själva kroppen
+                                    // Sätt längden på själva kroppen, justerad för skala
                                     const mainBody = liner.querySelector('.relining-main-body');
-                                    if(mainBody) mainBody.setAttribute('height', Math.max(0, y + 10));
+                                    if(mainBody) mainBody.setAttribute('height', Math.max(0, (y / scale) + 10));
                                     
                                     // Sätt längden på blänken så att de sträcker sig exakt ner till sina punkter i huvudet
                                     const h1 = liner.querySelector('.relining-h1');
-                                    if(h1) h1.setAttribute('height', Math.max(0, y + 18));
+                                    if(h1) h1.setAttribute('height', Math.max(0, (y / scale) + 18));
                                     
                                     const h2 = liner.querySelector('.relining-h2');
-                                    if(h2) h2.setAttribute('height', Math.max(0, y + 22));
+                                    if(h2) h2.setAttribute('height', Math.max(0, (y / scale) + 22));
                                 }
                             }
                         }
