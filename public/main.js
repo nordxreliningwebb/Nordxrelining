@@ -1022,7 +1022,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const organicMask = document.createElementNS('http://www.w3.org/2000/svg', 'mask');
         organicMask.setAttribute('id', 'organic-shape-mask');
         organicMask.innerHTML = `
-            <rect width="100%" height="100%" fill="url(#edge-gradient)" filter="url(#turbulence-mask-filter)" />
+            <rect id="organic-mask-rect" width="100%" height="100%" fill="url(#edge-gradient)" filter="url(#turbulence-mask-filter)" />
         `;
         pipeDefs.appendChild(organicMask);
 
@@ -1126,25 +1126,21 @@ document.addEventListener('DOMContentLoaded', () => {
             startX = cRect.width - pipeWidth - 25;
         }
 
-        // Justera dirt texture s den ser likadan ut oavsett rrbredd
-        const dirtPattern = document.getElementById('cartoon-dirt-texture');
-        if (dirtPattern) {
-            const patternImage = dirtPattern.querySelector('image');
-            if (patternImage) {
-                // Samma proportion av textur vs bredd (desktop har pipeWidth=120, texture=256 -> ca 2.13 ratio)
-                const textureWidth = pipeWidth * (256/120); 
-                dirtPattern.setAttribute('width', textureWidth);
-                dirtPattern.setAttribute('height', textureWidth);
-                patternImage.setAttribute('width', textureWidth);
-                patternImage.setAttribute('height', textureWidth);
-            }
-        }
+        
 
         startY = -350; 
         const endY = cRect.height + 300; 
         totalLength = endY - startY;
         
         // Update all static rects
+        
+        const organicMaskRect = document.getElementById('organic-mask-rect');
+        if (organicMaskRect) {
+            organicMaskRect.setAttribute('x', startX);
+            organicMaskRect.setAttribute('y', startY);
+            organicMaskRect.setAttribute('width', pipeWidth);
+            organicMaskRect.setAttribute('height', totalLength);
+        }
         [bgShadow, pipeBase, innerOcclusion, dirtRect].forEach(el => {
             el.setAttribute('x', startX);
             el.setAttribute('y', startY);
