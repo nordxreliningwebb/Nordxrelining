@@ -2303,11 +2303,15 @@ figure {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr !important; /* Alla kolumner tar 100% och staplas */
-        gap: 2.5rem !important; /* Lite större gap vertikalt */
+        grid-template-columns: repeat(2, 1fr) !important; /* Båda kolumner tar exakt 50% av bredden */
+        gap: 2.5rem 1rem !important; /* Lite större gap horisontellt */
         text-align: left;
         margin-bottom: 0 !important;
         padding: 3.5rem 1.5rem 2.5rem !important;
+    }
+    
+    .footer-contact-col {
+        grid-column: 1 / -1; /* Tvingar kontaktkolumnen att ta hela bredden så den inte spränger grid-layouten */
     }
     
     .footer-brand {
