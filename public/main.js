@@ -1106,8 +1106,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = window.innerWidth <= 768;
         pipeWidth = isMobile ? 35 : 120;
         
-        // Starta animationen mycket tidigare på mobilen (t.ex. direkt när sektionen nås)
-        cachedScrollStartOffset = absoluteTop + (isMobile ? -200 : 200);
+        // Starta animationen lite tidigare på mobilen (utan att överdriva så att den hinner försvinna)
+        cachedScrollStartOffset = absoluteTop + (isMobile ? 0 : 200);
         
         const wrapper = container.querySelector('.layout-wrapper');
         const wrapperRect = wrapper.getBoundingClientRect();
@@ -1235,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isInspection = document.getElementById('camera-cable-group') !== null;
             if (isInspection) {
                 // Snail trail for camera inspection
-                if (isMobile) {
+                if (pipeWidth === 35) {
                     maskEraser.setAttribute('x', startX + 7);
                     maskEraser.setAttribute('width', 21);
                 } else {
