@@ -990,7 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
         texturePattern.setAttribute('patternUnits', 'userSpaceOnUse');
         
         texturePattern.innerHTML = `
-            <image href="/comic-dirt.png" x="0" y="0" width="256" height="256" preserveAspectRatio="none" style="filter: brightness(0.65) contrast(1.2) saturate(1.2);" />
+            <image href="/comic-dirt.png" x="0" y="0" width="256" height="256" preserveAspectRatio="none" style="filter: brightness(0.7) contrast(1.2) saturate(1.2);" />
         `;
         pipeDefs.appendChild(texturePattern);
     }
@@ -1001,12 +1001,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const edgeGrad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
         edgeGrad.setAttribute('id', 'edge-gradient');
         edgeGrad.innerHTML = `
-            <stop offset="0%" stop-color="white" stop-opacity="1" />
-            <stop offset="15%" stop-color="white" stop-opacity="0.8" />
-            <stop offset="40%" stop-color="white" stop-opacity="0.1" />
-            <stop offset="60%" stop-color="white" stop-opacity="0.1" />
-            <stop offset="85%" stop-color="white" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="white" stop-opacity="1" />
+            <stop offset="0%" stop-color="white" stop-opacity="0.45" />
+            <stop offset="20%" stop-color="white" stop-opacity="0.35" />
+            <stop offset="45%" stop-color="white" stop-opacity="0.2" />
+            <stop offset="55%" stop-color="white" stop-opacity="0.2" />
+            <stop offset="80%" stop-color="white" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="white" stop-opacity="0.45" />
         `;
         pipeDefs.appendChild(edgeGrad);
 
@@ -1051,7 +1051,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Applicera masken och filtret på en grupp, och fyll med texturen
     const organicGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     organicGroup.setAttribute('mask', 'url(#organic-shape-mask)');
-    organicGroup.setAttribute('style', 'filter: url(#comic-stroke-filter); mix-blend-mode: multiply;');
+    organicGroup.setAttribute('style', '');
 
     const dirtRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     dirtRect.setAttribute('width', '100%');
@@ -1144,9 +1144,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const dirtPattern = document.getElementById('cartoon-dirt-texture');
         if (dirtPattern) {
-            // Se till att texturen alltid brjar ritas frn rrets vnsterkant,
-            // s vi inte rkar f en tom/vit del av bilden pga skrmens bredd!
+            const textureWidth = pipeWidth * (256/120);
             dirtPattern.setAttribute('x', startX);
+            dirtPattern.setAttribute('width', textureWidth);
+            dirtPattern.setAttribute('height', textureWidth);
+            const patternImage = dirtPattern.querySelector('image');
+            if (patternImage) {
+                patternImage.setAttribute('width', textureWidth);
+                patternImage.setAttribute('height', textureWidth);
+            }
         }
         
         const organicMaskRect = document.getElementById('organic-mask-rect');
