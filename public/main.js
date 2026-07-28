@@ -1235,8 +1235,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const isInspection = document.getElementById('camera-cable-group') !== null;
             if (isInspection) {
                 // Snail trail for camera inspection
-                maskEraser.setAttribute('x', startX + 25);
-                maskEraser.setAttribute('width', 70);
+                if (isMobile) {
+                    maskEraser.setAttribute('x', startX + 7);
+                    maskEraser.setAttribute('width', 21);
+                } else {
+                    maskEraser.setAttribute('x', startX + 25);
+                    maskEraser.setAttribute('width', 70);
+                }
             } else {
                 // Full clean for stamspolning
                 maskEraser.setAttribute('x', startX - 20);

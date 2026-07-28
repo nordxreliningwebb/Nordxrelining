@@ -248,6 +248,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .camera-led { fill: #ffffff; filter: url(#led-glow); }
             .camera-cable { stroke: #f97316; stroke-width: 16; stroke-linecap: round; }
             .cable-stripe { stroke: #eab308; stroke-width: 4; stroke-dasharray: 20 20; }
+            @media (max-width: 768px) {
+                .camera-cable { stroke-width: 5; }
+                .cable-stripe { stroke-width: 1.5; stroke-dasharray: 8 8; }
+            }
         </style>
 
         <!-- The dynamically drawn pipe path -->
