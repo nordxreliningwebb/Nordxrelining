@@ -1102,12 +1102,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const cRect = container.getBoundingClientRect();
         const absoluteTop = cRect.top + window.scrollY;
         cachedScrollRange = cRect.height;
-        cachedScrollStartOffset = absoluteTop + 200;
-        const wrapper = container.querySelector('.layout-wrapper');
-        const wrapperRect = wrapper.getBoundingClientRect();
         
         const isMobile = window.innerWidth <= 768;
         pipeWidth = isMobile ? 35 : 120;
+        
+        // Starta animationen mycket tidigare på mobilen (t.ex. direkt när sektionen nås)
+        cachedScrollStartOffset = absoluteTop + (isMobile ? -200 : 200);
+        
+        const wrapper = container.querySelector('.layout-wrapper');
+        const wrapperRect = wrapper.getBoundingClientRect();
         
         // Rr-startpunkt
         startX = wrapperRect.left - cRect.left + (wrapperRect.width * 0.75) - (pipeWidth/2); // fallback
