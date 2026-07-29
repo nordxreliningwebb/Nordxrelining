@@ -838,6 +838,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <style>
                     /* Isolate styling to prevent conflict with global style.css */
+                    #show-more-faq:hover {
+                        border-color: #0f172a !important;
+                        color: #0f172a !important;
+                    }
                     .nordx-faq-list {
                         display: flex;
                         flex-direction: column;
@@ -1048,15 +1052,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     const hiddenGroup = document.getElementById('nordx-hidden-group');
                     
                     if (showMoreBtn && hiddenGroupWrapper) {
-                        showMoreBtn.addEventListener('mouseenter', () => {
-                            showMoreBtn.style.borderColor = '#0f172a';
-                            showMoreBtn.style.color = '#0f172a';
-                        });
-                        showMoreBtn.addEventListener('mouseleave', () => {
-                            showMoreBtn.style.borderColor = '#e2e8f0';
-                            showMoreBtn.style.color = '#475569';
-                        });
-
                         showMoreBtn.addEventListener('click', () => {
                             const isOpen = hiddenGroupWrapper.style.gridTemplateRows === '1fr';
                             
