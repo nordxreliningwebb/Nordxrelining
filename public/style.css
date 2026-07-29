@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --primary-light: #E0E1DD;
     --secondary-blue: #415A77;
     --dark-navy: #1B263B;
@@ -123,9 +123,7 @@ figure {
     color: white !important;
 }
 
-#main-header.sticky #logo-img {
-    filter: brightness(0); /* Make white logo black on white bg */
-}
+
 
 #main-header.sticky .menu-toggle span {
     background-color: var(--dark-navy) !important;
@@ -231,7 +229,7 @@ figure {
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -1.5rem; /* Aligns dropdown text flawlessly with "TJÄNSTER" text based on internal padding */
+    left: -1.5rem; /* Aligns dropdown text flawlessly with "TJ├äNSTER" text based on internal padding */
     transform: translateY(15px);
     background: rgba(255, 255, 255, 0.15); /* Transparent glass */
     backdrop-filter: blur(15px);
@@ -848,7 +846,7 @@ figure {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 6rem;
-    align-items: stretch;
+    align-items: start;
 }
 
 .mission-content {
@@ -1277,7 +1275,7 @@ figure {
     margin-bottom: 2rem;
 }
 
-/* Feature bullet list — 2 columns */
+/* Feature bullet list ΓÇö 2 columns */
 .service-features {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1676,7 +1674,7 @@ figure {
     font-size: 0.95rem;
 }
 
-/* Projects Section — Carousel */
+/* Projects Section ΓÇö Carousel */
 .projects-section {
     padding: 8rem 2rem;
     background-color: var(--white);
@@ -1718,7 +1716,7 @@ figure {
     border: 1px solid rgba(0,0,0,0.05);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: stretch;
+    align-items: start;
 }
 
 .project-item img, .project-placeholder {
@@ -2119,7 +2117,7 @@ figure {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .nav-links {
-        display: none !important; /* Dölj gamla dropdown-menyn helt */
+        display: none !important; /* D├╢lj gamla dropdown-menyn helt */
     }
     
     /* Ny Slide-out Drawer Meny */
@@ -2303,15 +2301,15 @@ figure {
     }
 
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* Båda kolumner tar exakt 50% av bredden */
-        gap: 2.5rem 1rem !important; /* Lite större gap horisontellt */
+        grid-template-columns: repeat(2, 1fr) !important; /* B├Ñda kolumner tar exakt 50% av bredden */
+        gap: 2.5rem 1rem !important; /* Lite st├╢rre gap horisontellt */
         text-align: left;
         margin-bottom: 0 !important;
         padding: 3.5rem 1.5rem 2.5rem !important;
     }
     
     .footer-contact-col {
-        grid-column: 1 / -1; /* Tvingar kontaktkolumnen att ta hela bredden så den inte spränger grid-layouten */
+        grid-column: 1 / -1; /* Tvingar kontaktkolumnen att ta hela bredden s├Ñ den inte spr├ñnger grid-layouten */
     }
     
     .footer-brand {
@@ -2359,7 +2357,7 @@ figure {
     }
 
     .footer-links-col ul li a {
-        font-size: 0.85rem !important; /* Shrunk slightly to ensure 'Hållfasthetsberäkningar' fits on one line */
+        font-size: 0.85rem !important; /* Shrunk slightly to ensure 'H├Ñllfasthetsber├ñkningar' fits on one line */
     }
 
     .contact-info li,
@@ -2544,7 +2542,7 @@ figure {
 }
 
 /* ============================
-   ABOUT PAGE — om-oss.html
+   ABOUT PAGE ΓÇö om-oss.html
    ============================ */
 
 /* About Hero Redesign (Split Layout) */
@@ -2739,7 +2737,7 @@ figure {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -2816,7 +2814,7 @@ figure {
     border-top-color: var(--dark-navy);
 }
 
-/* Vertical dividers removed — now using card design */
+/* Vertical dividers removed ΓÇö now using card design */
 
 .vision-item h3 {
     font-size: 1.6rem;
@@ -3075,7 +3073,7 @@ figure {
 }
 
 /* ============================
-   TEAM SECTION — om-oss.html
+   TEAM SECTION ΓÇö om-oss.html
    ============================ */
 
 .about-team {
@@ -3113,7 +3111,7 @@ figure {
     max-width: 520px;
 }
 
-/* 3-column person grid — open, no cards */
+/* 3-column person grid ΓÇö open, no cards */
 .team-person-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3843,7 +3841,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     }
 }
 
-/* Footer Redesign — All Pages */
+/* Footer Redesign ΓÇö All Pages */
 .complex-footer {
     background-color: var(--white);
     border-top: 1px solid #e2e8f0;
@@ -3986,7 +3984,7 @@ footer address,
 }
 
 /* ============================
-   CONTACT PAGE — kontakt.html
+   CONTACT PAGE ΓÇö kontakt.html
    ============================ */
 
 .contact-page {
@@ -4026,15 +4024,15 @@ footer address,
 }
 
 .contact-page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 5rem;
-    gap: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-left {
-    flex: 0 0 100%;
+    width: 100%;
 }
 
 .contact-label {
@@ -4274,20 +4272,26 @@ footer address,
 }
 
 .btn-file-mini {
-    background: var(--dark-navy) !important;
+    background: #0284c7 !important;
     color: #ffffff !important;
-    padding: 0.35rem 0.85rem;
-    border-radius: 50px;
-    font-size: 0.72rem;
+    padding: 0.55rem 1.2rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 8px !important;
+    font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    line-height: normal;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    border: none;
 }
 
 .btn-file-mini:hover {
-    background: #2a3a55;
+    background: #006096 !important;
     transform: translateY(-1px);
 }
 
@@ -4428,7 +4432,7 @@ footer address,
 }
 
 .contact-checklist li::before {
-    content: '→';
+    content: 'ΓåÆ';
     color: #48bb78;
     font-weight: 700;
 }
@@ -4685,7 +4689,7 @@ footer address,
 }
 
 .service-features li::before {
-    content: '→';
+    content: 'ΓåÆ';
     position: absolute;
     left: 0;
     color: #48bb78;
@@ -4763,7 +4767,7 @@ footer address,
     filter: brightness(1.02); /* Subtle boost to blend better with white background */
 }
 
-/* --- High-Fidelity Marinblå Partnerships Section --- */
+/* --- High-Fidelity Marinbl├Ñ Partnerships Section --- */
 .partnerships-section-dark {
     padding: 10rem 2rem;
     background-color: var(--dark-navy);
@@ -5385,7 +5389,7 @@ body.blog-post-page {
     @media (max-width: 1024px) {
     .blog-v2-filter-row { 
         flex-direction: column; 
-        align-items: stretch; 
+        align-items: start; 
         gap: 24px; 
         border-bottom: none;
         padding-left: var(--spacing-sm) !important;
@@ -5717,14 +5721,14 @@ body.blog-post-page {
 
 /* --- The Ultimate Glass Fade Fix --- */
 .featured-post-glass-overlay {
-    height: auto !important; /* Låt innehållet bestämma höjden */
-    padding-top: 6rem !important; /* Extra padding i toppen där övergången/faden ska få plats */
+    height: auto !important; /* L├Ñt inneh├Ñllet best├ñmma h├╢jden */
+    padding-top: 6rem !important; /* Extra padding i toppen d├ñr ├╢verg├Ñngen/faden ska f├Ñ plats */
     padding-bottom: 2rem !important;
     
-    /* En mjukare mörk färgtoning */
+    /* En mjukare m├╢rk f├ñrgtoning */
     background: linear-gradient(to bottom, transparent 0%, rgba(27, 38, 59, 0.4) 40%, rgba(27, 38, 59, 0.9) 100%) !important;
     
-    /* Världsklass-tricket: Maskera blureffekten så den tonar ut osynligt på toppen! Inga skarpa kantlinjer. */
+    /* V├ñrldsklass-tricket: Maskera blureffekten s├Ñ den tonar ut osynligt p├Ñ toppen! Inga skarpa kantlinjer. */
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%) !important;
     mask-image: linear-gradient(to bottom, transparent 0%, black 40%) !important;
 }
@@ -5733,7 +5737,7 @@ body.blog-post-page {
     margin-bottom: 0 !important;
 }
 
-/* --- Symmetri-fix för Blogg-kort --- */
+/* --- Symmetri-fix f├╢r Blogg-kort --- */
 
 .premium-blog-card, .card-link {
     display: flex;
@@ -5747,7 +5751,7 @@ body.blog-post-page {
     flex-grow: 1;
 }
 
-/* Lås rubriken till exakt 3 raders höjd för absolut symmetri */
+/* L├Ñs rubriken till exakt 3 raders h├╢jd f├╢r absolut symmetri */
 .card-content h3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -5757,7 +5761,7 @@ body.blog-post-page {
     min-height: 7.125rem !important; /* 1.9rem * 1.25 * 3 */
 }
 
-/* Lås brödtexten till exakt 3 raders höjd */
+/* L├Ñs br├╢dtexten till exakt 3 raders h├╢jd */
 .card-content p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -5767,7 +5771,7 @@ body.blog-post-page {
     min-height: 5.52rem !important; /* 1.15rem * 1.6 * 3 */
 }
 
-/* Tvinga knappen ('Läs inlägg') till botten exakt jäms med de andra */
+/* Tvinga knappen ('L├ñs inl├ñgg') till botten exakt j├ñms med de andra */
 .read-post {
     margin-top: auto !important;
     padding-top: 1.5rem;
@@ -5992,10 +5996,10 @@ body.blog-post-page {
 }
 
 /* ===================================================
-   BREADCRUMB COLOUR FIX – All Pages (white bg)
+   BREADCRUMB COLOUR FIX ΓÇô All Pages (white bg)
    =================================================== */
 
-/* 1. Light-bg pages: projekt, om-oss – via .about-hero-text wrapper */
+/* 1. Light-bg pages: projekt, om-oss ΓÇô via .about-hero-text wrapper */
 .about-hero-text .breadcrumbs {
     color: var(--dark-navy) !important;
     opacity: 1 !important;
@@ -6012,7 +6016,7 @@ body.blog-post-page {
     opacity: 0.55;
 }
 
-/* 2. Kontakt page – white bg */
+/* 2. Kontakt page ΓÇô white bg */
 .contact-page .breadcrumbs {
     color: var(--dark-navy) !important;
 }
@@ -6028,7 +6032,7 @@ body.blog-post-page {
     opacity: 0.55;
 }
 
-/* 3. Blogg page – white hero bg */
+/* 3. Blogg page ΓÇô white hero bg */
 .blog-v2-header-area .breadcrumbs {
     color: var(--dark-navy) !important;
 }
@@ -6051,7 +6055,7 @@ body.blog-post-page {
 }
 
 /* ===================================================
-   KUNSKAPSBANK BREADCRUMB – Matchar Om Oss-stilen
+   KUNSKAPSBANK BREADCRUMB ΓÇô Matchar Om Oss-stilen
    =================================================== */
 .blog-v2-header-area .breadcrumbs {
     display: flex !important;
@@ -6062,14 +6066,14 @@ body.blog-post-page {
     text-transform: uppercase !important;
     font-weight: 600 !important;
     margin-bottom: 2rem !important;
-    color: rgba(27, 38, 59, 0.5) !important; /* Muted navy för separator och current */
+    color: rgba(27, 38, 59, 0.5) !important; /* Muted navy f├╢r separator och current */
     opacity: 1 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
 .blog-v2-header-area .breadcrumbs a {
-    color: var(--secondary-blue) !important; /* #415A77 – samma teal/slate som på Om oss */
+    color: var(--secondary-blue) !important; /* #415A77 ΓÇô samma teal/slate som p├Ñ Om oss */
     text-decoration: none !important;
     font-weight: 600 !important;
     transition: color 0.3s ease !important;
@@ -6084,7 +6088,7 @@ body.blog-post-page {
 }
 
 .blog-v2-header-area .breadcrumbs span[aria-current="page"] {
-    color: rgba(27, 38, 59, 0.5) !important; /* "Kunskapsbank" – muted */
+    color: rgba(27, 38, 59, 0.5) !important; /* "Kunskapsbank" ΓÇô muted */
     font-weight: 600 !important;
     opacity: 1 !important;
 }
@@ -6154,7 +6158,7 @@ body.blog-post-page {
     /* Could optionally change label text via CSS content tricks, handled in JS */
 }
 
-/* --- FAQ Expand Button – Marinblå med hover-pop --- */
+/* --- FAQ Expand Button ΓÇô Marinbl├Ñ med hover-pop --- */
 .btn-faq-expand {
     background: var(--dark-navy) !important;
     border: 1.5px solid var(--dark-navy) !important;
@@ -8064,7 +8068,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 0;
 }
 /* =====================================================
-   REALISTIC REBAR (ARMERINGSJÄRN) STYLES
+   REALISTIC REBAR (ARMERINGSJ├äRN) STYLES
    ===================================================== */
 .rebar-scroll-container {
     position: absolute;
@@ -8441,7 +8445,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* =====================================================
-   GLOBAL CTA STRIP — FAQ-style, used on all subpages
+   GLOBAL CTA STRIP ΓÇö FAQ-style, used on all subpages
    ===================================================== */
 .faq-cta-strip {
     background: var(--dark-navy);
@@ -8793,7 +8797,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
         margin-top: -1.5rem !important;
     }
     
-    /* Center "Några av våra projekt" on landing pages and match distance to other standard headings */
+    /* Center "N├Ñgra av v├Ñra projekt" on landing pages and match distance to other standard headings */
     .projects-section .projects-header {
         align-items: center !important;
         text-align: center !important;
@@ -9239,12 +9243,12 @@ section {
     background: #f8f9fa;
 }
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: flex-start;
 }
 @media (max-width: 768px) {
     .contact-container {
@@ -9443,10 +9447,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
 
 
 /* --- Fixes for Header & Service Cards --- */
-/* Stop logo from turning completely black */
-#main-header.sticky #logo-img {
-    filter: none !important;
-}
+/* Make logo text black on sticky */
+
 
 /* Keep header text/buttons exact same colors when sticky */
 #main-header.sticky .nav-links a {
@@ -9833,7 +9835,7 @@ body {
     font-size: 1.1rem;
 }
 .service-benefits li::before {
-    content: '✓';
+    content: 'Γ£ô';
     position: absolute;
     left: 0;
     top: 0;
@@ -10251,37 +10253,236 @@ body.light-theme .service-animation-wrapper {
     }
 }
 
+.top-bar-link {
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+.top-bar-link:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+/* Pulsing Dot Animation */
+.pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    position: relative;
+}
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid #ff3b30;
+    animation: pulse 1.5s linear infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .top-bar-container {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.25rem 0;
+        text-align: center;
+    }
+}
+
+/* --- MOBILE STICKY JOUR BAR --- */
+.mobile-sticky-jour {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(255,255,255,1) 50%, rgba(255,255,255,0));
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+.sticky-jour-btn {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0b0b0b;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.pulse-dot-large {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 1rem;
+}
+.pulse-dot-large::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid #ff3b30;
+    animation: pulse 1.5s linear infinite;
+}
+.sticky-jour-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.sticky-jour-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+.sticky-jour-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+.sticky-jour-icon {
+    width: 24px;
+    height: 24px;
+    color: #0fb3ff;
+}
+
+.hide-on-desktop {
+    display: none;
+}
+@media (max-width: 768px) {
+    .hide-on-desktop {
+        display: flex;
+    }
+}
+
+/* --- HERO RIGHT ALIGNED CTA BOX --- */
+.hero-cta-box {
+    background: #FFD700;
+    border: none;
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
+    width: 500px;
+    flex-shrink: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+.cta-box-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+.cta-box-badge {
+    background: #0b0b0b;
+    color: #FFD700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.hero-cta-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    color: #0b0b0b;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+.hero-cta-box p {
+    color: #222222;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+.btn-cta-box {
+    margin: auto 0;
+    background: #0b0b0b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 6px; /* Matches header CTA shape */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.btn-cta-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: #1a1a1a;
+}
+.btn-cta-box svg {
+    width: 22px;
+    height: 22px;
+    color: #FFD700;
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+    .hero-cta-box {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
 /* --- PREMIUM UI ADDITIONS --- */
 
 /* 1. Transparent Header over Video */
-body {
+body.home-page {
     padding-top: 0 !important; /* Remove offset so video goes to top */
 }
-#main-header {
+body.home-page #main-header:not(.sticky) {
     background: transparent !important;
     box-shadow: none !important;
     border-bottom: none !important;
 }
-#main-header .nav-links a {
+body.home-page #main-header:not(.sticky) .nav-links a {
     color: #ffffff !important;
 }
-#main-header .btn-ghost {
+body.home-page #main-header:not(.sticky) .btn-ghost {
     background: transparent !important;
     color: #ffffff !important;
     border: 1px solid rgba(255,255,255,0.3) !important;
 }
-#main-header .btn-ghost:hover {
+body.home-page #main-header:not(.sticky) .btn-ghost:hover {
     background: #ffffff !important;
     color: #0b0b0b !important;
 }
 
-/* Logo swap */
-#main-header:not(.sticky) #logo-img {
-    content: url('nordxrelininglogo2.png');
-}
-#main-header.sticky #logo-img {
-    content: url('logo.png');
-}
 
 /* Adjust hero height since it now goes to the top */
 .full-hero {
@@ -10530,6 +10731,10 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     padding: 0 !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.water-fill-card:hover {
+    transform: translateY(-8px);
 }
 .water-fill-content {
     padding: 3rem 2.5rem 2.5rem 2.5rem;
@@ -10664,4 +10869,313 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 }
 .project-card:hover .project-card-media::after {
     animation: wave-sway 3s linear infinite;
+}
+    /* Pipes - Exact dimensions as divider (26px height) */
+    .p-pipe { position: absolute; z-index: 20; }
+    .p-top { 
+        top: -26px; left: 0; right: 0; height: 26px; 
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-bottom { 
+        bottom: -26px; left: 0; right: 0; height: 26px; 
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-left { 
+        left: -26px; top: 0; bottom: 0; width: 26px; 
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+    .p-right { 
+        right: -26px; top: 0; bottom: 0; width: 26px; 
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+    }
+
+    /* Corners - L-shaped bent elbows with seamless gradient connection */
+    .p-corner {
+        position: absolute; width: 26px; height: 26px; z-index: 21;
+    }
+    .p-tl { 
+        top: -26px; left: -26px; border-top-left-radius: 26px;
+        background: radial-gradient(circle 26px at bottom right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-tr { 
+        top: -26px; right: -26px; border-top-right-radius: 26px;
+        background: radial-gradient(circle 26px at bottom left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-bl { 
+        bottom: -26px; left: -26px; border-bottom-left-radius: 26px;
+        background: radial-gradient(circle 26px at top right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+    .p-br { 
+        bottom: -26px; right: -26px; border-bottom-right-radius: 26px;
+        background: radial-gradient(circle 26px at top left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+    }
+
+    /* Skarvmuffar Horisontella */
+    .p-muff {
+        position: absolute; width: 35px; height: 32px; z-index: 22; border-radius: 2px;
+    }
+    .p-muff::after {
+        content: ''; position: absolute; width: 6px; height: 36px; border-radius: 2px;
+    }
+    .p-pipe.p-top .p-muff {
+        top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-top .p-muff::after {
+        right: 0; top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+    }
+    .p-pipe.p-bottom .p-muff {
+        top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-bottom .p-muff::after {
+        right: 0; top: 50%; transform: translateY(-50%);
+        background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Skarvmuffar Vertikala */
+    .p-muff-v {
+        position: absolute; width: 32px; height: 35px; z-index: 22; border-radius: 2px;
+    }
+    .p-muff-v::after {
+        content: ''; position: absolute; width: 36px; height: 6px; border-radius: 2px;
+    }
+    .p-pipe.p-left .p-muff-v {
+        left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-left .p-muff-v::after {
+        bottom: 0; left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+    }
+    .p-pipe.p-right .p-muff-v {
+        left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .p-pipe.p-right .p-muff-v::after {
+        bottom: 0; left: 50%; transform: translateX(-50%);
+        background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+        box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+    }
+
+
+.input-with-icon input, .input-with-icon select { padding-left: 3.5rem !important; }
+
+
+
+
+/* Projekt Page Redesign */
+.projects-header-v2 { padding: 6rem 1rem 3rem; max-width: min(1400px, 94vw);
+    margin: 0 auto;
+}
+.projects-header-v2 h1 { font-size: clamp(2rem, 5vw, 3rem); font-family: 'Inter', sans-serif; color: #0b0b0b; margin-bottom: 1rem; font-weight: 700; }
+.projects-header-v2 p {
+    font-size: 1.1rem;
+    color: #475569;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Featured Project Card */
+.featured-project { display: block; position: relative; border-radius: 32px; overflow: hidden; margin-bottom: 0; text-decoration: none; color: white; height: 100%; min-height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.featured-project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+.featured-project:hover img {
+    transform: scale(1.03);
+}
+.featured-project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem;
+}
+.featured-project-meta {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.featured-project-meta .category {
+    background: transparent;
+    color: white;
+}
+.featured-project h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-family: 'Inter', sans-serif; margin-bottom: 0.5rem; font-weight: 800; line-height: 1.1; }
+.featured-project p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    opacity: 0.9;
+}
+.featured-project-btn { background: #0284c7; /* matching the green button in image */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.featured-project-btn:hover { background: #0369a1;
+}
+
+/* 3-column horizontal cards */
+.projects-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; }
+.project-card-v2 {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.project-card-v2:hover {
+    transform: translateY(-5px);
+}
+.project-card-v2-media { height: 210px; overflow: hidden; }
+.project-card-v2-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.project-card-v2:hover .project-card-v2-media img {
+    transform: scale(1.05);
+}
+
+.project-card-v2-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.project-card-v2-content h3 {
+    font-size: 1.25rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark-navy);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+
+@media (max-width: 992px) {
+    .projects-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .projects-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .featured-project { height: 400px; }
+}
+
+.project-card-v2-content { padding: 1.5rem; display: flex; flex-direction: column; }
+.project-card-v2-content p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
+.project-card-v2-btn { background: #0284c7; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 700; text-align: center; transition: background 0.3s ease; display: inline-block; width: fit-content; margin-top: 0.5rem; }
+.project-card-v2:hover .project-card-v2-btn { background: #0369a1; }
+
+
+
+
+
+
+
+
+
+/* Nordx Filter Navigation */
+.nordx-filter-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+.nordx-filter-btn { padding: 0.6rem 1.5rem; border-radius: 4px; border: 1px solid #e2e8f0; background: #ffffff; color: #1B263B; font-weight: 700; font-family: 'Inter', sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; letter-spacing: 0.5px; }
+.nordx-filter-btn:hover { color: #0284c7; background: rgba(2, 132, 199, 0.05); border-color: #0284c7; }
+.nordx-filter-btn.active { background: #0284c7; color: #ffffff; border-color: #0284c7; box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2); }
+.nordx-filter-btn.active:hover { background: #0369a1; border-color: #0369a1; color: #ffffff; }
+
+
+
+
+
+/* Water Fill Card Pricing Extensions */
+.water-fill-content ul { transition: color 1.2s ease 0.6s !important; }
+.water-fill-content li { transition: color 1.2s ease 0.6s !important; }
+.water-fill-content div { transition: color 1.2s ease 0.6s !important; }
+.water-fill-content span { transition: color 1.2s ease 0.6s !important; }
+.water-fill-content svg { transition: stroke 1.2s ease 0.6s !important; }
+
+.water-fill-card.is-filled .water-fill-content ul,
+.water-fill-card.is-filled .water-fill-content li,
+.water-fill-card.is-filled .water-fill-content div,
+.water-fill-card.is-filled .water-fill-content span {
+    color: #ffffff !important;
+}
+.water-fill-card.is-filled .water-fill-content svg {
+    stroke: #ffffff !important;
+}
+.campaign-card-highlight {
+    outline: 6px solid #48bb78 !important;
+    border-color: #48bb78 !important;
+    outline-offset: 0;
+    transform: scale(1.05);
+    position: relative;
+    z-index: 2;
+}
+.campaign-card-highlight:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+
+
+
+
+/* Logo swap for Home Page transparent header */
+
+
+
+/* --- Logo Swap Logic --- */
+body.home-page #main-header:not(.sticky) #logo-img {
+    content: url('nordxrelininglogo2.png') !important;
+    filter: none !important;
+}
+
+body.home-page #main-header.sticky #logo-img {
+    content: url('logo.png') !important;
+    filter: none !important;
+}
+
+/* --- Logo Swap Logic (Restored & Fixed) --- */
+body.home-page #main-header:not(.sticky) #logo-img {
+    content: url('nordxrelininglogo2.png') !important;
+    filter: none !important;
+}
+
+body.home-page #main-header.sticky #logo-img {
+    content: url('logo.png') !important;
+    filter: none !important;
 }
