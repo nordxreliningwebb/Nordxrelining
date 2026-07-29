@@ -1021,15 +1021,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div style="text-align: center; margin-top: 3rem; position: relative; z-index: 10;">
-                    <style>
-                        @media (max-width: 768px) {
-                            #show-more-faq {
-                                width: 100% !important;
-                                padding: 1.25rem !important;
-                            }
-                        }
-                    </style>
-                    <button id="show-more-faq" class="btn btn-outline" style="border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #ffffff; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">Visa fler FAQs</button>
+                    <button id="show-more-faq" class="btn btn-outline" data-open="false" onclick="window.toggleMoreFaq()" style="border: 2px solid #e2e8f0; background: transparent; color: #475569; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">Visa fler FAQs</button>
                 </div>
 
             </div>
@@ -1059,31 +1051,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     const hiddenGroupWrapper = document.getElementById('nordx-hidden-group-wrapper');
                     const hiddenGroup = document.getElementById('nordx-hidden-group');
                     
-                    if (showMoreBtn && hiddenGroupWrapper) {
-                        showMoreBtn.addEventListener('click', () => {
-                            const isOpen = hiddenGroupWrapper.style.gridTemplateRows === '1fr';
+                    window.toggleMoreFaq = function() {
+                        if (!showMoreBtn || !hiddenGroupWrapper) return;
+                        
+                        const isOpen = showMoreBtn.getAttribute('data-open') === 'true';
+                        
+                        if (!isOpen) {
+                            hiddenGroupWrapper.style.gridTemplateRows = '1fr';
+                            hiddenGroupWrapper.style.opacity = '1';
+                            hiddenGroupWrapper.style.marginTop = '1.5rem';
+                            hiddenGroupWrapper.style.pointerEvents = 'auto';
+                            showMoreBtn.textContent = 'Visa färre FAQs';
+                            showMoreBtn.setAttribute('data-open', 'true');
+                        } else {
+                            hiddenGroupWrapper.style.gridTemplateRows = '0fr';
+                            hiddenGroupWrapper.style.opacity = '0';
+                            hiddenGroupWrapper.style.marginTop = '0';
+                            hiddenGroupWrapper.style.pointerEvents = 'none';
+                            showMoreBtn.textContent = 'Visa fler FAQs';
+                            showMoreBtn.setAttribute('data-open', 'false');
                             
-                            if (!isOpen) {
-                                hiddenGroupWrapper.style.gridTemplateRows = '1fr';
-                                hiddenGroupWrapper.style.opacity = '1';
-                                hiddenGroupWrapper.style.marginTop = '1.5rem';
-                                hiddenGroupWrapper.style.pointerEvents = 'auto';
-                                showMoreBtn.textContent = 'Visa färre FAQs';
-                            } else {
-                                hiddenGroupWrapper.style.gridTemplateRows = '0fr';
-                                hiddenGroupWrapper.style.opacity = '0';
-                                hiddenGroupWrapper.style.marginTop = '0';
-                                hiddenGroupWrapper.style.pointerEvents = 'none';
-                                showMoreBtn.textContent = 'Visa fler FAQs';
-                                
+                            if (hiddenGroup) {
                                 hiddenGroup.querySelectorAll('.nordx-faq-btn').forEach(q => {
                                     q.setAttribute('aria-expanded', 'false');
                                     q.nextElementSibling.style.maxHeight = null;
                                     q.nextElementSibling.classList.remove('open');
                                 });
                             }
-                        });
-                    }
+                        }
+                    };
                 });
             </script>
         </section>
