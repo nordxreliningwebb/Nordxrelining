@@ -10178,7 +10178,7 @@ body.light-theme .service-animation-wrapper {
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Spreads content so it fills the stretched height perfectly */
+    justify-content: flex-start;
     text-align: left;
 }
 .cta-box-header {
@@ -10213,6 +10213,7 @@ body.light-theme .service-animation-wrapper {
     font-weight: 500;
 }
 .btn-cta-box {
+    margin: auto 0;
     background: #0b0b0b;
     color: #fff;
     display: flex;
@@ -10459,3 +10460,201 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 
 
 
+
+
+/* --- Water Fill Animation for Service Cards --- */
+.water-fill-card {
+    background: #1b263b !important; /* Starts as dark navy */
+    position: relative;
+    overflow: hidden;
+    padding: 0 !important;
+    border: none !important; /* Removing the 1px white border if any */
+}
+.water-fill-card:hover {
+    border-color: transparent !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+}
+.water-fill-content {
+    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.water-fill-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    z-index: 1;
+    transform: translateY(100%);
+    transition: transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+.water-fill-card.is-filled .water-fill-container {
+    transform: translateY(0);
+}
+.water-fill-body {
+    background: linear-gradient(180deg, #0fb3ff 0%, #0056b3 100%);
+    height: calc(100% - 110px);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.water-fill-wave {
+    position: absolute;
+    bottom: calc(100% - 115px);
+    left: 0;
+    width: 100%;
+    height: 120px;
+    fill: #0fb3ff;
+    animation: wave-sway 6s linear infinite;
+    animation-play-state: paused;
+}
+.water-fill-card:hover .water-fill-wave {
+    animation-play-state: running;
+}
+@keyframes wave-sway {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- REVISED Water Fill Animation for Service Cards --- */
+.water-fill-card {
+    background: #ffffff !important;
+    position: relative;
+    overflow: hidden;
+    padding: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px;
+}
+.water-fill-content {
+    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Text transition */
+.water-fill-content h3, 
+.water-fill-content p, 
+.water-fill-content a.read-more {
+    color: #0f172a !important;
+    transition: color 1.2s ease 0.6s !important;
+}
+.water-fill-card.is-filled .water-fill-content h3, 
+.water-fill-card.is-filled .water-fill-content p, 
+.water-fill-card.is-filled .water-fill-content a.read-more {
+    color: #ffffff !important;
+}
+
+/* Button transition */
+.water-fill-content .water-btn {
+    background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%);
+    color: #ffffff !important;
+    transition: background 1.2s ease 0.6s, color 1.2s ease 0.6s !important;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 12px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+}
+.water-fill-card.is-filled .water-fill-content .water-btn {
+    background: #ffffff !important;
+    color: #0f172a !important;
+}
+
+/* Water Container */
+.water-fill-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    z-index: 1;
+    background: linear-gradient(to bottom, transparent 45px, #0284c7 45px); /* Transparent top allows wave surface */
+    transition: height 4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.water-fill-card.is-filled .water-fill-container {
+    height: 100%;
+}
+
+/* The Waves */
+.water-fill-wave-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 40px;
+    fill: #7dd3fc;
+    opacity: 0.4;
+    z-index: 1;
+    animation: wave-sway 5s linear infinite;
+    pointer-events: none;
+}
+.water-fill-wave-2 {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 200%;
+    height: 40px;
+    fill: #38bdf8;
+    opacity: 0.7;
+    z-index: 2;
+    animation: wave-sway 3.5s linear infinite;
+    pointer-events: none;
+}
+.water-fill-wave-3 {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 200%;
+    height: 40px;
+    fill: #0284c7;
+    z-index: 3;
+    animation: wave-sway 2.5s linear infinite;
+    pointer-events: none;
+}
+.water-fill-wave-1,
+.water-fill-wave-2,
+.water-fill-wave-3 {
+    animation-play-state: paused;
+}
+.water-fill-card:hover .water-fill-wave-1,
+.water-fill-card:hover .water-fill-wave-2,
+.water-fill-card:hover .water-fill-wave-3 {
+    animation-play-state: running;
+}
+@keyframes wave-sway {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Project Card Hover Wave */
+.project-card-media::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Slight overlap to prevent gaps */
+    left: 0;
+    width: 200%;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z" fill="%23ffffff"/></svg>');
+    background-size: 50% 100%;
+    background-repeat: repeat-x;
+    z-index: 2;
+    transform: translateX(0);
+}
+.project-card:hover .project-card-media::after {
+    animation: wave-sway 3s linear infinite;
+}

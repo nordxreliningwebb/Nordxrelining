@@ -1282,6 +1282,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('resize', drawPipe);
     window.addEventListener('scroll', updateScroll, { passive: true });
-    
+
     setTimeout(drawPipe, 100);
+
+    // --- Water Fill Service Cards Animation ---
+    const waterFillCards = document.querySelectorAll('.water-fill-card');
+    if (waterFillCards.length > 0) {
+        const waterObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Slight delay for domino effect based on DOM index
+                    const index = Array.from(waterFillCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('is-filled');
+                    }, index * 200);
+                    waterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        
+        waterFillCards.forEach(card => waterObserver.observe(card));
+    }
 });
+
