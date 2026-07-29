@@ -10636,6 +10636,13 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 .water-fill-card:hover .water-fill-wave-3 {
     animation-play-state: running;
 }
+@media (max-width: 768px) {
+    .water-fill-card.is-filled .water-fill-wave-1,
+    .water-fill-card.is-filled .water-fill-wave-2,
+    .water-fill-card.is-filled .water-fill-wave-3 {
+        animation-play-state: running;
+    }
+}
 @keyframes wave-sway {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
