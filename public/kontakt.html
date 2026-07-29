@@ -11,13 +11,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakta oss för konstruktion och skyddsrum | Global Construction</title>
-    <meta name="description" content="Vi hjälper företag i hela Sverige med byggkonstruktion, konstruktionsberäkningar och projektering av skyddsrum. Kontakta oss för teknisk rådgivning eller offert i Stockholm, Göteborg och Malmö.">
+    <title>Kontakta oss för VVS och Relining | Nordx Relining</title>
+    <meta name="description" content="Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Kontakta Nordx Relining för teknisk rådgivning eller en kostnadsfri offert.">
     <link rel="stylesheet" href="style.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     
+    <style>
+        /* Specific overrides for landing pages */
+        #main-header .nav-links a {
+            color: #111111 !important;
+        }
+        #main-header .nav-links a:hover {
+            color: var(--primary-color) !important;
+        }
+        #main-header #logo-img {
+            filter: none !important;
+            content: url('logo.png') !important;
+        }
+        #main-header .menu-toggle span {
+            background-color: #111111 !important;
+        }
+    </style>
+
     <!-- Google reCAPTCHA v3 (Replace YOUR_SITE_KEY with real key) -->
     <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
 </head>
@@ -80,8 +97,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span aria-hidden="true">/</span>
                             <span aria-current="page">Kontakt</span>
                         </nav>
-                        <h1>Kontakta oss för konstruktion och skyddsrum</h1>
-                        <h2 class="contact-subheading">Få hjälp med konstruktionsberäkningar, skyddsrum och teknisk rådgivning i hela Sverige</h2>
+                        <h1>Kontakta oss för relining & rörinspektion</h1>
+                        <h2 class="contact-subheading">Få hjälp med relining, stamspolning och rörinspektion i hela Sverige</h2>
                     </div>
                     <div class="header-right">
                     </div>
@@ -89,20 +106,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <!-- Grid part -->
                 <div class="contact-main-grid">
-                    <!-- Left: Image Card -->
-                    <div class="contact-info-card fade-in-up" style="transition-delay: 0.2s;">
-                        <div class="card-image-wrapper">
-                            <img src="contact-team.png" alt="Person på teamet som hjälper dig" class="main-card-img">
-                            <div class="card-overlay-content">
-                                <h2>Föredrar du att prata med oss direkt?</h2>
-                                <p>Få direkt support från vårt team för brådskande ärenden eller tekniska frågor.</p>
-                                <a href="tel:+4681234567" class="btn-pill-contact">
-                                    RING OSS NU 
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Right: Form Card -->
                     <div class="contact-form-card fade-in-up" style="transition-delay: 0.4s;">
@@ -141,8 +144,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                                         <select id="service" name="service">
                                             <option value="" disabled selected>Välj tjänst</option>
-                                            <option value="konstruktion">Konstruktion</option>
-                                            <option value="skyddsrum">Skyddsrum</option>
+                                            <option value="relining">Relining</option>
+                                            <option value="stamspolning">Stamspolning</option>
+                                            <option value="rorinspektion">Rörinspektion</option>
                                             <option value="konsultation">Generell konsultation</option>
                                         </select>
                                         <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -168,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="message">Meddelande</label>
-                                    <textarea id="message" name="message" placeholder="Beskriv ditt ärende (t.ex. byggkonstruktion eller skyddsrum)" rows="6"></textarea>
+                                    <textarea id="message" name="message" placeholder="Beskriv ditt ärende (t.ex. relining eller stamspolning)" rows="6"></textarea>
                                 </div>
                             </div>
 
@@ -202,22 +206,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- New SEO & Content Section -->
                 <div class="contact-seo-content fade-in">
                     <div class="seo-text-block">
-                        <h2>Expertis inom byggkonstruktion och skyddsrum</h2>
-                        <p>Vi på Global Construction besitter djupgående kompetens inom <strong>byggkonstruktion</strong> för stål, betong och trä. Vårt dagliga arbete innefattar framtagning av exakta konstruktionsritningar och avancerade <strong>konstruktionsberäkningar</strong> för allt från nybyggnationer till komplexa ombyggnationer. Vi säkerställer att varje projekt vilar på en stabil ingenjörsmässig grund som uppfyller gällande standarder och säkerhetskrav.</p>
+                        <h2>Expertis inom relining och rörsystem</h2>
+                        <p>Vi på Nordx Relining besitter djupgående kompetens inom underhåll och renovering av fastigheters rörsystem. Vårt dagliga arbete innefattar utförandet av högkvalitativ <strong>relining</strong>, effektiv <strong>stamspolning</strong> och noggranna <strong>rörinspektioner</strong> för allt från villor till stora flerbostadshus. Vi säkerställer att varje rörsystem åtgärdas med metoder som uppfyller marknadens högsta standarder och säkerhetskrav.</p>
                         
-                        <p>När det gäller <strong>skyddsrum</strong> har vi mångårig erfarenhet som sträcker sig från initial <strong>projektering skyddsrum</strong> till omfattande renovering och modernisering. Som <strong>sakkunnig skyddsrum</strong> navigerar vi genom de strikta krav och regler som fastställts av Myndigheten för civilt försvar (MCF). Vi utför statuskontroller, rådgivning och säkerställer att skyddsrummens funktion bibehålls över tid, oavsett om det rör sig om en privat fastighet eller en större samhällsanläggning.</p>
+                        <p>När det gäller att förlänga livslängden på avlopp har vi den teknik och erfarenhet som krävs för att undvika dyra och tidskrävande stambyten. Vi navigerar genom de strikta krav och regler som gäller för modern fastighetsförvaltning. Vi utför statuskontroller, förebyggande underhåll och säkerställer att rörens funktion bibehålls över årtionden.</p>
                         
-                        <p>Vi utgår från Stockholm / Solna men arbetar med projekt i hela Sverige, inklusive Göteborg, Malmö och Jönköping. Oavsett geografiskt läge levererar vi teknisk precision och expertvägledning som skapar långsiktigt värde för din fastighet.</p>
+                        <p>Oavsett var du befinner dig eller hur dina specifika behov ser ut, levererar vi teknisk precision och expertvägledning som skapar långsiktig trygghet för din fastighet och ekonomi.</p>
                     </div>
 
                     <div class="contact-checklist">
                         <h3>När ska du kontakta oss?</h3>
                         <ul>
-                            <li>Konstruktionsberäkningar</li>
-                            <li>Konstruktionsritningar</li>
-                            <li>Projektering av skyddsrum</li>
-                            <li>Renovering av skyddsrum</li>
-                            <li>Teknisk rådgivning inom bygg</li>
+                            <li>Relining av befintliga avlopp</li>
+                            <li>Stamspolning och avloppsrensning</li>
+                            <li>Rörinspektion med kamera</li>
+                            <li>Fuktmätning och läcksökning</li>
+                            <li>Kostnadsfri konsultation och offert</li>
                         </ul>
                     </div>
                 </div>

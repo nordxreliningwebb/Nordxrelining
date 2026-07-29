@@ -4083,12 +4083,7 @@ footer address,
 }
 
 /* Main Grid */
-.contact-main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: stretch;
-}
+.contact-main-grid { display: flex; justify-content: center; max-width: 800px; margin: 0 auto; gap: 3rem; }
 
 /* Info Card (Image Left) */
 .contact-info-card {
@@ -4159,7 +4154,8 @@ footer address,
 /* Form Card */
 .contact-form-card {
     background: #ffffff; /* Brighter white */
-    border-radius: 32px;
+    border-radius: 12px;
+    width: 100%;
     padding: 4rem;
     box-shadow: 0 40px 100px rgba(0,0,0,0.1); /* Dramatically more visible premium shadow */
     border: 1px solid rgba(0,0,0,0.04);
@@ -4204,7 +4200,7 @@ footer address,
     padding: 1.25rem 1.5rem 1.25rem 3.5rem;
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 16px;
+    border-radius: 8px;
     font-family: inherit;
     font-size: 1rem;
     color: var(--dark-navy);
@@ -4323,24 +4319,24 @@ footer address,
 
 .btn-submit-premium {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 12px;
-    background: var(--dark-navy);
+    background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%);
     color: #ffffff;
-    border: 1px solid var(--dark-navy);
+    border: none;
     padding: 1rem 2.5rem;
-    border-radius: 50px;
+    border-radius: 8px;
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: 'Syne', sans-serif;
 }
 
 .btn-submit-premium:hover {
-    background: #2a3a55; /* Refined lighter navy hover */
-    border-color: #2a3a55;
-    transform: translateX(5px);
-    box-shadow: 0 10px 30px rgba(27, 38, 59, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(15, 179, 255, 0.3);
 }
 
 @media (max-width: 1024px) {
@@ -6181,7 +6177,7 @@ body.blog-post-page {
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--dark-navy);
+    background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 -8px 40px rgba(0,0,0,0.30);
     z-index: 99999;
@@ -10459,3 +10455,4 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     padding-right: 85px !important;
   }
 }
+
