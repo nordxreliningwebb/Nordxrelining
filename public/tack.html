@@ -121,99 +121,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="p-corner p-br"></div>
 
                         <div class="contact-form-card" style="border-radius: 12px; position: relative; z-index: 10; background: #ffffff; padding: 40px; box-shadow: none;">
-                            <form action="#" method="POST" id="contact-form" class="premium-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="full-name">Namn</label>
-                                    <div class="input-with-icon">
-                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        <input type="text" id="full-name" name="full-name" placeholder="Namn" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-row split">
-                                <div class="form-group">
-                                    <label for="email">E-post</label>
-                                    <div class="input-with-icon">
-                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                        <input type="email" id="email" name="email" placeholder="E-postadress" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Telefon</label>
-                                    <div class="input-with-icon">
-                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                        <input type="tel" id="phone" name="phone" placeholder="Telefonnummer" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="service">Välj en tjänst</label>
-                                    <div class="input-with-icon">
-                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                                        <select id="service" name="service">
-                                            <option value="" disabled selected>Välj tjänst</option>
-                                            <option value="relining">Relining</option>
-                                            <option value="stamspolning">Stamspolning</option>
-                                            <option value="rorinspektion">Rörinspektion</option>
-                                            <option value="konsultation">Generell konsultation</option>
-                                        </select>
-                                        <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="file-upload">Bifoga fil (Max 5MB)</label>
-                                    <div class="input-with-icon file-box">
-                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
-                                        <div class="file-trigger-area">
-                                            <label for="file-upload" class="btn-file-mini">VÄLJ FIL</label>
-                                            <span id="file-label-text">Ingen fil vald</span>
-                                        </div>
-                                        <input type="file" id="file-upload" name="file-upload" class="file-input-hidden" accept=".pdf,.jpg,.png,.dwg">
-                                    </div>
-                                    <div id="file-error" style="color: #e53e3e; font-size: 0.85rem; margin-top: 0.5rem; display: none;">Filen är för stor. Max 5MB tillåtet.</div>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="message">Meddelande</label>
-                                    <textarea id="message" name="message" placeholder="Beskriv ditt ärende (t.ex. relining eller stamspolning)" rows="6"></textarea>
-                                </div>
-                            </div>
-
-                            <!-- reCAPTCHA Hidden Token -->
-                            <input type="hidden" id="recaptchaToken" name="recaptchaToken">
-
-                            <div class="form-submit" style="display: flex; gap: 1rem; width: 100%; flex-wrap: wrap;">
-                                <button type="submit" class="btn-submit-premium" id="submit-btn" disabled style="background: #0284c7; flex: 1; justify-content: center; min-width: 250px;">
-                                    SKICKA IN 
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </button>
-                                <a href="tel:+46703185110" class="btn-submit-premium" style="background: transparent; color: #0284c7; border: 2px solid #0284c7; flex: 1; text-decoration: none; display: flex; align-items: center; justify-content: center; min-width: 250px; border-radius: 8px; font-weight: 700; letter-spacing: 1px; transition: all 0.3s ease;">
-                                    ELLER RING OSS
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                </a>
-                            </div>
-                        </form>
+                            
 
                         <!-- SUCCESS MESSAGE WRAPPER -->
-                        <div id="form-success-message" class="form-success-message" style="display: none;">
+                        <div id="form-success-message" class="form-success-message" style="display: block; padding: 4rem 1rem; text-align: center;">
                             <div class="success-icon-wrapper">
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                 </svg>
                             </div>
-                            <h3>Tack för din förfrågan!</h3>
-                            <p>Vi har tagit emot ditt meddelande och vårt team återkommer till dig inom 24 timmar.</p>
-                            <button id="success-back-btn" class="btn btn-ghost" style="margin-top: 1.5rem; width: 100%;">TILLBAKA</button>
+                            <h3>Tack för att du kontaktat oss!</h3>
+                            <p>Vi har mottagit ditt ärende och återkommer till dig inom 24 timmar.</p>
+                            <a href="/" class="btn-hero-solid" style="background: #0284c7; color: white; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; letter-spacing: 1px; padding: 1rem 2.5rem; margin-top: 2rem;">TILLBAKA TILL STARTSIDAN</a>
                         </div>
 
                         </div> <!-- End of contact-form-card -->
@@ -294,6 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="main.js?v=1349" defer></script>
 </body>
 </html>
+
 
 
 
