@@ -1021,7 +1021,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div style="text-align: center; margin-top: 3rem; position: relative; z-index: 10;">
-                    <button id="show-more-faq" class="btn btn-outline" style="border: 2px solid #e2e8f0; background: transparent; color: #475569; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">Visa fler FAQs</button>
+                    <style>
+                        @media (max-width: 768px) {
+                            #show-more-faq {
+                                width: 100% !important;
+                                padding: 1.25rem !important;
+                            }
+                        }
+                    </style>
+                    <button id="show-more-faq" class="btn btn-outline" style="border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #ffffff; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">Visa fler FAQs</button>
                 </div>
 
             </div>
