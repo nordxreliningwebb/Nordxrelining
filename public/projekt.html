@@ -11,38 +11,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt | Nordx Relining</title>
-    <meta name="description" content="Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Kontakta Nordx Relining för teknisk rådgivning eller en kostnadsfri offert.">
-    <link rel="stylesheet" href="style.css?v=1350">
+    <title>Projekt | Våra Referensprojekt & Konstruktionslösningar | Global Construction</title>
+    <meta name="description" content="Utforska våra referensprojekt inom byggkonstruktion och skyddsrumscertifiering. Allt från storskaliga nybyggnationer i Solna till MCF-certifierade skyddsrum över hela Sverige.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.globalconstruction.se/projekt">
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Specific overrides for landing pages */
-        #main-header .nav-links a {
-            color: #111111 !important;
-        }
-        #main-header .nav-links a:hover {
-            color: var(--primary-color) !important;
-        }
-        #main-header #logo-img {
-            filter: none !important;
-            content: url('logo.png') !important;
-        }
-        #main-header .menu-toggle span {
-            background-color: #111111 !important;
-        }
-    </style>
 
-    <!-- Google reCAPTCHA v3 (Replace YOUR_SITE_KEY with real key) -->
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+    <!-- JSON-LD: CollectionPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Våra Projekt",
+        "description": "En samling av Global Constructions mest framstående projekt inom byggkonstruktion och skyddsrum.",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.globalconstruction.se/" },
+                { "@type": "ListItem", "position": 2, "name": "Projekt", "item": "https://www.globalconstruction.se/projekt.html" }
+            ]
+        }
+    }
+    </script>
 </head>
-<body class="contact-page">
+<body class="about-page projects-page">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9QNLFS9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+    <a href="#main-content" class="sr-only sr-only-focusable">Hoppa till huvudinnehåll</a>
 
         <header id="main-header" role="banner">
         <nav class="navbar" aria-label="Huvudnavigering">
@@ -53,8 +54,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">HEM</a></li>
                 <li role="none"><a href="index.html#tjanster" role="menuitem">TJÄNSTER</a></li>
-                <li role="none"><a href="priser.html" role="menuitem">PRISER</a></li>
-                <li role="none"><a href="projekt.html" role="menuitem">PROJEKT</a></li>
                 <li role="none"><a href="om-oss.html" role="menuitem">OM OSS</a></li>
             </ul>
             <div class="header-cta">
@@ -82,148 +81,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <li><a href="relining.html">Relining</a></li>
                     </ul>
                 </li>
-                <li><a href="priser.html" class="mobile-menu-link">Priser</a></li>
-                <li><a href="projekt.html" class="mobile-menu-link">Projekt</a></li>
                 <li><a href="om-oss.html" class="mobile-menu-link">Om oss</a></li>
                 <li><a href="index.html#kontakt" class="mobile-menu-link">Kontakt</a></li>
             </ul>
         </div>
     </header>
 
-            <main id="main-content">
-        <section class="swoosh-hero" style="background-color: #faf8f5; padding: 160px 0 100px 0; overflow: hidden;">
-            <div class="container" style="max-width: 1400px; width: 95%; margin: 0 auto; padding: 0;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                    
-                    <!-- Left: White Card -->
-                    <div style="background: #ffffff; border-radius: 32px; padding: 4rem 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.03); z-index: 2; position: relative;">
-                        <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-family: 'Inter', sans-serif; font-weight: 700; color: #0b0b0b; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;">
-                            Projekt
-                        </h1>
-                        <p style="font-size: 1.25rem; color: #475569; line-height: 1.6; margin-bottom: 2.5rem;">
-                            Håll dig uppdaterad med det senaste från Nordx Relining. Här delar vi spännande referensprojekt, insikter från branschen och uppdateringar kring våra relining-, stamspolnings- och rörinspektionsprojekt runt om i Sverige.
-                        </p>
+    <main id="main-content">
+
+        <!-- Projects Hero -->
+        <section class="projects-hero about-hero-redesign global-subpage-hero" aria-label="Projekt hero">
+            <div class="about-hero-container">
+                <div class="about-hero-text fade-in-left">
+                    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+                        <a href="/">Hem</a>
+                        <span aria-hidden="true">/</span>
+                        <span aria-current="page">Projekt</span>
+                    </nav>
+                    <h1>Referensprojekt inom konstruktion & skyddsrum i Sverige</h1>
+                    <p class="hero-intro">Expertis som bygger trygghet och hållbarhet över hela landet.</p>
+                    <div class="hero-body">
+                        <p><span class="drop-cap">V</span>åra projekt sträcker sig över hela landet. Vi erbjuder expertis inom allt från komplexa stål- och betongkonstruktioner vid nybyggnation av bostäder till teknisk projektering av certifierade skyddsrum. Varje uppdrag utförs med fokus på teknisk precision och svensk byggstandard.</p>
                     </div>
-
-                    <!-- Right: Featured Project inside Rectangular Pipe Frame -->
-                    <div class="pipe-popup-wrapper" style="position: relative; width: 100%; max-width: 600px; margin: 0 auto; transform: none; opacity: 1; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12)); z-index: 2;">
-                        
-                        <!-- Rör-ram -->
-                        <div class="p-pipe p-top">
-                            <div class="p-muff" style="left: 15%;"></div>
-                            <div class="p-muff" style="right: 15%;"></div>
-                        </div>
-                        <div class="p-pipe p-bottom">
-                            <div class="p-muff" style="left: 50%; transform: translateY(-50%) translateX(-50%);"></div>
-                        </div>
-                        <div class="p-pipe p-left">
-                            <div class="p-muff-v" style="top: 25%;"></div>
-                        </div>
-                        <div class="p-pipe p-right">
-                            <div class="p-muff-v" style="top: 75%;"></div>
-                        </div>
-                        
-                        <div class="p-corner p-tl"></div>
-                        <div class="p-corner p-tr"></div>
-                        <div class="p-corner p-bl"></div>
-                        <div class="p-corner p-br"></div>
-
-                        <!-- Innehåll (Featured Project) -->
-                        <a href="#" class="featured-project" style="position: relative; z-index: 10; margin: 0; width: 100%; height: 100%; min-height: 450px; border-radius: 0; box-shadow: none;">
-                            <img src="proj-relining-featured.png" alt="Relining i Stockholm" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                            <div class="featured-project-overlay" style="z-index: 3;">
-                                <div class="featured-project-meta">
-                                    <span class="category">Relining</span>
-                                    <span class="date">29 jul 2026</span>
-                                </div>
-                                <h2>Stort relining-projekt i Stockholm</h2>
-                                <p>Läs om hur vi framgångsrikt renoverade hela rörsystemet för en av Stockholms största bostadsrättsföreningar utan att de boende behövde evakueras.</p>
-                                <span class="featured-project-btn">Läs inlägg</span>
-                            </div>
-                        </a>
-                    </div>
-
+                </div>
+                <div class="about-hero-illustration fade-in-right">
+                    <img src="projects-hero.png" 
+                         alt="Illustration av arkitektens skrivbord med ritningar och verktyg" 
+                         width="800" height="533"
+                         loading="eager"
+                         fetchpriority="high">
                 </div>
             </div>
-            
-            <style>
-                @media (max-width: 900px) {
-                    .swoosh-hero > .container > div {
-                        grid-template-columns: 1fr !important;
-                        gap: 2rem !important;
-                    }
-                    .swoosh-hero {
-                        padding: 120px 0 60px 0 !important;
-                    }
-                }
-            </style>
         </section>
 
-        <section class="service-page-content" id="projects-content" style="padding: 100px 0; background: #ffffff; position: relative; overflow: hidden;">
-            <div class="container layout-wrapper" style="max-width: 1400px; width: 95%; margin: 0 auto; position: relative; z-index: 2;">
-                
-                <div class="projects-section" style="padding: 0; width: 100%;">
-                    
-                    <!-- Filter Navigation -->
-                    <div class="nordx-filter-nav fade-in" style="margin-top: 0;">
-                        <button class="nordx-filter-btn active" data-filter="all" aria-selected="true">ALLA</button>
-                        <button class="nordx-filter-btn" data-filter="relining" aria-selected="false">RELINING</button>
-                        <button class="nordx-filter-btn" data-filter="stamspolning" aria-selected="false">STAMSPOLNING</button>
-                        <button class="nordx-filter-btn" data-filter="rorinspektion" aria-selected="false">RÖRINSPEKTION</button>
-                    </div>
-
-                    <!-- Grid med horisontella kort, 3 i bredd -->
-                    <div class="projects-grid-3">
-                        
-                        <!-- Kort 1 -->
-                        <a href="#" class="project-card-v2 premium-blog-card visible" data-category="stamspolning">
-                            <div class="project-card-v2-media">
-                                <img src="proj-stamspolning.png" alt="Stamspolning i Vasastan">
-                            </div>
-                            <div class="project-card-v2-content">
-                                <div class="project-card-v2-meta">
-                                    <span>26 jul 2026</span> | <span>Stamspolning</span>
-                                </div>
-                                <h3>Förebyggande spolning BRF</h3>
-                                <p>Underhåll av rörsystem för en större fastighet. Optimerat flöde och minskad risk för framtida stopp.</p>
-                                <span class="project-card-v2-btn">Läs mer</span>
-                            </div>
-                        </a>
-
-                        <!-- Kort 2 -->
-                        <a href="#" class="project-card-v2 premium-blog-card visible" data-category="rorinspektion">
-                            <div class="project-card-v2-media">
-                                <img src="proj-rorinspektion.png" alt="Rörinspektion">
-                            </div>
-                            <div class="project-card-v2-content">
-                                <div class="project-card-v2-meta">
-                                    <span>24 jul 2026</span> | <span>Rörinspektion</span>
-                                </div>
-                                <h3>Rörinspektion efter läckage</h3>
-                                <p>Kamerainspektion i en villa där läckage misstänktes. Vi identifierade problemen snabbt och åtgärdade det.</p>
-                                <span class="project-card-v2-btn">Läs mer</span>
-                            </div>
-                        </a>
-
-                        <!-- Kort 3 -->
-                        <a href="#" class="project-card-v2 premium-blog-card visible" data-category="relining">
-                            <div class="project-card-v2-media">
-                                <img src="proj-relining-comm.png" alt="Relining Nacka">
-                            </div>
-                            <div class="project-card-v2-content">
-                                <div class="project-card-v2-meta">
-                                    <span>20 jul 2026</span> | <span>Relining</span>
-                                </div>
-                                <h3>Relining i kommersiell fastighet</h3>
-                                <p>Totalrenovering av avloppssystem under pågående verksamhet. Hållbar lösning med minimala störningar.</p>
-                                <span class="project-card-v2-btn">Läs mer</span>
-                            </div>
-                        </a>
-
+        <!-- Project Filter & Info -->
+        <section class="projects-content-section" aria-labelledby="grid-heading">
+            <div class="projects-container">
+                <div class="projects-header fade-in">
+                    <h2 id="grid-heading">Valda uppdrag</h2>
+                    <select class="mobile-filter-dropdown" aria-label="Filtrera projekt">
+                        <option value="all">Alla</option>
+                        <option value="konstruktion">Konstruktion</option>
+                        <option value="skyddsrum">Skyddsrum</option>
+                    </select>
+                    <div class="project-filter-bar" role="tablist" aria-label="Filtrera projekt">
+                        <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">Alla <span class="filter-count">6</span></button>
+                        <button class="filter-btn" role="tab" aria-selected="false" data-filter="konstruktion">Konstruktion <span class="filter-count">4</span></button>
+                        <button class="filter-btn" role="tab" aria-selected="false" data-filter="skyddsrum">Skyddsrum <span class="filter-count">2</span></button>
                     </div>
                 </div>
-                
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Projects are loaded dynamically from Supabase -->
+                </div>
             </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="faq-cta-strip" aria-labelledby="cta-strip-heading">
+            <h2 id="cta-strip-heading">Har du ett kommande projekt? Vi hjälper dig framåt.</h2>
+            <p>Kontakta oss direkt – vi återkommer inom 24 timmar.</p>
+            <a href="kontakt.html" class="btn btn-premium-light">KOM I KONTAKT</a>
         </section>
     </main>
 
@@ -295,23 +214,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
-    <script src="main.js?v=1349" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://ubaolkuyccfyurphdmgf.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_CfltW1c2YJf0V9jC3poE9Q_FmaBjxCI";
+        const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        console.log("Supabase klient initierad:", _supabase);
+
+        async function fetchProjects() {
+            console.log("Hämtar projekt...");
+            const { data: projects, error } = await _supabase
+                .from('Project')
+                .select('*')
+                .order('createdAt', { ascending: false });
+
+            if (error) {
+                console.error("Fel vid hämtning av projekt:", error);
+                return;
+            }
+
+            console.log("Projekt hämtade:", projects);
+
+            const grid = document.querySelector('.projects-grid');
+            if (!grid) {
+                console.warn("Grid hittades inte.");
+                return;
+            }
+
+            // Rensa grid från hårdkodade projekt
+            grid.innerHTML = '';
+
+            // Uppdatera räknare i filter-knapparna
+            const categories = ['konstruktion', 'skyddsrum'];
+            categories.forEach(cat => {
+                const count = projects.filter(p => (p.category || 'konstruktion').toLowerCase() === cat).length;
+                const badge = document.querySelector(`[data-filter="${cat}"] .filter-count`);
+                if (badge) badge.textContent = count;
+                
+                const option = document.querySelector(`.mobile-filter-dropdown option[value="${cat}"]`);
+                if (option) option.textContent = `${cat.charAt(0).toUpperCase() + cat.slice(1)} (${count})`;
+            });
+            const allBadge = document.querySelector(`[data-filter="all"] .filter-count`);
+            if (allBadge) allBadge.textContent = projects.length;
+            
+            const allOption = document.querySelector(`.mobile-filter-dropdown option[value="all"]`);
+            if (allOption) allOption.textContent = `Alla (${projects.length})`;
+
+            if (!projects.length) {
+                grid.innerHTML = '<div style="text-align: center; padding: 4rem; grid-column: 1/-1; color: #cbd5e0; font-weight: 600;">Inga projekt hittades i databasen.</div>';
+                return;
+            }
+
+            // Injektera projekt
+            projects.forEach(project => {
+                const date = new Date(project.createdAt).toLocaleDateString('sv-SE');
+                const category = (project.category || 'konstruktion').toLowerCase();
+                const card = `
+                <article class="project-card fade-in" data-category="${category}">
+                    <div class="project-card-media">
+                        <img src="${(project.images && project.images[0]) || (project.gallery && project.gallery[0]) || project.featuredImage || 'project-1.jpg'}" alt="${project.title}" loading="lazy" width="600" height="400">
+                    </div>
+                    <div class="project-card-content">
+                        <div class="project-card-meta">
+                            <span>${date}</span>
+                            <span class="meta-separator">|</span>
+                            <span>${project.category || 'Konstruktion'}</span>
+                            <span class="meta-separator">|</span>
+                            <span>${project.city || 'Sverige'}</span>
+                        </div>
+                        <h3>${project.title}</h3>
+                        <p>${project.metaDescription || ''}</p>
+                        <a href="projekt-detalj.html?slug=${project.slug}" class="btn-read-more">Läs mer</a>
+                    </div>
+                </article>
+                `;
+                grid.insertAdjacentHTML('beforeend', card);
+            });
+
+            console.log("Projekt injicerade och räknare uppdaterade.");
+
+            // Applicera mjuk animering på de nya korten
+            const newCards = grid.querySelectorAll('.project-card.fade-in');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            newCards.forEach(c => observer.observe(c));
+
+            if (window.applyFilters) window.applyFilters();
+        }
+
+        fetchProjects();
+    </script>
+    <script src="main.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

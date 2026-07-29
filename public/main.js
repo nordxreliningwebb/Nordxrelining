@@ -12,35 +12,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sticky Header on Scroll
     window.addEventListener('scroll', () => {
-        const logoImg = document.getElementById('logo-img');
-        const isHomePage = document.body.classList.contains('home-page');
-        
         if (window.scrollY > 50) {
             header.classList.add('sticky');
-            if (isHomePage && logoImg) {
-                logoImg.src = 'logo.png';
-            }
         } else {
             header.classList.remove('sticky');
-            if (isHomePage && logoImg) {
-                logoImg.src = 'nordxrelininglogo2.png';
-            }
         }
     });
 
-    // Mobile Menu Toggle
-    if (menuToggle && navLinks) {
+    // Mobile Menu Toggle (Slide-out Drawer)
+    const mobileDrawer = document.getElementById('mobile-drawer-menu');
+    const drawerOverlay = document.getElementById('mobile-drawer-overlay');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+    if (menuToggle && mobileDrawer && drawerOverlay) {
         menuToggle.addEventListener('click', () => {
-            const isOpen = menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isOpen);
-            menuToggle.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-            
-            // Close dropdowns when menu is closed
-            if (!isOpen) {
-                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            mobileDrawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        });
+
+        const closeDrawer = () => {
+            mobileDrawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
+        };
+
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        // Stäng menyn när man klickar på en vanlig länk (inte submenu-togglen)
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            if (link.id !== 'mobile-submenu-toggle') {
+                link.addEventListener('click', closeDrawer);
             }
         });
+
+        // Submeny Dragspel (Accordion)
+        const submenuToggle = document.getElementById('mobile-submenu-toggle');
+        const submenu = document.getElementById('mobile-tjanster-submenu');
+        if (submenuToggle && submenu) {
+            submenuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                submenuToggle.classList.toggle('active');
+                if (submenu.style.maxHeight) {
+                    submenu.style.maxHeight = null;
+                } else {
+                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                }
+            });
+        }
     }
 
     // Mobile Dropdown Toggle (Click-to-expand)
@@ -892,4 +914,396 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+/* =====================================================
+   DYNAMIC RESPONSIVE PIPE ANIMATION (STAMSPOLNING)
+   ===================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const pipeGroup = document.getElementById('dynamic-pipe-group');
+    const nozzleGroup = document.getElementById('dynamic-nozzle');
+    const pipeDefs = document.getElementById('dynamic-pipe-defs');
+    if (!pipeGroup || !nozzleGroup || !pipeDefs) return;
+
+    const container = document.getElementById('stamspolning-content');
+    const introText = document.getElementById('intro-text');
+    const stepsHeading = document.getElementById('steg-for-steg-heading');
+    
+    let cachedScrollRange = 0;
+    let cachedScrollStartOffset = 0;
+    let pipePathString = '';
+    let totalLength = 0;
+    const nozzlePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    
+    // Add organic filter for dirt
+    pipeDefs.innerHTML += `
+        <filter id="organic-dirt" x="-20%" y="-20%" width="140%" height="140%">
+            <!-- X=0.03, Y=0.003 skapar långa vertikala strimmor av smuts istället för runda prickar -->
+            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.003" numOctaves="3" result="noise" />
+            <!-- Mjukare kontrast för att se ut som smet och olja -->
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 6 -2.5" result="alphaNoise" />
+            <feComposite operator="in" in="SourceGraphic" in2="alphaNoise" result="maskedDirt" />
+            <feDropShadow in="maskedDirt" dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.7" />
+        </filter>
+        <mask id="dirt-mask">
+            <!-- White reveals everything -->
+            <path id="mask-bg" stroke="white" stroke-width="106" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+            <!-- Black hides everything (this will be animated to erase the dirt) -->
+            <path id="mask-eraser" stroke="black" stroke-width="106" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+        </mask>
+    `;
+
+    // 1. Background Shadow
+    const bgShadow = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bgShadow.setAttribute('fill', '#000000');
+    bgShadow.setAttribute('opacity', '0.05');
+    bgShadow.setAttribute('style', 'filter: blur(15px);');
+    
+    // 2. Main Pipe (Single Rect with gradient)
+    const pipeBase = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    pipeBase.setAttribute('fill', 'url(#premium-pipe)');
+    
+    // Inner occlusion shadow
+    const innerOcclusion = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    innerOcclusion.setAttribute('fill', 'none');
+    innerOcclusion.setAttribute('stroke', '#000000');
+    innerOcclusion.setAttribute('stroke-opacity', '0.15');
+    innerOcclusion.setAttribute('stroke-width', '20');
+    innerOcclusion.setAttribute('style', 'filter: blur(6px);');
+    
+    // 3. Dirt Group
+    const dirtGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    dirtGroup.setAttribute('mask', 'url(#dirt-mask)');
+    
+    
+    
+    
+    
+    // 1. Skapa själva den tecknade texturen (som referensbilden)
+    if (pipeDefs && !document.getElementById('cartoon-dirt-texture')) {
+        const texturePattern = document.createElementNS('http://www.w3.org/2000/svg', 'pattern');
+        texturePattern.setAttribute('id', 'cartoon-dirt-texture');
+        texturePattern.setAttribute('x', '0');
+        texturePattern.setAttribute('y', '0');
+        texturePattern.setAttribute('width', '256');
+        texturePattern.setAttribute('height', '256');
+        texturePattern.setAttribute('patternUnits', 'userSpaceOnUse');
+        
+        texturePattern.innerHTML = `
+            <image href="/comic-dirt.png" x="0" y="0" width="256" height="256" preserveAspectRatio="none" style="filter: brightness(0.7) contrast(1.2) saturate(1.2);" />
+        `;
+        pipeDefs.appendChild(texturePattern);
+    }
+    
+    // 2. Skapa den organiska formen (masken) och den svarta konturen (filtret)
+    if (pipeDefs && !document.getElementById('turbulence-mask-filter')) {
+        // Gradient för att tvinga smutsen mot kanterna
+        const edgeGrad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+        edgeGrad.setAttribute('id', 'edge-gradient');
+        edgeGrad.innerHTML = `
+            <stop offset="0%" stop-color="white" stop-opacity="0.45" />
+            <stop offset="20%" stop-color="white" stop-opacity="0.35" />
+            <stop offset="45%" stop-color="white" stop-opacity="0.2" />
+            <stop offset="55%" stop-color="white" stop-opacity="0.2" />
+            <stop offset="80%" stop-color="white" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="white" stop-opacity="0.45" />
+        `;
+        pipeDefs.appendChild(edgeGrad);
+
+        const turbFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        turbFilter.setAttribute('id', 'turbulence-mask-filter');
+        turbFilter.innerHTML = `
+            <feTurbulence id="turb-noise-mask" type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="4" result="noise" />
+            <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 25 -12" result="sharpNoise" />
+            <feComposite operator="in" in="SourceGraphic" in2="sharpNoise" />
+        `;
+        pipeDefs.appendChild(turbFilter);
+
+        const organicMask = document.createElementNS('http://www.w3.org/2000/svg', 'mask');
+        organicMask.setAttribute('id', 'organic-shape-mask');
+        organicMask.innerHTML = `
+            <rect id="organic-mask-rect" width="100%" height="100%" fill="url(#edge-gradient)" filter="url(#turbulence-mask-filter)" />
+        `;
+        pipeDefs.appendChild(organicMask);
+
+        const strokeFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        strokeFilter.setAttribute('id', 'comic-stroke-filter');
+        strokeFilter.setAttribute('x', '-20%');
+        strokeFilter.setAttribute('y', '-20%');
+        strokeFilter.setAttribute('width', '140%');
+        strokeFilter.setAttribute('height', '140%');
+        strokeFilter.innerHTML = `
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="dilated" />
+            <feColorMatrix in="dilated" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="blackStroke" />
+            <feMerge result="outlined">
+                <feMergeNode in="blackStroke" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+            <feDropShadow in="outlined" dx="0" dy="5" stdDeviation="4" flood-color="#000000" flood-opacity="0.8" />
+        `;
+        pipeDefs.appendChild(strokeFilter);
+    }
+    
+    // Ta bort den gamla comic-clogs pattern om den finns
+    const oldClogs = document.getElementById('comic-clogs');
+    if (oldClogs) oldClogs.remove();
+
+    // 3. Applicera masken och filtret på en grupp, och fyll med texturen
+    const organicGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    organicGroup.setAttribute('mask', 'url(#organic-shape-mask)');
+    organicGroup.setAttribute('style', '');
+
+    const dirtRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    dirtRect.setAttribute('width', '100%');
+    dirtRect.setAttribute('height', '100%');
+    dirtRect.setAttribute('fill', 'url(#cartoon-dirt-texture)');
+    
+    organicGroup.appendChild(dirtRect);
+    dirtGroup.appendChild(organicGroup);
+
+
+
+    
+    // Replace the mask definitions to use rects instead of strokes
+    const existingMask = document.getElementById('dirt-mask');
+    if (existingMask) {
+        existingMask.innerHTML = `
+            <rect id="mask-bg" fill="white" />
+            <rect id="mask-eraser" fill="black" />
+        `;
+    }
+    
+    // 4. Hose Layers
+    const hoseRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    hoseRect.setAttribute('fill', '#111827');
+    const hoseHighlight = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    hoseHighlight.setAttribute('fill', '#475569');
+    hoseHighlight.setAttribute('opacity', '0.6');
+    const hosePeak = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    hosePeak.setAttribute('fill', '#ffffff');
+    hosePeak.setAttribute('opacity', '0.4');
+
+    // Append everything in correct z-index order
+    pipeGroup.appendChild(bgShadow);
+    pipeGroup.appendChild(pipeBase);
+    pipeGroup.appendChild(innerOcclusion);
+    pipeGroup.appendChild(dirtGroup);
+    pipeGroup.appendChild(hoseRect);
+    pipeGroup.appendChild(hoseHighlight);
+    pipeGroup.appendChild(hosePeak);
+
+    let startX = 0;
+    let startY = 0;
+    let pipeWidth = 120;
+
+    function drawPipe() {
+        if (!container || !introText || !stepsHeading) return;
+        
+        const cRect = container.getBoundingClientRect();
+        const absoluteTop = cRect.top + window.scrollY;
+        cachedScrollRange = cRect.height;
+        
+        const isMobile = window.innerWidth <= 768;
+        pipeWidth = isMobile ? 35 : 120;
+        
+        // Starta animationen lite tidigare på mobilen (utan att överdriva så att den hinner försvinna)
+        cachedScrollStartOffset = absoluteTop + (isMobile ? 0 : 200);
+        
+        const wrapper = container.querySelector('.layout-wrapper');
+        const wrapperRect = wrapper.getBoundingClientRect();
+        
+        // Rr-startpunkt
+        startX = wrapperRect.left - cRect.left + (wrapperRect.width * 0.75) - (pipeWidth/2); // fallback
+        const heroImg = document.querySelector('.swoosh-hero .container > div > div:nth-child(2)');
+        
+        if (heroImg) {
+            const imgRect = heroImg.getBoundingClientRect();
+            if (isMobile) {
+                // Placeras allra lngst t hger med 25px marginal (lite mer padding till skrmkanten)
+                startX = cRect.width - pipeWidth - 25;
+            } else {
+                // Centrera rret under den runda bilden. startX r rrets vnsterkant.
+                startX = imgRect.left + (imgRect.width / 2) - cRect.left - (pipeWidth / 2);
+            }
+        } else if (isMobile) {
+            startX = cRect.width - pipeWidth - 25;
+        }
+
+        
+
+        startY = -350; 
+        const endY = cRect.height + 300; 
+        totalLength = endY - startY;
+        
+        // Update all static rects
+        
+        
+        const turbNoise = document.getElementById('turb-noise-mask');
+        if (turbNoise) {
+            // Minska frekvensen på mobilen så det inte blir för grynigt/pixligt
+            const freqX = isMobile ? 0.015 : 0.01;
+            turbNoise.setAttribute('baseFrequency', `${freqX} 0.015`);
+        }
+        
+        const dirtPattern = document.getElementById('cartoon-dirt-texture');
+        if (dirtPattern) {
+            const textureWidth = pipeWidth * (256/120);
+            dirtPattern.setAttribute('x', startX);
+            dirtPattern.setAttribute('width', textureWidth);
+            dirtPattern.setAttribute('height', textureWidth);
+            const patternImage = dirtPattern.querySelector('image');
+            if (patternImage) {
+                patternImage.setAttribute('width', textureWidth);
+                patternImage.setAttribute('height', textureWidth);
+            }
+        }
+        
+        const organicMaskRect = document.getElementById('organic-mask-rect');
+        if (organicMaskRect) {
+            organicMaskRect.setAttribute('x', startX);
+            organicMaskRect.setAttribute('y', startY);
+            organicMaskRect.setAttribute('width', pipeWidth);
+            organicMaskRect.setAttribute('height', totalLength);
+        }
+        [bgShadow, pipeBase, innerOcclusion, dirtRect].forEach(el => {
+            el.setAttribute('x', startX);
+            el.setAttribute('y', startY);
+            el.setAttribute('width', pipeWidth);
+            el.setAttribute('height', totalLength);
+        });
+        
+        // Mask backgrounds
+        const maskBg = document.getElementById('mask-bg');
+        if (maskBg) {
+            maskBg.setAttribute('x', startX - 20); // slightly wider to ensure coverage
+            maskBg.setAttribute('y', startY);
+            maskBg.setAttribute('width', pipeWidth + 40);
+            maskBg.setAttribute('height', totalLength);
+        }
+        
+        // Setup hoses horizontally (height is animated)
+        const hoseWidth = isMobile ? 5 : 14;
+        hoseRect.setAttribute('x', startX + (pipeWidth / 2) - (hoseWidth / 2));
+        hoseRect.setAttribute('y', startY);
+        hoseRect.setAttribute('width', hoseWidth);
+        
+        const hwHighlight = isMobile ? 2 : 6;
+        hoseHighlight.setAttribute('x', startX + (pipeWidth / 2) - (hwHighlight / 2));
+        hoseHighlight.setAttribute('y', startY);
+        hoseHighlight.setAttribute('width', hwHighlight);
+        
+        const hwPeak = isMobile ? 1 : 2;
+        hosePeak.setAttribute('x', startX + (pipeWidth / 2) - (hwPeak / 2));
+        hosePeak.setAttribute('y', startY);
+        hosePeak.setAttribute('width', hwPeak);
+        
+        updateScroll();
+    }
+    
+    let isSpraying = false;
+    let sprayTimeout = null;
+    let lastScrollPos = window.scrollY;
+
+    function doUpdateScroll() {
+        if (totalLength === 0) return;
+        const windowHeight = window.innerHeight;
+        const currentCenter = window.scrollY + (windowHeight / 2);
+        
+        let progress = (currentCenter - cachedScrollStartOffset) / cachedScrollRange;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+        
+        const currentLength = progress * totalLength;
+        const currentY = startY + currentLength;
+        
+        nozzleGroup.style.opacity = 1;
+        nozzleGroup.style.transformOrigin = `100px -5px`;
+        // Nozzle svg has its center at X=100. We want its center to match startX + 60.
+        // So translate = (startX + 60) - 100
+        // Nozzle center is at 100. We want it at startX + pipeWidth/2
+        const nozzleScale = (typeof pipeWidth !== 'undefined' && pipeWidth === 35) ? 0.30 : 1;
+        nozzleGroup.style.transform = `translate(${startX + (pipeWidth/2) - 100}px, ${currentY + 5}px) scale(${nozzleScale})`;
+        
+        // Update hose heights
+        hoseRect.setAttribute('height', currentLength);
+        hoseHighlight.setAttribute('height', currentLength);
+        hosePeak.setAttribute('height', currentLength);
+        
+        // Update mask eraser
+        const maskEraser = document.getElementById('mask-eraser');
+        if (maskEraser) {
+            const isInspection = document.getElementById('camera-cable-group') !== null;
+            let eraserHeightOffset = 30; // default for desktop / stamspolning
+            
+            if (isInspection) {
+                // Snail trail for camera inspection
+                if (pipeWidth === 35) {
+                    maskEraser.setAttribute('x', startX + 11.5);
+                    maskEraser.setAttribute('width', 12);
+                    eraserHeightOffset = 8; // Erase only behind the camera on mobile
+                } else {
+                    maskEraser.setAttribute('x', startX + 25);
+                    maskEraser.setAttribute('width', 70);
+                }
+            } else {
+                // Full clean for stamspolning
+                maskEraser.setAttribute('x', startX - 20);
+                maskEraser.setAttribute('width', pipeWidth + 40);
+            }
+            maskEraser.setAttribute('y', startY);
+            maskEraser.setAttribute('height', currentLength + eraserHeightOffset); // erase down to the correct level
+        }
+
+        // Handle spray animation
+        const isScrollingDown = window.scrollY > lastScrollPos;
+        lastScrollPos = window.scrollY;
+        
+        if (!isSpraying && progress > 0 && progress < 1) {
+            isSpraying = true;
+            nozzleGroup.classList.add('is-spraying');
+        }
+        
+        clearTimeout(sprayTimeout);
+        sprayTimeout = setTimeout(() => {
+            isSpraying = false;
+            nozzleGroup.classList.remove('is-spraying');
+        }, 150);
+    }
+    
+    let ticking = false;
+    function updateScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                doUpdateScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    window.addEventListener('resize', drawPipe);
+    window.addEventListener('scroll', updateScroll, { passive: true });
+
+    setTimeout(drawPipe, 100);
+
+    // --- Water Fill Service Cards Animation ---
+    const waterFillCards = document.querySelectorAll('.water-fill-card');
+    if (waterFillCards.length > 0) {
+        const waterObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Slight delay for domino effect based on DOM index
+                    const index = Array.from(waterFillCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('is-filled');
+                    }, index * 200);
+                    waterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        
+        waterFillCards.forEach(card => waterObserver.observe(card));
+    }
+});
 
