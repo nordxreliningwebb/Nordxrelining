@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary-light: #E0E1DD;
     --secondary-blue: #415A77;
     --dark-navy: #1B263B;
@@ -11327,7 +11327,23 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     text-align: left;
     min-height: 500px;
+    
+    /* Crossfade animation */
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+    pointer-events: none;
+    z-index: 1;
 }
+
+.project-slider-card.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+}
+
 .project-slider-image {
     background: #e2e8f0;
     width: 100%;
@@ -11351,7 +11367,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    color: #cbd5e1;
+    color: #ffffff;
 }
 
 .project-slider-pagination {
@@ -11410,4 +11426,65 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     .project-slider-content {
         padding: 2rem 1.5rem;
     }
+}
+
+.project-slider-wrapper {
+    display: grid;
+    position: relative;
+}
+
+/* Project Card Details */
+.project-slider-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+}
+.project-category {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+}
+.project-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #bae6fd;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+.project-btn {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #0284c7;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    border: 1px solid transparent;
+}
+.project-btn:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
 }
