@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary-light: #E0E1DD;
     --secondary-blue: #415A77;
     --dark-navy: #1B263B;
@@ -10473,15 +10473,6 @@ body.home-page #main-header:not(.sticky) {
 body.home-page #main-header:not(.sticky) .nav-links a {
     color: #ffffff !important;
 }
-body.home-page #main-header:not(.sticky) .btn-ghost {
-    background: transparent !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-}
-body.home-page #main-header:not(.sticky) .btn-ghost:hover {
-    background: #ffffff !important;
-    color: #0b0b0b !important;
-}
 
 
 /* Adjust hero height since it now goes to the top */
@@ -10630,7 +10621,7 @@ body.blog-page #main-header .header-cta .btn-ghost,
 body.contact-page #main-header .header-cta .btn-ghost,
 body.journal-page #main-header .header-cta .btn-ghost,
 #main-header.sticky .header-cta .btn-ghost {
-    background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%) !important;
+    background: linear-gradient(to top, #0056b3 0%, #0fb3ff 100%) !important;
     color: #fff !important;
     border: none !important;
 }
@@ -10641,7 +10632,7 @@ body.blog-page #main-header .header-cta .btn-ghost:hover,
 body.contact-page #main-header .header-cta .btn-ghost:hover,
 body.journal-page #main-header .header-cta .btn-ghost:hover,
 #main-header.sticky .header-cta .btn-ghost:hover {
-    background: linear-gradient(135deg, #0056b3 0%, #0fb3ff 100%) !important;
+    background: linear-gradient(to top, #0fb3ff 0%, #0056b3 100%) !important;
     color: #fff !important;
     transform: translateY(-2px);
 }
@@ -11179,3 +11170,87 @@ body.home-page #main-header.sticky #logo-img {
     content: url('logo.png') !important;
     filter: none !important;
 }
+
+/* --- Desktop Dropdown Menu --- */
+@media (min-width: 993px) {
+    .nav-links .desktop-has-submenu {
+        position: relative;
+    }
+    
+    .nav-links .desktop-has-submenu > a {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 4px;
+        vertical-align: middle;
+    }
+
+    .nav-links .desktop-has-submenu .dropdown-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links .desktop-has-submenu:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .nav-links .desktop-submenu {
+        position: absolute;
+        top: 100%;
+        left: -1.5rem; /* Pull left by 1.5rem to offset the 1.5rem padding on the links */
+        transform: translateY(10px); /* Removed translateX(-50%) */
+        background: #ffffff;
+        min-width: 200px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+
+    .nav-links .desktop-has-submenu:hover .desktop-submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Removed translateX(-50%) */
+    }
+
+    .nav-links .desktop-submenu li {
+        margin: 0;
+    }
+
+    .nav-links .desktop-submenu a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        color: #1B263B !important;
+        font-weight: 500;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: left;
+    }
+
+    .nav-links .desktop-submenu a:hover {
+        background: rgba(2, 132, 199, 0.05);
+        color: #0284c7 !important;
+    }
+}
+
+/* Hide desktop submenu on mobile completely */
+@media (max-width: 992px) {
+    .nav-links .desktop-submenu {
+        display: none !important;
+    }
+    
+    .nav-links .desktop-has-submenu .dropdown-icon {
+        display: none;
+    }
+}
+/* Fix dropdown text visibility on transparent header */
+body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a {
+    color: #1B263B !important;
+}
+body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
+    color: #0284c7 !important;
+}
+

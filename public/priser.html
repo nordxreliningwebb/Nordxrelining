@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priser | Nordx Relining</title>
     <meta name="description" content="Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Kontakta Nordx Relining för teknisk rådgivning eller en kostnadsfri offert.">
-    <link rel="stylesheet" href="style.css?v=1351">
+    <link rel="stylesheet" href="style.css?v=1357">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #111111 !important;
         }
         #main-header .nav-links a:hover {
-            color: var(--primary-color) !important;
+            color: #0fb3ff !important;
         }
         #main-header #logo-img {
             filter: none !important;
@@ -46,15 +46,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <header id="main-header" role="banner">
         <nav class="navbar" aria-label="Huvudnavigering">
-            <a href="index.html" class="logo-link" aria-label="Nordx Relining â€“ Till startsidan">
+            <a href="index.html" class="logo-link" aria-label="Nordx Relining – Till startsidan">
                 <!-- Använder logo.png som enda logotyp -->
                 <img src="logo.png" alt="Nordx Relining logotyp" id="logo-img" width="220" height="auto" loading="eager">
             </a>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">HEM</a></li>
-                <li role="none"><a href="index.html#tjanster" role="menuitem">TJÄNSTER</a></li>
+                <li role="none" class="desktop-has-submenu">
+                    <a href="index.html#tjanster" role="menuitem" aria-haspopup="true" aria-expanded="false">TJÄNSTER <svg class="dropdown-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="desktop-submenu" role="menu" aria-label="Tjänster">
+                        <li role="none"><a href="stamspolning.html" role="menuitem">Stamspolning</a></li>
+                        <li role="none"><a href="rorinspektion.html" role="menuitem">Rörinspektion</a></li>
+                        <li role="none"><a href="relining.html" role="menuitem">Relining</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="priser.html" role="menuitem">PRISER</a></li>
                 <li role="none"><a href="projekt.html" role="menuitem">PROJEKT</a></li>
+                <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
                 <li role="none"><a href="om-oss.html" role="menuitem">OM OSS</a></li>
             </ul>
             <div class="header-cta">
@@ -74,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ul class="mobile-menu-list">
                 <li class="has-submenu">
                     <a href="#" class="mobile-menu-link" id="mobile-submenu-toggle">
-                        Tjänster <span class="arrow">â–¼</span>
+                        Tjänster <span class="arrow">▼</span>
                     </a>
                     <ul class="mobile-submenu" id="mobile-tjanster-submenu">
                         <li><a href="stamspolning.html">Stamspolning</a></li>
@@ -84,6 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </li>
                 <li><a href="priser.html" class="mobile-menu-link">Priser</a></li>
                 <li><a href="projekt.html" class="mobile-menu-link">Projekt</a></li>
+                <li><a href="faq.html" class="mobile-menu-link">FAQ</a></li>
                 <li><a href="om-oss.html" class="mobile-menu-link">Om oss</a></li>
                 <li><a href="index.html#kontakt" class="mobile-menu-link">Kontakt</a></li>
             </ul>
@@ -258,12 +267,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </section>
+        <!-- CTA SEKTION (Matchar andra sidor) -->
+        <section class="nordx-landing-cta" style="background: #0284c7; color: #ffffff; padding: 100px 20px; text-align: center; position: relative; overflow: hidden; margin-top: 0; z-index: 2; width: 100%; display: block;">
+            <style>
+                .nordx-landing-cta h2, .nordx-landing-cta p { text-transform: none !important; }
+                .nordx-landing-cta p { font-weight: 400 !important; }
+                .nordx-landing-cta .cta-btn-header-match {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+                    border: 1px solid #ffffff !important;
+                    border-radius: 6px !important;
+                    padding: 0.75rem 1.75rem !important;
+                    font-weight: 600 !important;
+                    font-size: 1rem !important;
+                    transition: all 0.3s ease !important;
+                    text-decoration: none;
+                    display: inline-block;
+                    text-transform: uppercase !important;
+                    box-shadow: none !important;
+                }
+                .nordx-landing-cta .cta-btn-header-match:hover {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+                    border: 1px solid #ffffff !important;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+                    transform: translateY(-4px) !important;
+                }
+            </style>
+            <!-- Dekoration för high-end känsla -->
+            <div style="position: absolute; top: -50%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+            
+            <div class="container" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; color: #ffffff; line-height: 1.2;">Få en exakt prisuppgift för er fastighet</h2>
+                <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem; opacity: 0.9;">Kontakta oss idag för att boka ett kostnadsfritt första besök och få en skräddarsydd offert utan dolda avgifter.</p>
+                <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                    <a href="kontakt.html" class="cta-btn-header-match">Kontakta oss</a>
+                    <a href="tel:+46703185110" class="cta-btn-header-match">Ring oss</a>
+                </div>
+            </div>
+        </section>
     </main>
 
         <footer class="complex-footer" role="contentinfo">
         <div class="footer-grid container">
             <div class="footer-brand">
-                <a href="index.html" aria-label="Nordx Relining â€“ Till startsidan">
+                <a href="index.html" aria-label="Nordx Relining – Till startsidan">
                     <img src="logo.png" alt="Nordx Relining logotyp" width="220" height="auto" loading="lazy">
                 </a>
                 <p>Nordx Relining bygger säkra och optimerade lösningar för fastigheters rörsystem. Din trygga partner inom stamspolning och relining.</p>
@@ -276,6 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li><a href="index.html#tjanster">Tjänster</a></li>
                     <li><a href="priser.html">Priser</a></li>
                     <li><a href="projekt.html">Projekt</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="om-oss.html">Om Oss</a></li>
                     <li><a href="index.html#kontakt">Kontakt</a></li>
                 </ul>
@@ -311,7 +361,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="footer-bottom-bar container">
             <div class="footer-bottom-left">
-                <p class="copyright">Â© 2026 Nordx Relining. Alla rättigheter reserverade.</p>
+                <p class="copyright">© 2026 Nordx Relining. Alla rättigheter reserverade.</p>
                 <nav class="footer-legal" aria-label="Juridisk information">
                     <a href="kopvillkor.html">Köpvillkor</a>
                     <span class="sep">|</span>

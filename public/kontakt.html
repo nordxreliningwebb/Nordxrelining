@@ -11,8 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakta oss fÃ¶r VVS och Relining | Nordx Relining</title>
-    <meta name="description" content="Vi hjÃ¤lper dig med relining, stamspolning och rÃ¶rinspektion i hela Sverige. Kontakta Nordx Relining fÃ¶r teknisk rÃ¥dgivning eller en kostnadsfri offert.">
+    <title>Kontakta oss för VVS och Relining | Nordx Relining</title>
+    <meta name="description" content="Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Kontakta Nordx Relining för teknisk rådgivning eller en kostnadsfri offert.">
     <link rel="stylesheet" href="style.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #111111 !important;
         }
         #main-header .nav-links a:hover {
-            color: var(--primary-color) !important;
+            color: #0fb3ff !important;
         }
         #main-header #logo-img {
             filter: none !important;
@@ -46,21 +46,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <header id="main-header" role="banner">
         <nav class="navbar" aria-label="Huvudnavigering">
-            <a href="index.html" class="logo-link" aria-label="Nordx Relining â€“ Till startsidan">
-                <!-- AnvÃ¤nder logo.png som enda logotyp -->
+            <a href="index.html" class="logo-link" aria-label="Nordx Relining – Till startsidan">
+                <!-- Använder logo.png som enda logotyp -->
                 <img src="logo.png" alt="Nordx Relining logotyp" id="logo-img" width="220" height="auto" loading="eager">
             </a>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">HEM</a></li>
-                <li role="none"><a href="index.html#tjanster" role="menuitem">TJÃ„NSTER</a></li>
+                <li role="none" class="desktop-has-submenu">
+                    <a href="index.html#tjanster" role="menuitem" aria-haspopup="true" aria-expanded="false">TJÄNSTER <svg class="dropdown-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="desktop-submenu" role="menu" aria-label="Tjänster">
+                        <li role="none"><a href="stamspolning.html" role="menuitem">Stamspolning</a></li>
+                        <li role="none"><a href="rorinspektion.html" role="menuitem">Rörinspektion</a></li>
+                        <li role="none"><a href="relining.html" role="menuitem">Relining</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="priser.html" role="menuitem">PRISER</a></li>
                 <li role="none"><a href="projekt.html" role="menuitem">PROJEKT</a></li>
+                <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
                 <li role="none"><a href="om-oss.html" role="menuitem">OM OSS</a></li>
             </ul>
             <div class="header-cta">
-                <a href="index.html#kontakt" class="btn btn-ghost" aria-label="GÃ¥ till kontaktformulÃ¤ret">KONTAKT</a>
+                <a href="index.html#kontakt" class="btn btn-ghost" aria-label="Gå till kontaktformuläret">KONTAKT</a>
             </div>
-            <button class="menu-toggle" aria-label="Ã–ppna meny" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -70,20 +78,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Mobile Drawer Menu -->
         <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
         <div class="mobile-drawer-menu" id="mobile-drawer-menu">
-            <button class="close-drawer-btn" id="close-drawer-btn" aria-label="StÃ¤ng meny">&times;</button>
+            <button class="close-drawer-btn" id="close-drawer-btn" aria-label="Stäng meny">&times;</button>
             <ul class="mobile-menu-list">
                 <li class="has-submenu">
                     <a href="#" class="mobile-menu-link" id="mobile-submenu-toggle">
-                        TjÃ¤nster <span class="arrow">â–¼</span>
+                        Tjänster <span class="arrow">▼</span>
                     </a>
                     <ul class="mobile-submenu" id="mobile-tjanster-submenu">
                         <li><a href="stamspolning.html">Stamspolning</a></li>
-                        <li><a href="rorinspektion.html">RÃ¶rinspektion</a></li>
+                        <li><a href="rorinspektion.html">Rörinspektion</a></li>
                         <li><a href="relining.html">Relining</a></li>
                     </ul>
                 </li>
                 <li><a href="priser.html" class="mobile-menu-link">Priser</a></li>
                 <li><a href="projekt.html" class="mobile-menu-link">Projekt</a></li>
+                <li><a href="faq.html" class="mobile-menu-link">FAQ</a></li>
                 <li><a href="om-oss.html" class="mobile-menu-link">Om oss</a></li>
                 <li><a href="index.html#kontakt" class="mobile-menu-link">Kontakt</a></li>
             </ul>
@@ -101,8 +110,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span aria-hidden="true">/</span>
                             <span aria-current="page">Kontakt</span>
                         </nav>
-                        <h1>Kontakta oss fÃ¶r relining & rÃ¶rinspektion</h1>
-                        <h2 class="contact-subheading">FÃ¥ hjÃ¤lp med relining, stamspolning och rÃ¶rinspektion i hela Sverige</h2>
+                        <h1>Kontakta oss för relining & rörinspektion</h1>
+                        <h2 class="contact-subheading">Få hjälp med relining, stamspolning och rörinspektion i hela Sverige</h2>
                     </div>
                     <div class="header-right">
                     </div>
@@ -143,14 +152,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="service">VÃ¤lj en tjÃ¤nst</label>
+                                    <label for="service">Välj en tjänst</label>
                                     <div class="input-with-icon">
                                         <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                                         <select id="service" name="service">
-                                            <option value="" disabled selected>VÃ¤lj tjÃ¤nst</option>
+                                            <option value="" disabled selected>Välj tjänst</option>
                                             <option value="relining">Relining</option>
                                             <option value="stamspolning">Stamspolning</option>
-                                            <option value="rorinspektion">RÃ¶rinspektion</option>
+                                            <option value="rorinspektion">Rörinspektion</option>
                                             <option value="konsultation">Generell konsultation</option>
                                         </select>
                                         <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -164,19 +173,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <div class="input-with-icon file-box">
                                         <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
                                         <div class="file-trigger-area">
-                                            <label for="file-upload" class="btn-file-mini">VÃ„LJ FIL</label>
+                                            <label for="file-upload" class="btn-file-mini">VÄLJ FIL</label>
                                             <span id="file-label-text">Ingen fil vald</span>
                                         </div>
                                         <input type="file" id="file-upload" name="file-upload" class="file-input-hidden" accept=".pdf,.jpg,.png,.dwg">
                                     </div>
-                                    <div id="file-error" style="color: #e53e3e; font-size: 0.85rem; margin-top: 0.5rem; display: none;">Filen Ã¤r fÃ¶r stor. Max 5MB tillÃ¥tet.</div>
+                                    <div id="file-error" style="color: #e53e3e; font-size: 0.85rem; margin-top: 0.5rem; display: none;">Filen är för stor. Max 5MB tillåtet.</div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="message">Meddelande</label>
-                                    <textarea id="message" name="message" placeholder="Beskriv ditt Ã¤rende (t.ex. relining eller stamspolning)" rows="6"></textarea>
+                                    <textarea id="message" name="message" placeholder="Beskriv ditt ärende (t.ex. relining eller stamspolning)" rows="6"></textarea>
                                 </div>
                             </div>
 
@@ -199,8 +208,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                 </svg>
                             </div>
-                            <h3>Tack fÃ¶r din fÃ¶rfrÃ¥gan!</h3>
-                            <p>Vi har tagit emot ditt meddelande och vÃ¥rt team Ã¥terkommer till dig inom 24 timmar.</p>
+                            <h3>Tack för din förfrågan!</h3>
+                            <p>Vi har tagit emot ditt meddelande och vårt team återkommer till dig inom 24 timmar.</p>
                             <button id="success-back-btn" class="btn btn-ghost" style="margin-top: 1.5rem; width: 100%;">TILLBAKA</button>
                         </div>
 
@@ -210,21 +219,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- New SEO & Content Section -->
                 <div class="contact-seo-content fade-in">
                     <div class="seo-text-block">
-                        <h2>Expertis inom relining och rÃ¶rsystem</h2>
-                        <p>Vi pÃ¥ Nordx Relining besitter djupgÃ¥ende kompetens inom underhÃ¥ll och renovering av fastigheters rÃ¶rsystem. VÃ¥rt dagliga arbete innefattar utfÃ¶randet av hÃ¶gkvalitativ <strong>relining</strong>, effektiv <strong>stamspolning</strong> och noggranna <strong>rÃ¶rinspektioner</strong> fÃ¶r allt frÃ¥n villor till stora flerbostadshus. Vi sÃ¤kerstÃ¤ller att varje rÃ¶rsystem Ã¥tgÃ¤rdas med metoder som uppfyller marknadens hÃ¶gsta standarder och sÃ¤kerhetskrav.</p>
+                        <h2>Expertis inom relining och rörsystem</h2>
+                        <p>Vi på Nordx Relining besitter djupgående kompetens inom underhåll och renovering av fastigheters rörsystem. Vårt dagliga arbete innefattar utförandet av högkvalitativ <strong>relining</strong>, effektiv <strong>stamspolning</strong> och noggranna <strong>rörinspektioner</strong> för allt från villor till stora flerbostadshus. Vi säkerställer att varje rörsystem åtgärdas med metoder som uppfyller marknadens högsta standarder och säkerhetskrav.</p>
                         
-                        <p>NÃ¤r det gÃ¤ller att fÃ¶rlÃ¤nga livslÃ¤ngden pÃ¥ avlopp har vi den teknik och erfarenhet som krÃ¤vs fÃ¶r att undvika dyra och tidskrÃ¤vande stambyten. Vi navigerar genom de strikta krav och regler som gÃ¤ller fÃ¶r modern fastighetsfÃ¶rvaltning. Vi utfÃ¶r statuskontroller, fÃ¶rebyggande underhÃ¥ll och sÃ¤kerstÃ¤ller att rÃ¶rens funktion bibehÃ¥lls Ã¶ver Ã¥rtionden.</p>
+                        <p>När det gäller att förlänga livslängden på avlopp har vi den teknik och erfarenhet som krävs för att undvika dyra och tidskrävande stambyten. Vi navigerar genom de strikta krav och regler som gäller för modern fastighetsförvaltning. Vi utför statuskontroller, förebyggande underhåll och säkerställer att rörens funktion bibehålls över årtionden.</p>
                         
-                        <p>Oavsett var du befinner dig eller hur dina specifika behov ser ut, levererar vi teknisk precision och expertvÃ¤gledning som skapar lÃ¥ngsiktig trygghet fÃ¶r din fastighet och ekonomi.</p>
+                        <p>Oavsett var du befinner dig eller hur dina specifika behov ser ut, levererar vi teknisk precision och expertvägledning som skapar långsiktig trygghet för din fastighet och ekonomi.</p>
                     </div>
 
                     <div class="contact-checklist">
-                        <h3>NÃ¤r ska du kontakta oss?</h3>
+                        <h3>När ska du kontakta oss?</h3>
                         <ul>
                             <li>Relining av befintliga avlopp</li>
                             <li>Stamspolning och avloppsrensning</li>
-                            <li>RÃ¶rinspektion med kamera</li>
-                            <li>FuktmÃ¤tning och lÃ¤cksÃ¶kning</li>
+                            <li>Rörinspektion med kamera</li>
+                            <li>Fuktmätning och läcksökning</li>
                             <li>Kostnadsfri konsultation och offert</li>
                         </ul>
                     </div>
@@ -236,30 +245,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <footer class="complex-footer" role="contentinfo">
         <div class="footer-grid container">
             <div class="footer-brand">
-                <a href="index.html" aria-label="Nordx Relining â€“ Till startsidan">
+                <a href="index.html" aria-label="Nordx Relining – Till startsidan">
                     <img src="logo.png" alt="Nordx Relining logotyp" width="220" height="auto" loading="lazy">
                 </a>
-                <p>Nordx Relining bygger sÃ¤kra och optimerade lÃ¶sningar fÃ¶r fastigheters rÃ¶rsystem. Din trygga partner inom stamspolning och relining.</p>
+                <p>Nordx Relining bygger säkra och optimerade lösningar för fastigheters rörsystem. Din trygga partner inom stamspolning och relining.</p>
             </div>
 
-            <nav class="footer-links-col" aria-label="SnabblÃ¤nkar">
-                <h3>SnabblÃ¤nkar</h3>
+            <nav class="footer-links-col" aria-label="Snabblänkar">
+                <h3>Snabblänkar</h3>
                 <ul>
                     <li><a href="index.html">Hem</a></li>
-                    <li><a href="index.html#tjanster">TjÃ¤nster</a></li>
+                    <li><a href="index.html#tjanster">Tjänster</a></li>
                     <li><a href="priser.html">Priser</a></li>
                     <li><a href="projekt.html">Projekt</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="om-oss.html">Om Oss</a></li>
                     <li><a href="index.html#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
 
-            <nav class="footer-links-col" aria-label="VÃ¥ra TjÃ¤nster">
-                <h3>VÃ¥ra tjÃ¤nster</h3>
+            <nav class="footer-links-col" aria-label="Våra Tjänster">
+                <h3>Våra tjänster</h3>
                 <ul>
                     <li><a href="stamspolning.html">Stamspolning</a></li>
                     <li><a href="relining.html">Relining</a></li>
-                    <li><a href="rorinspektion.html">RÃ¶rinspektion</a></li>
+                    <li><a href="rorinspektion.html">Rörinspektion</a></li>
                 </ul>
             </nav>
 
@@ -268,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <ul class="contact-info">
                     <li style="display:flex;align-items:center;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:8px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Skogsgatan 3b, 152 44 SÃ¶dertÃ¤lje</span>
+                        <span>Skogsgatan 3b, 152 44 Södertälje</span>
                     </li>
                     <li style="display:flex;align-items:center;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:8px;flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -284,9 +294,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="footer-bottom-bar container">
             <div class="footer-bottom-left">
-                <p class="copyright">Â© 2026 Nordx Relining. Alla rÃ¤ttigheter reserverade.</p>
+                <p class="copyright">© 2026 Nordx Relining. Alla rättigheter reserverade.</p>
                 <nav class="footer-legal" aria-label="Juridisk information">
-                    <a href="kopvillkor.html">KÃ¶pvillkor</a>
+                    <a href="kopvillkor.html">Köpvillkor</a>
                     <span class="sep">|</span>
                     <a href="integritetspolicy.html">Integritetspolicy</a>
                     <span class="sep">|</span>
@@ -295,10 +305,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://webix.se" target="_blank" rel="noopener noreferrer" class="webix-link">Hemsida skapad av Webix AB</a>
             </div>
             <div class="footer-socials">
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.37-1.92 1.62-4.52 2.21-6.94 1.75-2.58-.48-4.88-2.22-5.91-4.65-1.13-2.65-1-5.74.45-8.23 1.29-2.2 3.55-3.69 6.09-4.04 1.34-.18 2.72-.05 4.02.39v4.02c-.8-.25-1.66-.34-2.5-.24-1.29.15-2.52.88-3.21 1.96-.86 1.34-1.02 3.14-.37 4.62.62 1.43 2.01 2.45 3.55 2.68 1.48.22 3.03-.1 4.14-1.06 1.13-.98 1.73-2.45 1.73-3.95V.02z"/></svg></a>
+                <a href="#" aria-label="Besök oss på Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg></a>
+                <a href="#" aria-label="Besök oss på LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" aria-label="Besök oss på Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="#" aria-label="Besök oss på TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.37-1.92 1.62-4.52 2.21-6.94 1.75-2.58-.48-4.88-2.22-5.91-4.65-1.13-2.65-1-5.74.45-8.23 1.29-2.2 3.55-3.69 6.09-4.04 1.34-.18 2.72-.05 4.02.39v4.02c-.8-.25-1.66-.34-2.5-.24-1.29.15-2.52.88-3.21 1.96-.86 1.34-1.02 3.14-.37 4.62.62 1.43 2.01 2.45 3.55 2.68 1.48.22 3.03-.1 4.14-1.06 1.13-.98 1.73-2.45 1.73-3.95V.02z"/></svg></a>
             </div>
         </div>
     </footer>
