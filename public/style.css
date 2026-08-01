@@ -11301,3 +11301,113 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     color: #0284c7 !important;
 }
 
+
+
+/* --- Projects Preview Section (Index) --- */
+.projects-preview-section .section-title {
+    text-transform: none !important;
+}
+.projects-preview-section {
+    background: #ffffff;
+    padding: 100px 0;
+    position: relative;
+    text-align: center;
+}
+.projects-preview-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.project-slider-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #0284c7;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 3rem auto 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: left;
+    min-height: 500px;
+}
+.project-slider-image {
+    background: #e2e8f0;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+.project-slider-content {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+}
+.project-slider-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.project-slider-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.project-slider-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+.project-slider-pagination .nav-btn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.project-slider-pagination .nav-btn:hover {
+    color: #1e293b;
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+.project-slider-pagination .dots {
+    display: flex;
+    gap: 8px;
+}
+.project-slider-pagination .dot {
+    width: 8px;
+    height: 8px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.project-slider-pagination .dot.active {
+    background: #0284c7;
+    width: 24px;
+    border-radius: 4px;
+}
+.projects-preview-cta {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .project-slider-card {
+        grid-template-columns: 1fr;
+    }
+    .project-slider-image {
+        min-height: 250px;
+    }
+    .project-slider-content {
+        padding: 2rem 1.5rem;
+    }
+}
