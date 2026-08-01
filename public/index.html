@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sv">
 <head>
 <!-- Google Tag Manager -->
@@ -177,7 +177,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </a>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">HEM</a></li>
-                <li role="none"><a href="index.html#tjanster" role="menuitem">TJÄNSTER</a></li>
+                <li class="dropdown" role="none">
+                    <a href="index.html#tjanster" role="menuitem" aria-haspopup="true" aria-expanded="false">TJÄNSTER <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 4px; margin-bottom: -1px;"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="stamspolning.html" role="menuitem">Stamspolning</a></li>
+                        <li role="none"><a href="relining.html" role="menuitem">Relining</a></li>
+                        <li role="none"><a href="rorinspektion.html" role="menuitem">Rörinspektion</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="priser.html" role="menuitem">PRISER</a></li>
                 <li role="none"><a href="projekt.html" role="menuitem">PROJEKT</a></li>
                 <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
@@ -232,9 +239,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p class="hero-text">Trygga och hållbara rörsystem för framtiden. Med över 10 års erfarenhet som VVS-tekniker utför vi stamspolning, rörinspektion och relining med högsta tekniska precision.<br>Vi arbetar uteslutande med branschledande produkter och erbjuder alltid 20 års garanti på vårt RISE P-märkta material.</p>
                     </div>
                     <div class="hero-action-group">
-                        <a href="index.html#kontakt" class="btn-hero-solid" aria-label="Begär offert från oss">
-                            KONTAKTA OSS
-                        </a>
+                                                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="index.html#kontakt" class="btn-hero-solid" aria-label="Begär offert från oss">
+                                KONTAKTA OSS
+                            </a>
+                            <a href="index.html#tjanster" class="btn-hero-outline" aria-label="Läs mer om våra tjänster">
+                                VÅRA TJÄNSTER
+                            </a>
+                        </div>
                         
                         <!-- TRUST BADGE -->
                         <div class="hero-trust-badge">

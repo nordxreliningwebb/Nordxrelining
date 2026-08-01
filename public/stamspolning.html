@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stamspolning - Nordx Relining</title>
-    <meta name="description" content="Nordx Relining erbjuder professionell stamspolning, relining och rÃ¶rinspektioner. SÃ¤kra, hÃ¥llbara och kostnadseffektiva lÃ¶sningar fÃ¶r dina rÃ¶rsystem.">
+    <meta name="description" content="Nordx Relining erbjuder professionell stamspolning, relining och rörinspektioner. Säkra, hållbara och kostnadseffektiva lösningar för dina rörsystem.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.nordxrelining.se/">
     <link rel="stylesheet" href="style.css?v=6">
@@ -29,10 +29,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "url": "https://www.nordxrelining.se",
         "logo": "https://www.nordxrelining.se/logo.png",
         "image": "https://www.nordxrelining.se/vvs_hero.png",
-        "description": "Professionell stamspolning, relining och rÃ¶rinspektioner med lÃ¥ng garanti och certifierade experter.",
+        "description": "Professionell stamspolning, relining och rörinspektioner med lång garanti och certifierade experter.",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "HemvÃ¤rnsgatan 8",
+            "streetAddress": "Hemvärnsgatan 8",
             "postalCode": "171 54",
             "addressLocality": "Solna",
             "addressCountry": "SE"
@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "VVS-TjÃ¤nster",
+            "name": "VVS-Tjänster",
             "itemListElement": [
                 {
                     "@type": "Offer",
@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "RÃ¶rinspektion"
+                        "name": "Rörinspektion"
                     }
                 }
             ]
@@ -97,22 +97,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header id="main-header" role="banner">
         <nav class="navbar" aria-label="Huvudnavigering">
-            <a href="index.html" class="logo-link" aria-label="Nordx Relining â€“ Till startsidan">
-                <!-- AnvÃ¤nder logo.png som enda logotyp -->
+            <a href="index.html" class="logo-link" aria-label="Nordx Relining – Till startsidan">
+                <!-- Använder logo.png som enda logotyp -->
                 <img src="logo.png" alt="Nordx Relining logotyp" id="logo-img" width="220" height="auto" loading="eager">
             </a>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">HEM</a></li>
-                <li role="none"><a href="index.html#tjanster" role="menuitem">TJÃ„NSTER</a></li>
+                <li class="dropdown" role="none">
+                    <a href="index.html#tjanster" role="menuitem" aria-haspopup="true" aria-expanded="false">TJÄNSTER <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 4px; margin-bottom: -1px;"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="stamspolning.html" role="menuitem">Stamspolning</a></li>
+                        <li role="none"><a href="relining.html" role="menuitem">Relining</a></li>
+                        <li role="none"><a href="rorinspektion.html" role="menuitem">Rörinspektion</a></li>
+                    </ul>
+                </li>
                 <li role="none"><a href="priser.html" role="menuitem">PRISER</a></li>
                 <li role="none"><a href="projekt.html" role="menuitem">PROJEKT</a></li>
                 <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
                 <li role="none"><a href="om-oss.html" role="menuitem">OM OSS</a></li>
             </ul>
             <div class="header-cta">
-                <a href="index.html#kontakt" class="btn btn-ghost" aria-label="GÃ¥ till kontaktformulÃ¤ret">KONTAKT</a>
+                <a href="index.html#kontakt" class="btn btn-ghost" aria-label="Gå till kontaktformuläret">KONTAKT</a>
             </div>
-            <button class="menu-toggle" aria-label="Ã–ppna meny" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -122,15 +129,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Mobile Drawer Menu -->
         <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
         <div class="mobile-drawer-menu" id="mobile-drawer-menu">
-            <button class="close-drawer-btn" id="close-drawer-btn" aria-label="StÃ¤ng meny">&times;</button>
+            <button class="close-drawer-btn" id="close-drawer-btn" aria-label="Stäng meny">&times;</button>
             <ul class="mobile-menu-list">
                 <li class="has-submenu">
                     <a href="#" class="mobile-menu-link" id="mobile-submenu-toggle">
-                        TjÃ¤nster <span class="arrow">â–¼</span>
+                        Tjänster <span class="arrow">â–¼</span>
                     </a>
                     <ul class="mobile-submenu" id="mobile-tjanster-submenu">
                         <li><a href="stamspolning.html">Stamspolning</a></li>
-                        <li><a href="rorinspektion.html">RÃ¶rinspektion</a></li>
+                        <li><a href="rorinspektion.html">Rörinspektion</a></li>
                         <li><a href="relining.html">Relining</a></li>
                     </ul>
                 </li>
@@ -152,10 +159,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Left: White Card -->
                 <div style="background: #ffffff; border-radius: 32px; padding: 4rem 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.03); z-index: 2; position: relative;">
                     <h1 style="font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; color: #0f172a; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;">
-                        Stamspolning och rÃ¶rspolning
+                        Stamspolning och rörspolning
                     </h1>
                     <p style="font-size: 1.25rem; color: #475569; line-height: 1.6; margin-bottom: 2.5rem;">
-                        Rinner vattnet undan trÃ¶gt, eller upplever du obehaglig lukt frÃ¥n avloppet? DÃ¥ Ã¤r det hÃ¶g tid fÃ¶r en professionell rÃ¶rspolning. Vi sÃ¤krar stammarna fÃ¶r bostadsrÃ¤ttsfÃ¶reningar, fÃ¶retag och villaÃ¤gare, och fÃ¶rebygger dyra vattenskador innan de hinner uppstÃ¥.
+                        Rinner vattnet undan trögt, eller upplever du obehaglig lukt från avloppet? Då är det hög tid för en professionell rörspolning. Vi säkrar stammarna för bostadsrättsföreningar, företag och villaägare, och förebygger dyra vattenskador innan de hinner uppstå.
                     </p>
                     <a href="#kontakt" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 8px; padding: 1rem 2rem; background: #0284c7; border: none;">
                         Kontakta oss!
@@ -171,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <!-- The actual photo (Stamspolning) fills the entire circle -->
                     <img src="stamspolning.jpeg" alt="Professionell stamspolning av Nordx Relining" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                     <!-- The photorealistic pipe frame overlay, scaled up to make the rim thinner -->
-                    <img src="pipe_frame.png" alt="RÃ¶rram" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 2; mix-blend-mode: multiply; pointer-events: none; transform: scale(1.25);">
+                    <img src="pipe_frame.png" alt="Rörram" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 2; mix-blend-mode: multiply; pointer-events: none; transform: scale(1.25);">
                 </div>
 
             </div>
@@ -325,25 +332,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Top Right Text Block -->
         <div class="intro-text-block" id="intro-text" style="max-width: 650px; margin-right: auto; margin-left: 0; margin-bottom: 8rem;">
-<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #0f172a;">UnderhÃ¥llsspolning &amp; FÃ¶rebyggande Ã…tgÃ¤rder</h2>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">Bristande avloppsunderhÃ¥ll Ã¤r ofta en dold kÃ¤lla till akuta problem. Matfett, hudavlagringar och tvÃ¥lrester sÃ¤tter med tiden igen rÃ¶ren, minskar innerdiametern och orsakar dÃ¥lig avrinning. Hur ofta en underhÃ¥llsspolning bÃ¶r gÃ¶ras beror pÃ¥ fastighetens skick, Ã¥lder och rÃ¶rens dimensioner, men ett bra riktvÃ¤rde Ã¤r att spola stammarna vart tredje till femte Ã¥r. DÃ¥ hÃ¥lls rÃ¶ren i ett mycket bÃ¤ttre skick och fÃ¥r en lÃ¤ngre livslÃ¤ngd. Dessutom undviker du troligen akuta stopp och vi hinner upptÃ¤cka om det uppstÃ¥tt skador i dina avloppsrÃ¶r i god tid.</p>
+<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #0f172a;">Underhållsspolning &amp; Förebyggande Åtgärder</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">Bristande avloppsunderhåll är ofta en dold källa till akuta problem. Matfett, hudavlagringar och tvålrester sätter med tiden igen rören, minskar innerdiametern och orsakar dålig avrinning. Hur ofta en underhållsspolning bör göras beror på fastighetens skick, ålder och rörens dimensioner, men ett bra riktvärde är att spola stammarna vart tredje till femte år. Då hålls rören i ett mycket bättre skick och får en längre livslängd. Dessutom undviker du troligen akuta stopp och vi hinner upptäcka om det uppstått skador i dina avloppsrör i god tid.</p>
                 
-                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">Kluckande ljud och dÃ¥lig avrinning?</h3>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">HÃ¶r du kluckande ljud frÃ¥n avloppet Ã¤r det ett tidigt tecken pÃ¥ att det Ã¤r dags fÃ¶r en stamspolning â€“ en rejÃ¤l avloppsrensning som spolar rent rÃ¶ren i din fastighet. FÃ¥r du dessutom ett ovÃ¤lkommet fotbad varje gÃ¥ng du duschar? DÃ¥ Ã¤r det verkligen dags! Vi anvÃ¤nder specialanpassade munstycken och spolar avloppet med hetvatten under hÃ¶gt tryck, vilket skonsamt smÃ¤lter bort fett och blockeringar.</p>
+                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">Kluckande ljud och dålig avrinning?</h3>
+                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">Hör du kluckande ljud från avloppet är det ett tidigt tecken på att det är dags för en stamspolning – en rejäl avloppsrensning som spolar rent rören i din fastighet. Får du dessutom ett ovälkommet fotbad varje gång du duschar? Då är det verkligen dags! Vi använder specialanpassade munstycken och spolar avloppet med hetvatten under högt tryck, vilket skonsamt smälter bort fett och blockeringar.</p>
 
-                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">BostadsrÃ¤ttsfÃ¶reningar (BRF) &amp; Villa</h3>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">Att lÃ¤gga in stamspolning i fastighetens lÃ¶pande underhÃ¥llsplan Ã¤r en effektiv fÃ¶rsÃ¤kring mot vattenskador fÃ¶r bostadsrÃ¤ttsfÃ¶reningar. Vi arbetar Ã¤ven med villor dÃ¤r vi ser till att hela systemet frÃ¥n husgrund till tomtgrÃ¤ns spolas rent. FÃ¶r BRF:er Ã¤r fÃ¶rsta steget att vi besiktar vilka rÃ¶r och stammar det gÃ¤ller i samverkan med er. DÃ¤refter skÃ¶ter vi all avisering till hyresgÃ¤ster och boende om tid och datum. De som vill kan vara hemma och Ã¶ppna Ã¥t oss, i annat fall kan vi gÃ¥ in pÃ¥ egen hand med huvudnyckel. Vi har en flexibel fordonspark, frÃ¥n smÃ¥, smidiga och miljÃ¶klassade spolbussar med god framkomlighet, till stÃ¶rre kombibilar i miljÃ¶klass EURO-6.</p>
+                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">Bostadsrättsföreningar (BRF) &amp; Villa</h3>
+                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">Att lägga in stamspolning i fastighetens löpande underhållsplan är en effektiv försäkring mot vattenskador för bostadsrättsföreningar. Vi arbetar även med villor där vi ser till att hela systemet från husgrund till tomtgräns spolas rent. För BRF:er är första steget att vi besiktar vilka rör och stammar det gäller i samverkan med er. Därefter sköter vi all avisering till hyresgäster och boende om tid och datum. De som vill kan vara hemma och öppna åt oss, i annat fall kan vi gå in på egen hand med huvudnyckel. Vi har en flexibel fordonspark, från små, smidiga och miljöklassade spolbussar med god framkomlighet, till större kombibilar i miljöklass EURO-6.</p>
 
-                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">Kamerabesiktning ingÃ¥r alltid</h3>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 3.5rem;">VÃ¥r personal Ã¤r alltid utrustad med filmkamera. Skulle vi stÃ¶ta pÃ¥ problem kan vi direkt utreda orsaken till stoppet och lÃ¤mna fÃ¶rslag pÃ¥ vidare Ã¥tgÃ¤rd. Visar det sig att det finns skador i rÃ¶ren kan det vara dags att Ã¶vervÃ¤ga en renovering. Vi erbjuder dÃ¥ rÃ¶rinfodring (relining), en schaktfri metod som efter reparation ger ett helt nytt, sjÃ¤lvbÃ¤rande rÃ¶r inuti dina befintliga stammar utan dyra rivningsarbeten.</p>
+                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #0f172a; margin-top: 2.5rem;">Kamerabesiktning ingår alltid</h3>
+                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 3.5rem;">Vår personal är alltid utrustad med filmkamera. Skulle vi stöta på problem kan vi direkt utreda orsaken till stoppet och lämna förslag på vidare åtgärd. Visar det sig att det finns skador i rören kan det vara dags att överväga en renovering. Vi erbjuder då rörinfodring (relining), en schaktfri metod som efter reparation ger ett helt nytt, självbärande rör inuti dina befintliga stammar utan dyra rivningsarbeten.</p>
 
                 
         </div>
         
         <!-- Bottom Left Text Block -->
         <div class="steps-text-block" id="steg-for-steg-heading" style="max-width: 650px; margin-right: auto; margin-left: 0; margin-bottom: 4rem;">
-<h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #0f172a; padding-top: 2rem; border-top: 1px solid #e2e8f0;">SÃ¥ hÃ¤r gÃ¥r det till â€“ Steg fÃ¶r Steg</h3>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2.5rem;">NÃ¤r vi pÃ¥ Nordx Relining utfÃ¶r ett arbete fÃ¶ljer vi alltid en strikt branschstandard. Arbetet krÃ¤ver oftast tilltrÃ¤de till fastighetens samtliga lÃ¤genheter (eller samtliga avlopp i villan) fÃ¶r att garantera ett perfekt resultat.</p>
+<h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #0f172a; padding-top: 2rem; border-top: 1px solid #e2e8f0;">Så här går det till – Steg för Steg</h3>
+                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2.5rem;">När vi på Nordx Relining utför ett arbete följer vi alltid en strikt branschstandard. Arbetet kräver oftast tillträde till fastighetens samtliga lägenheter (eller samtliga avlopp i villan) för att garantera ett perfekt resultat.</p>
                 
                 <div class="process-steps-container premium-steps" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <!-- Steg 1 -->
@@ -356,8 +363,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             <div>
-                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">FÃ¶rberedelser &amp; KÃ¤llaren</h4>
-                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">Arbetet inleds alltid lÃ¤ngst ner i fastigheten. Vi inspekterar rensluckor och spolar bottenavloppet (uppsamlingsledningen) hela vÃ¤gen ut till den kommunala huvudledningen. Detta Ã¤r kritiskt fÃ¶r att det smuts vi senare spolar loss uppifrÃ¥n fritt ska kunna rinna undan utan att orsaka stopp i kÃ¤llaren.</p>
+                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Förberedelser &amp; Källaren</h4>
+                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">Arbetet inleds alltid längst ner i fastigheten. Vi inspekterar rensluckor och spolar bottenavloppet (uppsamlingsledningen) hela vägen ut till den kommunala huvudledningen. Detta är kritiskt för att det smuts vi senare spolar loss uppifrån fritt ska kunna rinna undan utan att orsaka stopp i källaren.</p>
                             </div>
                         </div>
                     </div>
@@ -372,8 +379,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             <div>
-                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">BottenvÃ¥ningen</h4>
-                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">NÃ¤r kÃ¤llarledningen Ã¤r helt ren gÃ¥r vi vidare till lÃ¤genheterna pÃ¥ bottenvÃ¥ningen. HÃ¤r demonterar vi vattenlÃ¥s under diskbÃ¤nk och handfat och spolar stickledningarna (rÃ¶ren i golv/vÃ¤gg fram till huvudstammen). Vi spolar ocksÃ¥ kÃ¶k, badrum och eventuella golvbrunnar i badrum och WC.</p>
+                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Bottenvåningen</h4>
+                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">När källarledningen är helt ren går vi vidare till lägenheterna på bottenvåningen. Här demonterar vi vattenlås under diskbänk och handfat och spolar stickledningarna (rören i golv/vägg fram till huvudstammen). Vi spolar också kök, badrum och eventuella golvbrunnar i badrum och WC.</p>
                             </div>
                         </div>
                     </div>
@@ -388,8 +395,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             <div>
-                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Resterande vÃ¥ningsplan</h4>
-                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">Vi arbetar oss sedan metodiskt uppÃ¥t i fastigheten, vÃ¥ning fÃ¶r vÃ¥ning. I varje lÃ¤genhet spolas stickledningar och anslutningar till stammen rena frÃ¥n fett, smuts och belÃ¤ggningar. Ofta spolar vi dÃ¥ huvudstammen frÃ¥n lÃ¤genheterna hÃ¶gst upp i huset hela vÃ¤gen ner till kÃ¤llarstammen.</p>
+                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Resterande våningsplan</h4>
+                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">Vi arbetar oss sedan metodiskt uppåt i fastigheten, våning för våning. I varje lägenhet spolas stickledningar och anslutningar till stammen rena från fett, smuts och beläggningar. Ofta spolar vi då huvudstammen från lägenheterna högst upp i huset hela vägen ner till källarstammen.</p>
                             </div>
                         </div>
                     </div>
@@ -404,8 +411,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             <div>
-                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Ã…terstÃ¤llning &amp; Slutkontroll</h4>
-                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">NÃ¤r spolningen i en lÃ¤genhet Ã¤r klar spolar vi alltid rikligt med vatten i alla avlopp fÃ¶r att sÃ¤kerstÃ¤lla att inget vatten trÃ¤nger upp nÃ¥gonstans och att avrinningen fungerar felfritt. Vi torkar noggrant rent runt arbetsplatsen. DÃ¤refter stÃ¤nger och lÃ¥ser vi dÃ¶rren och beger oss till nÃ¤sta lÃ¤genhet. Efter avslutat projekt Ã¶verlÃ¤mnar vi en dokumentation pÃ¥ utfÃ¶rt arbete.</p>
+                                <h4 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Återställning &amp; Slutkontroll</h4>
+                                <p style="line-height: 1.7; color: #475569; margin: 0; font-size: 1.05rem;">När spolningen i en lägenhet är klar spolar vi alltid rikligt med vatten i alla avlopp för att säkerställa att inget vatten tränger upp någonstans och att avrinningen fungerar felfritt. Vi torkar noggrant rent runt arbetsplatsen. Därefter stänger och låser vi dörren och beger oss till nästa lägenhet. Efter avslutat projekt överlämnar vi en dokumentation på utfört arbete.</p>
                             </div>
                         </div>
                     </div>
@@ -455,15 +462,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 background: #0284c7 !important;
             }
         </style>
-        <!-- Dekoration fÃ¶r high-end kÃ¤nsla -->
+        <!-- Dekoration för high-end känsla -->
         <div style="position: absolute; top: -50%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
         <div style="position: absolute; bottom: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none;"></div>
         
         <div class="container" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
-            <style>@media (max-width: 768px) { .cta-heading { white-space: normal !important; } }</style><h2 style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; color: #ffffff; line-height: 1.2; white-space: nowrap;" class="cta-heading">SÃ¤kra upp fastighetens rÃ¶r i tid</h2>
-            <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem; opacity: 0.9;">Genom att spola stammarna i tid fÃ¶rebygger ni dyra vattenskador och fÃ¶rlÃ¤nger rÃ¶rsystemets livslÃ¤ngd. LÃ¥t vÃ¥ra certifierade tekniker sÃ¤kerstÃ¤lla att fastighetens avlopp mÃ¥r bra.</p>
+            <style>@media (max-width: 768px) { .cta-heading { white-space: normal !important; } }</style><h2 style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; color: #ffffff; line-height: 1.2; white-space: nowrap;" class="cta-heading">Säkra upp fastighetens rör i tid</h2>
+            <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem; opacity: 0.9;">Genom att spola stammarna i tid förebygger ni dyra vattenskador och förlänger rörsystemets livslängd. Låt våra certifierade tekniker säkerställa att fastighetens avlopp mår bra.</p>
             <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-                <a href="#kontakt" class="cta-btn-header-match">FÃ¥ en kostnadsfri offert</a>
+                <a href="#kontakt" class="cta-btn-header-match">Få en kostnadsfri offert</a>
                 <a href="tel:+46703185110" class="cta-btn-header-match">Ring oss</a>
             </div>
         </div>
@@ -472,17 +479,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="complex-footer" role="contentinfo">
         <div class="footer-grid container">
             <div class="footer-brand">
-                <a href="index.html" aria-label="Nordx Relining â€“ Till startsidan">
+                <a href="index.html" aria-label="Nordx Relining – Till startsidan">
                     <img src="logo.png" alt="Nordx Relining logotyp" width="220" height="auto" loading="lazy">
                 </a>
-                <p>Nordx Relining bygger sÃ¤kra och optimerade lÃ¶sningar fÃ¶r fastigheters rÃ¶rsystem. Din trygga partner inom stamspolning och relining.</p>
+                <p>Nordx Relining bygger säkra och optimerade lösningar för fastigheters rörsystem. Din trygga partner inom stamspolning och relining.</p>
             </div>
 
-            <nav class="footer-links-col" aria-label="SnabblÃ¤nkar">
-                <h3>SnabblÃ¤nkar</h3>
+            <nav class="footer-links-col" aria-label="Snabblänkar">
+                <h3>Snabblänkar</h3>
                 <ul>
                     <li><a href="index.html">Hem</a></li>
-                    <li><a href="index.html#tjanster">TjÃ¤nster</a></li>
+                    <li><a href="index.html#tjanster">Tjänster</a></li>
                     <li><a href="priser.html">Priser</a></li>
                     <li><a href="projekt.html">Projekt</a></li>
                     <li><a href="faq.html">FAQ</a></li>
@@ -491,12 +498,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </nav>
 
-            <nav class="footer-links-col" aria-label="VÃ¥ra TjÃ¤nster">
-                <h3>VÃ¥ra tjÃ¤nster</h3>
+            <nav class="footer-links-col" aria-label="Våra Tjänster">
+                <h3>Våra tjänster</h3>
                 <ul>
                     <li><a href="stamspolning.html">Stamspolning</a></li>
                     <li><a href="relining.html">Relining</a></li>
-                    <li><a href="rorinspektion.html">RÃ¶rinspektion</a></li>
+                    <li><a href="rorinspektion.html">Rörinspektion</a></li>
                 </ul>
             </nav>
 
@@ -505,7 +512,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <ul class="contact-info">
                     <li style="display:flex;align-items:center;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:8px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Skogsgatan 3b, 152 44 SÃ¶dertÃ¤lje</span>
+                        <span>Skogsgatan 3b, 152 44 Södertälje</span>
                     </li>
                     <li style="display:flex;align-items:center;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:8px;flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -521,9 +528,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="footer-bottom-bar container">
             <div class="footer-bottom-left">
-                <p class="copyright">Â© 2026 Nordx Relining. Alla rÃ¤ttigheter reserverade.</p>
+                <p class="copyright">© 2026 Nordx Relining. Alla rättigheter reserverade.</p>
                 <nav class="footer-legal" aria-label="Juridisk information">
-                    <a href="kopvillkor.html">KÃ¶pvillkor</a>
+                    <a href="kopvillkor.html">Köpvillkor</a>
                     <span class="sep">|</span>
                     <a href="integritetspolicy.html">Integritetspolicy</a>
                     <span class="sep">|</span>
@@ -532,10 +539,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://webix.se" target="_blank" rel="noopener noreferrer" class="webix-link">Hemsida skapad av Webix AB</a>
             </div>
             <div class="footer-socials">
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                <a href="#" aria-label="BesÃ¶k oss pÃ¥ TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.37-1.92 1.62-4.52 2.21-6.94 1.75-2.58-.48-4.88-2.22-5.91-4.65-1.13-2.65-1-5.74.45-8.23 1.29-2.2 3.55-3.69 6.09-4.04 1.34-.18 2.72-.05 4.02.39v4.02c-.8-.25-1.66-.34-2.5-.24-1.29.15-2.52.88-3.21 1.96-.86 1.34-1.02 3.14-.37 4.62.62 1.43 2.01 2.45 3.55 2.68 1.48.22 3.03-.1 4.14-1.06 1.13-.98 1.73-2.45 1.73-3.95V.02z"/></svg></a>
+                <a href="#" aria-label="Besök oss på Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg></a>
+                <a href="#" aria-label="Besök oss på LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" aria-label="Besök oss på Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="#" aria-label="Besök oss på TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.37-1.92 1.62-4.52 2.21-6.94 1.75-2.58-.48-4.88-2.22-5.91-4.65-1.13-2.65-1-5.74.45-8.23 1.29-2.2 3.55-3.69 6.09-4.04 1.34-.18 2.72-.05 4.02.39v4.02c-.8-.25-1.66-.34-2.5-.24-1.29.15-2.52.88-3.21 1.96-.86 1.34-1.02 3.14-.37 4.62.62 1.43 2.01 2.45 3.55 2.68 1.48.22 3.03-.1 4.14-1.06 1.13-.98 1.73-2.45 1.73-3.95V.02z"/></svg></a>
             </div>
         </div>
     </footer>
