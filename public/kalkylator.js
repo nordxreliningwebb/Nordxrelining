@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkItems = document.querySelectorAll('.check-item');
     checkItems.forEach(item => {
         const checkbox = item.querySelector('input[type="checkbox"]');
-        item.addEventListener('click', (e) => {
-            if (e.target !== checkbox) {
-                checkbox.checked = !checkbox.checked;
-            }
+        checkbox.addEventListener('change', () => {
             if (checkbox.checked) {
                 item.classList.add('selected');
             } else {
