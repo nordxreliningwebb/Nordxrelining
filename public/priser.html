@@ -33,6 +33,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         #main-header .menu-toggle span {
             background-color: #111111 !important;
         }
+    
+        /* Mobile gap fix */
+        @media (max-width: 900px) {
+            .pricing-section:first-of-type {
+                margin-top: -85px !important;
+                padding-top: calc(8rem + 85px) !important;
+            }
+        }
+        
     </style>
 
     <!-- Google reCAPTCHA v3 (Replace YOUR_SITE_KEY with real key) -->
