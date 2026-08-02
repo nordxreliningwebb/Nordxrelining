@@ -11629,3 +11629,10 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
         padding-right: calc(3vw + 1rem) !important;
     }
 }
+
+/* Fix navy gap under header for non-home pages */
+body.about-page, 
+body.contact-page, 
+body.journal-page {
+    background-color: #faf8f5 !important;
+}
