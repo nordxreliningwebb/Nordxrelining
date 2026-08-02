@@ -11488,3 +11488,11 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     color: #ffffff;
     border-color: #ffffff;
 }
+
+/* Fix pipe frame overflow on mobile */
+@media (max-width: 768px) {
+    .pipe-popup-wrapper {
+        width: calc(100% - 52px) !important;
+        margin: 0 auto !important;
+    }
+}
