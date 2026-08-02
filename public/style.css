@@ -11519,3 +11519,21 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
         padding-top: 105px !important; /* Push down content to avoid overlap */
     }
 }
+
+/* Mobile adjustments for Nordx Filter Nav */
+@media (max-width: 768px) {
+    .nordx-filter-nav {
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .nordx-filter-btn {
+        flex: 1;
+        padding: 0.4rem 0 !important;
+        font-size: clamp(0.5rem, 2.2vw, 0.75rem) !important;
+        letter-spacing: 0 !important;
+        text-align: center;
+        white-space: nowrap;
+    }
+}

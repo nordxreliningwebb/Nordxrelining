@@ -1307,3 +1307,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Nordx Filter (Projekt & Kunskapsbanken) ---
+    const nordxFilterBtns = document.querySelectorAll('.nordx-filter-btn');
+    if (nordxFilterBtns.length > 0) {
+        nordxFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.closest('.nordx-filter-nav');
+                if (parent) {
+                    parent.querySelectorAll('.nordx-filter-btn').forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                }
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                
+                const filterValue = btn.dataset.filter;
+                const cards = document.querySelectorAll('.project-card-v2');
+                
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.dataset.category === filterValue) {
+                        card.classList.remove('is-hidden');
+                        card.style.display = '';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                            card.classList.add('visible');
+                        }, 10);
+                    } else {
+                        card.classList.add('is-hidden');
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        card.classList.remove('visible');
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+});
