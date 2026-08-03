@@ -303,7 +303,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="team-flex-container" style="display: flex; flex-wrap: nowrap; gap: 3rem; justify-content: center;">
                 
                 <!-- Person 1 -->
-                <div class="mobile-pop-standby" style="width: 280px; text-align: center;">
+                <div class="mobile-pop-standby team-member-card" style="width: 280px; text-align: center;">
                     <div style="width: 240px; height: 240px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem auto; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
                         <span style="font-size: 6rem; font-weight: 800;">?</span>
                     </div>
@@ -312,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- Person 2 -->
-                <div class="mobile-pop-standby" style="width: 280px; text-align: center;">
+                <div class="mobile-pop-standby team-member-card" style="width: 280px; text-align: center;">
                     <div style="width: 240px; height: 240px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem auto; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
                         <span style="font-size: 6rem; font-weight: 800;">?</span>
                     </div>
@@ -321,7 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- Person 3 -->
-                <div class="mobile-pop-standby" style="width: 280px; text-align: center;">
+                <div class="mobile-pop-standby team-member-card" style="width: 280px; text-align: center;">
                     <div style="width: 240px; height: 240px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem auto; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
                         <span style="font-size: 6rem; font-weight: 800;">?</span>
                     </div>
@@ -399,6 +399,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
     </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth <= 768) {
+            const teamCards = document.querySelectorAll('.team-member-card');
+            if (teamCards.length === 0) return;
+            
+            let style = document.createElement('style');
+            style.innerHTML = `
+                .team-member-card.team-center-active {
+                    transform: translateY(-20px) !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            window.addEventListener('scroll', () => {
+                const centerY = window.innerHeight / 2;
+                let closestCard = null;
+                let minDistance = Infinity;
+                
+                teamCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(centerY - cardCenter);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestCard = card;
+                    }
+                });
+                
+                teamCards.forEach(card => {
+                    if (card === closestCard && minDistance < window.innerHeight / 2.5) {
+                        card.classList.add('team-center-active');
+                    } else {
+                        card.classList.remove('team-center-active');
+                    }
+                });
+            }, { passive: true });
+        }
+    });
+    </script>
+    
 </main>
 <footer class="complex-footer" role="contentinfo">
         <div class="footer-grid container">
