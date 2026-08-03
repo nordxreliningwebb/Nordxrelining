@@ -1,30 +1,31 @@
 const fs = require('fs');
+
 const file = 'public/om-oss.html';
-let html = fs.readFileSync(file, 'utf8');
+if (fs.existsSync(file)) {
+    let html = fs.readFileSync(file, 'utf8');
 
-// 1. Fix the green border and rounded corners on the section
-html = html.replace(/<section class="service-cta" style="([^"]*)"/g, '<section class="service-cta" style="$1 border: none !important; border-radius: 0 !important;"');
+    // 1. Change section class
+    html = html.replace(/<section class="service-cta"/g, '<section class="bottom-service-cta"');
+    
+    // 2. Change CSS class references
+    html = html.replace(/\.service-cta h2, \.service-cta p/g, '.bottom-service-cta h2, .bottom-service-cta p');
+    html = html.replace(/\.service-cta p \{/g, '.bottom-service-cta p {');
+    html = html.replace(/\.service-cta \.cta-btn-header-match/g, '.bottom-service-cta .cta-btn-header-match');
+    html = html.replace(/\.service-cta:hover/g, '.bottom-service-cta:hover');
 
-// 2. Add media query to ensure buttons are side-by-side
-const cssToInsert = `
-            @media (max-width: 600px) {
-                .service-cta .cta-buttons {
-                    flex-wrap: nowrap !important;
-                    gap: 0.5rem !important;
-                }
-                .service-cta .cta-btn-header-match {
-                    padding: 0.75rem 0.5rem !important;
-                    font-size: 0.85rem !important;
-                    flex: 1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    line-height: 1.2;
-                }
-            }
-`;
+    // 3. Change button text
+    html = html.replace(/<a href="kontakt\.html" class="cta-btn-header-match">F[åA-Za-z]+ en kostnadsfri offert<\/a>/g, '<a href="kontakt.html" class="cta-btn-header-match">Kontakta oss</a>');
 
-html = html.replace(/(\.service-cta:hover\s*{[^}]+}\s*)<\/style>/, `$1${cssToInsert}</style>`);
+    // 4. Change flex-wrap
+    html = html.replace(/flex-wrap: wrap;/g, 'flex-wrap: nowrap;');
 
-fs.writeFileSync(file, html, 'utf8');
-console.log('Fixed CTA section border and buttons');
+    // 5. Update media query
+    const oldStyle = '<style>@media (max-width: 768px) { .cta-heading { white-space: normal !important; } }</style>';
+    const newStyle = '<style>@media (max-width: 768px) { .cta-heading { white-space: normal !important; } .cta-buttons { flex-wrap: nowrap !important; gap: 0.8rem !important; width: 100%; } .cta-buttons .cta-btn-header-match { padding: 14px 10px !important; flex: 1; text-align: center; justify-content: center; width: 100%; box-sizing: border-box; white-space: nowrap !important; } }</style>';
+    html = html.replace(oldStyle, newStyle);
+
+    fs.writeFileSync(file, html, 'utf8');
+    console.log('Fixed CTA in ' + file);
+} else {
+    console.log('File not found: ' + file);
+}

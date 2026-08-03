@@ -10665,6 +10665,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 @media (max-width: 768px) {
   .intro-text-block, .steps-text-block {
     padding-right: 70px !important;
+    padding-left: 15px !important;
   }
 }
 
@@ -10695,6 +10696,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 @media (max-width: 768px) {
   .intro-text-block, .steps-text-block {
     padding-right: 85px !important;
+    padding-left: 15px !important;
   }
 }
 
