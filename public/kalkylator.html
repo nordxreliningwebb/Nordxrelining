@@ -579,6 +579,21 @@
             background: #f0f9ff;
             box-shadow: 0 0 0 1px #0284c7;
         }
+
+        @media (max-width: 768px) {
+            .action-row .btn-back, 
+            .action-row .btn-primary {
+                flex: 1;
+                justify-content: center;
+                text-align: center;
+                white-space: nowrap;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .action-row {
+                gap: 10px; /* Reduce gap on mobile to give buttons more space */
+            }
+        }
     </style>
 </head>
 <body class="light-theme">
