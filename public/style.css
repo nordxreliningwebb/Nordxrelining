@@ -11702,9 +11702,12 @@ body.journal-page {
 /* --- Footer Logo Top Edge Alignment --- */
 @media (min-width: 901px) {
     .footer-brand {
-        margin-top: 18px !important; /* Pushes the logo down to align top edges */
+        margin-top: 28px !important; /* Pushes the logo down to align the text's top edge (compensates for transparent padding in image) */
     }
     .footer-brand a {
         align-items: flex-start !important; /* Switch from flex-end to flex-start */
+    }
+    .footer-brand p {
+        margin-top: -28px !important; /* Pull the paragraph up to perfectly align cap height with adjacent list items */
     }
 }
