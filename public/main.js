@@ -127,26 +127,55 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    
+    
+    
+    // --- Premium Scroll Observer ---
+    const triggerAnimation = (el, delay = 0) => {
+        setTimeout(() => {
+            el.classList.add('anim-transitioning', 'anim-active');
+            // Remove transitioning class after animation completes (1.5s total to be safe)
+            setTimeout(() => {
+                el.classList.remove('anim-transitioning');
+            }, 1800);
+        }, delay);
+    };
+
+    const premiumObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                
+                if (el.classList.contains('anim-stagger-parent')) {
+                    const children = el.querySelectorAll('.anim-stagger-child, .anim-stagger-item');
+                    children.forEach((child, index) => {
+                        triggerAnimation(child, index * 180);
+                    });
+                    observer.unobserve(el);
+                } else {
+                    const delay = parseInt(el.getAttribute('data-anim-delay')) || 0;
+                    triggerAnimation(el, delay);
+                    observer.unobserve(el);
+                }
             }
         });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        // Mobile-only: Intercept core service rows and swap their animation classes for center pop-up
-        if (window.innerWidth < 768 && fader.closest('.service-row')) {
-            fader.classList.remove('fade-in-left', 'fade-in-right', 'fade-in', 'fade-in-up');
-            fader.classList.add('mobile-pop-standby');
-            return; // Skip standard observer
-        }
-        appearOnScroll.observe(fader);
+    }, {
+        threshold: 0,
+        rootMargin: "0px 0px -15% 0px"
     });
+
+    const initPremiumObserver = () => {
+        document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-down, .anim-mask-text, .anim-stagger-parent').forEach(el => {
+            premiumObserver.observe(el);
+        });
+    };
+
+    if (document.getElementById('preloader-wrapper')) {
+        window.addEventListener('preloaderDone', initPremiumObserver);
+        setTimeout(initPremiumObserver, 4000);
+    } else {
+        initPremiumObserver();
+    }
 
     // --- Mobile-only Center Pop-up Observer ---
     if (window.innerWidth < 768) {
@@ -402,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     partnerCards.forEach((card, index) => {
                         setTimeout(() => {
                             card.classList.add('visible');
-                        }, index * 150);
+                        }, index * 180);
                     });
                     partnerObserver.unobserve(entry.target);
                 }
