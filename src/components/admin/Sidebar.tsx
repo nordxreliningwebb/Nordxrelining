@@ -3,33 +3,34 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
-  LayoutDashboard, 
-  BookOpen, 
-  Briefcase, 
-  HelpCircle, 
-  FolderKanban, 
-  LogOut,
-  Settings
+  LayoutGrid, 
+  Layers, 
+  BookOpenText, 
+  MessageCircleQuestion, 
+  Tag, 
+  Rocket,
+  LogOut
 } from "lucide-react";
-import { signOut } from "next-auth/react";
+import { signout } from "@/app/admin/login/actions";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-  { name: "Kunskapsbank", href: "/admin/content/blog", icon: BookOpen },
-  { name: "Projekt", href: "/admin/content/projects", icon: FolderKanban },
-  { name: "FAQ", href: "/admin/content/faq", icon: HelpCircle },
-  { name: "Jobba hos oss", href: "/admin/content/jobs", icon: Briefcase },
+  { name: "Dashboard", href: "/admin/dashboard", icon: LayoutGrid },
+  { name: "Projekt", href: "/admin/projects", icon: Layers },
+  { name: "Kunskapsbank", href: "/admin/knowledge-bank", icon: BookOpenText },
+  { name: "FAQ", href: "/admin/faq", icon: MessageCircleQuestion },
+  { name: "Priser", href: "/admin/pricing", icon: Tag },
+  { name: "Kampanjer", href: "/admin/campaigns", icon: Rocket },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-[#1B263B] text-white flex flex-col h-screen fixed left-0 top-0 z-40 shadow-xl">
+    <aside className="w-64 bg-[#0284c7] text-white flex flex-col h-screen fixed left-0 top-0 z-40 shadow-xl">
       <div className="p-6 border-b border-white/10 flex flex-col gap-4">
         <Link href="/">
-          <img src="/logo.png" alt="Global Construction" className="h-8 w-auto" />
+          <img src="/logo.png" alt="Nordx Relining" className="h-8 w-auto filter brightness-0 invert" />
         </Link>
       </div>
 
@@ -48,14 +49,17 @@ export function Sidebar() {
               className={cn(
                 "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group",
                 isActive 
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20" 
-                  : "text-white/60 hover:bg-white/5 hover:text-white"
+                  ? "bg-white/20 text-white shadow-lg font-semibold" 
+                  : "text-white/70 hover:bg-white/10 hover:text-white"
               )}
             >
-              <Icon className={cn(
-                "w-5 h-5",
-                isActive ? "text-white" : "text-white/40 group-hover:text-white"
-              )} />
+              <Icon 
+                strokeWidth={1.5}
+                className={cn(
+                  "w-5 h-5",
+                  isActive ? "text-white" : "text-white/70 group-hover:text-white"
+                )} 
+              />
               <span className="font-medium">{item.name}</span>
             </Link>
           );
@@ -63,13 +67,15 @@ export function Sidebar() {
       </nav>
 
       <div className="p-4 border-t border-white/10 space-y-2">
-        <button
-          onClick={() => signOut()}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all"
-        >
-          <LogOut className="w-5 h-5" />
-          <span className="font-medium">Logga ut</span>
-        </button>
+        <form action={signout}>
+          <button
+            type="submit"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-red-500/20 transition-all group"
+          >
+            <LogOut strokeWidth={1.5} className="w-5 h-5 group-hover:text-red-300" />
+            <span className="font-medium group-hover:text-red-300">Logga ut</span>
+          </button>
+        </form>
       </div>
     </aside>
   );
