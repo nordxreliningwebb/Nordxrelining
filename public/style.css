@@ -11711,3 +11711,40 @@ body.journal-page {
         margin-top: -28px !important; /* Pull the paragraph up to perfectly align cap height with adjacent list items */
     }
 }
+
+/* --- Mobile CTA Overrides --- */
+.mobile-text {
+    display: none;
+}
+.desktop-text {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    /* Mobile-only text swap for CTA buttons */
+    .mobile-text {
+        display: inline !important;
+    }
+    .desktop-text {
+        display: none !important;
+    }
+    
+    /* Side-by-side buttons on mobile */
+    .cta-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    .cta-buttons .cta-btn-header-match {
+        flex: 1 !important;
+        padding: 12px 6px !important;
+        font-size: 0.9rem !important; /* Reduced to ensure it fits 320px screens */
+        white-space: nowrap !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+}
