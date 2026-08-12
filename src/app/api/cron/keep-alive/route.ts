@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     // Gör ett superlätt anrop till databasen för att förhindra att den pausas
     // Vi hämtar bara ID från 1 rad i BlogPost-tabellen
     const { data, error } = await supabase
-      .from('BlogPost')
+      .from('blog_posts')
       .select('id')
       .limit(1);
 

@@ -5,33 +5,51 @@ import { createClient } from '@supabase/supabase-js';
 import BlockEditor, { ContentBlock } from '@/components/admin/BlockEditor';
 import ProjectLivePreview from '@/components/admin/ProjectLivePreview';
 import { Save, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { saveProjectAction } from '@/app/admin/(authenticated)/projekt/actions';
+import { useRouter } from 'next/navigation';
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default function ProjectsAdminPage() {
+interface ProjectEditorProps {
+  initialData?: any;
+}
+
+export default function ProjectEditor({ initialData }: ProjectEditorProps) {
+  const router = useRouter();
   const [isSaving, setIsSaving] = useState(false);
   const [isUploadingCover, setIsUploadingCover] = useState(false);
   const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
   const [saveStatus, setSaveStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
+  // Parse blocks if initialData has it as a string
+  let initialBlocks: ContentBlock[] = [];
+  if (initialData?.content) {
+    try {
+      initialBlocks = typeof initialData.content === 'string' ? JSON.parse(initialData.content) : initialData.content;
+    } catch (e) {
+      console.error("Failed to parse initial blocks:", e);
+    }
+  }
+
   // Form State
   const [formData, setFormData] = useState({
-    title: '',
-    subheading: '',
-    category: '',
-    city: '',
-    date: new Date().toISOString().split('T')[0],
-    authorName: '',
-    clientName: '',
-    coverImage: null as string | null,
-    authorAvatar: null as string | null,
-    blocks: [] as ContentBlock[]
+    id: initialData?.id || '',
+    title: initialData?.title || '',
+    subheading: initialData?.description || initialData?.excerpt || '',
+    category: initialData?.category || '',
+    city: initialData?.city || '',
+    date: initialData?.publish_date ? new Date(initialData.publish_date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+    authorName: initialData?.author || '',
+    clientName: initialData?.client || '',
+    coverImage: (initialData?.images && initialData.images.length > 0) ? initialData.images[0] : null,
+    authorAvatar: initialData?.author_image || null,
+    blocks: initialBlocks
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -103,26 +121,17 @@ export default function ProjectsAdminPage() {
       // Serialisera block-arrayen till en JSON sträng
       const contentJson = JSON.stringify(formData.blocks);
 
-      const { data, error } = await supabase
-        .from('projects')
-        .insert([
-          {
-            title: formData.title,
-            metaDescription: formData.subheading,
-            category: formData.category,
-            city: formData.city,
-            date: formData.date,
-            authorName: formData.authorName,
-            clientName: formData.clientName,
-            coverImage: formData.coverImage,
-            authorAvatar: formData.authorAvatar,
-            content: contentJson, // Sparas som JSON
-            slug: formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
-          }
-        ]);
+      const result = await saveProjectAction({ ...formData, contentJson });
 
-      if (error) throw error;
-      setSaveStatus({ type: 'success', message: 'Projektet har sparats framgångsrikt!' });
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+      setSaveStatus({ type: 'success', message: 'Projektet har sparats framgångsrikt! Omdirigerar...' });
+      
+      setTimeout(() => {
+        router.push('/admin/projekt');
+        router.refresh();
+      }, 1500);
     } catch (err: any) {
       console.error('Save error:', err);
       setSaveStatus({ type: 'error', message: err.message || 'Ett fel uppstod när projektet skulle sparas.' });

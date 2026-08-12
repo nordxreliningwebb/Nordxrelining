@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ContentBlock } from './BlockEditor';
 import ProjectCardPreview from './ProjectCardPreview';
 import { LayoutGrid, FileText, HelpCircle } from 'lucide-react';
+import BlockRenderer from '@/components/public/BlockRenderer';
 
 interface ProjectLivePreviewProps {
   title: string;
@@ -110,29 +111,7 @@ export default function ProjectLivePreview(props: ProjectLivePreviewProps) {
                    <div className="text-gray-400 italic">Börja lägg till block i editorn för att se innehållet här...</div>
                 )}
                 
-                {props.blocks && props.blocks.map((block, idx) => {
-                  if (block.type === 'heading') {
-                    const id = `preview-section-${idx}`;
-                    return block.level === 2 
-                      ? <h2 key={block.id} id={id} className="text-3xl font-bold text-gray-900 mt-10 mb-6">{block.content || 'Ny rubrik'}</h2>
-                      : <h3 key={block.id} id={id} className="text-2xl font-bold text-gray-800 mt-8 mb-4">{block.content || 'Ny rubrik'}</h3>;
-                  }
-                  
-                  if (block.type === 'text') {
-                    return <div key={block.id} className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-wrap [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:pl-2 [&_li]:mb-1 [&_em]:italic [&_i]:italic [&_a]:text-blue-600 [&_a]:underline [&_strong]:font-bold" dangerouslySetInnerHTML={{ __html: block.content || 'Skriv text här...' }} />;
-                  }
-
-                  if (block.type === 'image') {
-                    if (!block.url) return null;
-                    return (
-                      <figure key={block.id} className="my-8 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                        <img src={block.url} alt={block.alt} className="w-full h-auto object-cover" />
-                        {block.alt && <figcaption className="p-3 bg-gray-50 text-sm text-gray-500 text-center border-t border-gray-100">{block.alt}</figcaption>}
-                      </figure>
-                    );
-                  }
-                  return null;
-                })}
+                {props.blocks && <BlockRenderer blocks={props.blocks} />}
               </article>
 
               {/* Sidebar */}
@@ -192,8 +171,17 @@ export default function ProjectLivePreview(props: ProjectLivePreviewProps) {
                         <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Innehåll</h4>
                         <ul className="space-y-3">
                           {toc.map((item, idx) => (
-                            <li key={idx} className={item.level === 3 ? 'pl-4' : ''}>
-                              <a href={`#${item.id}`} className="text-gray-900 hover:text-blue-600 transition-colors text-sm font-medium">
+                            <li key={idx}>
+                              <a 
+                                href={`#${item.id}`} 
+                                style={{
+                                  marginLeft: item.level === 3 ? '1.5rem' : '0rem',
+                                  color: item.level === 3 ? '#4B5563' : '#111827',
+                                  fontWeight: item.level === 3 ? '400' : '500',
+                                  fontSize: item.level === 3 ? '0.875rem' : '1rem'
+                                }}
+                                className="block hover:text-blue-600 transition-colors"
+                              >
                                 {item.text}
                               </a>
                             </li>
