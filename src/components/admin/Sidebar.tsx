@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 const menuItems = [
   { name: "Dashboard", href: "/admin/dashboard", icon: LayoutGrid },
-  { name: "Projekt", href: "/admin/projekt", icon: Layers },
+  { name: "Projekt", href: "/admin/projects", icon: Layers },
   { name: "Kunskapsbank", href: "/admin/knowledge-bank", icon: BookOpenText },
   { name: "FAQ", href: "/admin/faq", icon: MessageCircleQuestion },
   { name: "Priser", href: "/admin/pricing", icon: Tag },

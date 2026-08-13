@@ -17,7 +17,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--dark-navy);
     color: var(--white);
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -28,7 +28,7 @@ h1, h2, h3 {
 html {
     /* Extreme fluid base font size: 9.5px on 1280px -> 16px on 1920px */
     font-size: clamp(9.5px, 1.1vw - 5.1px, 16px);
-    overflow-x: clip; /* CRITICAL: Prevents horizontal scroll/blue edge strip on iOS Safari */
+    overflow-x: hidden; /* CRITICAL: Prevents horizontal scroll/blue edge strip on iOS Safari */
     scroll-behavior: smooth;
 }
 
@@ -11748,4 +11748,3 @@ body.journal-page {
         box-sizing: border-box !important;
     }
 }
-
