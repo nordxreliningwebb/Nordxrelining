@@ -113,19 +113,19 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                         <svg className="dropdown-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </Link>
                     <ul className="desktop-submenu" role="menu" aria-label="Tjänster">
-                        <li role="none"><Link href="/stamspolning.html" role="menuitem">Stamspolning</Link></li>
-                        <li role="none"><Link href="/rorinspektion.html" role="menuitem">Rörinspektion</Link></li>
-                        <li role="none"><Link href="/relining.html" role="menuitem">Relining</Link></li>
+                        <li role="none"><Link href="/stamspolning" role="menuitem">Stamspolning</Link></li>
+                        <li role="none"><Link href="/rorinspektion" role="menuitem">Rörinspektion</Link></li>
+                        <li role="none"><Link href="/relining" role="menuitem">Relining</Link></li>
                     </ul>
                 </li>
-                <li role="none"><Link href="/priser.html" role="menuitem">PRISER</Link></li>
+                <li role="none"><Link href="/priser" role="menuitem">PRISER</Link></li>
                 <li role="none"><Link href="/projekt" role="menuitem">PROJEKT</Link></li>
-                <li role="none"><Link href="/kunskapsbanken.html" role="menuitem">KUNSKAPSBANKEN</Link></li>
-                <li role="none"><Link href="/faq.html" role="menuitem">FAQ</Link></li>
-                <li role="none"><Link href="/om-oss.html" role="menuitem">OM OSS</Link></li>
+                <li role="none"><Link href="/kunskapsbanken" role="menuitem">KUNSKAPSBANKEN</Link></li>
+                <li role="none"><Link href="/faq" role="menuitem">FAQ</Link></li>
+                <li role="none"><Link href="/om-oss" role="menuitem">OM OSS</Link></li>
             </ul>
             <div className="header-cta">
-                <Link href="/kontakt.html" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
+                <Link href="/kontakt" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
             </div>
             <button className="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
                 <span></span>
@@ -144,17 +144,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                         Tjänster <span className="arrow">▼</span>
                     </a>
                     <ul className="mobile-submenu" id="mobile-tjanster-submenu">
-                        <li><Link href="/stamspolning.html">Stamspolning</Link></li>
-                        <li><Link href="/rorinspektion.html">Rörinspektion</Link></li>
-                        <li><Link href="/relining.html">Relining</Link></li>
+                        <li><Link href="/stamspolning">Stamspolning</Link></li>
+                        <li><Link href="/rorinspektion">Rörinspektion</Link></li>
+                        <li><Link href="/relining">Relining</Link></li>
                     </ul>
                 </li>
-                <li><Link href="/priser.html" className="mobile-menu-link">Priser</Link></li>
+                <li><Link href="/priser" className="mobile-menu-link">Priser</Link></li>
                 <li><Link href="/projekt" className="mobile-menu-link">Projekt</Link></li>
-                <li><Link href="/kunskapsbanken.html" className="mobile-menu-link">Kunskapsbanken</Link></li>
-                <li><Link href="/faq.html" className="mobile-menu-link">FAQ</Link></li>
-                <li><Link href="/om-oss.html" className="mobile-menu-link">Om oss</Link></li>
-                <li><Link href="/kontakt.html" className="mobile-menu-link">Kontakt</Link></li>
+                <li><Link href="/kunskapsbanken" className="mobile-menu-link">Kunskapsbanken</Link></li>
+                <li><Link href="/faq" className="mobile-menu-link">FAQ</Link></li>
+                <li><Link href="/om-oss" className="mobile-menu-link">Om oss</Link></li>
+                <li><Link href="/kontakt" className="mobile-menu-link">Kontakt</Link></li>
             </ul>
         </div>
       </header>
@@ -177,21 +177,21 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                 <ul>
                     <li><Link href="/">Hem</Link></li>
                     <li><Link href="/#tjanster">Tjänster</Link></li>
-                    <li><Link href="/priser.html">Priser</Link></li>
+                    <li><Link href="/priser">Priser</Link></li>
                     <li><Link href="/projekt">Projekt</Link></li>
-                    <li><Link href="/kunskapsbanken.html">Kunskapsbanken</Link></li>
-                    <li><Link href="/faq.html">FAQ</Link></li>
-                    <li><Link href="/om-oss.html">Om Oss</Link></li>
-                    <li><Link href="/kontakt.html">Kontakt</Link></li>
+                    <li><Link href="/kunskapsbanken">Kunskapsbanken</Link></li>
+                    <li><Link href="/faq">FAQ</Link></li>
+                    <li><Link href="/om-oss">Om Oss</Link></li>
+                    <li><Link href="/kontakt">Kontakt</Link></li>
                 </ul>
             </nav>
 
             <nav className="footer-links-col anim-stagger-item anim-fade-up" aria-label="Våra Tjänster">
                 <h3>Våra tjänster</h3>
                 <ul>
-                    <li><Link href="/stamspolning.html">Stamspolning</Link></li>
-                    <li><Link href="/relining.html">Relining</Link></li>
-                    <li><Link href="/rorinspektion.html">Rörinspektion</Link></li>
+                    <li><Link href="/stamspolning">Stamspolning</Link></li>
+                    <li><Link href="/relining">Relining</Link></li>
+                    <li><Link href="/rorinspektion">Rörinspektion</Link></li>
                 </ul>
             </nav>
 
@@ -218,11 +218,11 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             <div className="footer-bottom-left">
                 <p className="copyright">© 2026 Nordxrelining. Alla rättigheter reserverade.</p>
                 <nav className="footer-legal" aria-label="Juridisk information">
-                    <Link href="/kopvillkor.html">Köpvillkor</Link>
+                    <Link href="/kopvillkor">Köpvillkor</Link>
                     <span className="sep">|</span>
-                    <Link href="/integritetspolicy.html">Integritetspolicy</Link>
+                    <Link href="/integritetspolicy">Integritetspolicy</Link>
                     <span className="sep">|</span>
-                    <Link href="/cookies.html">Cookies</Link>
+                    <Link href="/cookies">Cookies</Link>
                 </nav>
             </div>
             <div className="footer-socials">
