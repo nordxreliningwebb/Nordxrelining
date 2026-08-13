@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
     const emailsToSend = subscribers.map((sub: any) => {
       const unsubscribeUrl = `https://globalconstruction.se/api/newsletter/unsubscribe?id=${sub.id}`;
-      const articleUrl = `https://globalconstruction.se/artikel?slug=${slug}`;
+      const articleUrl = `https://globalconstruction.se/artikel.html?slug=${slug}`;
       
       return {
         from: 'Global Construction <info@globalconstruction.se>',
