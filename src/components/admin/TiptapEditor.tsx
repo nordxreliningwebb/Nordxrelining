@@ -104,7 +104,7 @@ export default function TiptapEditor({ content, onChange, minHeight = "min-h-[15
 
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
-      editor.commands.setContent(content, false);
+      editor.commands.setContent(content, { emitUpdate: false });
     }
   }, [content, editor]);
 

@@ -17,6 +17,8 @@ model User {
   role          Role      @default(ADMIN)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  @@map("users")
 }
 
 enum Role {
@@ -49,6 +51,7 @@ model BlogPost {
   blocks          Json?
 
   @@index([slug])
+  @@map("blog_posts")
 }
 
 // PROJEKT
@@ -76,6 +79,7 @@ model Project {
   blocks          Json?
 
   @@index([slug])
+  @@map("projects")
 }
 
 // FAQ
@@ -89,6 +93,8 @@ model FAQ {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   sort_order  Int       @default(0)
+
+  @@map("faqs")
 }
 
 // JOBBA HOS OSS (JOBS)
@@ -111,6 +117,7 @@ model JobOpening {
   blocks          Json?
 
   @@index([slug])
+  @@map("job_openings")
 }
 
 // NYHETSBREV (NEWSLETTER SUBSCRIBERS)
@@ -120,4 +127,6 @@ model Subscriber {
   active      Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+
+  @@map("subscribers")
 }
