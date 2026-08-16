@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Se våra tidigare projekt.',
 };
 
-export const revalidate = 60; // SSR cache invalidation every 60 seconds
+export const dynamic = 'force-dynamic';
 
 export default async function ProjektPage() {
   let projects: any[] = [];
@@ -199,34 +199,36 @@ export default async function ProjektPage() {
       
       <Script id="project-filter-logic" strategy="afterInteractive">
         {`
-            // Re-bind filter events for dynamically rendered cards
-            const filterBtns = document.querySelectorAll('.nordx-filter-btn');
-            const grid = document.getElementById('dynamic-projects-grid');
-            if (filterBtns && grid) {
-                filterBtns.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        filterBtns.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const filterVal = btn.getAttribute('data-filter');
-                        const allCards = grid.querySelectorAll('.project-card-v2');
-                        
-                        allCards.forEach(card => {
-                            if (filterVal === 'all') {
-                                card.style.display = 'block';
-                                setTimeout(() => card.classList.add('visible'), 50);
-                            } else {
-                                if (card.getAttribute('data-category') === filterVal) {
+            (() => {
+                // Re-bind filter events for dynamically rendered cards
+                const filterBtns = document.querySelectorAll('.nordx-filter-btn');
+                const grid = document.getElementById('dynamic-projects-grid');
+                if (filterBtns && grid) {
+                    filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            filterBtns.forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+                            const filterVal = btn.getAttribute('data-filter');
+                            const allCards = grid.querySelectorAll('.project-card-v2');
+                            
+                            allCards.forEach(card => {
+                                if (filterVal === 'all') {
                                     card.style.display = 'block';
                                     setTimeout(() => card.classList.add('visible'), 50);
                                 } else {
-                                    card.classList.remove('visible');
-                                    setTimeout(() => card.style.display = 'none', 300);
+                                    if (card.getAttribute('data-category') === filterVal) {
+                                        card.style.display = 'block';
+                                        setTimeout(() => card.classList.add('visible'), 50);
+                                    } else {
+                                        card.classList.remove('visible');
+                                        setTimeout(() => card.style.display = 'none', 300);
+                                    }
                                 }
-                            }
+                            });
                         });
                     });
-                });
-            }
+                }
+            })();
         `}
       </Script>
     </FrontendLayout>

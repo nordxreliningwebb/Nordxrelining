@@ -130,3 +130,88 @@ model Subscriber {
 
   @@map("subscribers")
 }
+
+// KUNSKAPSBANKEN (KNOWLEDGE POSTS)
+model KnowledgePost {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  excerpt         String?   @db.Text
+  content         String?   @db.Text
+  blocks          Json?     // För Tiptap block-data
+  images          String[]  
+  category        String?
+  author          String?
+  author_image    String?
+  published       Boolean   @default(true)
+  publish_date    DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([slug])
+  @@map("knowledge_posts")
+}
+
+// FAQ (FAQ ITEMS)
+model FAQItem {
+  id          String    @id @default(cuid())
+  question    String
+  answer      String    @db.Text
+  category    String?
+  sort_order  Int       @default(0)
+  published   Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("faq_items")
+}
+
+// PRISER (PRICE PLANS)
+model PricePlan {
+  id          String    @id @default(cuid())
+  name        String
+  price       String
+  description String?   @db.Text
+  features      String[]
+  isPopular     Boolean   @default(false)
+  category      String    @default("Privatpersoner")
+  campaign_text String?
+  sort_order    Int       @default(0)
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("price_plans")
+}
+
+// KAMPANJER (CAMPAIGNS)
+model Campaign {
+  id              String    @id @default(cuid())
+  name            String    // Internt namn
+  title           String    // Kampanjens rubrik utåt
+  description     String?   @db.Text
+  discount        String?   // T.ex. "-20%" eller "5000 kr rabatt"
+  badgeText       String?   // T.ex. "Tidsbegränsat erbjudande"
+  countdownDate   DateTime? // DET KRITISKA FÄLTET: Driver frontend-timern
+  ctaText         String?   // Knappens text
+  ctaLink         String?   // Knappens länk
+  isActive        Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("campaigns")
+}
+
+// PERSONAL (TEAM)
+model Employee {
+  id          String    @id @default(cuid())
+  name        String
+  role        String
+  image_url   String?
+  sort_order  Int       @default(0)
+  published   Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("employees")
+}

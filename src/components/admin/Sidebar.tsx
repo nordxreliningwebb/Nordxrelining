@@ -9,6 +9,7 @@ import {
   MessageCircleQuestion, 
   Tag, 
   Rocket,
+  Users,
   LogOut
 } from "lucide-react";
 import { signout } from "@/app/admin/login/actions";
@@ -17,10 +18,11 @@ import { cn } from "@/lib/utils";
 const menuItems = [
   { name: "Dashboard", href: "/admin/dashboard", icon: LayoutGrid },
   { name: "Projekt", href: "/admin/projekt", icon: Layers },
-  { name: "Kunskapsbank", href: "/admin/knowledge-bank", icon: BookOpenText },
+  { name: "Kunskapsbank", href: "/admin/kunskapsbanken", icon: BookOpenText },
   { name: "FAQ", href: "/admin/faq", icon: MessageCircleQuestion },
-  { name: "Priser", href: "/admin/pricing", icon: Tag },
-  { name: "Kampanjer", href: "/admin/campaigns", icon: Rocket },
+  { name: "Priser", href: "/admin/priser", icon: Tag },
+  { name: "Kampanjer", href: "/admin/kampanjer", icon: Rocket },
+  { name: "Personal", href: "/admin/personal", icon: Users },
 ];
 
 export function Sidebar() {

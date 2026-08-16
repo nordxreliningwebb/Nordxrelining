@@ -34,6 +34,7 @@ export const authOptions: NextAuthOptions = {
           email: data.user.email,
           name: data.user.user_metadata?.name || "Admin",
           role: "ADMIN",
+          supabaseAccessToken: data.session?.access_token,
         };
       }
     })
@@ -42,12 +43,14 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.role = (user as any).role;
+        token.supabaseAccessToken = (user as any).supabaseAccessToken;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         (session.user as any).role = token.role;
+        (session as any).supabaseAccessToken = token.supabaseAccessToken;
       }
       return session;
     }

@@ -9,6 +9,20 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
   const pathname = usePathname();
 
   useEffect(() => {
+    // Re-trigger premium scroll animations and all JS logic on client-side route changes
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        if ((window as any).initPremiumObserver) {
+            (window as any).initPremiumObserver();
+        }
+        if ((window as any).initNordxScripts) {
+            (window as any).initNordxScripts();
+        }
+      }, 50);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     // Sticky header logic
     const header = document.getElementById('main-header');
     const handleScroll = () => {
@@ -84,8 +98,32 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         premiumObserver.observe(el);
     });
 
+    // --- NEW: Water Fill Card Animation ---
+    const waterFillCards = document.querySelectorAll('.water-fill-card');
+    let waterObserver: IntersectionObserver | null = null;
+    
+    if (waterFillCards.length > 0) {
+        waterObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(waterFillCards).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('is-filled');
+                    }, index * 200 + 100);
+                    waterObserver?.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.1,
+            rootMargin: window.innerWidth <= 768 ? '0px 0px -40% 0px' : '0px'
+        });
+        
+        waterFillCards.forEach(card => waterObserver?.observe(card));
+    }
+
     return () => {
         premiumObserver.disconnect();
+        if (waterObserver) waterObserver.disconnect();
     };
 
   }, [pathname]);
@@ -113,19 +151,19 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                         <svg className="dropdown-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </Link>
                     <ul className="desktop-submenu" role="menu" aria-label="Tjänster">
-                        <li role="none"><Link href="/stamspolning.html" role="menuitem">Stamspolning</Link></li>
-                        <li role="none"><Link href="/rorinspektion.html" role="menuitem">Rörinspektion</Link></li>
-                        <li role="none"><Link href="/relining.html" role="menuitem">Relining</Link></li>
+                        <li role="none"><Link href="/stamspolning" role="menuitem">Stamspolning</Link></li>
+                        <li role="none"><Link href="/rorinspektion" role="menuitem">Rörinspektion</Link></li>
+                        <li role="none"><Link href="/relining" role="menuitem">Relining</Link></li>
                     </ul>
                 </li>
-                <li role="none"><Link href="/priser.html" role="menuitem">PRISER</Link></li>
+                <li role="none"><Link href="/priser" role="menuitem">PRISER</Link></li>
                 <li role="none"><Link href="/projekt" role="menuitem">PROJEKT</Link></li>
-                <li role="none"><Link href="/kunskapsbanken.html" role="menuitem">KUNSKAPSBANKEN</Link></li>
-                <li role="none"><Link href="/faq.html" role="menuitem">FAQ</Link></li>
-                <li role="none"><Link href="/om-oss.html" role="menuitem">OM OSS</Link></li>
+                <li role="none"><Link href="/kunskapsbanken" role="menuitem">KUNSKAPSBANKEN</Link></li>
+                <li role="none"><Link href="/faq" role="menuitem">FAQ</Link></li>
+                <li role="none"><Link href="/om-oss" role="menuitem">OM OSS</Link></li>
             </ul>
             <div className="header-cta">
-                <Link href="/kontakt.html" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
+                <Link href="/kontakt" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
             </div>
             <button className="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
                 <span></span>
@@ -149,10 +187,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                         <li><Link href="/relining.html">Relining</Link></li>
                     </ul>
                 </li>
-                <li><Link href="/priser.html" className="mobile-menu-link">Priser</Link></li>
+                <li><Link href="/priser" className="mobile-menu-link">Priser</Link></li>
                 <li><Link href="/projekt" className="mobile-menu-link">Projekt</Link></li>
-                <li><Link href="/kunskapsbanken.html" className="mobile-menu-link">Kunskapsbanken</Link></li>
-                <li><Link href="/faq.html" className="mobile-menu-link">FAQ</Link></li>
+                <li><Link href="/kunskapsbanken" className="mobile-menu-link">Kunskapsbanken</Link></li>
+                <li><Link href="/faq" className="mobile-menu-link">FAQ</Link></li>
                 <li><Link href="/om-oss.html" className="mobile-menu-link">Om oss</Link></li>
                 <li><Link href="/kontakt.html" className="mobile-menu-link">Kontakt</Link></li>
             </ul>
@@ -177,10 +215,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                 <ul>
                     <li><Link href="/">Hem</Link></li>
                     <li><Link href="/#tjanster">Tjänster</Link></li>
-                    <li><Link href="/priser.html">Priser</Link></li>
+                    <li><Link href="/priser">Priser</Link></li>
                     <li><Link href="/projekt">Projekt</Link></li>
-                    <li><Link href="/kunskapsbanken.html">Kunskapsbanken</Link></li>
-                    <li><Link href="/faq.html">FAQ</Link></li>
+                    <li><Link href="/kunskapsbanken">Kunskapsbanken</Link></li>
+                    <li><Link href="/faq">FAQ</Link></li>
                     <li><Link href="/om-oss.html">Om Oss</Link></li>
                     <li><Link href="/kontakt.html">Kontakt</Link></li>
                 </ul>

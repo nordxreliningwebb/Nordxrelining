@@ -8,16 +8,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
-
-
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* CMS Editor Fixes */
@@ -55,3 +52,88 @@ body {
 .editor-content li {
   margin-bottom: 0.25rem;
 }
+
+
+
+        /* Specific overrides for landing pages */
+        #main-header .nav-links a {
+            color: #111111 !important;
+        }
+        #main-header .nav-links a:hover {
+            color: #0fb3ff !important;
+        }
+        #main-header #logo-img {
+            filter: none !important;
+            content: url('/logo.png') !important;
+        }
+        #main-header .menu-toggle span {
+            background-color: #111111 !important;
+        }
+        
+        /* Smooth filter transition */
+        .faq-card-wrapper {
+            transition: opacity 0.3s ease;
+        }
+
+        /* FAQ Styling */
+        .nordx-faq-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .nordx-faq-card {
+            background: #0284c7;
+            border-radius: 12px;
+            padding: 0 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .nordx-faq-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(15, 179, 255, 0.2);
+        }
+        .nordx-faq-btn {
+            width: 100%; text-align: left; padding: 2rem 0; background: none; border: none;
+            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+            font-size: 1.25rem; font-weight: 600; color: #ffffff; font-family: 'Inter', sans-serif;
+        }
+        .nordx-faq-btn:focus { outline: none; }
+        .nordx-faq-icon {
+            width: 24px; height: 24px; transition: transform 0.3s ease; flex-shrink: 0; margin-left: 1rem; color: #ffffff;
+        }
+        .nordx-faq-btn[aria-expanded="true"] .nordx-faq-icon { transform: rotate(180deg); }
+        .nordx-faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease; opacity: 0;
+        }
+        .nordx-faq-answer.open { opacity: 1; padding-bottom: 2rem; }
+        .nordx-faq-answer p { color: rgba(255, 255, 255, 0.95); line-height: 1.6; font-size: 1.05rem; margin: 0; font-family: 'Inter', sans-serif; }
+
+        /* FAQ Waves Styling */
+        .faq-wave-base {
+            position: relative;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            margin-top: 25px; /* Spacing for the wave */
+        }
+        .faq-wave-base::before {
+            content: "";
+            position: absolute;
+            top: -15px; /* Significant overlap to prevent tearing */
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background-size: 100% 100%;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* Wave Variations using inline SVG data URIs */
+        .wave-1::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,80 C250,130 350,10 600,80 C850,130 950,10 1200,80 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+        }
+        .wave-2::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C200,100 400,0 600,40 C800,100 1000,0 1200,40 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,70 C250,10 450,120 600,70 C750,10 950,120 1200,70 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,60 C300,120 400,20 600,60 C800,120 900,20 1200,60 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+        }
+        .wave-3::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,80 C150,20 300,120 600,80 C900,20 1050,120 1200,80 L1200,120 L0,120 Z' fill='%237dd3fc'/%3E%3Cpath d='M0,50 C200,120 350,10 600,50 C850,120 1000,10 1200,50 L1200,120 L0,120 Z' fill='%2338bdf8' opacity='0.7'/%3E%3Cpath d='M0,70 C150,120 400,0 600,70 C800,120 1050,0 1200,70 L1200,120 L0,120 Z' fill='%230284c7'/%3E%3C/svg%3E");
+        }
+    
+/* touch */
+

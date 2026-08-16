@@ -1,4 +1,68 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+window.initNordxScripts = function() {
+    if (window._nordxAbortController) {
+        window._nordxAbortController.abort();
+    }
+    window._nordxAbortController = new AbortController();
+    const signal = window._nordxAbortController.signal;
+
+    // Helper to inject signal into addEventListener options
+    function injectSignal(options) {
+        if (options === undefined || options === null) {
+            return { signal };
+        } else if (typeof options === 'boolean') {
+            return { capture: options, signal };
+        } else if (typeof options === 'object') {
+            options.signal = signal;
+            return options;
+        }
+        return { signal };
+    }
+
+    const originalWindowAdd = window.addEventListener;
+    const originalDocAdd = document.addEventListener;
+
+    const safeWindow = new Proxy(window, {
+        get(target, prop) {
+            if (prop === 'addEventListener') {
+                return function(type, listener, options) {
+                    originalWindowAdd.call(window, type, listener, injectSignal(options));
+                };
+            }
+            const value = Reflect.get(target, prop);
+            if (typeof value === 'function') {
+                return value.bind(target);
+            }
+            return value;
+        }
+    });
+
+    const safeDocument = new Proxy(document, {
+        get(target, prop) {
+            if (prop === 'addEventListener') {
+                return function(type, listener, options) {
+                    originalDocAdd.call(document, type, listener, injectSignal(options));
+                };
+            }
+            const value = Reflect.get(target, prop);
+            if (typeof value === 'function') {
+                return value.bind(target);
+            }
+            return value;
+        }
+    });
+
+    // This immediately invokes the callbacks passed to DOMContentLoaded listeners
+    function fakeDOMContentLoaded(callback) {
+        if (typeof callback === 'function') {
+            callback();
+        } else {
+            console.warn("fakeDOMContentLoaded expected a function but got", callback);
+        }
+    }
+
+    (function(window, document, fakeDOMContentLoaded) {
+        fakeDOMContentLoaded(() => {
     const header = document.getElementById('main-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -528,35 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
                 
                 if (response.ok) {
-                    // Dölj formuläret och visa tack-rutan
-                    contactForm.style.display = 'none';
-                    const successMessage = document.getElementById('form-success-message');
-                    if (successMessage) {
-                        successMessage.style.display = 'block';
-                        successMessage.style.animation = 'fadeInUp 0.5s ease forwards';
-                    }
-                    
-                    // Uppdatera URL tyst för GTM-spårning
-                    if (window.history && window.history.pushState) {
-                        window.history.pushState(null, '', '/kontakt/tack');
-                    }
-                    
-                    // Hantera "Tillbaka"-knappen
-                    const backBtn = document.getElementById('success-back-btn');
-                    if (backBtn) {
-                        backBtn.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            if (window.history && window.history.pushState) {
-                                window.history.pushState(null, '', '/kontakt');
-                            }
-                            if (successMessage) successMessage.style.display = 'none';
-                            contactForm.style.display = 'block';
-                        }, { once: true });
-                    }
-
-                    contactForm.reset();
-                    const fileLabel = document.getElementById('file-label-text');
-                    if(fileLabel) fileLabel.textContent = 'Ingen fil vald';
+                    window.location.href = '/tack';
                 } else {
                     alert('Ett fel uppstod: ' + (result.error || 'Försök igen senare.'));
                 }
@@ -572,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --- GDPR Intercept Logic --- */
-window.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const newsletterForm = document.getElementById('newsletterForm');
     const gdprModal = document.getElementById('gdpr-modal');
     
@@ -614,7 +650,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --- FAQ Expand Toggle Logic --- */
-window.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const faqToggles = [
         { btn: 'faq-toggle-konstruktion', panel: 'faq-extra-konstruktion' },
         { btn: 'faq-toggle-skyddsrum',    panel: 'faq-extra-skyddsrum'    },
@@ -675,7 +711,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // e.g. if (consent.analytics) { /* init GA */ }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    fakeDOMContentLoaded(() => {
         const existing = getConsent();
         if (existing) { applyConsent(existing); return; } // Already answered
 
@@ -781,7 +817,7 @@ window.addEventListener('DOMContentLoaded', () => {
 /* =====================================================
    SCROLL LINE ANIMATION
    ===================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const path = document.getElementById('services-path');
     if (path) {
         const pathLength = 3000;
@@ -801,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =====================================================
    SCROLL LINE ANIMATION FIXED
    ===================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const path = document.getElementById('services-path');
     if (path) {
         const pathLength = 4000;
@@ -837,7 +873,7 @@ const updateScrollLine = () => {
 
 window.addEventListener('scroll', updateScrollLine);
 window.addEventListener('resize', updateScrollLine);
-document.addEventListener('DOMContentLoaded', updateScrollLine);
+fakeDOMContentLoaded(updateScrollLine);
 
 
 
@@ -859,10 +895,10 @@ const updateScrollLineFixed = () => {
 
 window.addEventListener('scroll', updateScrollLineFixed);
 window.addEventListener('resize', updateScrollLineFixed);
-document.addEventListener('DOMContentLoaded', updateScrollLineFixed);
+fakeDOMContentLoaded(updateScrollLineFixed);
 
 // --- Mobile Dropdown Sync ---
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const mobileDropdowns = document.querySelectorAll('.mobile-filter-dropdown');
     
     // When dropdown changes, trigger click on the corresponding pill button
@@ -895,7 +931,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const contentSections = document.querySelectorAll('.service-page-content');
     if (contentSections.length > 0) {
         let ticking = false;
@@ -948,7 +984,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =====================================================
    DYNAMIC RESPONSIVE PIPE ANIMATION (STAMSPOLNING)
    ===================================================== */
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     const pipeGroup = document.getElementById('dynamic-pipe-group');
     const nozzleGroup = document.getElementById('dynamic-nozzle');
     const pipeDefs = document.getElementById('dynamic-pipe-defs');
@@ -1337,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+fakeDOMContentLoaded(() => {
     // --- Nordx Filter (Projekt & Kunskapsbanken) ---
     const nordxFilterBtns = document.querySelectorAll('.nordx-filter-btn');
     if (nordxFilterBtns.length > 0) {
@@ -1379,3 +1415,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+fakeDOMContentLoaded(() => {
+// Om-oss team card scroll logic
+if (window.innerWidth <= 768) {
+  const teamCards = document.querySelectorAll('.team-member-card');
+  if (teamCards.length > 0) {
+    let style = document.createElement('style');
+    style.innerHTML = '.team-member-card.team-center-active { transform: translateY(-20px) !important; }';
+    document.head.appendChild(style);
+    window.addEventListener('scroll', () => {
+      const centerY = window.innerHeight / 2;
+      let closestCard = null;
+      let minDistance = Infinity;
+      teamCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(centerY - cardCenter);
+        if (distance < minDistance) { minDistance = distance; closestCard = card; }
+      });
+      teamCards.forEach(card => card.classList.remove('team-center-active'));
+      if (closestCard) closestCard.classList.add('team-center-active');
+    });
+  }
+}
+});
+
+    })(safeWindow, safeDocument, fakeDOMContentLoaded);
+};
+
+// Also auto-run once on load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.initNordxScripts);
+} else {
+    window.initNordxScripts();
+}

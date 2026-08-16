@@ -213,6 +213,10 @@ function submitQuoteRequest() {
         body += `Varav i gjutjärn: ${qtys.gjutjarn}\n`;
     }
     
+    
+    // Beräkna totala anslutningspunkter
+    const pts = (qtys.badrum * 3) + (qtys.gasttoalett * 2) + (qtys.kok * 1) + (qtys.tvattstuga * 1) + (qtys.extra * 1);
+    body += `\nTotalt antal anslutningspunkter: ${pts}\n`;
     // Get checked problems
     const problemChecks = document.querySelectorAll('#problems-list input:checked');
     if (problemChecks.length > 0) {
@@ -222,8 +226,37 @@ function submitQuoteRequest() {
         });
     }
     
-    const mailto = `mailto:info@nordxrelining.se?subject=Offertförfrågan Relining&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
     
-    document.getElementById('quote-success').style.display = 'block';
+    
+    const formData = new FormData();
+    formData.append('type', 'offert');
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('message', body);
+    
+    const submitBtn = document.querySelector('button[onclick="submitQuoteRequest()"]');
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = "Skickar...";
+    submitBtn.style.opacity = "0.7";
+    submitBtn.style.pointerEvents = "none";
+
+    fetch('/api/contact', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+      .then(data => {
+          if(data.success || data.ok) {
+              window.location.href = '/tack';
+          } else {
+              alert("Ett fel uppstod när förfrågan skulle skickas. Vänligen försök igen.");
+          }
+      }).catch(err => {
+          console.error(err);
+          alert("Ett nätverksfel uppstod. Vänligen försök igen.");
+      }).finally(() => {
+          submitBtn.innerText = originalText;
+          submitBtn.style.opacity = "1";
+          submitBtn.style.pointerEvents = "auto";
+      });
 }

@@ -14,14 +14,14 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     background-color: var(--dark-navy);
     color: var(--white);
     overflow-x: clip;
 }
 
 h1, h2, h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
 }
 
 /* Global Responsive Scale */
@@ -1445,7 +1445,7 @@ figure {
     color: var(--dark-navy);
     line-height: 1;
     margin-bottom: 2rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-weight: 800;
     opacity: 0.15;
 }
@@ -1456,7 +1456,7 @@ figure {
     color: #4a5568;
     font-style: italic;
     margin-bottom: 4rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     position: relative;
     z-index: 2;
 }
@@ -2174,7 +2174,7 @@ figure {
         text-decoration: none;
         padding: 20px 0;
         border-bottom: 1px solid #eaeaea;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-inter), sans-serif;
     }
     .mobile-submenu {
         list-style: none; padding: 0; margin: 0;
@@ -2188,7 +2188,7 @@ figure {
         color: #333 !important;
         text-decoration: none;
         border-bottom: 1px solid #f9f9f9;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-inter), sans-serif;
         font-weight: 500;
     }
     .mobile-menu-link.active .arrow {
@@ -2749,7 +2749,7 @@ figure {
 }
 
 .stat-number {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     color: var(--white);
@@ -2758,7 +2758,7 @@ figure {
 }
 
 .stat-suffix {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 700;
     color: var(--white);
@@ -2919,7 +2919,7 @@ figure {
 
 .timeline-year {
     display: inline-block;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     color: #48bb78;
@@ -3022,7 +3022,7 @@ figure {
     position: absolute;
     left: 0;
     top: 0;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #48bb78;
@@ -3149,7 +3149,7 @@ figure {
 
 /* Name */
 .team-person-name {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--dark-navy);
@@ -3250,7 +3250,7 @@ figure {
     padding: 0.65rem 1.8rem;
     font-size: 0.9rem;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     color: #475569;
     cursor: pointer;
     border-radius: 100px !important;
@@ -4057,7 +4057,7 @@ footer address,
 
 .contact-page-header h1 {
     font-size: clamp(2.2rem, 3.8vw, 3.25rem);
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-weight: 800;
     color: #0b1c2d;
     letter-spacing: -0.02em;
@@ -4336,7 +4336,7 @@ footer address,
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
 }
 
 .btn-submit-premium:hover {
@@ -4501,7 +4501,7 @@ footer address,
     color: var(--dark-navy) !important; /* DARK NAVY metadata to match navbar */
     font-size: 0.95rem;
     margin-bottom: 2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     letter-spacing: 0.08em;
     font-weight: 600; /* Slightly bolder for better visibility in navy */
     white-space: nowrap; /* Prevent breaking globally */
@@ -4521,7 +4521,7 @@ footer address,
 }
 
 .project-card h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.6rem; /* REDUCED to match screenshot refinement */
     font-weight: 800;
     line-height: 1.2;
@@ -5007,7 +5007,7 @@ body.blog-post-page {
 }
 
 .premium-article-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: #1B263B;
     font-size: 3.5rem;
     font-weight: 800;
@@ -5039,7 +5039,7 @@ body.blog-post-page {
 }
 
 .premium-article-body h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: #1B263B;
     font-size: 2.2rem;
     font-weight: 700;
@@ -5050,7 +5050,7 @@ body.blog-post-page {
 }
 
 .premium-article-body h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: #334155;
     font-size: 1.6rem;
     font-weight: 600;
@@ -5059,7 +5059,7 @@ body.blog-post-page {
 }
 
 .premium-article-body p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     color: #475569;
     font-size: 1.15rem;
     line-height: 1.85;
@@ -5129,7 +5129,7 @@ body.blog-post-page {
 }
 
 .blog-v2-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: var(--dark-navy);
     font-size: clamp(2rem, 4.5vw, 4rem);
     font-weight: 800;
@@ -5194,7 +5194,7 @@ body.blog-post-page {
 }
 
 .glass-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: var(--white);
     font-size: 2.5rem;
     font-weight: 700;
@@ -5350,7 +5350,7 @@ body.blog-post-page {
     background: transparent;
     padding: 10px 15px;
     flex-grow: 1;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.95rem;
     color: var(--dark-navy);
     outline: none;
@@ -5444,7 +5444,7 @@ body.blog-post-page {
 .blog-v2-header-area .breadcrumbs {
     color: #64748b;
     margin-bottom: 25px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
 }
 .blog-v2-header-area .breadcrumbs a {
     color: var(--dark-navy);
@@ -5475,7 +5475,7 @@ body.blog-post-page {
 }
 
 .blog-v2-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: var(--white);
     font-size: clamp(2.8rem, 5.5vw, 4.5rem);
     font-weight: 800;
@@ -5494,7 +5494,7 @@ body.blog-post-page {
 .blog-v2-header-area .breadcrumbs {
     color: rgba(255, 255, 255, 0.6);
     margin-bottom: 30px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     display: flex;
     gap: 0.5rem;
     font-size: 0.9rem;
@@ -5627,7 +5627,7 @@ body.blog-post-page {
     border-radius: 100px !important;
     padding: 0.6rem 1.75rem !important;
     font-weight: 700 !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-inter), sans-serif !important;
     color: #475569 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0 !important;
@@ -5685,7 +5685,7 @@ body.blog-post-page {
     border-radius: 100px !important;
     padding: 0.6rem 1.5rem !important;
     font-weight: 600 !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-inter), sans-serif !important;
     width: auto !important;
     height: auto !important;
     transition: background 0.3s ease;
@@ -6128,7 +6128,7 @@ body.blog-post-page {
     color: var(--dark-navy);
     padding: 0.85rem 2.25rem;
     border-radius: 100px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -6250,7 +6250,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8rem;
     letter-spacing: 0.05em;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -6268,7 +6268,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 600;
     font-size: 0.8rem;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -6285,7 +6285,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.78rem;
     font-weight: 500;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     text-decoration: underline;
     padding: 0.5rem;
     transition: color 0.2s ease;
@@ -6463,7 +6463,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -6658,7 +6658,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -6858,7 +6858,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -8143,7 +8143,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .quote-text-premium {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 1.4rem;
     line-height: 1.8;
     color: #1b263b;
@@ -8176,13 +8176,13 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     justify-content: center;
     border-radius: 50%;
     font-weight: 700;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.2rem;
 }
 
 .author-name-stack strong {
     display: block;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.1rem;
     color: var(--dark-navy);
 }
@@ -8200,7 +8200,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mission-redesign-content h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: 800;
     color: var(--dark-navy);
@@ -8238,7 +8238,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 
 .m-feature-text-wrap strong {
     display: block;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: var(--dark-navy);
@@ -8455,7 +8455,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .faq-cta-strip h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: #fff;
     font-size: clamp(1.8rem, 4vw, 2.75rem);
     font-weight: 700;
@@ -8499,7 +8499,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 .editor-content h1,
 .editor-content h2,
 .editor-content h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: var(--dark-navy);
     margin: 2.5rem 0 1.5rem;
     line-height: 1.2;
@@ -8891,7 +8891,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
         display: block !important;
         width: 100%;
         padding: 0.8rem 1.2rem;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-inter), sans-serif;
         font-size: 1rem;
         font-weight: 500;
         color: var(--dark-navy);
@@ -9060,7 +9060,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2.5rem 0; /* Matches top/bottom padding of hero-cta-box */
 }
 .hero-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-size: clamp(2rem, 4vw, 3.5rem); /* Scaled down slightly to guarantee 2 lines */
     font-weight: 800;
     line-height: 1.1;
@@ -9075,7 +9075,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .hero-text {
     font-size: 1.25rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     margin-bottom: 2.5rem;
     opacity: 0.9;
     max-width: 700px;
@@ -9166,7 +9166,7 @@ section {
     margin-right: auto;
 }
 .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     color: #0b0b0b;
@@ -9211,7 +9211,7 @@ section {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
 }
 .service-desc {
     color: #666;
@@ -9254,7 +9254,7 @@ section {
     display: block;
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
 }
 .usp-list li span {
     color: #aaa;
@@ -9322,7 +9322,7 @@ section {
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 1rem;
     transition: border-color 0.3s;
 }
@@ -9343,7 +9343,7 @@ section {
     cursor: pointer;
     width: 100%;
     transition: transform 0.3s, box-shadow 0.3s;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
 }
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -9426,7 +9426,7 @@ section {
 
 /* --- Overrides for Inter Font & Service Cards --- */
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section-title, .hero-title, .service-title {
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-inter), sans-serif !important;
 }
 
 /* Service Card Design update to match image */
@@ -10050,7 +10050,7 @@ body.light-theme .service-animation-wrapper {
 .top-announcement-bar {
     background: #FFD700; /* Premium industrial yellow */
     color: #0b0b0b;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
     padding: 0.6rem 0;
@@ -10169,13 +10169,13 @@ body.light-theme .service-animation-wrapper {
     flex-direction: column;
 }
 .sticky-jour-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
     line-height: 1.2;
 }
 .sticky-jour-sub {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.75rem;
     opacity: 0.8;
 }
@@ -10225,7 +10225,7 @@ body.light-theme .service-animation-wrapper {
     letter-spacing: 1px;
 }
 .hero-cta-box h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-size: 1.8rem;
     color: #0b0b0b;
     margin-bottom: 0.75rem;
@@ -10234,7 +10234,7 @@ body.light-theme .service-animation-wrapper {
 .hero-cta-box p {
     color: #222222;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     margin-bottom: 2rem;
     line-height: 1.5;
     font-weight: 500;
@@ -10249,7 +10249,7 @@ body.light-theme .service-animation-wrapper {
     gap: 0.75rem;
     padding: 1rem;
     border-radius: 6px; /* Matches header CTA shape */
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
@@ -10375,13 +10375,13 @@ body.light-theme .service-animation-wrapper {
     flex-direction: column;
 }
 .sticky-jour-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
     line-height: 1.2;
 }
 .sticky-jour-sub {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.75rem;
     opacity: 0.8;
 }
@@ -10431,7 +10431,7 @@ body.light-theme .service-animation-wrapper {
     letter-spacing: 1px;
 }
 .hero-cta-box h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-size: 1.8rem;
     color: #0b0b0b;
     margin-bottom: 0.75rem;
@@ -10440,7 +10440,7 @@ body.light-theme .service-animation-wrapper {
 .hero-cta-box p {
     color: #222222;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     margin-bottom: 2rem;
     line-height: 1.5;
     font-weight: 500;
@@ -10455,7 +10455,7 @@ body.light-theme .service-animation-wrapper {
     gap: 0.75rem;
     padding: 1rem;
     border-radius: 6px; /* Matches header CTA shape */
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
@@ -10718,7 +10718,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
 }
 .water-fill-content {
-    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    padding: 5rem 2.5rem 2.5rem 2.5rem;
     position: relative;
     z-index: 2;
     height: 100%;
@@ -10779,7 +10779,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     transform: translateY(-8px);
 }
 .water-fill-content {
-    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    padding: 5rem 2.5rem 2.5rem 2.5rem;
     position: relative;
     z-index: 2;
     height: 100%;
@@ -10834,7 +10834,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     transition: height 4s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .water-fill-card.is-filled .water-fill-container {
-    height: 100%;
+    height: calc(100% - 60px);
 }
 
 /* The Waves */
@@ -11018,7 +11018,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 .projects-header-v2 { padding: 6rem 1rem 3rem; max-width: min(1400px, 94vw);
     margin: 0 auto;
 }
-.projects-header-v2 h1 { font-size: clamp(2rem, 5vw, 3rem); font-family: 'Inter', sans-serif; color: #0b0b0b; margin-bottom: 1rem; font-weight: 700; }
+.projects-header-v2 h1 { font-size: clamp(2rem, 5vw, 3rem); font-family: var(--font-inter), sans-serif; color: #0b0b0b; margin-bottom: 1rem; font-weight: 700; }
 .projects-header-v2 p {
     font-size: 1.1rem;
     color: #475569;
@@ -11058,7 +11058,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     background: transparent;
     color: white;
 }
-.featured-project h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-family: 'Inter', sans-serif; margin-bottom: 0.5rem; font-weight: 800; line-height: 1.1; }
+.featured-project h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-family: var(--font-inter), sans-serif; margin-bottom: 0.5rem; font-weight: 800; line-height: 1.1; }
 .featured-project p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -11115,7 +11115,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 }
 .project-card-v2-content h3 {
     font-size: 1.25rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     color: var(--dark-navy);
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -11134,9 +11134,9 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     .featured-project { height: 400px; }
 }
 
-.project-card-v2-content { padding: 1.5rem; display: flex; flex-direction: column; }
+.project-card-v2-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
 .project-card-v2-content p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-.project-card-v2-btn { background: #0284c7; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 700; text-align: center; transition: background 0.3s ease; display: inline-block; width: fit-content; margin-top: 0.5rem; }
+.project-card-v2-btn { background: #0284c7; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 700; text-align: center; transition: background 0.3s ease; display: inline-block; width: fit-content; margin-top: auto; }
 .project-card-v2:hover .project-card-v2-btn { background: #0369a1; }
 
 
@@ -11155,7 +11155,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     margin-bottom: 3rem;
     align-items: center;
 }
-.nordx-filter-btn { padding: 0.6rem 1.5rem; border-radius: 4px; border: 1px solid #e2e8f0; background: #ffffff; color: #1B263B; font-weight: 700; font-family: 'Inter', sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; letter-spacing: 0.5px; }
+.nordx-filter-btn { padding: 0.6rem 1.5rem; border-radius: 4px; border: 1px solid #e2e8f0; background: #ffffff; color: #1B263B; font-weight: 700; font-family: var(--font-inter), sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; letter-spacing: 0.5px; }
 .nordx-filter-btn:hover { color: #0284c7; background: rgba(2, 132, 199, 0.05); border-color: #0284c7; }
 .nordx-filter-btn.active { background: #0284c7; color: #ffffff; border-color: #0284c7; box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2); }
 .nordx-filter-btn.active:hover { background: #0369a1; border-color: #0369a1; color: #ffffff; }
@@ -11362,13 +11362,13 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     color: #ffffff;
 }
 .project-slider-content h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 .project-slider-content p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: #ffffff;
@@ -11448,7 +11448,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.85rem;
     color: #e2e8f0;
 }
@@ -11469,7 +11469,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     color: #bae6fd;
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
 }
 .project-btn {
     margin-top: 1.5rem;
@@ -11482,7 +11482,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition: all 0.3s ease;
     align-self: flex-start;
     border: 1px solid transparent;
@@ -11748,4 +11748,5 @@ body.journal-page {
         box-sizing: border-box !important;
     }
 }
+
 

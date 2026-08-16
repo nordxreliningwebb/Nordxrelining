@@ -5,13 +5,14 @@ import { notFound } from "next/navigation";
 export const revalidate = 0; // Ensure fresh data on load
 
 interface EditProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function EditProjectPage({ params }: EditProjectPageProps) {
-  const { id } = await params;
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
   
   const { data: project, error } = await supabaseAdmin
     .from("projects")
