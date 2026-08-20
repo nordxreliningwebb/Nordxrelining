@@ -24,13 +24,11 @@ export default function RootLayout({
   return (
     <html lang="sv" className={`${inter.variable} ${outfit.variable} ${syne.variable} h-full antialiased scroll-smooth`}>
       <head>
-        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="beforeInteractive" />
-        <Script id="google-translate-init" strategy="beforeInteractive">
-          {`window.googleTranslateElementInit = function() { new window.google.translate.TranslateElement({pageLanguage: 'sv', autoDisplay: false}, 'google_translate_element'); };`}
-        </Script>
+        <script dangerouslySetInnerHTML={{ __html: `window.googleTranslateElementInit = function() { new window.google.translate.TranslateElement({pageLanguage: 'sv', autoDisplay: false}, 'google_translate_element'); };` }} />
+        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
       </head>
       <body className="min-h-full font-sans text-slate-900 bg-white">
-        <div id="google_translate_element" style={{ display: "none" }}></div>
+        <div id="google_translate_element" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}></div>
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9QNLFS9" height="0" width="0" style="display:none;visibility:hidden"></iframe>`
