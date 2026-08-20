@@ -5,11 +5,13 @@ import React, { useState, useRef, useEffect } from 'react';
 export default function FAQAccordionClient({
   question,
   answer,
-  waveClass = "wave-1"
+  waveClass = "wave-1",
+  animClass
 }: {
   question: string;
   answer: string;
   waveClass?: string;
+  animClass?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const answerRef = useRef<HTMLDivElement>(null);
