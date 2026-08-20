@@ -14,7 +14,7 @@ export default function ProjectSliderLogic() {
     let currentSlide = 0;
     const totalSlides = slides.length;
     
-    function showSlide(index) {
+    function showSlide(index: number) {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
