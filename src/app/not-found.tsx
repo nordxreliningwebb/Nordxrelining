@@ -34,16 +34,18 @@ export default function NotFoundPage() {
                             fontSize: "2rem", 
                             fontWeight: 700, 
                             color: "#0f172a", 
-                            marginBottom: "1.5rem" 
-                        }} className="anim-fade-up" style={{ transitionDelay: "0.1s" }}>
+                            marginBottom: "1.5rem",
+                            transitionDelay: "0.1s"
+                        }} className="anim-fade-up">
                             Sidan kunde inte hittas
                         </h2>
                         
                         <p style={{ 
                             fontSize: "1.125rem", 
                             color: "#475569", 
-                            marginBottom: "3rem" 
-                        }} className="anim-fade-up" style={{ transitionDelay: "0.2s" }}>
+                            marginBottom: "3rem",
+                            transitionDelay: "0.2s"
+                        }} className="anim-fade-up">
                             Det verkar som att länken du följde är bruten eller att sidan har flyttats. Oroa dig inte, du kan enkelt hitta tillbaka till vår startsida!
                         </p>
                         
