@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import LanguageSwitcher from './public/LanguageSwitcher';
 import '../../public/style.css';
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
@@ -163,7 +164,8 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                 <li role="none"><Link href="/faq" role="menuitem">FAQ</Link></li>
                 <li role="none"><Link href="/om-oss" role="menuitem">OM OSS</Link></li>
             </ul>
-            <div className="header-cta">
+            <div className="header-cta" style={{ display: "flex", alignItems: "center" }}>
+                <LanguageSwitcher />
                 <Link href="/kontakt" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
             </div>
             <button className="menu-toggle" aria-label="Öppna meny" aria-expanded="false">

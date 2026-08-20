@@ -11907,3 +11907,9 @@ body.journal-page {
 .contact-info-card .p-muff-v, .contact-form-card .p-muff-v, .calc-card .p-muff-v { width: 20px; height: 22px; }
 .contact-info-card .p-muff-v::after, .contact-form-card .p-muff-v::after, .calc-card .p-muff-v::after { width: 24px; height: 4px; }
 
+
+
+/* Google Translate hiding */
+#google_translate_element { display: none !important; }
+.goog-te-banner-frame { display: none !important; }
+body { top: 0px !important; }
