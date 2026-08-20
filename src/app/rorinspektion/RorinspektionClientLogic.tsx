@@ -59,14 +59,14 @@ export default function RorinspektionClientLogic() {
                                     
                                     // Sätt längden på själva kroppen
                                     const mainBody = liner.querySelector('.relining-main-body');
-                                    if(mainBody) mainBody.setAttribute('height', Math.max(0, y + 10));
+                                    if(mainBody) mainBody.setAttribute('height', String(Math.max(0, y + 10)));
                                     
                                     // Sätt längden på blänken så att de sträcker sig exakt ner till sina punkter i huvudet
                                     const h1 = liner.querySelector('.relining-h1');
-                                    if(h1) h1.setAttribute('height', Math.max(0, y + 18));
+                                    if(h1) h1.setAttribute('height', String(Math.max(0, y + 18)));
                                     
                                     const h2 = liner.querySelector('.relining-h2');
-                                    if(h2) h2.setAttribute('height', Math.max(0, y + 22));
+                                    if(h2) h2.setAttribute('height', String(Math.max(0, y + 22)));
                                 }
                             }
                         }
