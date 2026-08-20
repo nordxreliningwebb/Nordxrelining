@@ -1,0 +1,1 @@
+const fs = require('fs'); let css = fs.readFileSync('public/style.css', 'utf8'); css = css.replace(/margin-bottom: 3rem !important;/g, 'margin-bottom: 2rem !important;'); css += '\n.hero-text { margin-bottom: 2rem !important; }\n'; fs.writeFileSync('public/style.css', css, 'utf8'); console.log('Fixed margins');

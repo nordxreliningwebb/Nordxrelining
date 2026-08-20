@@ -1,16 +1,1 @@
-const fs = require('fs');
-
-['public/projekt.html', 'public/kunskapsbanken.html'].forEach(file => {
-    if (fs.existsSync(file)) {
-        let html = fs.readFileSync(file, 'utf8');
-        
-        const oldGap = 'gap: 2rem !important;';
-        const newGap = 'gap: 4.5rem !important;'; // Increased gap for mobile to push the pipe frame down
-        
-        if (html.includes(oldGap)) {
-            html = html.replace(new RegExp(oldGap, 'g'), newGap);
-            fs.writeFileSync(file, html, 'utf8');
-            console.log(`Updated ${file}`);
-        }
-    }
-});
+const fs = require('fs'); let css = fs.readFileSync('public/style.css', 'utf8'); css += '\n/* Standardized paddings */\n#reviews { padding: 100px 0 !important; }\n#faq { padding-top: 320px !important; padding-bottom: 100px !important; }\n@media (max-width: 768px) {\n    #faq { padding-top: 180px !important; }\n    .services-section { padding-top: 180px !important; }\n    .intro-section { padding-bottom: 60px !important; }\n}\n'; fs.writeFileSync('public/style.css', css, 'utf8'); console.log('Fixed padding CSS');

@@ -1,0 +1,32 @@
+node -e "
+const fs = require('fs');
+const readline = require('readline');
+const path = 'C:/Users/Jesper/.gemini/antigravity/brain/9554b3b6-30b9-42df-8f7e-ebecb42e175b/.system_generated/logs/transcript_full.jsonl';
+
+async function extractDiff() {
+    const fileStream = fs.createReadStream(path);
+    const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
+    
+    let diffContent = '';
+    
+    for await (const line of rl) {
+        if (line.includes('git diff public/style.css')) {
+            const data = JSON.parse(line);
+            // In the transcript, the output might be in the next step, or in the same step.
+            // Let's just find the step where tool_responses has the diff.
+        }
+        try {
+            const data = JSON.parse(line);
+            if (data.type === 'TOOL_RESPONSE' || data.type === 'PLANNER_RESPONSE') {
+                const str = JSON.stringify(data);
+                if (str.includes('.project-meta {') && str.includes('diff --git')) {
+                    diffContent = data;
+                }
+            }
+        } catch (e) {}
+    }
+    fs.writeFileSync('diff_backup.json', JSON.stringify(diffContent, null, 2));
+    console.log('Diff extracted to diff_backup.json');
+}
+extractDiff();
+"

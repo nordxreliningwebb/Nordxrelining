@@ -3752,7 +3752,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
 .cta-overlay-patterns {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(27, 38, 59, 0.95), rgba(27, 38, 59, 0.95)), url('construction_sketch.png');
+    background-image: linear-gradient(rgba(27, 38, 59, 0.95), rgba(27, 38, 59, 0.95)), url('/construction_sketch.png');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
@@ -4086,9 +4086,9 @@ footer address,
 
 /* Info Card (Image Left) */
 .contact-info-card {
-    position: relative;
-    border-radius: 32px;
-    overflow: hidden;
+      position: relative;
+      border-radius: 32px;
+      /* overflow: hidden; Removed to allow pipe muffs to spill */
     min-height: 550px;
     box-shadow: 0 40px 80px rgba(0,0,0,0.12);
 }
@@ -4152,10 +4152,11 @@ footer address,
 
 /* Form Card */
 .contact-form-card {
-    background: #ffffff; /* Brighter white */
-    border-radius: 12px;
+    background: #ffffff;
+    border-radius: 24px;
     width: 100%;
     padding: 4rem;
+    position: relative;
     box-shadow: 0 40px 100px rgba(0,0,0,0.1); /* Dramatically more visible premium shadow */
     border: 1px solid rgba(0,0,0,0.04);
 }
@@ -5225,7 +5226,7 @@ body.blog-post-page {
     height: 40px;
     border-radius: 50%;
     background-color: var(--accent-blue);
-    background-image: url('logo.png'); /* fallback image */
+    background-image: url('/logo.png'); /* fallback image */
     background-size: cover;
     background-position: center;
     border: 2px solid white;
@@ -7275,7 +7276,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     content: '';
     position: absolute;
     inset: 0;
-    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(/%23noiseFilter)"/%3E%3C/svg%3E');
     opacity: 0.15;
     mix-blend-mode: overlay;
     pointer-events: none;
@@ -7937,7 +7938,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 .legal-date {
     display: block;
     font-size: 0.85rem;
-    color: #64748B;
+    /* color: #64748B; */
     margin-bottom: 3rem;
     font-weight: 500;
 }
@@ -8802,7 +8803,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     .projects-section .projects-header {
         align-items: center !important;
         text-align: center !important;
-        margin-bottom: 3rem !important;
+        margin-bottom: 2rem !important;
     }
 
     /* Fix global mobile overflow issues for text */
@@ -9056,7 +9057,8 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Spreads content so button hits bottom */
+    justify-content: center; /* Professional spacing: center block vertically */
+    gap: 2.5rem; /* Space between text and buttons */
     padding: 2.5rem 0; /* Matches top/bottom padding of hero-cta-box */
 }
 .hero-title {
@@ -9359,7 +9361,7 @@ section {
 
 /* Logo Swap on Sticky Header */
 #main-header.sticky .logo-link img {
-    content: url('logo.png');
+    content: url('/logo.png');
 }
 
 
@@ -9453,7 +9455,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
 }
 .service-desc {
     color: rgba(255, 255, 255, 0.9) !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
     font-size: 1.05rem !important;
     flex-grow: 1;
 }
@@ -9553,7 +9555,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
 .service-desc {
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
 }
 .service-link {
     margin-top: auto !important; /* Pushes the link to the bottom */
@@ -9630,9 +9632,9 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
 
 /* --- Intro Section: Blue Background & Wave Divider --- */
 .intro-section {
-    background: linear-gradient(135deg, #0fb3ff 0%, #0056b3 100%) !important;
+    background: #0284c7 !important;
     position: relative !important;
-    padding-bottom: 10rem !important; /* Extra space at bottom for the wave */
+    padding-bottom: 100px !important; /* Fixed padding */
 }
 
 /* Make text white to contrast with blue background */
@@ -10207,6 +10209,8 @@ body.light-theme .service-animation-wrapper {
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
+    align-self: center;
+    height: max-content;
 }
 .cta-box-header {
     display: flex;
@@ -10239,8 +10243,7 @@ body.light-theme .service-animation-wrapper {
     line-height: 1.5;
     font-weight: 500;
 }
-.btn-cta-box {
-    margin: auto 0;
+.btn-cta-box { margin-top: 0.5rem;
     background: #0b0b0b;
     color: #fff;
     display: flex;
@@ -10413,6 +10416,8 @@ body.light-theme .service-animation-wrapper {
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
+    align-self: center;
+    height: max-content;
 }
 .cta-box-header {
     display: flex;
@@ -10445,8 +10450,7 @@ body.light-theme .service-animation-wrapper {
     line-height: 1.5;
     font-weight: 500;
 }
-.btn-cta-box {
-    margin: auto 0;
+.btn-cta-box { margin-top: 0.5rem;
     background: #0b0b0b;
     color: #fff;
     display: flex;
@@ -11202,23 +11206,23 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 
 /* --- Logo Swap Logic --- */
 body.home-page #main-header:not(.sticky) #logo-img {
-    content: url('nordxrelininglogo2.png') !important;
+    content: url('/nordxrelininglogo2.png') !important;
     filter: none !important;
 }
 
 body.home-page #main-header.sticky #logo-img {
-    content: url('logo.png') !important;
+    content: url('/logo.png') !important;
     filter: none !important;
 }
 
 /* --- Logo Swap Logic (Restored & Fixed) --- */
 body.home-page #main-header:not(.sticky) #logo-img {
-    content: url('nordxrelininglogo2.png') !important;
+    content: url('/nordxrelininglogo2.png') !important;
     filter: none !important;
 }
 
 body.home-page #main-header.sticky #logo-img {
-    content: url('logo.png') !important;
+    content: url('/logo.png') !important;
     filter: none !important;
 }
 
@@ -11322,6 +11326,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     margin: 0 auto;
 }
 .project-slider-card {
+    width: 100%; /* injected width */
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #0284c7;
@@ -11433,6 +11438,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
 }
 
 .project-slider-wrapper {
+    width: 100%; /* injected width */
     display: grid;
     position: relative;
 }
@@ -11749,4 +11755,155 @@ body.journal-page {
     }
 }
 
+
+
+.intro-section .wave-divider { transform: none !important; }
+
+/* --- Animated Intro Waves (Reversed) --- */
+.intro-waves-container {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+    transform: rotate(180deg);
+}
+.intro-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 160px;
+    pointer-events: none;
+}
+.intro-wave-1 {
+    fill: #0284c7;
+    opacity: 0.25;
+    animation: wave-sway 14s linear infinite;
+    bottom: 40px;
+}
+.intro-wave-2 {
+    fill: #0284c7;
+    opacity: 0.5;
+    animation: wave-sway 10s linear infinite;
+    bottom: 20px;
+}
+.intro-wave-3 {
+    fill: #0284c7;
+    opacity: 1;
+    animation: wave-sway 7s linear infinite;
+    bottom: 0px;
+}
+@media (max-width: 768px) {
+    .intro-waves-container {
+        height: 120px;
+    }
+    .intro-wave {
+        height: 90px;
+    }
+    .intro-wave-1 { bottom: 20px; }
+    .intro-wave-2 { bottom: 10px; }
+}
+
+/* Standardized paddings */
+#reviews { padding: 100px 0 !important; }
+#faq { padding-top: 320px !important; padding-bottom: 100px !important; }
+
+@media (max-width: 768px) {
+    #faq { padding-top: 180px !important; }
+    .services-section { padding-top: 180px !important; }
+    .intro-section { padding-bottom: 60px !important; }
+}
+
+/* Added margin for hero text */
+.hero-title {
+    margin-bottom: 1.5rem !important;
+}
+
+.hero-text { margin-bottom: 0 !important; }
+
+/* Fix CTA box badge shape */
+.cta-box-badge { border-radius: 6px !important; }
+
+/* Align tops of text column and CTA box */
+.hero-text-column { justify-content: flex-start !important; }
+
+/* Fix CTA box h3 font family override */
+.hero-cta-box h3 { font-family: var(--font-inter), sans-serif !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+
+/* Visual alignment tweak for badge */
+.cta-box-header { margin-top: 6px !important; }
+
+@keyframes star-pop {
+    0% { transform: scale(0); opacity: 0; }
+    40% { transform: scale(1.6); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.anim-star-pop {
+    transform-origin: center;
+    transform-box: fill-box;
+    opacity: 0;
+    transform: scale(0);
+}
+.anim-star-pop.anim-active {
+    animation: star-pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+
+/* Team Member Card Animation */
+.team-member-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.team-member-card:hover {
+    transform: translateY(-12px);
+}
+
+
+/* ============================
+   KONTAKTSIDA - CSS OVERRIDES
+   ============================ */
+.contact-main-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1.5fr !important;
+    max-width: min(1400px, 94vw) !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    gap: 4rem !important;
+    align-items: stretch !important;
+}
+
+.contact-container {
+    max-width: min(1400px, 94vw) !important;
+    width: 100% !important;
+}
+
+@media (max-width: 900px) {
+    .contact-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+
+/* ============================
+   CONTACT CARD & CALC CARD PIPE OVERRIDES
+   ============================ */
+.contact-info-card .p-pipe.p-top, .contact-form-card .p-pipe.p-top, .calc-card .p-pipe.p-top { top: 0; left: 24px; right: 24px; height: 16px; }
+.contact-info-card .p-pipe.p-bottom, .contact-form-card .p-pipe.p-bottom, .calc-card .p-pipe.p-bottom { bottom: 0; left: 24px; right: 24px; height: 16px; }
+.contact-info-card .p-pipe.p-left, .contact-form-card .p-pipe.p-left, .calc-card .p-pipe.p-left { left: 0; top: 24px; bottom: 24px; width: 16px; }
+.contact-info-card .p-pipe.p-right, .contact-form-card .p-pipe.p-right, .calc-card .p-pipe.p-right { right: 0; top: 24px; bottom: 24px; width: 16px; }
+
+.contact-info-card .p-corner, .contact-form-card .p-corner, .calc-card .p-corner { width: 24px; height: 24px; z-index: 21; }
+.contact-info-card .p-tl, .contact-form-card .p-tl, .calc-card .p-tl { top: 0; left: 0; border-top-left-radius: 24px; background: radial-gradient(circle 24px at bottom right, transparent 0px, transparent 8px, #6b7280 8px, #9ca3af 11.2px, #d1d5db 16px, #f3f4f6 19.2px, #9ca3af 24px); }
+.contact-info-card .p-tr, .contact-form-card .p-tr, .calc-card .p-tr { top: 0; right: 0; border-top-right-radius: 24px; background: radial-gradient(circle 24px at bottom left, transparent 0px, transparent 8px, #6b7280 8px, #9ca3af 11.2px, #d1d5db 16px, #f3f4f6 19.2px, #9ca3af 24px); }
+.contact-info-card .p-bl, .contact-form-card .p-bl, .calc-card .p-bl { bottom: 0; left: 0; border-bottom-left-radius: 24px; background: radial-gradient(circle 24px at top right, transparent 0px, transparent 8px, #6b7280 8px, #9ca3af 11.2px, #d1d5db 16px, #f3f4f6 19.2px, #9ca3af 24px); }
+.contact-info-card .p-br, .contact-form-card .p-br, .calc-card .p-br { bottom: 0; right: 0; border-bottom-right-radius: 24px; background: radial-gradient(circle 24px at top left, transparent 0px, transparent 8px, #6b7280 8px, #9ca3af 11.2px, #d1d5db 16px, #f3f4f6 19.2px, #9ca3af 24px); }
+
+.contact-info-card .p-muff, .contact-form-card .p-muff, .calc-card .p-muff { width: 22px; height: 20px; }
+.contact-info-card .p-muff::after, .contact-form-card .p-muff::after, .calc-card .p-muff::after { width: 4px; height: 24px; }
+.contact-info-card .p-muff-v, .contact-form-card .p-muff-v, .calc-card .p-muff-v { width: 20px; height: 22px; }
+.contact-info-card .p-muff-v::after, .contact-form-card .p-muff-v::after, .calc-card .p-muff-v::after { width: 24px; height: 4px; }
 

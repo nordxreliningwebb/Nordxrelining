@@ -1,0 +1,1 @@
+const fs = require('fs'); let css = fs.readFileSync('public/style.css', 'utf8'); css = css.replace('animation: star-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;', 'animation: star-pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;'); fs.writeFileSync('public/style.css', css, 'utf8'); console.log('Fixed duration');

@@ -4,12 +4,41 @@ import CampaignPopupClient from "@/components/public/CampaignPopupClient";
 import FAQAccordionClient from "@/components/public/FAQAccordionClient";
 import Preloader from "@/components/public/Preloader";
 import HomeClientLogic from "@/components/public/HomeClientLogic";
+import ProjectSliderLogic from "@/components/public/ProjectSliderLogic";
 import { getActiveCampaign, getPublicFAQs } from "@/lib/data";
+import { supabase } from "@/lib/supabase";
 
 export default async function HomePage() {
   const campaign = await getActiveCampaign();
   const faqs = await getPublicFAQs();
   const homeFaqs = faqs.slice(0, 5);
+
+  let recentProjects: any[] = [];
+  try {
+    const { data } = await supabase
+      .from('projects')
+      .select('*')
+      .order('createdAt', { ascending: false })
+      .limit(4);
+    if (data) recentProjects = data;
+  } catch (err) {
+    console.warn("Could not fetch projects for homepage:", err);
+  }
+
+  const sliderProjects = [];
+  for (let i = 0; i < 4; i++) {
+    if (i < recentProjects.length) {
+      sliderProjects.push({ ...recentProjects[i], isPlaceholder: false });
+    } else {
+      sliderProjects.push({
+        id: `placeholder-${i}`,
+        isPlaceholder: true,
+        title: "Information uppdateras snart",
+        excerpt: "Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på Nordxrelining.",
+      });
+    }
+  }
+
 
   return (
     <FrontendLayout>
@@ -32,7 +61,7 @@ export default async function HomePage() {
                     </div>
                     <div className="hero-action-group">
                                                 <div className="hero-buttons-container anim-fade-up" style={{ display: "flex", gap: "15px", flexWrap: "wrap" }} data-anim-delay="300">
-                            <a href="kontakt.html" className="btn-hero-solid" aria-label="Begär offert från oss">
+                            <a href="/kontakt" className="btn-hero-solid" aria-label="Begär offert från oss">
                                 Kontakta oss
                             </a>
                             <a href="/#tjanster" className="btn-hero-outline" aria-label="Läs mer om våra tjänster">
@@ -120,12 +149,7 @@ export default async function HomePage() {
                 </div>
             </div>
             
-            {/* Vatten-våg divider mot nästa sektion */}
-            <div className="wave-divider">
-                <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#ffffff" fillOpacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                </svg>
-            </div>
+            {/* Vatten-våg divider mot nästa sektion (Moved to services-section) */}
         </section>
 
         {/* TJÄNSTER SEKTION */}
@@ -141,6 +165,17 @@ export default async function HomePage() {
             }
         ` }} />
         <section id="tjanster" className="services-section" aria-labelledby="services-heading" style={{ paddingBottom: "12rem" }}>
+            <div className="intro-waves-container">
+                <svg className="intro-wave intro-wave-1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+                <svg className="intro-wave intro-wave-2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+                <svg className="intro-wave intro-wave-3" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+            </div>
             <div className="container">
                 <header className="section-header">
                     <h2 id="services-heading" className="section-title" style={{ textTransform: "none" }}>Våra tjänster</h2>
@@ -163,7 +198,7 @@ export default async function HomePage() {
                         <div className="water-fill-content">
                             <h3 className="service-title">Rörinspektion</h3>
                             <p className="service-desc" style={{ flexGrow: "1" }}>Med avancerad kamerateknik inspekterar och dokumenterar vi rörens skick. Upptäck sprickor och problem innan de blir dyra.</p>
-                            <a href="rorinspektion.html" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
+                            <a href="/rorinspektion" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
                                 Läs mer om rörinspektion
                                 <span style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", zIndex: "1" }}></span>
                             </a>
@@ -186,7 +221,7 @@ export default async function HomePage() {
                         <div className="water-fill-content">
                             <h3 className="service-title">Stamspolning</h3>
                             <p className="service-desc" style={{ flexGrow: "1" }}>Förebyggande och akut stamspolning för att förhindra stopp och vattenskador. Vi rensar effektivt bort fett och beläggningar.</p>
-                            <a href="stamspolning.html" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
+                            <a href="/stamspolning" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
                                 Läs mer om stamspolning
                                 <span style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", zIndex: "1" }}></span>
                             </a>
@@ -209,11 +244,11 @@ export default async function HomePage() {
                         <div className="water-fill-content">
                             <h3 className="service-title">Relining</h3>
                             <p className="service-desc" style={{ flexGrow: "1" }}>Ett smidigt och kostnadseffektivt alternativ till stambyte. Vi skapar nya, hållbara rör i dina befintliga system utan rivningsarbete.</p>
-                            <a href="relining.html" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
+                            <a href="/relining" className="read-more" style={{ textDecoration: "underline", marginTop: "1rem", marginBottom: "1.5rem", fontWeight: "600", fontSize: "0.95rem" }}>
                                 Läs mer om relining
                                 <span style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", zIndex: "1" }}></span>
                             </a>
-                            <a href="kalkylator.html" className="water-btn">Skapa en offertförfrågan</a>
+                            <a href="/kalkylator" className="water-btn">Skapa en offertförfrågan</a>
                         </div>
                     </article>
                 </div>
@@ -291,17 +326,17 @@ export default async function HomePage() {
         </div>
 
         {/* KUNDOMDÖMEN SEKTION */}
-        <section id="reviews" style={{ background: "#0284c7", paddingTop: "80px", position: "relative", overflow: "hidden" }}>
-            <div className="container layout-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", paddingBottom: "60px" }}>
+        <section id="reviews" style={{ background: "#0284c7", position: "relative", overflow: "hidden" }}>
+            <div className="container layout-wrapper" style={{ maxWidth: "1200px", margin: "0 auto" }}>
                 <div style={{ textAlign: "center", marginBottom: "3rem" }}>
                     <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginBottom: "1rem" }}>
                         {/* 5 Stars */}
-                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                        <svg viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                    </div>
+                                                <svg className="anim-star-pop" style={{ animationDelay: '0ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <svg className="anim-star-pop" style={{ animationDelay: '200ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <svg className="anim-star-pop" style={{ animationDelay: '400ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <svg className="anim-star-pop" style={{ animationDelay: '600ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <svg className="anim-star-pop" style={{ animationDelay: '800ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+</div>
                     <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "0.5rem", fontWeight: "800" }} className="anim-mask-text"><span className="anim-mask-inner">4.9 / 5 i kundnöjdhet</span></h2>
                     <p style={{ fontSize: "1.125rem", color: "#bae6fd" }} className="anim-fade-up">Baserat på över 150 verifierade kundomdömen på Google</p>
                 </div>
@@ -657,16 +692,22 @@ export default async function HomePage() {
                 </div>
             </div>
 
-            {/* Vatten-våg divider mot FAQ sektion */}
-            <div className="wave-divider" style={{ marginTop: "-1px" }}>
-                <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ transform: "scaleX(-1)", display: "block" }}>
-                    <path fill="#f8fafc" fillOpacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                </svg>
-            </div>
+            {/* Vatten-våg divider mot FAQ sektion (Moved to faq section) */}
         </section>
 
         {/* FAQ SEKTION (Premium Blue Cards) */}
-        <section id="faq" style={{ padding: "100px 0", background: "#f8fafc", position: "relative" }}>
+        <section id="faq" style={{ background: "#f8fafc", position: "relative" }}>
+            <div className="intro-waves-container">
+                <svg className="intro-wave intro-wave-1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+                <svg className="intro-wave intro-wave-2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+                <svg className="intro-wave intro-wave-3" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path>
+                </svg>
+            </div>
             <div className="container layout-wrapper" style={{ maxWidth: "900px", width: "95%", margin: "0 auto" }}>
                 
                 <div style={{ textAlign: "center", marginBottom: "4rem" }}>
@@ -878,73 +919,39 @@ export default async function HomePage() {
                 <h2 className="section-title anim-mask-text"><span className="anim-mask-inner">Några av våra projekt</span></h2>
                 
                 <div className="project-slider-wrapper">
-                    {/* Slide 1 */}
-                    <div className="project-slider-card active anim-fade-up" data-index="0">
-                        <div className="project-slider-image" style={{ backgroundImage: "url('img/project1.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-                        <div className="project-slider-content">
-                            <div className="project-meta">
-                                <span className="project-date">12 Maj, 2026</span>
+                    {sliderProjects.map((project, index) => {
+                        const isPlaceholder = project.isPlaceholder;
+                        const coverImage = isPlaceholder ? "" : (project.images?.[0] || '/construction.jpg');
+                        const date = isPlaceholder ? "" : (project.publish_date ? new Date(project.publish_date).toLocaleDateString('sv-SE', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Pågående');
+                        const title = project.title || project.name || 'Utan titel';
+                        const desc = project.excerpt || project.description || '';
+                        const slug = project.slug || '#';
+                        const location = project.location || '';
+                        
+                        return (
+                            <div key={project.id || index} className={`project-slider-card ${index === 0 ? 'active ' : ''}anim-fade-up`} data-index={index}>
+                                <div className="project-slider-image" style={{ backgroundImage: coverImage ? `url('${coverImage}')` : 'none', backgroundColor: coverImage ? 'transparent' : '#f1f5f9', backgroundSize: "cover", backgroundPosition: "center" }}></div>
+                                <div className="project-slider-content">
+                                    {!isPlaceholder && (
+                                        <div className="project-meta">
+                                            <span className="project-date">{date}</span>
+                                        </div>
+                                    )}
+                                    <h3 className="anim-fade-up">{title}</h3>
+                                    {!isPlaceholder && location && (
+                                        <div className="project-location">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                            {location}
+                                        </div>
+                                    )}
+                                    <p className="anim-fade-up">{desc}</p>
+                                    {!isPlaceholder && (
+                                        <a href={`/projekt/${slug}`} className="project-btn">Läs mer om projektet</a>
+                                    )}
+                                </div>
                             </div>
-                            <h3 className="anim-fade-up">Relining av anrik brf på Östermalm</h3>
-                            <div className="project-location">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                Östermalm, Stockholm
-                            </div>
-                            <p className="anim-fade-up">Ett omfattande projekt där vi renoverade stammarna i en fastighet från sekelskiftet. Med vår schaktfria teknik kunde de boende bo kvar under hela processen utan större störningar.</p>
-                            <a href="/projekt" className="project-btn">Läs mer om projektet</a>
-                        </div>
-                    </div>
-                    
-                    {/* Slide 2 */}
-                    <div className="project-slider-card anim-fade-up" data-index="1">
-                        <div className="project-slider-image" style={{ backgroundImage: "url('img/project2.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-                        <div className="project-slider-content">
-                            <div className="project-meta">
-                                <span className="project-date">28 April, 2026</span>
-                            </div>
-                            <h3 className="anim-fade-up">Stamspolning för stor fastighetsägare</h3>
-                            <div className="project-location">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                Solna, Stockholm
-                            </div>
-                            <p className="anim-fade-up">Förebyggande underhåll i ett flerfamiljshus med 45 lägenheter i Solna. Genom noggrann rörinspektion och spolning säkerställde vi optimalt flöde och förlängde rörens livslängd.</p>
-                            <a href="/projekt" className="project-btn">Läs mer om projektet</a>
-                        </div>
-                    </div>
-                    
-                    {/* Slide 3 */}
-                    <div className="project-slider-card anim-fade-up" data-index="2">
-                        <div className="project-slider-image" style={{ backgroundImage: "url('img/project3.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-                        <div className="project-slider-content">
-                            <div className="project-meta">
-                                <span className="project-date">15 Mars, 2026</span>
-                            </div>
-                            <h3 className="anim-fade-up">Akut rörinspektion vid återkommande stopp</h3>
-                            <div className="project-location">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                Nacka, Stockholm
-                            </div>
-                            <p className="anim-fade-up">En villaägare i Nacka hade problem med ständiga avloppsstopp. Vi ryckte ut, filmade ledningarna och identifierade rotinträngning som vi därefter åtgärdade snabbt och effektivt.</p>
-                            <a href="/projekt" className="project-btn">Läs mer om projektet</a>
-                        </div>
-                    </div>
-                    
-                    {/* Slide 4 */}
-                    <div className="project-slider-card anim-fade-up" data-index="3">
-                        <div className="project-slider-image" style={{ backgroundImage: "url('img/project4.png')", backgroundSize: "cover", backgroundPosition: "center" }}></div>
-                        <div className="project-slider-content">
-                            <div className="project-meta">
-                                <span className="project-date">02 Februari, 2026</span>
-                            </div>
-                            <h3 className="anim-fade-up">Modernisering av avloppssystem i radhuslänga</h3>
-                            <div className="project-location">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                Täby, Stockholm
-                            </div>
-                            <p className="anim-fade-up">Komplett relining av markförlagda rör i ett bostadsområde i Täby. Ett kostnadseffektivt alternativ till traditionellt stambyte som sparade både tid och pengar för föreningen.</p>
-                            <a href="/projekt" className="project-btn">Läs mer om projektet</a>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
                 
                 <div className="project-slider-pagination">
@@ -968,7 +975,9 @@ export default async function HomePage() {
                     <a href="/projekt" className="btn-hero-solid anim-fade-up" data-anim-delay="250">Alla projekt</a>
                 </div>
             </div>
-        </section>
+        
+<ProjectSliderLogic />
+</section>
 
 {/* CTA SEKTION (Ersätter Kontakt) */}
         <section id="kontakt" className="nordx-landing-cta" style={{ background: "#0284c7", color: "#ffffff", padding: "100px 20px", textAlign: "center", position: "relative", overflow: "hidden", marginTop: "0", zIndex: "2", width: "100%", display: "block" }}>
@@ -1010,7 +1019,7 @@ export default async function HomePage() {
                 <style dangerouslySetInnerHTML={{ __html: `@media (max-width: 768px) { .cta-heading { white-space: normal !important; } }` }} /><h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: "800", marginBottom: "1rem", color: "#ffffff", lineHeight: "1.2", whiteSpace: "nowrap" }} className="cta-heading anim-mask-text"><span className="anim-mask-inner">Redo för ett säkrare rörsystem?</span></h2>
                 <p style={{ fontSize: "1.15rem", lineHeight: "1.6", marginBottom: "2.5rem", opacity: "0.9" }} className="anim-fade-up">Hör av er till oss idag så tar vi ett förutsättningslöst möte om er fastighet.</p>
                 <div className="cta-buttons" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-                    <a href="kontakt.html" className="cta-btn-header-match anim-fade-up" data-anim-delay="250"><span className="desktop-text">Få en kostnadsfri offert</span><span className="mobile-text">Kontakta oss</span></a>
+                    <a href="/kontakt" className="cta-btn-header-match anim-fade-up" data-anim-delay="250"><span className="desktop-text">Få en kostnadsfri offert</span><span className="mobile-text">Kontakta oss</span></a>
                     <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
                 </div>
             </div>

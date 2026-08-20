@@ -9,10 +9,10 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
 
 export const metadata: Metadata = {
-  title: "Nordxrelining – Experter på Stamspolning och Relining",
+  title: "Nordxrelining - Experter på Relining, Stamspolning och Rörinspektion",
   description: "Sveriges tryggaste partner inom relining och rörinspektion. Vi förlänger livet på era rörsystem – med minimal störning och maximal kvalitet.",
   icons: {
-    icon: '/favicon.ico?v=2',
+    icon: '/favicon.ico',
   },
 };
 

@@ -1,0 +1,1 @@
+const fs = require('fs'); let css = fs.readFileSync('public/style.css', 'utf8'); css = css.replace('.anim-star-pop { transform-origin: center; }', '.anim-star-pop { transform-origin: center; transform-box: fill-box; }'); fs.writeFileSync('public/style.css', css, 'utf8'); console.log('Added transform-box');

@@ -4,9 +4,13 @@ import { supabaseAdmin } from "@/lib/supabase-server";
 
 export async function saveKnowledgeAction(formData: any) {
   try {
+    const postId = formData.id || crypto.randomUUID();
+    const baseSlug = formData.title.toLowerCase().replace(/[^a-z0-9äöåÄÖÅ]+/g, '-').replace(/(^-|-$)+/g, '');
+    const uniqueSlug = `${baseSlug}-${postId.split('-')[0]}`;
+
     // Prepare data
     const knowledgeData = {
-      id: formData.id || crypto.randomUUID(),
+      id: postId,
       title: formData.title,
       excerpt: formData.subheading,
       category: formData.category,
@@ -15,7 +19,7 @@ export async function saveKnowledgeAction(formData: any) {
       images: formData.coverImage ? [formData.coverImage] : [],
       author_image: formData.authorAvatar,
       content: formData.contentJson, // We pass the JSON string directly
-      slug: formData.title.toLowerCase().replace(/[^a-z0-9äöåÄÖÅ]+/g, '-').replace(/(^-|-$)+/g, ''),
+      slug: uniqueSlug,
       updatedAt: new Date().toISOString()
     };
 

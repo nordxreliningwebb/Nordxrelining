@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import '../../public/style.css';
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -94,7 +95,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         });
     }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
 
-    document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-down, .anim-scale-down-container, .anim-mask-text, .anim-stagger-parent').forEach(el => {
+    document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-down, .anim-scale-down-container, .anim-mask-text, .anim-stagger-parent, .anim-star-pop').forEach(el => {
         premiumObserver.observe(el);
     });
 
@@ -131,7 +132,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
   return (
     <div className="layout-wrapper">
       {/* Load static CSS and Fonts */}
-      <link rel="stylesheet" href="/style.css?v=1357" />
+      
       <Script src="/main.js?v=1351" strategy="lazyOnload" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -182,17 +183,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                         Tjänster <span className="arrow">▼</span>
                     </a>
                     <ul className="mobile-submenu" id="mobile-tjanster-submenu">
-                        <li><Link href="/stamspolning.html">Stamspolning</Link></li>
-                        <li><Link href="/rorinspektion.html">Rörinspektion</Link></li>
-                        <li><Link href="/relining.html">Relining</Link></li>
+                        <li><Link href="/stamspolning">Stamspolning</Link></li>
+                        <li><Link href="/rorinspektion">Rörinspektion</Link></li>
+                        <li><Link href="/relining">Relining</Link></li>
                     </ul>
                 </li>
                 <li><Link href="/priser" className="mobile-menu-link">Priser</Link></li>
                 <li><Link href="/projekt" className="mobile-menu-link">Projekt</Link></li>
                 <li><Link href="/kunskapsbanken" className="mobile-menu-link">Kunskapsbanken</Link></li>
                 <li><Link href="/faq" className="mobile-menu-link">FAQ</Link></li>
-                <li><Link href="/om-oss.html" className="mobile-menu-link">Om oss</Link></li>
-                <li><Link href="/kontakt.html" className="mobile-menu-link">Kontakt</Link></li>
+                <li><Link href="/om-oss" className="mobile-menu-link">Om oss</Link></li>
+                <li><Link href="/kontakt" className="mobile-menu-link">Kontakt</Link></li>
             </ul>
         </div>
       </header>
@@ -219,17 +220,17 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                     <li><Link href="/projekt">Projekt</Link></li>
                     <li><Link href="/kunskapsbanken">Kunskapsbanken</Link></li>
                     <li><Link href="/faq">FAQ</Link></li>
-                    <li><Link href="/om-oss.html">Om Oss</Link></li>
-                    <li><Link href="/kontakt.html">Kontakt</Link></li>
+                    <li><Link href="/om-oss">Om Oss</Link></li>
+                    <li><Link href="/kontakt">Kontakt</Link></li>
                 </ul>
             </nav>
 
             <nav className="footer-links-col anim-stagger-item anim-fade-up" aria-label="Våra Tjänster">
                 <h3>Våra tjänster</h3>
                 <ul>
-                    <li><Link href="/stamspolning.html">Stamspolning</Link></li>
-                    <li><Link href="/relining.html">Relining</Link></li>
-                    <li><Link href="/rorinspektion.html">Rörinspektion</Link></li>
+                    <li><Link href="/stamspolning">Stamspolning</Link></li>
+                    <li><Link href="/relining">Relining</Link></li>
+                    <li><Link href="/rorinspektion">Rörinspektion</Link></li>
                 </ul>
             </nav>
 
@@ -256,12 +257,13 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             <div className="footer-bottom-left">
                 <p className="copyright">© 2026 Nordxrelining. Alla rättigheter reserverade.</p>
                 <nav className="footer-legal" aria-label="Juridisk information">
-                    <Link href="/kopvillkor.html">Köpvillkor</Link>
+                    <Link href="/kopvillkor">Köpvillkor</Link>
                     <span className="sep">|</span>
-                    <Link href="/integritetspolicy.html">Integritetspolicy</Link>
+                    <Link href="/integritetspolicy">Integritetspolicy</Link>
                     <span className="sep">|</span>
-                    <Link href="/cookies.html">Cookies</Link>
+                    <Link href="/cookies">Cookies</Link>
                 </nav>
+                <a href="https://www.webix.se" target="_blank" rel="noopener noreferrer" className="credit-link" style={{ fontSize: "0.85rem", color: "#64748b", textDecoration: "none", marginTop: "0.5rem", display: "inline-block", transition: "color 0.2s ease" }} onMouseOver={(e) => e.currentTarget.style.color = '#0284c7'} onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}>Hemsida skapad av Webix</a>
             </div>
             <div className="footer-socials">
                 <a href="#" aria-label="Besök oss på Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"></path></svg></a>

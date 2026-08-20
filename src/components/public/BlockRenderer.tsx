@@ -16,15 +16,15 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
         if (block.type === 'heading') {
           const id = `section-${idx}`;
           return block.level === 2 
-            ? <h2 key={idx} id={id} className="text-3xl md:text-4xl font-bold mt-10 mb-6 text-gray-900">{block.content || 'Ny rubrik'}</h2>
-            : <h3 key={idx} id={id} className="text-xl md:text-2xl font-semibold mt-8 mb-4 text-gray-800">{block.content || 'Ny rubrik'}</h3>;
+            ? <h2 key={idx} id={id} className="text-3xl md:text-4xl font-bold mt-10 mb-6 text-gray-900 break-words">{block.content || 'Ny rubrik'}</h2>
+            : <h3 key={idx} id={id} className="text-xl md:text-2xl font-semibold mt-8 mb-4 text-gray-800 break-words">{block.content || 'Ny rubrik'}</h3>;
         }
         
         if (block.type === 'text') {
           return (
             <div 
               key={idx} 
-              className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-wrap [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:pl-2 [&_li]:mb-1 [&_em]:italic [&_i]:italic [&_a]:text-blue-600 [&_a]:underline [&_strong]:font-bold" 
+              className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-wrap break-words [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:pl-2 [&_li]:mb-1 [&_em]:italic [&_i]:italic [&_a]:text-blue-600 [&_a]:underline [&_strong]:font-bold" 
               dangerouslySetInnerHTML={{ __html: block.content || '' }} 
             />
           );
