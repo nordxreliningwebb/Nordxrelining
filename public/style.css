@@ -11913,3 +11913,9 @@ body.journal-page {
 #google_translate_element { display: none !important; }
 .goog-te-banner-frame { display: none !important; }
 body { top: 0px !important; }
+
+
+/* Globe Icon adaptive color */
+.globe-icon { color: #111111; transition: color 0.3s; }
+body.home-page #main-header:not(.sticky) .globe-icon { color: #ffffff !important; }
+body.light-theme #main-header .globe-icon { color: var(--primary-color) !important; }
