@@ -180,9 +180,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         <div className="mobile-drawer-menu" id="mobile-drawer-menu">
             <button className="close-drawer-btn" id="close-drawer-btn" aria-label="Stäng meny">×</button>
             <ul className="mobile-menu-list">
-                <li className="mobile-menu-link" style={{ padding: "0.5rem 2rem", marginBottom: "1rem" }}>
-                    <LanguageSwitcher />
-                </li>
+                
                 <li className="has-submenu">
                     <a href="#" className="mobile-menu-link" id="mobile-submenu-toggle">
                         Tjänster <span className="arrow">▼</span>
@@ -199,7 +197,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                 <li><Link href="/faq" className="mobile-menu-link">FAQ</Link></li>
                 <li><Link href="/om-oss" className="mobile-menu-link">Om oss</Link></li>
                 <li><Link href="/kontakt" className="mobile-menu-link">Kontakt</Link></li>
-            </ul>
+            <li className="mobile-language-switcher-container">
+                      <LanguageSwitcher />
+                  </li>
+              </ul>
         </div>
       </header>
 
