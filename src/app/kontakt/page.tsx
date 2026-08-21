@@ -53,6 +53,9 @@ export default function KontaktPage() {
             .contact-hero-section {
                 padding-top: 94px !important;
             }
+            .contact-info-card {
+                display: none !important;
+            }
         }
     `}} />
 
