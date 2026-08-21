@@ -48,6 +48,14 @@ export default function KontaktPage() {
         <FrontendLayout>
             <main id="main-content" style={{ backgroundColor: "#faf8f5", marginTop: "-85px", paddingTop: "85px" }}>
                 <section className="contact-hero-section" style={{ paddingTop: "160px", backgroundColor: "#faf8f5" }}>
+    <style dangerouslySetInnerHTML={{ __html: `
+        @media (max-width: 900px) {
+            .contact-hero-section {
+                padding-top: 94px !important;
+            }
+        }
+    `}} />
+
                     <div className="contact-container">
                         {/* Header part */}
                         <header className="contact-page-header">
