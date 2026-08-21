@@ -2194,6 +2194,9 @@ figure {
     .mobile-menu-link.active .arrow {
         transform: rotate(180deg);
     }
+    .mobile-menu-link.active + .mobile-submenu {
+        max-height: 500px;
+    }
     .arrow {
         font-size: 0.8rem; transition: transform 0.3s ease;
     }

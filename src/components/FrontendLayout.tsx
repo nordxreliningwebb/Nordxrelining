@@ -67,6 +67,20 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       overlay.addEventListener('click', closeMenu);
     }
 
+    // Mobile submenu toggle logic
+    const mobileSubmenuToggle = document.getElementById('mobile-submenu-toggle');
+    const toggleSubmenu = (e: Event) => {
+      e.preventDefault();
+      const parent = mobileSubmenuToggle?.parentElement;
+      if (parent) {
+        mobileSubmenuToggle.classList.toggle('active');
+      }
+    };
+    
+    if (mobileSubmenuToggle) {
+      mobileSubmenuToggle.addEventListener('click', toggleSubmenu);
+    }
+
     // Initialize Scroll Animations
     const triggerAnimation = (el: Element, delay = 0) => {
         setTimeout(() => {
