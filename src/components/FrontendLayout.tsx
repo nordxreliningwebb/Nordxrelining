@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,7 @@ import '../../public/style.css';
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [isMobileSubmenuOpen, setIsMobileSubmenuOpen] = useState(false);
 
   useEffect(() => {
     // Re-trigger premium scroll animations and all JS logic on client-side route changes
@@ -67,19 +68,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       overlay.addEventListener('click', closeMenu);
     }
 
-    // Mobile submenu toggle logic
-    const mobileSubmenuToggle = document.getElementById('mobile-submenu-toggle');
-    const toggleSubmenu = (e: Event) => {
-      e.preventDefault();
-      const parent = mobileSubmenuToggle?.parentElement;
-      if (parent) {
-        mobileSubmenuToggle.classList.toggle('active');
-      }
-    };
     
-    if (mobileSubmenuToggle) {
-      mobileSubmenuToggle.addEventListener('click', toggleSubmenu);
-    }
 
     // Initialize Scroll Animations
     const triggerAnimation = (el: Element, delay = 0) => {
@@ -196,7 +185,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             <ul className="mobile-menu-list">
                 
                 <li className="has-submenu">
-                    <a href="#" className="mobile-menu-link" id="mobile-submenu-toggle">
+                    <a href="#" className={`mobile-menu-link ${isMobileSubmenuOpen ? 'active' : ''}`} id="mobile-submenu-toggle" onClick={(e) => { e.preventDefault(); setIsMobileSubmenuOpen(!isMobileSubmenuOpen); }}>
                         Tjänster <span className="arrow">▼</span>
                     </a>
                     <ul className="mobile-submenu" id="mobile-tjanster-submenu">
