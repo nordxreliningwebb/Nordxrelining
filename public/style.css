@@ -11930,7 +11930,7 @@ body.home-page #main-header:not(.sticky) .menu-toggle span {
     background-color: #ffffff !important;
 }
 
-.mobile-drawer-menu .globe-icon {
+#main-header #mobile-drawer-menu .globe-icon {
     color: #111111 !important;
 }
 .mobile-language-switcher-container {
