@@ -188,7 +188,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                     <a href="#" className={`mobile-menu-link ${isMobileSubmenuOpen ? 'active' : ''}`} id="mobile-submenu-toggle" onClick={(e) => { e.preventDefault(); setIsMobileSubmenuOpen(!isMobileSubmenuOpen); }}>
                         Tjänster <span className="arrow">▼</span>
                     </a>
-                    <ul className="mobile-submenu" id="mobile-tjanster-submenu">
+                    <ul className="mobile-submenu" id="mobile-tjanster-submenu" style={{ maxHeight: isMobileSubmenuOpen ? '300px' : '0', overflow: 'hidden', transition: 'max-height 0.35s ease-out' }}>
                         <li><Link href="/stamspolning">Stamspolning</Link></li>
                         <li><Link href="/rorinspektion">Rörinspektion</Link></li>
                         <li><Link href="/relining">Relining</Link></li>
