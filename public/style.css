@@ -11923,3 +11923,9 @@ body.light-theme #main-header .globe-icon { color: var(--primary-color) !importa
 
 .header-cta { display: flex; align-items: center; }
 @media (max-width: 992px) { .desktop-only-cta { display: none !important; } }
+
+
+/* Mobile hamburger icon color logic for home page */
+body.home-page #main-header:not(.sticky) .menu-toggle span {
+    background-color: #ffffff !important;
+}
