@@ -11919,3 +11919,7 @@ body { top: 0px !important; }
 .globe-icon { color: #111111; transition: color 0.3s; }
 body.home-page #main-header:not(.sticky) .globe-icon { color: #ffffff !important; }
 body.light-theme #main-header .globe-icon { color: var(--primary-color) !important; }
+
+
+.header-cta { display: flex; align-items: center; }
+@media (max-width: 992px) { .desktop-only-cta { display: none !important; } }

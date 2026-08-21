@@ -164,7 +164,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
                 <li role="none"><Link href="/faq" role="menuitem">FAQ</Link></li>
                 <li role="none"><Link href="/om-oss" role="menuitem">OM OSS</Link></li>
             </ul>
-            <div className="header-cta" style={{ display: "flex", alignItems: "center" }}>
+            <div className="header-cta desktop-only-cta">
                 <LanguageSwitcher />
                 <Link href="/kontakt" className="btn btn-ghost" aria-label="Gå till kontaktformuläret">Kontakt</Link>
             </div>
@@ -180,6 +180,9 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         <div className="mobile-drawer-menu" id="mobile-drawer-menu">
             <button className="close-drawer-btn" id="close-drawer-btn" aria-label="Stäng meny">×</button>
             <ul className="mobile-menu-list">
+                <li className="mobile-menu-link" style={{ padding: "0.5rem 2rem", marginBottom: "1rem" }}>
+                    <LanguageSwitcher />
+                </li>
                 <li className="has-submenu">
                     <a href="#" className="mobile-menu-link" id="mobile-submenu-toggle">
                         Tjänster <span className="arrow">▼</span>
