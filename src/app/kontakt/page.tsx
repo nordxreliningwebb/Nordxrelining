@@ -46,7 +46,7 @@ export default function KontaktPage() {
 
     return (
         <FrontendLayout>
-            <main id="main-content">
+            <main id="main-content" style={{ backgroundColor: "#faf8f5", marginTop: "-85px", paddingTop: "85px" }}>
                 <section className="contact-hero-section" style={{ paddingTop: "160px", backgroundColor: "#faf8f5" }}>
                     <div className="contact-container">
                         {/* Header part */}
