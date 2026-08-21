@@ -97,7 +97,7 @@ export default async function PriserPage() {
 
   return (
     <FrontendLayout>
-      <main id="main-content" className="w-full flex flex-col items-center overflow-hidden">
+      <main id="main-content" className="w-full flex flex-col items-center overflow-hidden" style={{ backgroundColor: "#faf8f5", marginTop: "-85px", paddingTop: "85px" }}>
         <section className="pricing-section section-padding w-full" aria-label="Prispaket Privat" style={{ background: "#faf8f5", paddingTop: "8rem" }}>
             <div className="w-full flex flex-col items-center px-4 md:px-8 lg:px-12" style={{ maxWidth: "min(1400px, 94vw)", margin: "0 auto" }}>
                 <div style={{ textAlign: "center", marginBottom: "4rem" }} className="w-full">
