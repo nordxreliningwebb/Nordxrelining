@@ -11944,3 +11944,5 @@ body.home-page #main-header:not(.sticky) .menu-toggle span {
 }
 
 
+
+@media (max-width: 768px) { .water-fill-card.is-filled .water-fill-container { height: calc(100% - 30px) !important; } }
