@@ -11929,3 +11929,18 @@ body.light-theme #main-header .globe-icon { color: var(--primary-color) !importa
 body.home-page #main-header:not(.sticky) .menu-toggle span {
     background-color: #ffffff !important;
 }
+
+.mobile-drawer-menu .globe-icon {
+    color: #111111 !important;
+}
+.mobile-language-switcher-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+.mobile-language-switcher-container .language-switcher-container {
+    margin-right: 0 !important;
+}
+
+.mobile-language-switcher-container .language-dropdown { top: auto !important; bottom: 100% !important; margin-bottom: 5px; transform: translate(-50%, 0) !important; }
