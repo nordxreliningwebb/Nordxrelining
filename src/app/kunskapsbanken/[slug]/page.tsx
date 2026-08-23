@@ -61,7 +61,7 @@ export default async function KnowledgeBankArticlePage({ params }: { params: Pro
   return (
     <FrontendLayout>
       <div className="min-h-screen bg-[#faf8f5] font-inter pb-1">
-      <main id="main-content" className="w-full">
+      <main id="main-content" className="w-full" style={{ marginTop: "-85px", paddingTop: "115px" }}>
         <style dangerouslySetInnerHTML={{__html: `
           .editor-content, figure { max-width: 100%; overflow: hidden; }
           .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
@@ -148,9 +148,9 @@ export default async function KnowledgeBankArticlePage({ params }: { params: Pro
         <div className="container" style={{ maxWidth: '1400px', width: '95%', margin: '0 auto', padding: '0' }}>
             <div className="pt-10">
                 <div id="dynamic-hero" className="rounded-3xl overflow-hidden relative flex flex-col justify-end shadow-lg hero-anim" style={{ background: `linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.1) 100%), url('${bgImage}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '500px' }}>
-                    <div className="relative z-10 p-8 md:p-12 w-full max-w-4xl flex flex-col gap-4">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-snug max-w-4xl">{title}</h1>
-                        <p className="text-lg md:text-xl text-gray-200 font-light mt-2 max-w-3xl">{excerpt}</p>
+                    <div className="relative z-10 w-full max-w-4xl flex flex-col gap-4" style={{ padding: "2.5rem 1.5rem", paddingBottom: "2rem" }}>
+                        <h1 className="font-extrabold text-white tracking-tight leading-snug max-w-4xl" style={{ fontSize: "2.5rem", lineHeight: "1.2", marginBottom: "0.5rem" }}>{title}</h1>
+                        <p className="text-gray-200 font-light max-w-3xl" style={{ fontSize: "1.125rem" }}>{excerpt}</p>
                     </div>
                 </div>
             </div>

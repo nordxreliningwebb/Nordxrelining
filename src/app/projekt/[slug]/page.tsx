@@ -97,7 +97,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
   return (
     <FrontendLayout>
       <div className="min-h-screen bg-[#faf8f5] font-inter pb-1">
-      <main id="main-content" className="w-full">
+      <main id="main-content" className="w-full" style={{ marginTop: "-85px", paddingTop: "115px" }}>
         <style dangerouslySetInnerHTML={{__html: `
           .editor-content, figure { max-width: 100%; overflow: hidden; }
           .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
@@ -184,15 +184,69 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
         <div className="container" style={{ maxWidth: '1400px', width: '95%', margin: '0 auto', padding: '0' }}>
             <div className="pt-10">
                 <div id="dynamic-hero" className="rounded-3xl overflow-hidden relative flex flex-col justify-end shadow-lg hero-anim" style={{ background: `linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.1) 100%), url('${bgImage}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '500px' }}>
-                    <div className="relative z-10 p-8 md:p-12 w-full max-w-4xl flex flex-col gap-4">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-snug max-w-4xl">{title}</h1>
-                        <p className="text-lg md:text-xl text-gray-200 font-light mt-2 max-w-3xl">{excerpt}</p>
+                    <div className="relative z-10 w-full max-w-4xl flex flex-col gap-4" style={{ padding: "2.5rem 1.5rem", paddingBottom: "2rem" }}>
+                        <h1 className="font-extrabold text-white tracking-tight leading-snug max-w-4xl" style={{ fontSize: "2.5rem", lineHeight: "1.2", marginBottom: "0.5rem" }}>{title}</h1>
+                        <p className="text-gray-200 font-light max-w-3xl" style={{ fontSize: "1.125rem" }}>{excerpt}</p>
                     </div>
                 </div>
             </div>
 
             <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-10" style={{ marginBottom: '6rem' }}>
-                <article className="lg:col-span-2 w-full bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100 article-anim" id="project-content">
+                
+      {/* MOBILE INFO BLOCKS */}
+      <div className="lg:hidden flex flex-col gap-6 mb-8 w-full">
+        {/* PROJEKTFAKTA */}
+<div className="hidden lg:block w-full">
+                        <div className="hidden lg:block w-full sidebar-anim-1">
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektfakta</h4>
+                            <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-y-3">
+                                <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
+                                    <span className="w-20 shrink-0 text-sm text-slate-500 font-medium">Tjänst</span>
+                                    <span className="text-sm font-bold text-slate-900 truncate">{catStr}</span>
+                                </div>
+                                <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
+                                    <span className="w-20 shrink-0 text-sm text-slate-500 font-medium">Plats</span>
+                                    <span className="text-sm font-bold text-slate-900 truncate">{city}</span>
+                                </div>
+                                <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
+                                    <span className="w-20 shrink-0 text-sm text-slate-500 font-medium">Datum</span>
+                                    <span className="text-sm font-bold text-slate-900 truncate">{dateStr}</span>
+                                </div>
+                                <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
+                                    <span className="w-20 shrink-0 text-sm text-slate-500 font-medium">Beställare</span>
+                                    <span className="text-sm font-bold text-slate-900 truncate">{clientName}</span>
+                                </div>
+                            </div>
+                        </div>
+        {/* INNEHÅLL */}
+                        {toc.length > 0 && (
+                            <div className="hidden lg:block w-full sidebar-anim-3">
+                                <nav className="journal-toc bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                    <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Innehåll</h4>
+                                    <ul className="space-y-3">
+                                      {toc.map((item, idx) => (
+                                        <li key={idx}>
+                                          <a 
+                                            href={`#${item.id}`} 
+                                            style={{
+                                              marginLeft: item.level === 3 ? '1.5rem' : '0rem',
+                                              color: item.level === 3 ? '#4B5563' : '#111827',
+                                              fontWeight: item.level === 3 ? '400' : '500',
+                                              fontSize: item.level === 3 ? '0.875rem' : '1rem'
+                                            }}
+                                            className="block hover:text-blue-600 transition-colors"
+                                          >
+                                            {item.text}
+                                          </a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                </nav>
+                            </div>
+                        )}
+      </div>
+      
+<article className="lg:col-span-2 w-full bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100 article-anim" id="project-content">
                     <BlockRenderer blocks={blocks} />
                 </article>
 
