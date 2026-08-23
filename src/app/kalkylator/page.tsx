@@ -159,7 +159,7 @@ export default function KalkylatorPage() {
 
     return (
         <FrontendLayout>
-            <link rel="stylesheet" href="/kalkylator.css" />
+            <link rel="stylesheet" href="/kalkylator.css?v=2" />
             <style dangerouslySetInnerHTML={{__html: `body.light-theme { background-color: #faf8f5 !important; }`}} />
             
             <main className="calc-main" style={{ backgroundColor: "#faf8f5", minHeight: "100vh" }}>
