@@ -196,7 +196,6 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
       {/* MOBILE INFO BLOCKS */}
       <div className="lg:hidden flex flex-col gap-6 mb-8 w-full">
         {/* PROJEKTFAKTA */}
-<div className="hidden lg:block w-full">
                         <div className="w-full sidebar-anim-1">
                             <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektfakta</h4>
                             <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-y-3">
