@@ -291,19 +291,19 @@ export default function CampaignPopupClient({ campaign }: { campaign: any }) {
                             {/* Urgency: Nedräkning */}
                             <div className="campaign-countdown">
                                 <div className="countdown-item">
-                                    <span className="countdown-value cd-days">{timeLeft.days.toString().padStart(2, '0')}</span>
+                                    <span className="countdown-value cd-days notranslate">{timeLeft.days.toString().padStart(2, '0')}</span>
                                     <span className="countdown-label">Dagar</span>
                                 </div>
                                 <div className="countdown-item">
-                                    <span className="countdown-value cd-hours">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                                    <span className="countdown-value cd-hours notranslate">{timeLeft.hours.toString().padStart(2, '0')}</span>
                                     <span className="countdown-label">Timmar</span>
                                 </div>
                                 <div className="countdown-item">
-                                    <span className="countdown-value cd-mins">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                                    <span className="countdown-value cd-mins notranslate">{timeLeft.minutes.toString().padStart(2, '0')}</span>
                                     <span className="countdown-label">Min</span>
                                 </div>
                                 <div className="countdown-item">
-                                    <span className="countdown-value cd-secs">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                                    <span className="countdown-value cd-secs notranslate">{timeLeft.seconds.toString().padStart(2, '0')}</span>
                                     <span className="countdown-label">Sek</span>
                                 </div>
                             </div>

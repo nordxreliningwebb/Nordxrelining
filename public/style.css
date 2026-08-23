@@ -11949,3 +11949,9 @@ body.home-page #main-header:not(.sticky) .menu-toggle span {
 
 
 @media (max-width: 768px) { .water-fill-card.is-filled .water-fill-container { height: calc(100% - 30px) !important; } }
+
+/* Google Translate Fixes */
+body { top: 0 !important; }
+.skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+#goog-gt-tt, .goog-tooltip { display: none !important; }
+.goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
