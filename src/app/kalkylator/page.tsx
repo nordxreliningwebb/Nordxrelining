@@ -180,6 +180,17 @@ export default function KalkylatorPage() {
                     .action-row .btn-back, .action-row .btn-primary, .action-row a.btn-primary { font-size: 0.85rem !important; padding: 12px 10px !important; border-radius: 6px !important; height: auto !important; }
                     .action-row { gap: 12px !important; padding-top: 1rem !important; }
                     .step-label { font-size: 0.55rem !important; letter-spacing: -0.3px !important; }
+                    
+                    /* Step 6 button stacking */
+                    .step6-actions { flex-direction: column !important; gap: 12px !important; }
+                    .step6-primary-group { flex-direction: column !important; width: 100% !important; gap: 12px !important; }
+                    .step6-actions .btn-primary, .step6-actions .btn-back { width: 100% !important; text-align: center; }
+                }
+                
+                @media (min-width: 769px) {
+                    .step6-actions { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; padding-top: 0; }
+                    .step6-primary-group { display: flex; gap: 15px; }
+                    .step6-actions .btn-primary { padding: 14px 24px; font-size: 1rem; font-weight: 600; border: 1px solid #0284c7; box-shadow: none; text-align: center; }
                 }
             `}} />
             
@@ -443,17 +454,17 @@ export default function KalkylatorPage() {
                                 <p className="view-subtitle">För större fastigheter krävs rätt förutsättningar</p>
                                 
                                 <div style={{ backgroundColor: "#faf8f5", borderRadius: "12px", padding: "30px", border: "1px solid #e2e8f0", marginBottom: "30px", lineHeight: "1.6", color: "#0f172a", fontSize: "1.05rem" }}>
-                                    <p style={{ marginBottom: "15px" }}>Att genomföra ett stambyte eller relining i en bostadsrättsförening (BRF) eller i en större fastighet är ett omfattande projekt som kräver noggrann planering och analys.</p>
-                                    <p style={{ marginBottom: "15px" }}>Eftersom varje fastighet har sina unika förutsättningar, från rörsystemets ålder och skick till byggnadens konstruktion, kan vi tyvärr inte ge en exakt prisuppskattning genom en standardiserad webbkalkylator.</p>
-                                    <p style={{ fontWeight: 600, color: "#0f172a" }}>För att kunna ge er en rättvis, trygg och skräddarsydd offert erbjuder vi alltid ett kostnadsfritt och villkorslöst platsbesök. Under besöket gör vi en professionell bedömning och diskuterar den bästa metoden för just er förening.</p>
+                                    <p style={{ marginBottom: "15px" }}>Ett stambyte eller relining för en bostadsrättsförening (BRF) eller fastighet är ett omfattande projekt som kräver expertis. Varje rörsystem är unikt – från ålder och slitage till fastighetens specifika konstruktion. Därför ger en standardiserad webbkalkylator sällan en rättvis bild för större entreprenader.</p>
+                                    <p style={{ marginBottom: "15px" }}>Vi på Nordx Relining är specialister på smidig och kostnadseffektiv rörinfodring och relining i Göteborg med omnejd. För att ge er ett exakt och skräddarsytt underlag erbjuder vi alltid ett <span style={{fontWeight: 600}}>kostnadsfritt och villkorslöst platsbesök</span>.</p>
+                                    <p style={{ color: "#0f172a" }}>Under besöket gör vi en professionell bedömning av stammarna och diskuterar den bästa lösningen för just er fastighet, så att ni kan känna er helt trygga inför nästa steg.</p>
                                 </div>
                                 
-                                <div className="action-row" style={{ display: "flex", flexWrap: "wrap", gap: "15px", alignItems: "center", paddingTop: "0" }}>
-                                    <button className="btn-back" onClick={() => setCurrentStep(1)} style={{ flexShrink: 0 }}>Tillbaka</button>
-                                    <div style={{ display: "flex", flex: 1, gap: "15px", minWidth: "300px" }}>
-                                        <a href="tel:0703185110" className="btn-primary" style={{ flex: 1, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", padding: "14px 24px", fontSize: "1rem", fontWeight: 600, border: "1px solid #0284c7", boxShadow: "none" }}>Ring oss: 070-318 51 10</a>
-                                        <button className="btn-primary" style={{ flex: 1, padding: "14px 24px", fontSize: "1rem", fontWeight: 600, border: "1px solid #0284c7", boxShadow: "none" }} onClick={() => router.push('/kontakt')}>Skicka förfrågan för besök</button>
+                                <div className="action-row step6-actions">
+                                    <div className="step6-primary-group">
+                                        <button className="btn-primary" onClick={() => router.push('/kontakt')}>Skicka förfrågan för besök</button>
+                                        <a href="tel:0703185110" className="btn-primary" style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Ring oss: 070-318 51 10</a>
                                     </div>
+                                    <button className="btn-back" onClick={() => setCurrentStep(1)}>Tillbaka</button>
                                 </div>
                             </div>
                         )}
