@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Nordxrelining - Experter på Relining, Stamspolning och Rörinspektion",
   description: "Sveriges tryggaste partner inom relining och rörinspektion. Vi förlänger livet på era rörsystem – med minimal störning och maximal kvalitet.",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon.png',
   },
 };
 
