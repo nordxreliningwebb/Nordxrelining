@@ -11428,17 +11428,19 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-    .project-slider-card {
-        grid-template-columns: 1fr;
-    }
-    .project-slider-image {
-        min-height: 250px;
-    }
-    .project-slider-content {
-        padding: 2rem 1.5rem;
-    }
-}
+  @media (max-width: 768px) {
+      .project-slider-card {
+          grid-template-columns: 1fr;
+          min-height: auto;
+      }
+      .project-slider-image {
+          min-height: 200px;
+          height: 200px;
+      }
+      .project-slider-content {
+          padding: 1.5rem 1.25rem;
+      }
+  }
 
 .project-slider-wrapper {
     width: 100%; /* injected width */
