@@ -197,7 +197,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
       <div className="lg:hidden flex flex-col gap-6 mb-8 w-full">
         {/* PROJEKTFAKTA */}
 <div className="hidden lg:block w-full">
-                        <div className="hidden lg:block w-full sidebar-anim-1">
+                        <div className="w-full sidebar-anim-1">
                             <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektfakta</h4>
                             <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-y-3">
                                 <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
@@ -220,7 +220,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
                         </div>
         {/* INNEHÅLL */}
                         {toc.length > 0 && (
-                            <div className="hidden lg:block w-full sidebar-anim-3">
+                            <div className="w-full sidebar-anim-3">
                                 <nav className="journal-toc bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                                     <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Innehåll</h4>
                                     <ul className="space-y-3">
@@ -254,7 +254,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
                     <div className="sticky top-32 h-max flex flex-col gap-6 w-full">
                         
                         {/* PROJEKTFAKTA */}
-                        <div className="w-full sidebar-anim-1">
+                        <div className="hidden lg:block w-full sidebar-anim-1">
                             <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektfakta</h4>
                             <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-y-3">
                                 <div className="flex items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0">
@@ -295,7 +295,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
 
                         {/* INNEHÅLL */}
                         {toc.length > 0 && (
-                            <div className="w-full sidebar-anim-3">
+                            <div className="hidden lg:block w-full sidebar-anim-3">
                                 <nav className="journal-toc bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                                     <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Innehåll</h4>
                                     <ul className="space-y-3">
