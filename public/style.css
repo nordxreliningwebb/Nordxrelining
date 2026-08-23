@@ -11428,19 +11428,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     margin-top: 1rem;
 }
 
-  @media (max-width: 768px) {
-      .project-slider-card {
-          grid-template-columns: 1fr;
-          min-height: auto;
-      }
-      .project-slider-image {
-          min-height: 200px;
-          height: 200px;
-      }
-      .project-slider-content {
-          padding: 1.5rem 1.25rem;
-      }
-  }
+  
 
 .project-slider-wrapper {
     width: 100%; /* injected width */
@@ -11962,3 +11950,63 @@ body { top: 0 !important; }
 div.skiptranslate { display: none !important; visibility: hidden !important; }
 .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
 .goog-te-spinner-pos { display: none !important; }
+
+/* =========================================
+   PROJECT SLIDER MOBILE LAYOUT FIX
+   ========================================= */
+@media (max-width: 768px) {
+    .project-slider-card {
+        grid-template-columns: 1fr !important;
+        height: 460px !important;
+        min-height: 460px !important;
+    }
+    
+    .project-slider-image {
+        height: 230px !important;
+        min-height: 230px !important;
+    }
+    
+    .project-slider-content {
+        height: 230px !important;
+        min-height: 230px !important;
+        padding: 1rem 1.25rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* Meta (Date / Category) */
+    .project-slider-content .project-meta {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Title */
+    .project-slider-content h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* Excerpt */
+    .project-slider-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 0.5rem !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    /* CTA Button */
+    .project-slider-content .project-btn {
+        margin-top: auto !important; /* Pushes to bottom */
+        padding: 0.6rem 1rem !important;
+        font-size: 0.95rem !important;
+    }
+}
