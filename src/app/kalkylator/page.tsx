@@ -183,7 +183,7 @@ export default function KalkylatorPage() {
                     
                     /* Step 6 button stacking */
                     .step6-actions { flex-direction: column !important; gap: 12px !important; }
-                    .step6-primary-group { flex-direction: column !important; width: 100% !important; gap: 12px !important; }
+                    .step6-primary-group { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 12px !important; }
                     .step6-actions .btn-primary, .step6-actions .btn-back { width: 100% !important; text-align: center; }
                 }
                 
@@ -454,8 +454,8 @@ export default function KalkylatorPage() {
                                 <p className="view-subtitle">För större fastigheter krävs rätt förutsättningar</p>
                                 
                                 <div style={{ backgroundColor: "#faf8f5", borderRadius: "12px", padding: "30px", border: "1px solid #e2e8f0", marginBottom: "30px", lineHeight: "1.6", color: "#0f172a", fontSize: "1.05rem" }}>
-                                    <p style={{ marginBottom: "15px" }}>Ett stambyte eller relining för en bostadsrättsförening (BRF) eller fastighet är ett omfattande projekt som kräver expertis. Varje rörsystem är unikt – från ålder och slitage till fastighetens specifika konstruktion. Därför ger en standardiserad webbkalkylator sällan en rättvis bild för större entreprenader.</p>
-                                    <p style={{ marginBottom: "15px" }}>Vi på Nordx Relining är specialister på smidig och kostnadseffektiv rörinfodring och relining i Göteborg med omnejd. För att ge er ett exakt och skräddarsytt underlag erbjuder vi alltid ett <span style={{fontWeight: 600}}>kostnadsfritt och villkorslöst platsbesök</span>.</p>
+                                    <p style={{ marginBottom: "15px" }}>Ett stambyte eller relining för en bostadsrättsförening (BRF) eller fastighet är ett omfattande projekt som kräver expertis. Varje rörsystem är unikt – från ålder och slitage till fastighetens specifika konstruktion. Därför rekommenderar vi alltid en noggrann översyn för större entreprenader.</p>
+                                    <p style={{ marginBottom: "15px" }}>Vi på Nordxrelining är specialister på smidig och kostnadseffektiv rörinfodring och relining. För att ge er ett exakt och skräddarsytt underlag erbjuder vi alltid ett <span style={{fontWeight: 600}}>kostnadsfritt och villkorslöst platsbesök</span>.</p>
                                     <p style={{ color: "#0f172a" }}>Under besöket gör vi en professionell bedömning av stammarna och diskuterar den bästa lösningen för just er fastighet, så att ni kan känna er helt trygga inför nästa steg.</p>
                                 </div>
                                 
