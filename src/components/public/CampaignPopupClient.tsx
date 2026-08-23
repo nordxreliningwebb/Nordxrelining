@@ -221,6 +221,43 @@ export default function CampaignPopupClient({ campaign }: { campaign: any }) {
         .campaign-slider { position: relative; overflow: hidden; padding-bottom: 10px; }
         .campaign-slides-wrapper { display: grid; }
         .campaign-slide { grid-area: 1 / 1; display: block; }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            .pipe-popup-content {
+                padding: 35px 15px 25px 15px;
+            }
+            .campaign-close-btn {
+                top: 10px;
+                right: 10px;
+                width: 28px;
+                height: 28px;
+                font-size: 1.2rem;
+            }
+            .campaign-countdown {
+                gap: 5px;
+                margin-bottom: 15px;
+            }
+            .countdown-item {
+                min-width: 55px;
+                padding: 8px 5px;
+            }
+            .countdown-value {
+                font-size: 1.2rem;
+            }
+            .countdown-label {
+                font-size: 0.6rem;
+            }
+            .campaign-title {
+                font-size: 1.4rem;
+                min-height: auto;
+            }
+            .campaign-text {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+                min-height: auto;
+            }
+        }
       ` }} />
       <div className={`campaign-popup-overlay ${isVisible ? 'active' : ''}`} id="campaign-popup">
         <div className="pipe-popup-wrapper">
