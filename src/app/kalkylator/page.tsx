@@ -12,7 +12,7 @@ const iconsHouse: Record<string, React.ReactNode> = {
         <g transform="translate(18, 0)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></g>
         <g transform="translate(36, 0)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></g>
     </svg>,
-    "Fritidshus": <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>,
+    "Fritidshus": <svg className="fritidshus-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>,
     "Bostadsrättsförening / Företag": <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
 };
 
@@ -172,12 +172,14 @@ export default function KalkylatorPage() {
                     .option-desc { font-size: 0.75rem !important; line-height: 1.2 !important; }
                     .option-icon { margin-bottom: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
                     .option-icon svg { height: 26px !important; width: auto !important; transform: none !important; }
+                    .option-icon svg.fritidshus-icon { height: 21px !important; }
                     .distance-card { padding: 8px !important; font-size: 0.85rem !important; }
                     .qty-item { padding: 10px 15px !important; }
                     .qty-item span { font-size: 0.85rem !important; }
                     .qty-btn { width: 28px !important; height: 28px !important; font-size: 1rem !important; }
                     .action-row .btn-back, .action-row .btn-primary, .action-row a.btn-primary { font-size: 0.85rem !important; padding: 12px 10px !important; border-radius: 6px !important; height: auto !important; }
                     .action-row { gap: 12px !important; padding-top: 1rem !important; }
+                    .step-label { font-size: 0.55rem !important; letter-spacing: -0.3px !important; }
                 }
             `}} />
             
