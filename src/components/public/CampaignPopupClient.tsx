@@ -317,7 +317,7 @@ export default function CampaignPopupClient({ campaign }: { campaign: any }) {
                             <h3 className="campaign-title">{campaign.title}</h3>
                             <p className="campaign-text" dangerouslySetInnerHTML={{ __html: campaign.description }}></p>
                             <div className="campaign-actions">
-                                <a href="/kalkylator.html" className="campaign-btn">Beräkna ditt pris</a>
+                                <a href="/kalkylator" className="campaign-btn">Beräkna ditt pris</a>
                             </div>
                         </div>
                     </div>

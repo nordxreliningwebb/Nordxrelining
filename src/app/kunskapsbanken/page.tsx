@@ -202,7 +202,7 @@ export default async function KnowledgeBankPage() {
                 <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 800, marginBottom: '1rem', color: '#ffffff', lineHeight: 1.2 }} className="anim-mask-text"><span className="anim-mask-inner">Har du frågor om rör och avlopp?</span></h2>
                 <p style={{ fontSize: '1.15rem', lineHeight: 1.6, marginBottom: '2.5rem', opacity: 0.9 }} className="anim-fade-up">Låt oss ta hand om ert rörsystem precis som vi gjort för hundratals andra nöjda kunder. Hör av er för en förutsättningslös dialog.</p>
                 <div className="cta-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
-                    <Link href="/kontakt.html" className="cta-btn-header-match anim-fade-up">Kontakta oss</Link>
+                    <Link href="/kontakt" className="cta-btn-header-match anim-fade-up">Kontakta oss</Link>
                     <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up">Ring oss</a>
                 </div>
             </div>

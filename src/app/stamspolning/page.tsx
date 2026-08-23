@@ -30,7 +30,7 @@ export default function Page() {
                     <p style={{fontSize: "1.25rem", color: "#475569", lineHeight: "1.6", marginBottom: "2.5rem", }} className="">
                         Rinner vattnet undan trögt, eller upplever du obehaglig lukt från avloppet? Då är det hög tid för en professionell rörspolning. Vi säkrar stammarna för bostadsrättsföreningar, företag och villaägare, och förebygger dyra vattenskador innan de hinner uppstå.
                     </p>
-                    <a href="kontakt.html" className="btn btn-primary" style={{display: "inline-flex", alignItems: "center", gap: "0.5rem", borderRadius: "8px", padding: "1rem 2rem", background: "#0284c7", border: "none", }}>
+                    <a href="/kontakt" className="btn btn-primary" style={{display: "inline-flex", alignItems: "center", gap: "0.5rem", borderRadius: "8px", padding: "1rem 2rem", background: "#0284c7", border: "none", }}>
                         Kontakta oss
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -249,7 +249,7 @@ export default function Page() {
             <style dangerouslySetInnerHTML={{ __html: "@media (max-width: 768px) { .cta-heading { white-space: normal !important; } .cta-buttons { flex-wrap: nowrap !important; gap: 0.8rem !important; width: 100%; } .cta-buttons .cta-btn-header-match { padding: 14px 10px !important; flex: 1; text-align: center; justify-content: center; width: 100%; box-sizing: border-box; white-space: nowrap !important; font-size: 1.15rem !important; } }" }} /><h2 style={{fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: "800", marginBottom: "1rem", color: "#ffffff", lineHeight: "1.2", whiteSpace: "nowrap", }} className="cta-heading anim-mask-text"><span className="anim-mask-inner">Säkra upp fastighetens rör i tid</span></h2>
             <p style={{fontSize: "1.15rem", lineHeight: "1.6", marginBottom: "2.5rem", opacity: "0.9", }} className="anim-fade-up">Genom att spola stammarna i tid förebygger ni dyra vattenskador och förlänger rörsystemets livslängd. Låt våra certifierade tekniker säkerställa att fastighetens avlopp mår bra.</p>
             <div className="cta-buttons" style={{display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "nowrap", alignItems: "center", }}>
-                <a href="kontakt.html" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Kontakta oss</a>
+                <a href="/kontakt" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Kontakta oss</a>
                 <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
             </div>
         </div>
