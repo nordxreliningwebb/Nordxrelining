@@ -185,8 +185,11 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
             <ul className="mobile-menu-list">
                 
                 <li className="has-submenu">
-                    <a href="#" className={`mobile-menu-link ${isMobileSubmenuOpen ? 'active' : ''}`} id="mobile-submenu-toggle" onClick={(e) => { e.preventDefault(); setIsMobileSubmenuOpen(!isMobileSubmenuOpen); }}>
-                        Tjänster <span className="arrow">▼</span>
+                    <a href="#" className={`mobile-menu-link ${isMobileSubmenuOpen ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} id="mobile-submenu-toggle" onClick={(e) => { e.preventDefault(); setIsMobileSubmenuOpen(!isMobileSubmenuOpen); }}>
+                        Tjänster 
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s ease', transform: isMobileSubmenuOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}>
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
                     </a>
                     <ul className="mobile-submenu" id="mobile-tjanster-submenu" style={{ maxHeight: isMobileSubmenuOpen ? '300px' : '0', overflow: 'hidden', transition: 'max-height 0.35s ease-out' }}>
                         <li><Link href="/stamspolning">Stamspolning</Link></li>
