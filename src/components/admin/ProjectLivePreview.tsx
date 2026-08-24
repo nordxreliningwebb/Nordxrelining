@@ -37,12 +37,14 @@ export default function ProjectLivePreview(props: ProjectLivePreviewProps) {
     }
   }, [props.blocks]);
 
-  const heroStyle = {
-    background: props.coverImage 
+  const heroStyle: React.CSSProperties = {
+    backgroundImage: props.coverImage 
       ? `linear-gradient(rgba(27, 38, 59, 0.4), rgba(27, 38, 59, 0.4)), url('${props.coverImage}')`
-      : '#0284c7', 
+      : 'none', 
+    backgroundColor: props.coverImage ? 'transparent' : '#0284c7',
     backgroundSize: 'cover',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
   };
 
   return (
