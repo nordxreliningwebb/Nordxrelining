@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 function CountdownTimer({ countdownDate }: { countdownDate: string }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -210,15 +210,15 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
         }
 
-        /* InnehÃ¥ll */
+        /* Innehåll */
         .pipe-popup-content {
             position: relative; z-index: 10; background: #ffffff;
-            border-radius: 12px; padding: 40px 30px; text-align: center;
+            border-radius: 12px; padding: 40px 10px; text-align: center; width: 100%; box-sizing: border-box;
         }
         .campaign-close-btn {
             position: absolute; top: 15px; right: 15px; background: #f1f5f9;
             border: none; width: 32px; height: 32px; border-radius: 50%;
-            font-size: 1.4rem; color: #64748b; cursor: pointer; transition: all 0.2s;
+            color: #64748b; cursor: pointer; transition: all 0.2s;
             display: flex; align-items: center; justify-content: center; z-index: 50;
         }
         .campaign-close-btn:hover { background: #e2e8f0; color: #0f172a; transform: rotate(90deg); }
@@ -238,21 +238,22 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
         .campaign-btn {
             display: inline-block; background: #0284c7; color: #ffffff; text-decoration: none;
             padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 1rem;
-            transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); width: 100%;
+            transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); width: 100%; box-sizing: border-box;
         }
         .campaign-btn:hover { background: #0369a1; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4); }
 
         /* Urgency Countdown */
         .campaign-countdown {
-            display: flex; justify-content: center; gap: 15px; margin-bottom: 24px;
+            display: flex; justify-content: center; gap: 10px; margin-bottom: 24px;
         }
         .countdown-item {
             background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
-            padding: 10px 12px; min-width: 65px; text-align: center;
+            padding: 8px 10px; min-width: 60px; text-align: center;
+            box-sizing: border-box;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
         .countdown-value {
-            display: block; font-size: 1.6rem; font-weight: 800; color: #0284c7;
+            display: block; font-size: 1.5rem; font-weight: 800; color: #0284c7;
             line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums;
         }
         .countdown-label {
@@ -260,16 +261,18 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
         }
         
         /* Carousel Styles */
-        .campaign-slider { position: relative; overflow: hidden; padding-bottom: 10px; width: 100%; }
+        .campaign-slider { position: relative; overflow: hidden; padding-bottom: 10px; width: 100%; box-sizing: border-box; }
         .campaign-slides-wrapper { 
             display: flex; 
             transition: transform 0.5s ease-in-out; 
             width: 100%;
         }
         .campaign-slide { 
-            min-width: 100%; box-sizing: border-box; 
-            flex-shrink: 0; 
-            padding: 0 25px; box-sizing: border-box; /* Add padding to prevent text overlap with arrows */
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 0 35px; /* Space for arrows */
             display: block;
         }
 
@@ -328,22 +331,22 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
 
         /* Mobile adjustments */
         @media (max-width: 480px) {
-            .pipe-popup-content { padding: 35px 15px 25px 15px; }
-            .campaign-close-btn { top: 10px; right: 10px; width: 28px; height: 28px; font-size: 1.2rem; }
-            .campaign-countdown { gap: 5px; margin-bottom: 15px; }
-            .countdown-item { min-width: 55px; padding: 8px 5px; }
-            .countdown-value { font-size: 1.2rem; }
+            .pipe-popup-content { padding: 35px 5px 25px 5px; }
+            .campaign-close-btn { top: 10px; right: 10px; width: 28px; height: 28px; }
+            .campaign-countdown { gap: 4px; margin-bottom: 15px; }
+            .countdown-item { min-width: 50px; padding: 6px 4px; }
+            .countdown-value { font-size: 1.1rem; }
             .countdown-label { font-size: 0.6rem; }
             .campaign-title { font-size: 1.4rem; min-height: auto; }
             .campaign-text { font-size: 0.95rem; margin-bottom: 1.5rem; min-height: auto; }
-            .campaign-slide { padding: 0 10px; }
-            .campaign-nav-btn { width: 30px; height: 30px; }
-            .campaign-nav-arrows { left: -5px; right: -5px; }
+            .campaign-slide { padding: 0 25px; }
+            .campaign-nav-btn { width: 28px; height: 28px; }
+            .campaign-nav-arrows { left: 0px; right: 0px; }
         }
       ` }} />
       <div className={`campaign-popup-overlay ${isVisible ? 'active' : ''}`} id="campaign-popup">
         <div className="pipe-popup-wrapper">
-            {/* RÃ¶r-ram */}
+            {/* Rör-ram */}
             <div className="p-pipe p-top">
                 <div className="p-muff" style={{ left: '15%' }}></div>
                 <div className="p-muff" style={{ right: '15%' }}></div>
@@ -363,10 +366,10 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             <div className="p-corner p-bl"></div>
             <div className="p-corner p-br"></div>
 
-            {/* InnehÃ¥ll */}
+            {/* Innehåll */}
             <div className="pipe-popup-content">
-                <button id="close-campaign" className="campaign-close-btn" aria-label="StÃ¤ng popup" onClick={handleClose}>
-                    Ã—
+                <button id="close-campaign" className="campaign-close-btn" aria-label="Stäng popup" onClick={handleClose}>
+                    <X size={18} />
                 </button>
                 
                 <div className="campaign-slider" id="campaign-slider">
@@ -376,7 +379,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                     >
                         {campaigns.map((camp, index) => (
                             <div key={camp.id || index} className={`campaign-slide ${index === currentIndex ? 'active' : ''}`}>
-                                {/* Urgency: NedrÃ¤kning */}
+                                {/* Urgency: Nedräkning */}
                                 {camp.countdownDate && (
                                     <CountdownTimer countdownDate={camp.countdownDate} />
                                 )}
@@ -384,7 +387,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                                 <h3 className="campaign-title">{camp.title}</h3>
                                 <p className="campaign-text" dangerouslySetInnerHTML={{ __html: camp.description }}></p>
                                 <div className="campaign-actions">
-                                    <a href="/kalkylator" className="campaign-btn">BerÃ¤kna ditt pris</a>
+                                    <a href="/kalkylator" className="campaign-btn">Beräkna ditt pris</a>
                                 </div>
                             </div>
                         ))}
@@ -395,10 +398,10 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                 {campaigns.length > 1 && (
                     <>
                         <div className="campaign-nav-arrows">
-                            <button onClick={prevSlide} className="campaign-nav-btn prev" aria-label="FÃ¶regÃ¥ende kampanj">
+                            <button onClick={prevSlide} className="campaign-nav-btn prev" aria-label="Föregående kampanj">
                                 <ChevronLeft size={20} />
                             </button>
-                            <button onClick={nextSlide} className="campaign-nav-btn next" aria-label="NÃ¤sta kampanj">
+                            <button onClick={nextSlide} className="campaign-nav-btn next" aria-label="Nästa kampanj">
                                 <ChevronRight size={20} />
                             </button>
                         </div>
