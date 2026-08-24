@@ -194,7 +194,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
             <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-10" style={{ marginBottom: '6rem' }}>
                 
       {/* MOBILE INFO BLOCKS */}
-      <div className="lg:hidden flex flex-col gap-6 mb-8 w-full">
+      <div className="flex flex-col gap-6 mb-8 w-full lg:!hidden">
         {/* PROJEKTFAKTA */}
                         <div className="w-full sidebar-anim-1">
                             <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektfakta</h4>
@@ -275,23 +275,6 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
                             </div>
                         </div>
 
-                        {/* PROJEKTLEDARE */}
-                        <div className="w-full sidebar-anim-2">
-                            <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektledare</h4>
-                            <div className="journal-author-card flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                                {authorAvatar ? (
-                                    <img src={authorAvatar} alt="Ansvarig" className="journal-avatar w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm shrink-0" />
-                                ) : (
-                                    <div className="w-16 h-16 rounded-full bg-gray-100 border-2 border-white shadow-sm flex items-center justify-center text-gray-400 shrink-0">
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                                    </div>
-                                )}
-                                <div className="journal-author-info flex flex-col justify-center min-w-0">
-                                    <span className="journal-author-name font-bold text-gray-900 text-sm truncate">{authorName}</span>
-                                </div>
-                            </div>
-                        </div>
-
                         {/* INNEHÅLL */}
                         {toc.length > 0 && (
                             <div className="hidden lg:block w-full sidebar-anim-3">
@@ -318,6 +301,24 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
                                 </nav>
                             </div>
                         )}
+{/* PROJEKTLEDARE */}
+                        <div className="w-full sidebar-anim-2">
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 font-outfit tracking-wide border-b border-gray-200 pb-2">Projektledare</h4>
+                            <div className="journal-author-card flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                {authorAvatar ? (
+                                    <img src={authorAvatar} alt="Ansvarig" className="journal-avatar w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm shrink-0" />
+                                ) : (
+                                    <div className="w-16 h-16 rounded-full bg-gray-100 border-2 border-white shadow-sm flex items-center justify-center text-gray-400 shrink-0">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                    </div>
+                                )}
+                                <div className="journal-author-info flex flex-col justify-center min-w-0">
+                                    <span className="journal-author-name font-bold text-gray-900 text-sm truncate">{authorName}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </aside>
             </div>
