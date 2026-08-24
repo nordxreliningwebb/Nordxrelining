@@ -106,7 +106,7 @@ export default function KnowledgeLivePreview(props: KnowledgeLivePreviewProps) {
               <div className="journal-hero absolute inset-0 w-full h-full flex items-center justify-center text-center px-4" style={heroStyle}>
                 <div className="journal-hero-content max-w-4xl mx-auto text-white z-10">
                   <h1 className="journal-hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight font-syne">{props.title || 'Inläggets Titel'}</h1>
-                  <p className="journal-hero-excerpt text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-inter">{props.subheading || 'Här visas utdraget.'}</p>
+                  <p className="journal-hero-excerpt text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-inter whitespace-pre-wrap">{props.subheading || 'Här visas utdraget.'}</p>
                 </div>
               </div>
             </div>
