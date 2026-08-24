@@ -1,9 +1,9 @@
-import FrontendLayout from "@/components/FrontendLayout";
+﻿import FrontendLayout from "@/components/FrontendLayout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Cookies & ePrivacy | Nordxrelining',
-  description: 'Information om hur Nordxrelining använder cookies för att förbättra din webbupplevelse.',
+  title: 'Cookies & ePrivacy | NordX Relining',
+  description: 'Information om hur NordX Relining använder cookies för att förbättra din webbupplevelse.',
 };
 
 export default function CookiesPage() {
@@ -20,7 +20,7 @@ export default function CookiesPage() {
         <section className="legal-page-wrapper" style={{ padding: "80px 20px", backgroundColor: "#ffffff" }}>
             <div className="legal-container" style={{ maxWidth: "800px", margin: "0 auto", color: "#334155", fontSize: "1.125rem", lineHeight: "1.8" }}>
                 <p className="anim-fade-up" style={{ marginBottom: "2rem" }}>
-                    Vi på Nordxrelining använder cookies (kakor) och liknande tekniker för att ge dig den bästa möjliga upplevelsen på vår webbplats. Denna policy förklarar vad cookies är, hur vi använder dem och hur du kan hantera dina inställningar i enlighet med Lagen om elektronisk kommunikation (LEK) och Dataskyddsförordningen (GDPR).
+                    Vi på NordX Relining använder cookies (kakor) och liknande tekniker för att ge dig den bästa möjliga upplevelsen på vår webbplats. Denna policy förklarar vad cookies är, hur vi använder dem och hur du kan hantera dina inställningar i enlighet med Lagen om elektronisk kommunikation (LEK) och Dataskyddsförordningen (GDPR).
                 </p>
 
                 <h2 className="anim-mask-text" style={{ fontSize: "2rem", color: "#0f172a", marginTop: "3rem", marginBottom: "1rem", fontWeight: 700 }}><span className="anim-mask-inner">1. Vad är en cookie?</span></h2>

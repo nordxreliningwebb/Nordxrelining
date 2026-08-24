@@ -1,9 +1,9 @@
-import FrontendLayout from "@/components/FrontendLayout";
+﻿import FrontendLayout from "@/components/FrontendLayout";
 import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Sidan hittades inte | Nordxrelining',
+  title: 'Sidan hittades inte | NordX Relining',
   description: 'Sidan du söker kunde tyvärr inte hittas.',
 };
 

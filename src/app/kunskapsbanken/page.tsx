@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import FrontendLayout from '@/components/FrontendLayout';
@@ -6,7 +6,7 @@ import { supabaseAdmin } from '@/lib/supabase-server';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Kunskapsbanken | Nordxrelining',
+  title: 'Kunskapsbanken | NordX Relining',
   description: 'Lär dig mer om rörinspektion, stamspolning och relining genom våra guider, nyheter och faktaartiklar.',
 };
 

@@ -1,9 +1,9 @@
-import FrontendLayout from "@/components/FrontendLayout";
+﻿import FrontendLayout from "@/components/FrontendLayout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Integritetspolicy (GDPR) | Nordxrelining',
-  description: 'Information om hur Nordxrelining hanterar dina personuppgifter i enlighet med GDPR.',
+  title: 'Integritetspolicy (GDPR) | NordX Relining',
+  description: 'Information om hur NordX Relining hanterar dina personuppgifter i enlighet med GDPR.',
 };
 
 export default function IntegritetspolicyPage() {
@@ -20,12 +20,12 @@ export default function IntegritetspolicyPage() {
         <section className="legal-page-wrapper" style={{ padding: "80px 20px", backgroundColor: "#ffffff" }}>
             <div className="legal-container" style={{ maxWidth: "800px", margin: "0 auto", color: "#334155", fontSize: "1.125rem", lineHeight: "1.8" }}>
                 <p className="anim-fade-up" style={{ marginBottom: "2rem" }}>
-                    Din integritet är viktig för oss på Nordxrelining. I denna integritetspolicy förklarar vi i detalj hur vi samlar in, använder och skyddar dina personuppgifter när du använder våra tjänster eller besöker vår hemsida, i enlighet med Dataskyddsförordningen (GDPR).
+                    Din integritet är viktig för oss på NordX Relining. I denna integritetspolicy förklarar vi i detalj hur vi samlar in, använder och skyddar dina personuppgifter när du använder våra tjänster eller besöker vår hemsida, i enlighet med Dataskyddsförordningen (GDPR).
                 </p>
 
                 <h2 className="anim-mask-text" style={{ fontSize: "2rem", color: "#0f172a", marginTop: "3rem", marginBottom: "1rem", fontWeight: 700 }}><span className="anim-mask-inner">1. Personuppgiftsansvarig</span></h2>
                 <p className="anim-fade-up" style={{ marginBottom: "1.5rem" }}>
-                    Nordxrelining AB, med adress Skogsgatan 3b, 152 44 Södertälje, är personuppgiftsansvarig för behandlingen av de personuppgifter du delar med oss. För frågor om vår personuppgiftshantering kan du alltid nå oss på <strong>info@nordxrelining.se</strong>.
+                    NordX Relining AB, med adress Skogsgatan 3b, 152 44 Södertälje, är personuppgiftsansvarig för behandlingen av de personuppgifter du delar med oss. För frågor om vår personuppgiftshantering kan du alltid nå oss på <strong>info@nordxrelining.se</strong>.
                 </p>
 
                 <h2 className="anim-mask-text" style={{ fontSize: "2rem", color: "#0f172a", marginTop: "3rem", marginBottom: "1rem", fontWeight: 700 }}><span className="anim-mask-inner">2. Uppgifter vi samlar in</span></h2>

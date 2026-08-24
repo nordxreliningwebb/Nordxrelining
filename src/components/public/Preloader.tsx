@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from 'react';
 
@@ -98,7 +98,7 @@ export default function Preloader() {
             
             {/* Logo inside the water area */}
             <div id="preloader-logo" style={{ position: "absolute", top: "45vh", left: "50%", transform: "translate(-50%, -50%)", opacity: 1, transition: "opacity 0.4s ease", textAlign: "center", zIndex: 3 }}>
-                <img src="/logo.png" alt="Nordxrelining" style={{ width: "280px", filter: "brightness(0) invert(1)" }} />
+                <img src="/logo.png" alt="NordX Relining" style={{ width: "280px", filter: "brightness(0) invert(1)" }} />
                 <div style={{ color: "#ffffff", fontFamily: "monospace", letterSpacing: "3px", marginTop: "1.5rem", fontSize: "1rem", fontWeight: 600 }} id="loading-text">INSPEKTERAR RÖR...</div>
             </div>
         </div>

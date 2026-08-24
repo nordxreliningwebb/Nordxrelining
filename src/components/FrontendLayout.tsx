@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -145,8 +145,8 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       {/* Header */}
       <header id="main-header" role="banner">
         <nav className="navbar" aria-label="Huvudnavigering">
-            <Link href="/" className="logo-link" aria-label="Nordxrelining – Till startsidan">
-                <img src="/logo.png" alt="Nordxrelining logotyp" id="logo-img" width={220} style={{ height: 'auto' }} loading="eager" />
+            <Link href="/" className="logo-link" aria-label="NordX Relining – Till startsidan">
+                <img src="/logo.png" alt="NordX Relining logotyp" id="logo-img" width={220} style={{ height: 'auto' }} loading="eager" />
             </Link>
             <ul className="nav-links" role="menubar">
                 <li role="none"><Link href="/" role="menuitem">HEM</Link></li>
@@ -217,10 +217,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
       <footer className="complex-footer anim-stagger-parent" role="contentinfo">
         <div className="footer-grid container">
             <div className="footer-brand">
-                <Link href="/" aria-label="Nordxrelining – Till startsidan">
-                    <img src="/logo.png" alt="Nordxrelining logotyp" width={220} style={{ height: 'auto' }} loading="lazy" className="anim-fade-up" />
+                <Link href="/" aria-label="NordX Relining – Till startsidan">
+                    <img src="/logo.png" alt="NordX Relining logotyp" width={220} style={{ height: 'auto' }} loading="lazy" className="anim-fade-up" />
                 </Link>
-                <p className="anim-fade-up">Nordxrelining bygger säkra och optimerade lösningar för fastigheters rörsystem. Din trygga partner inom stamspolning, relining och rörinspektion.</p>
+                <p className="anim-fade-up">NordX Relining bygger säkra och optimerade lösningar för fastigheters rörsystem. Din trygga partner inom stamspolning, relining och rörinspektion.</p>
             </div>
 
             <nav className="footer-links-col anim-stagger-item anim-fade-up" aria-label="Snabblänkar">
@@ -267,7 +267,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
 
         <div className="footer-bottom-bar container">
             <div className="footer-bottom-left">
-                <p className="copyright">© 2026 Nordxrelining. Alla rättigheter reserverade.</p>
+                <p className="copyright">© 2026 NordX Relining. Alla rättigheter reserverade.</p>
                 <nav className="footer-legal" aria-label="Juridisk information">
                     <Link href="/kopvillkor">Köpvillkor</Link>
                     <span className="sep">|</span>

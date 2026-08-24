@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import FrontendLayout from "@/components/FrontendLayout";
 import FAQListClient from "@/components/public/FAQListClient";
 import { getPublicFAQs } from "@/lib/data";
@@ -49,7 +49,7 @@ export default async function FAQPage() {
 
                       {/* Innehåll */}
                       <div className="featured-project anim-scale-down-container" style={{ position: "relative", zIndex: 10, margin: "0", width: "100%", height: "100%", minHeight: "450px", borderRadius: "0", boxShadow: "none", display: "block" }}>
-                          <img src="/nordxrelining_relining.jpeg" alt="FAQ Kundsupport" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} />
+                          <img src="/NordX Relining_relining.jpeg" alt="FAQ Kundsupport" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} />
                           <div className="featured-project-overlay" style={{ zIndex: 3 }}>
                               <h2 className="anim-mask-text"><span className="anim-mask-inner">Hittar du inte det du söker?</span></h2>
                               <p>Tveka inte att kontakta oss direkt om du har en specifik fråga gällande din fastighets rörsystem.</p>

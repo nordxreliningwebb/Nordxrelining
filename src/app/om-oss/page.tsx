@@ -1,12 +1,12 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import { supabaseAdmin } from "@/lib/supabase-server";
 import FrontendLayout from "@/components/FrontendLayout";
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Om oss | Nordxrelining',
-  description: 'Lär känna teamet bakom Nordxrelining – Sveriges tryggaste partner inom relining och rörinspektion.',
+  title: 'Om oss | NordX Relining',
+  description: 'Lär känna teamet bakom NordX Relining – Sveriges tryggaste partner inom relining och rörinspektion.',
 };
 
 export default async function OmOssPage() {
@@ -32,7 +32,7 @@ export default async function OmOssPage() {
                         Sveriges tryggaste partner inom relining och rörinspektion
                     </span></h1>
                     <p style={{ fontSize: "1.25rem", color: "#475569", lineHeight: 1.6, marginBottom: "2.5rem" }} className="">
-                        Nordxrelining drivs av passionen för teknisk precision och hållbara fastigheter. Vi finns här för att förlänga livet på era rörsystem – med minimal störning och maximal kvalitet.
+                        NordX Relining drivs av passionen för teknisk precision och hållbara fastigheter. Vi finns här för att förlänga livet på era rörsystem – med minimal störning och maximal kvalitet.
                     </p>
                     <a href="/kontakt" className="btn btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", borderRadius: "8px", padding: "1rem 2rem", background: "#0284c7", color: "white", border: "none", textDecoration: "none", fontWeight: 600 }}>
                         Kom i kontakt med oss
@@ -45,7 +45,7 @@ export default async function OmOssPage() {
 
                 {/*  Right: Masked Image (clean circle)  */}
                 <div style={{ position: "relative", width: "100%", maxWidth: "600px", aspectRatio: "1/1", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: "50%", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" }} className="anim-fade-right" data-anim-delay="200">
-                    <img src="epoxy%20relining.jpeg" alt="Nordxrelining team" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} className="" />
+                    <img src="epoxy%20relining.jpeg" alt="NordX Relining team" style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} className="" />
                     {/*  Subtle inner shadow to make it feel premium  */}
                     <div style={{ position: "absolute", width: "100%", height: "100%", borderRadius: "50%", boxShadow: "inset 0 0 0 8px rgba(255,255,255,0.1), inset 0 0 20px rgba(0,0,0,0.2)", zIndex: 2, pointerEvents: "none" }}></div>
                 </div>
@@ -137,7 +137,7 @@ export default async function OmOssPage() {
 
     <section style={{ padding: "100px 0", background: "#f8fafc", position: "relative", zIndex: 6 }}>
         <div className="container" style={{ maxWidth: "1400px", width: "95%", margin: "0 auto", textAlign: "center" }}>
-            <h2 style={{ fontSize: "2.5rem", fontWeight: 800, color: "#0f172a", marginBottom: "1rem" }} className="anim-mask-text"><span className="anim-mask-inner">Möt teamet bakom Nordxrelining</span></h2>
+            <h2 style={{ fontSize: "2.5rem", fontWeight: 800, color: "#0f172a", marginBottom: "1rem" }} className="anim-mask-text"><span className="anim-mask-inner">Möt teamet bakom NordX Relining</span></h2>
             <p style={{ fontSize: "1.125rem", color: "#475569", marginBottom: "4rem", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }} className="anim-fade-up">Vi är certifierade experter som tror på hantverksskicklighet, raka rör och god kommunikation med våra kunder.</p>
 
             <style dangerouslySetInnerHTML={{__html: `@media (max-width: 768px) { .team-flex-container { flex-direction: column !important; align-items: center !important; gap: 4rem !important; } }`}} />

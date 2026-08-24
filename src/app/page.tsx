@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import FrontendLayout from "@/components/FrontendLayout";
 import CampaignPopupClient from "@/components/public/CampaignPopupClient";
 import FAQAccordionClient from "@/components/public/FAQAccordionClient";
@@ -34,7 +34,7 @@ export default async function HomePage() {
         id: `placeholder-${i}`,
         isPlaceholder: true,
         title: "Information uppdateras snart",
-        excerpt: "Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på Nordxrelining.",
+        excerpt: "Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på NordX Relining.",
       });
     }
   }
@@ -47,8 +47,8 @@ export default async function HomePage() {
 
       <main id="main-content">
         {/* HERO SEKTION */}
-        <section id="hero" className="full-hero" aria-label="Välkommen till Nordxrelining">
-            <h1 className="sr-only anim-mask-text"><span className="anim-mask-inner">Nordxrelining – Experter på Stamspolning och Relining</span></h1>
+        <section id="hero" className="full-hero" aria-label="Välkommen till NordX Relining">
+            <h1 className="sr-only anim-mask-text"><span className="anim-mask-inner">NordX Relining – Experter på Stamspolning och Relining</span></h1>
             
             <video id="hero-video" src="nordxrelining.mp4" className="hero-bg-media" autoPlay loop muted playsInline></video>
             <div className="hero-overlay"></div>
@@ -135,13 +135,13 @@ export default async function HomePage() {
             <div className="container intro-container">
                 <div className="intro-image-wrapper anim-scale-down-container">
                     {/* Bild på servicebil, byt till egen bild vid behov */}
-                    <img src="nordxrelining.jpeg" alt="Nordxrelining arbetsbil på uppdrag" className="intro-image anim-scale-down" width="800" height="600" loading="lazy" />
+                    <img src="nordxrelining.jpeg" alt="NordX Relining arbetsbil på uppdrag" className="intro-image anim-scale-down" width="800" height="600" loading="lazy" />
                 </div>
                 <div className="intro-content">
-                    <h2 id="intro-heading" className="intro-title anim-mask-text"><span className="anim-mask-inner">Välkommen till Nordxrelining</span></h2>
+                    <h2 id="intro-heading" className="intro-title anim-mask-text"><span className="anim-mask-inner">Välkommen till NordX Relining</span></h2>
                     <div className="intro-divider"></div>
                     <p className="intro-text anim-fade-up">
-                        Vi på Nordxrelining är det personliga &amp; engagerade reliningföretaget. Vi har över +10 års erfarenhet inom relining och är utbildade inom VVS vilket ger oss ett unikt perspektiv på ditt rörsystem. Vår personal är certifierade inom Heta Arbeten samt Epoxibehandlingar.
+                        Vi på NordX Relining är det personliga &amp; engagerade reliningföretaget. Vi har över +10 års erfarenhet inom relining och är utbildade inom VVS vilket ger oss ett unikt perspektiv på ditt rörsystem. Vår personal är certifierade inom Heta Arbeten samt Epoxibehandlingar.
                     </p>
                     <p className="intro-text anim-fade-up">
                         Vi vill att ni som kund ska känna er trygga med att anlita oss, vilket hör samman till vår filosofi att alltid ge vår ärliga bedömning av era rörledningar och fackmannamässiga rekommendationer kring vilken åtgärd som behöver vidtas.
@@ -282,7 +282,7 @@ export default async function HomePage() {
         <section id="om-oss" className="usp-section" aria-labelledby="usp-heading">
             <div className="container usp-container">
                 <div className="usp-content">
-                    <h2 id="usp-heading" className="section-title anim-fade-left" style={{ textTransform: "none" }}>Varför välja Nordxrelining?</h2>
+                    <h2 id="usp-heading" className="section-title anim-fade-left" style={{ textTransform: "none" }}>Varför välja NordX Relining?</h2>
                     <p className="usp-text anim-fade-right">Att hantera rörsystem kräver precision och erfarenhet. Vi är specialister på att förlänga livslängden på fastighetens stammar med minimal störning för de boende.</p>
                     
                     <ul className="usp-list anim-stagger-parent">
@@ -478,7 +478,7 @@ export default async function HomePage() {
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                             </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade nordxrelining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
+                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
                         </div>
                         <div className="review-card anim-stagger-child">
                             <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
@@ -552,7 +552,7 @@ export default async function HomePage() {
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                             </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade nordxrelining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
+                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
                         </div>
                         <div className="review-card anim-stagger-child">
                             <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
@@ -626,7 +626,7 @@ export default async function HomePage() {
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                             </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade nordxrelining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
+                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
                         </div>
                         <div className="review-card anim-stagger-child">
                             <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>

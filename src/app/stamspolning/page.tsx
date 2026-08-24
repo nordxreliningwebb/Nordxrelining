@@ -1,18 +1,18 @@
-import React from 'react';
+﻿import React from 'react';
 import { Metadata } from 'next';
 import FrontendLayout from "@/components/FrontendLayout";
 import StamspolningClientLogic from "./StamspolningClientLogic";
 
 export const metadata: Metadata = {
-  title: "Stamspolning - Nordxrelining",
-  description: "Nordxrelining erbjuder professionell stamspolning, relining och rörinspektioner. Säkra, hållbara och kostnadseffektiva lösningar för dina rörsystem.",
+  title: "Stamspolning - NordX Relining",
+  description: "NordX Relining erbjuder professionell stamspolning, relining och rörinspektioner. Säkra, hållbara och kostnadseffektiva lösningar för dina rörsystem.",
 };
 
 export default function Page() {
   return (
     <FrontendLayout>
       <style dangerouslySetInnerHTML={{ __html: "\r\n        /* Specific overrides for stamspolning landing page */\r\n        #main-header .nav-links a {\r\n            color: #111111 !important;\r\n        }\r\n        #main-header .nav-links a:hover {\r\n            color: var(--primary-color) !important;\r\n        }\r\n        #main-header #logo-img {\r\n            filter: none !important;\r\n            content: url('logo.png') !important;\r\n        }\r\n        #main-header .menu-toggle span {\r\n            background-color: #111111 !important;\r\n        }\r\n    " }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "\r\n    {\r\n        \"@context\": \"https://schema.org\",\r\n        \"@type\": \"Plumber\",\r\n        \"name\": \"Nordxrelining\",\r\n        \"url\": \"https://www.nordxrelining.se\",\r\n        \"logo\": \"https://www.nordxrelining.se/logo.png\",\r\n        \"image\": \"https://www.nordxrelining.se/vvs_hero.png\",\r\n        \"description\": \"Professionell stamspolning, relining och rörinspektioner med lång garanti och certifierade experter.\",\r\n        \"address\": {\r\n            \"@type\": \"PostalAddress\",\r\n            \"streetAddress\": \"Hemvärnsgatan 8\",\r\n            \"postalCode\": \"171 54\",\r\n            \"addressLocality\": \"Solna\",\r\n            \"addressCountry\": \"SE\"\r\n        },\r\n        \"telephone\": \"+46703185110\",\r\n        \"email\": \"info@nordxrelining.se\",\r\n        \"areaServed\": {\r\n            \"@type\": \"Country\",\r\n            \"name\": \"Sweden\"\r\n        },\r\n        \"hasOfferCatalog\": {\r\n            \"@type\": \"OfferCatalog\",\r\n            \"name\": \"VVS-Tjänster\",\r\n            \"itemListElement\": [\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Stamspolning\"\r\n                    }\r\n                },\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Relining\"\r\n                    }\r\n                },\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Rörinspektion\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n    " }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "\r\n    {\r\n        \"@context\": \"https://schema.org\",\r\n        \"@type\": \"Plumber\",\r\n        \"name\": \"NordX Relining\",\r\n        \"url\": \"https://www.nordxrelining.se\",\r\n        \"logo\": \"https://www.nordxrelining.se/logo.png\",\r\n        \"image\": \"https://www.nordxrelining.se/vvs_hero.png\",\r\n        \"description\": \"Professionell stamspolning, relining och rörinspektioner med lång garanti och certifierade experter.\",\r\n        \"address\": {\r\n            \"@type\": \"PostalAddress\",\r\n            \"streetAddress\": \"Hemvärnsgatan 8\",\r\n            \"postalCode\": \"171 54\",\r\n            \"addressLocality\": \"Solna\",\r\n            \"addressCountry\": \"SE\"\r\n        },\r\n        \"telephone\": \"+46703185110\",\r\n        \"email\": \"info@nordxrelining.se\",\r\n        \"areaServed\": {\r\n            \"@type\": \"Country\",\r\n            \"name\": \"Sweden\"\r\n        },\r\n        \"hasOfferCatalog\": {\r\n            \"@type\": \"OfferCatalog\",\r\n            \"name\": \"VVS-Tjänster\",\r\n            \"itemListElement\": [\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Stamspolning\"\r\n                    }\r\n                },\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Relining\"\r\n                    }\r\n                },\r\n                {\r\n                    \"@type\": \"Offer\",\r\n                    \"itemOffered\": {\r\n                        \"@type\": \"Service\",\r\n                        \"name\": \"Rörinspektion\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n    " }} />
       <StamspolningClientLogic />
       <main id="main-content">
         
@@ -42,7 +42,7 @@ export default function Page() {
                 {/* Right: Masked Image with Photorealistic Pipe Frame */}
                 <div style={{position: "relative", width: "100%", maxWidth: "600px", aspectRatio: "1/1", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", borderRadius: "50%", }} className="anim-fade-right" data-anim-delay="200">
                     {/* The actual photo (Stamspolning) fills the entire circle */}
-                    <img src="stamspolning.jpeg" alt="Professionell stamspolning av Nordxrelining" style={{position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: "1", }} className="" />
+                    <img src="stamspolning.jpeg" alt="Professionell stamspolning av NordX Relining" style={{position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: "1", }} className="" />
                     {/* The photorealistic pipe frame overlay, scaled up to make the rim thinner */}
                     <img src="pipe_frame.png" alt="Rörram" style={{position: "absolute", width: "100%", height: "100%", objectFit: "cover", zIndex: "2", mixBlendMode: "multiply", pointerEvents: "none", transform: "scale(1.25)", }} className="" />
                 </div>
@@ -183,7 +183,7 @@ export default function Page() {
         {/* Bottom Left Text Block */}
         <div className="steps-text-block" id="steg-for-steg-heading" style={{maxWidth: "650px", marginRight: "auto", marginLeft: "0", marginBottom: "4rem", }}>
 <h3 style={{fontSize: "2rem", marginBottom: "1.5rem", color: "#0f172a", paddingTop: "2rem", borderTop: "1px solid #e2e8f0", }} className="anim-fade-up">Så här går det till – Steg för Steg</h3>
-                <p style={{fontSize: "1.125rem", lineHeight: "1.8", marginBottom: "2.5rem", }} className="anim-fade-up">När vi på Nordxrelining utför ett arbete följer vi alltid en strikt branschstandard. Arbetet kräver oftast tillträde till fastighetens samtliga lägenheter (eller samtliga avlopp i villan) för att garantera ett perfekt resultat.</p>
+                <p style={{fontSize: "1.125rem", lineHeight: "1.8", marginBottom: "2.5rem", }} className="anim-fade-up">När vi på NordX Relining utför ett arbete följer vi alltid en strikt branschstandard. Arbetet kräver oftast tillträde till fastighetens samtliga lägenheter (eller samtliga avlopp i villan) för att garantera ett perfekt resultat.</p>
                 
                 <div className="process-steps-container premium-steps" style={{display: "flex", flexDirection: "column", gap: "1.5rem", }}>
                     {/* Steg 1 */}

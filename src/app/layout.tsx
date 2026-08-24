@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Outfit, Syne } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -9,7 +9,7 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
 
 export const metadata: Metadata = {
-  title: "Nordxrelining - Experter på Relining, Stamspolning och Rörinspektion",
+  title: "NordX Relining - Experter på Relining, Stamspolning och Rörinspektion",
   description: "Sveriges tryggaste partner inom relining och rörinspektion. Vi förlänger livet på era rörsystem – med minimal störning och maximal kvalitet.",
   icons: {
     icon: '/favicon.png',

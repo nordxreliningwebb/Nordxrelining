@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import FrontendLayout from '@/components/FrontendLayout';
@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Projekt | Nordxrelining',
+  title: 'Projekt | NordX Relining',
   description: 'Vi hjälper dig med relining, stamspolning och rörinspektion i hela Sverige. Se våra tidigare projekt.',
 };
 
@@ -45,7 +45,7 @@ export default async function ProjektPage() {
                             <span className="">Projekt</span>
                         </h1>
                         <p style={{ fontSize: '1.25rem', color: '#475569', lineHeight: 1.6, marginBottom: '2.5rem' }}>
-                            Håll dig uppdaterad med det senaste från Nordxrelining. Här delar vi spännande referensprojekt, insikter från branschen och uppdateringar kring våra relining-, stamspolnings- och rörinspektionsprojekt runt om i Sverige.
+                            Håll dig uppdaterad med det senaste från NordX Relining. Här delar vi spännande referensprojekt, insikter från branschen och uppdateringar kring våra relining-, stamspolnings- och rörinspektionsprojekt runt om i Sverige.
                         </p>
                     </div>
 

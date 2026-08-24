@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import FrontendLayout from '@/components/FrontendLayout';
@@ -35,16 +35,16 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) {
     return {
-      title: 'Projekt hittades inte | Nordxrelining',
+      title: 'Projekt hittades inte | NordX Relining',
       description: 'Sidan kunde inte hittas.',
     };
   }
 
   const title = project.title || project.name || 'Utan titel';
-  const desc = project.excerpt || project.description || 'Läs mer om vårt projekt hos Nordxrelining.';
+  const desc = project.excerpt || project.description || 'Läs mer om vårt projekt hos NordX Relining.';
 
   return {
-    title: `${title} | Nordxrelining`,
+    title: `${title} | NordX Relining`,
     description: desc,
   };
 }

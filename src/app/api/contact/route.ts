@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: 'onboarding@resend.dev', // Resends test-avsändare
-        to: ['nordxrelining.webb@gmail.com'], // TODO: Byt till info@nordxrelining.se när domänen är verifierad
+        to: ['NordX Relining.webb@gmail.com'], // TODO: Byt till info@nordxrelining.se när domänen är verifierad
         reply_to: email,
         subject: type === 'offert' ? 'Ny offertförfrågan från Kalkylatorn' : `Ny förfrågan via hemsidan: ${service}`,
         html: htmlContent,
