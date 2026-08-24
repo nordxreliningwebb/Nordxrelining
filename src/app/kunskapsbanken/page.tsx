@@ -76,8 +76,8 @@ export default async function KnowledgeBankPage() {
                                     <span className="category" style={{ textTransform: 'capitalize' }}>{latestArticle.category || 'Okategoriserad'}</span>
                                     <span className="date">{latestArticle.publish_date ? new Date(latestArticle.publish_date).toLocaleDateString('sv-SE', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Inget datum'}</span>
                                 </div>
-                                <h2 className="anim-mask-text"><span className="anim-mask-inner">{latestArticle.title || 'Utan titel'}</span></h2>
-                                <p>{latestArticle.excerpt || ''}</p>
+                                <h2 className="anim-mask-text" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis' }}>{latestArticle.title || 'Utan titel'}</h2>
+                                <p style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis' }}>{latestArticle.excerpt || ''}</p>
                                 <span className="featured-project-btn">Läs inlägg</span>
                             </div>
                         </Link>
