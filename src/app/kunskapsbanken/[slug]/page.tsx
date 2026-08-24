@@ -10,7 +10,7 @@ async function getArticle(slug: string) {
   const { data: article, error } = await supabaseAdmin
     .from('knowledge_posts')
     .select('*')
-    .eq('slug', slug)
+    .eq('slug', decodeURIComponent(slug))
     .single();
 
   if (error || !article) {
