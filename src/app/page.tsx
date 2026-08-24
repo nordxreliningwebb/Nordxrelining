@@ -9,7 +9,7 @@ import { getActiveCampaign, getPublicFAQs } from "@/lib/data";
 import { supabase } from "@/lib/supabase";
 
 export default async function HomePage() {
-  const campaign = await getActiveCampaign();
+  const campaigns = await getActiveCampaign();
   const faqs = await getPublicFAQs();
   const homeFaqs = faqs.slice(0, 5);
 
@@ -1027,7 +1027,7 @@ export default async function HomePage() {
     </main>
 
     
-      <CampaignPopupClient campaign={campaign} />
+      <CampaignPopupClient campaigns={campaigns} />
     </FrontendLayout>
   );
 }

@@ -38,13 +38,13 @@ export async function getActiveCampaign() {
       .from("campaigns")
       .select("*")
       .eq("isActive", true)
-      .order("updatedAt", { ascending: false })
-      .limit(1);
+      .order("updatedAt", { ascending: false });
       
     if (error) throw error;
-    return data && data.length > 0 ? data[0] : null;
+    // Return all active campaigns
+    return data || [];
   } catch (error) {
-    console.error("Error fetching active campaign:", error);
-    return null;
+    console.error("Error fetching active campaigns:", error);
+    return [];
   }
 }
