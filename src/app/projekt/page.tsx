@@ -77,8 +77,8 @@ export default async function ProjektPage() {
                                     <span className="category" style={{ textTransform: 'capitalize' }}>{latestProject.category || 'Okategoriserad'}</span>
                                     <span className="date">{latestProject.publish_date ? new Date(latestProject.publish_date).toLocaleDateString('sv-SE', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Pågående'}</span>
                                 </div>
-                                <h2 className="anim-mask-text"><span className="anim-mask-inner">{latestProject.title || latestProject.name || 'Utan titel'}</span></h2>
-                                <p>{latestProject.excerpt || latestProject.description || ''}</p>
+                                <h2 className="anim-mask-text" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis' }}>{latestProject.title || latestProject.name || 'Utan titel'}</h2>
+                                <p style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis' }}>{latestProject.excerpt || latestProject.description || ''}</p>
                                 <span className="featured-project-btn">Läs inlägg</span>
                             </div>
                         </Link>

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { data: project } = await supabase
     .from('projects')
     .select('title, name, excerpt, description')
-    .eq('slug', resolvedParams.slug)
+    .eq('slug', decodeURIComponent(resolvedParams.slug))
     .single();
 
   if (!project) {
@@ -54,7 +54,7 @@ export default async function ProjectSinglePage({ params }: ProjectPageProps) {
   const { data: project, error } = await supabase
     .from('projects')
     .select('*')
-    .eq('slug', resolvedParams.slug)
+    .eq('slug', decodeURIComponent(resolvedParams.slug))
     .single();
 
   if (error || !project) {
