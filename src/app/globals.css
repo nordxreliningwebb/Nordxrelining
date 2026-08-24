@@ -141,3 +141,14 @@ body {
 .ProseMirror ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }  
 .ProseMirror ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }  
 .ProseMirror li { margin-bottom: 0.5rem; } 
+  
+/* Frontend Content Styles */  
+.frontend-content p { margin-bottom: 1rem; }  
+.frontend-content p:last-child { margin-bottom: 0; }  
+.frontend-content ul { list-style-type: disc; list-style-position: outside; margin-left: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; }  
+.frontend-content ol { list-style-type: decimal; list-style-position: outside; margin-left: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; }  
+.frontend-content li { margin-bottom: 0.5rem; }  
+.frontend-content li > p { margin-bottom: 0; display: inline; }  
+.frontend-content em, .frontend-content i { font-style: italic; }  
+.frontend-content strong { font-weight: bold; }  
+.frontend-content a { color: #2563eb; text-decoration: underline; } 
