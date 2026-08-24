@@ -30,6 +30,7 @@ export default function ProjectCardPreview({
 
   return (
     <div className="flex items-center justify-center h-full w-full bg-[#f8fafc] p-8 overflow-auto">
+      <link rel="stylesheet" href="/style.css" />
       {/* Container to restrict width to a realistic card size */}
       <div className="w-full max-w-[380px]">
         

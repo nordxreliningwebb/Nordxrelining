@@ -79,6 +79,7 @@ export default function KnowledgeLivePreview(props: KnowledgeLivePreviewProps) {
       {/* Render selected view */}
       {viewMode === 'card' ? (
         <div className="flex-grow flex items-center justify-center p-8 bg-gray-50">
+          <link rel="stylesheet" href="/style.css" />
           {/* Card Preview adapted for Knowledge Posts */}
             <div className="w-full max-w-[380px]">
               <div className="project-card-v2 premium-blog-card visible" style={{ display: 'block', margin: 0 }}>
