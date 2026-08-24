@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function CountdownTimer({ countdownDate }: { countdownDate: string }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -107,47 +107,108 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
         .campaign-popup-overlay.active { opacity: 1; visibility: visible; }
         
         .pipe-popup-wrapper {
-            position: relative; width: 90%; max-width: 500px;
-            transform: translateY(40px) scale(0.95); opacity: 0;
-            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-            padding: 20px;
+            position: relative; width: 90%; max-width: 480px;
+            transform: translateY(40px) scale(0.97); opacity: 0;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
         }
-        .campaign-popup-overlay.active .pipe-popup-wrapper {
-            transform: translateY(0) scale(1); opacity: 1;
+        .campaign-popup-overlay.active .pipe-popup-wrapper { transform: translateY(0) scale(1); opacity: 1; }
+
+        /* Pipes - Exact dimensions as divider (26px height) */
+        .p-pipe { position: absolute; z-index: 20; }
+        .p-top { 
+            top: -26px; left: 0; right: 0; height: 26px; 
+            background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+        }
+        .p-bottom { 
+            bottom: -26px; left: 0; right: 0; height: 26px; 
+            background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+        }
+        .p-left { 
+            left: -26px; top: 0; bottom: 0; width: 26px; 
+            background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
+        }
+        .p-right { 
+            right: -26px; top: 0; bottom: 0; width: 26px; 
+            background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); 
         }
 
-        /* Rör-ram styling */
-        .p-pipe { position: absolute; background: linear-gradient(to bottom, #d1d5db 0%, #f3f4f6 20%, #e5e7eb 50%, #d1d5db 80%, #9ca3af 100%); z-index: 1; border-radius: 40px; box-shadow: inset 0 2px 4px rgba(255,255,255,0.7), inset 0 -2px 6px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.15); }
-        .p-pipe::after { content: ''; position: absolute; background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%); z-index: 2; border-radius: 40px; }
-        .p-top { top: 0; left: 20px; right: 20px; height: 40px; }
-        .p-bottom { bottom: 0; left: 20px; right: 20px; height: 40px; }
-        .p-left { top: 20px; bottom: 20px; left: 0; width: 40px; background: linear-gradient(to right, #d1d5db 0%, #f3f4f6 20%, #e5e7eb 50%, #d1d5db 80%, #9ca3af 100%); }
-        .p-right { top: 20px; bottom: 20px; right: 0; width: 40px; background: linear-gradient(to left, #d1d5db 0%, #f3f4f6 20%, #e5e7eb 50%, #d1d5db 80%, #9ca3af 100%); }
-        
-        .p-top::after, .p-bottom::after { top: 4px; left: 10px; right: 10px; height: 12px; }
-        .p-left::after { top: 10px; bottom: 10px; left: 4px; width: 12px; background: linear-gradient(to right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%); }
-        .p-right::after { top: 10px; bottom: 10px; right: 4px; width: 12px; background: linear-gradient(to left, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%); }
+        /* Corners - L-shaped bent elbows with seamless gradient connection */
+        .p-corner {
+            position: absolute; width: 26px; height: 26px; z-index: 21;
+        }
+        .p-tl { 
+            top: -26px; left: -26px; border-top-left-radius: 26px;
+            background: radial-gradient(circle 26px at bottom right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+        }
+        .p-tr { 
+            top: -26px; right: -26px; border-top-right-radius: 26px;
+            background: radial-gradient(circle 26px at bottom left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+        }
+        .p-bl { 
+            bottom: -26px; left: -26px; border-bottom-left-radius: 26px;
+            background: radial-gradient(circle 26px at top right, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+        }
+        .p-br { 
+            bottom: -26px; right: -26px; border-bottom-right-radius: 26px;
+            background: radial-gradient(circle 26px at top left, #6b7280 0%, #9ca3af 20%, #d1d5db 50%, #f3f4f6 70%, #9ca3af 100%);
+        }
 
-        .p-corner { position: absolute; width: 40px; height: 40px; z-index: 5; background: radial-gradient(circle at center, #f3f4f6 0%, #d1d5db 60%, #9ca3af 100%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), inset -2px -2px 6px rgba(0,0,0,0.2); }
-        .p-corner::after { content: ''; position: absolute; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%); top: 5px; left: 5px; }
-        .p-tl { top: 0; left: 0; border-top-left-radius: 20px; }
-        .p-tr { top: 0; right: 0; border-top-right-radius: 20px; }
-        .p-bl { bottom: 0; left: 0; border-bottom-left-radius: 20px; }
-        .p-br { bottom: 0; right: 0; border-bottom-right-radius: 20px; }
-
-        .p-muff { position: absolute; width: 35px; height: 32px; z-index: 22; border-radius: 2px; }
-        .p-muff::after { content: ''; position: absolute; width: 6px; height: 36px; border-radius: 2px; }
-        .p-pipe.p-top .p-muff { top: 50%; transform: translateY(-50%); background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05); }
-        .p-pipe.p-top .p-muff::after { right: 0; top: 50%; transform: translateY(-50%); background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: -1px 0 2px rgba(0,0,0,0.1); }
-        .p-pipe.p-bottom .p-muff { top: 50%; transform: translateY(-50%); background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05); }
-        .p-pipe.p-bottom .p-muff::after { right: 0; top: 50%; transform: translateY(-50%); background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: -1px 0 2px rgba(0,0,0,0.1); }
+        /* Skarvmuffar Horisontella */
+        .p-muff {
+            position: absolute; width: 35px; height: 32px; z-index: 22; border-radius: 2px;
+        }
+        .p-muff::after {
+            content: ''; position: absolute; width: 6px; height: 36px; border-radius: 2px;
+        }
+        .p-pipe.p-top .p-muff {
+            top: 50%; transform: translateY(-50%);
+            background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+        }
+        .p-pipe.p-top .p-muff::after {
+            right: 0; top: 50%; transform: translateY(-50%);
+            background: linear-gradient(to bottom, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+        }
+        .p-pipe.p-bottom .p-muff {
+            top: 50%; transform: translateY(-50%);
+            background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: -2px 0 4px rgba(0,0,0,0.1), 2px 0 4px rgba(0,0,0,0.05);
+        }
+        .p-pipe.p-bottom .p-muff::after {
+            right: 0; top: 50%; transform: translateY(-50%);
+            background: linear-gradient(to top, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: -1px 0 2px rgba(0,0,0,0.1);
+        }
         
-        .p-muff-v { position: absolute; width: 32px; height: 35px; z-index: 22; border-radius: 2px; }
-        .p-muff-v::after { content: ''; position: absolute; width: 36px; height: 6px; border-radius: 2px; }
-        .p-pipe.p-left .p-muff-v { left: 50%; transform: translateX(-50%); background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05); }
-        .p-pipe.p-left .p-muff-v::after { bottom: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: 0 -1px 2px rgba(0,0,0,0.1); }
-        .p-pipe.p-right .p-muff-v { left: 50%; transform: translateX(-50%); background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05); }
-        .p-pipe.p-right .p-muff-v::after { bottom: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%); box-shadow: 0 -1px 2px rgba(0,0,0,0.1); }
+        /* Skarvmuffar Vertikala */
+        .p-muff-v {
+            position: absolute; width: 32px; height: 35px; z-index: 22; border-radius: 2px;
+        }
+        .p-muff-v::after {
+            content: ''; position: absolute; width: 36px; height: 6px; border-radius: 2px;
+        }
+        .p-pipe.p-left .p-muff-v {
+            left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .p-pipe.p-left .p-muff-v::after {
+            bottom: 0; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to right, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+        }
+        .p-pipe.p-right .p-muff-v {
+            left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .p-pipe.p-right .p-muff-v::after {
+            bottom: 0; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to left, #9ca3af 0%, #f3f4f6 30%, #d1d5db 50%, #9ca3af 80%, #6b7280 100%);
+            box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+        }
 
         /* Innehåll */
         .pipe-popup-content {
@@ -208,7 +269,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
         .campaign-slide { 
             min-width: 100%; 
             flex-shrink: 0; 
-            padding: 0;
+            padding: 0 25px; /* Add padding to prevent text overlap with arrows */
             display: block;
         }
 
@@ -216,13 +277,12 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
         .campaign-nav-arrows {
             position: absolute;
             top: 50%;
-            left: 0;
-            right: 0;
+            left: 5px;
+            right: 5px;
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
             pointer-events: none;
-            padding: 0 10px;
             z-index: 40;
         }
         .campaign-nav-btn {
@@ -276,8 +336,9 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             .countdown-label { font-size: 0.6rem; }
             .campaign-title { font-size: 1.4rem; min-height: auto; }
             .campaign-text { font-size: 0.95rem; margin-bottom: 1.5rem; min-height: auto; }
+            .campaign-slide { padding: 0 10px; }
             .campaign-nav-btn { width: 30px; height: 30px; }
-            .campaign-nav-arrows { padding: 0 5px; }
+            .campaign-nav-arrows { left: -5px; right: -5px; }
         }
       ` }} />
       <div className={`campaign-popup-overlay ${isVisible ? 'active' : ''}`} id="campaign-popup">
@@ -305,7 +366,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             {/* Innehåll */}
             <div className="pipe-popup-content">
                 <button id="close-campaign" className="campaign-close-btn" aria-label="Stäng popup" onClick={handleClose}>
-                    <X size={18} />
+                    ×
                 </button>
                 
                 <div className="campaign-slider" id="campaign-slider">
