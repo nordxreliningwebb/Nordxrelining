@@ -3,7 +3,7 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
-import { Bold, Italic, List, Link as LinkIcon } from 'lucide-react';
+import { Bold, Italic, List, ListOrdered, Link as LinkIcon } from 'lucide-react';
 import { useEffect, useCallback } from 'react';
 
 // We could add Link extension here, but for simplicity, StarterKit has a lot of basics. 
@@ -65,6 +65,14 @@ const MenuBar = ({ editor }: { editor: any }) => {
         title="Punktlista"
       >
         <List className="w-4 h-4" />
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={`p-1.5 rounded hover:bg-gray-200 transition-colors ${editor.isActive('orderedList') ? 'bg-gray-200 text-blue-600' : 'text-gray-600'}`}
+        type="button"
+        title="Numrerad lista"
+      >
+        <ListOrdered className="w-4 h-4" />
       </button>
 
       <div className="w-px h-5 bg-gray-300 mx-1 self-center" />
