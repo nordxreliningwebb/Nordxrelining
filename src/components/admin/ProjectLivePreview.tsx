@@ -98,7 +98,11 @@ export default function ProjectLivePreview(props: ProjectLivePreviewProps) {
               <div className="journal-hero absolute inset-0 w-full h-full flex items-center justify-center text-center px-4" style={heroStyle}>
                 <div className="journal-hero-content max-w-4xl mx-auto text-white z-10">
                   <h1 className="journal-hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight font-syne">{props.title || 'Projektets Titel'}</h1>
-                  <p className="journal-hero-excerpt text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-inter whitespace-pre-wrap">{props.subheading || 'Här visas en kort sammanfattning eller underrubrik för projektet.'}</p>
+                  <div className="journal-hero-excerpt text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-inter flex flex-col gap-4">
+                    {(props.subheading || 'Här visas en kort sammanfattning eller underrubrik för projektet.').split(/\n+/).filter(Boolean).map((paragraph, idx) => (
+                        <p key={idx}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
