@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -210,7 +210,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
         }
 
-        /* Innehåll */
+        /* InnehÃ¥ll */
         .pipe-popup-content {
             position: relative; z-index: 10; background: #ffffff;
             border-radius: 12px; padding: 40px 30px; text-align: center;
@@ -267,9 +267,9 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             width: 100%;
         }
         .campaign-slide { 
-            min-width: 100%; 
+            min-width: 100%; box-sizing: border-box; 
             flex-shrink: 0; 
-            padding: 0 25px; /* Add padding to prevent text overlap with arrows */
+            padding: 0 25px; box-sizing: border-box; /* Add padding to prevent text overlap with arrows */
             display: block;
         }
 
@@ -343,7 +343,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
       ` }} />
       <div className={`campaign-popup-overlay ${isVisible ? 'active' : ''}`} id="campaign-popup">
         <div className="pipe-popup-wrapper">
-            {/* Rör-ram */}
+            {/* RÃ¶r-ram */}
             <div className="p-pipe p-top">
                 <div className="p-muff" style={{ left: '15%' }}></div>
                 <div className="p-muff" style={{ right: '15%' }}></div>
@@ -363,10 +363,10 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
             <div className="p-corner p-bl"></div>
             <div className="p-corner p-br"></div>
 
-            {/* Innehåll */}
+            {/* InnehÃ¥ll */}
             <div className="pipe-popup-content">
-                <button id="close-campaign" className="campaign-close-btn" aria-label="Stäng popup" onClick={handleClose}>
-                    ×
+                <button id="close-campaign" className="campaign-close-btn" aria-label="StÃ¤ng popup" onClick={handleClose}>
+                    Ã—
                 </button>
                 
                 <div className="campaign-slider" id="campaign-slider">
@@ -376,7 +376,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                     >
                         {campaigns.map((camp, index) => (
                             <div key={camp.id || index} className={`campaign-slide ${index === currentIndex ? 'active' : ''}`}>
-                                {/* Urgency: Nedräkning */}
+                                {/* Urgency: NedrÃ¤kning */}
                                 {camp.countdownDate && (
                                     <CountdownTimer countdownDate={camp.countdownDate} />
                                 )}
@@ -384,7 +384,7 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                                 <h3 className="campaign-title">{camp.title}</h3>
                                 <p className="campaign-text" dangerouslySetInnerHTML={{ __html: camp.description }}></p>
                                 <div className="campaign-actions">
-                                    <a href="/kalkylator" className="campaign-btn">Beräkna ditt pris</a>
+                                    <a href="/kalkylator" className="campaign-btn">BerÃ¤kna ditt pris</a>
                                 </div>
                             </div>
                         ))}
@@ -395,10 +395,10 @@ export default function CampaignPopupClient({ campaigns }: { campaigns: any[] })
                 {campaigns.length > 1 && (
                     <>
                         <div className="campaign-nav-arrows">
-                            <button onClick={prevSlide} className="campaign-nav-btn prev" aria-label="Föregående kampanj">
+                            <button onClick={prevSlide} className="campaign-nav-btn prev" aria-label="FÃ¶regÃ¥ende kampanj">
                                 <ChevronLeft size={20} />
                             </button>
-                            <button onClick={nextSlide} className="campaign-nav-btn next" aria-label="Nästa kampanj">
+                            <button onClick={nextSlide} className="campaign-nav-btn next" aria-label="NÃ¤sta kampanj">
                                 <ChevronRight size={20} />
                             </button>
                         </div>
