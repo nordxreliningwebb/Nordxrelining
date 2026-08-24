@@ -93,11 +93,11 @@ export default async function HomePage() {
                         <h3 className="anim-fade-up">Akut stopp i avloppet?</h3>
                         <p className="anim-fade-up">Få svar direkt av våra jourtekniker. Vi rycker ut dygnet runt i hela länet.</p>
                     </div>
-                    <a href="tel:0703185110" className="btn-cta-box">
+                    <a href="tel:0727222232" className="btn-cta-box">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        070 - 318 51 10
+                        072-722 22 32
                     </a>
                 </div>
             </div>
@@ -126,7 +126,7 @@ export default async function HomePage() {
         <div className="top-bar-container">
             <span className="pulse-dot"></span>
             <span className="top-bar-text">Akut stopp i avloppet? Vi rycker ut dygnet runt.</span>
-            <a href="tel:+46703185110" className="top-bar-link">Ring vår jour: 070-318 51 10</a>
+            <a href="tel:+46727222232" className="top-bar-link">Ring vår jour: 072-722 22 32</a>
         </div>
     </div>
 
@@ -202,7 +202,7 @@ export default async function HomePage() {
                                 Läs mer om rörinspektion
                                 <span style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", zIndex: "1" }}></span>
                             </a>
-                            <a href="tel:0703185110" className="water-btn">Boka en rörinspektion</a>
+                            <a href="tel:0727222232" className="water-btn">Boka en rörinspektion</a>
                         </div>
                     </article>
 
@@ -225,7 +225,7 @@ export default async function HomePage() {
                                 Läs mer om stamspolning
                                 <span style={{ position: "absolute", top: "0", left: "0", right: "0", bottom: "0", zIndex: "1" }}></span>
                             </a>
-                            <a href="tel:0703185110" className="water-btn">Boka en stamspolning</a>
+                            <a href="tel:0727222232" className="water-btn">Boka en stamspolning</a>
                         </div>
                     </article>
                     
@@ -1020,7 +1020,7 @@ export default async function HomePage() {
                 <p style={{ fontSize: "1.15rem", lineHeight: "1.6", marginBottom: "2.5rem", opacity: "0.9" }} className="anim-fade-up">Hör av er till oss idag så tar vi ett förutsättningslöst möte om er fastighet.</p>
                 <div className="cta-buttons" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
                     <a href="/kontakt" className="cta-btn-header-match anim-fade-up" data-anim-delay="250"><span className="desktop-text">Få en kostnadsfri offert</span><span className="mobile-text">Kontakta oss</span></a>
-                    <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
+                    <a href="tel:+46727222232" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
                 </div>
             </div>
         </section>

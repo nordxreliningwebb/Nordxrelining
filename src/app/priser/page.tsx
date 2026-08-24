@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import FrontendLayout from "@/components/FrontendLayout";
 import { getPublicPricePlans } from "@/lib/data";
 
@@ -56,7 +56,7 @@ export default async function PriserPage() {
                         ))}
                     </ul>
                 )}
-                <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0703185110")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+                <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
             </div>
         </article>
       );
@@ -89,7 +89,7 @@ export default async function PriserPage() {
                   <div style={{ fontSize: "0.85rem", color: "#64748b", textAlign: "left", marginBottom: "2rem" }} dangerouslySetInnerHTML={{ __html: plan.campaign_text }} />
               )}
               
-              <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0703185110")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+              <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
           </div>
       </article>
     );
@@ -170,7 +170,7 @@ export default async function PriserPage() {
             <p style={{fontSize: "1.15rem", lineHeight: "1.6", marginBottom: "2.5rem", opacity: "0.9", }} className="anim-fade-up">Kontakta oss för en kostnadsfri konsultation och offert skräddarsydd efter era specifika behov och förutsättningar.</p>
             <div className="cta-buttons" style={{display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "nowrap", alignItems: "center", }}>
                 <a href="/kontakt" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Kontakta oss</a>
-                <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
+                <a href="tel:+46727222232" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
             </div>
         </div>
     </section>

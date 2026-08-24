@@ -55,7 +55,7 @@ export default async function FAQPage() {
                               <p>Tveka inte att kontakta oss direkt om du har en specifik fråga gällande din fastighets rörsystem.</p>
                               <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
                                   <a href="/kontakt" className="featured-project-btn" style={{ textDecoration: "none" }}>Ställ en fråga</a>
-                                  <a href="tel:+46703185110" className="featured-project-btn" style={{ textDecoration: "none" }}>Ring oss</a>
+                                  <a href="tel:+46727222232" className="featured-project-btn" style={{ textDecoration: "none" }}>Ring oss</a>
                               </div>
                           </div>
                       </div>

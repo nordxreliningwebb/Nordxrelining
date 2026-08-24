@@ -1,4 +1,4 @@
-import { supabaseAdmin } from '@/lib/supabase-server';
+﻿import { supabaseAdmin } from '@/lib/supabase-server';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import FrontendLayout from '@/components/FrontendLayout';
@@ -273,7 +273,7 @@ export default async function KnowledgeBankArticlePage({ params }: { params: Pro
                 </p>
                 <div className="cta-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
                     <Link href="/kontakt" className="cta-btn-header-match anim-fade-up">Kontakta oss</Link>
-                    <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up">Ring oss</a>
+                    <a href="tel:+46727222232" className="cta-btn-header-match anim-fade-up">Ring oss</a>
                 </div>
             </div>
         </section>

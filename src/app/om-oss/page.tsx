@@ -228,7 +228,7 @@ export default async function OmOssPage() {
             <p style={{ fontSize: "1.15rem", lineHeight: 1.6, marginBottom: "2.5rem", opacity: 0.9 }} className="anim-fade-up">Hör av er till oss idag så tar vi ett förutsättningslöst möte om er fastighet.</p>
             <div className="cta-buttons" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "nowrap", alignItems: "center" }}>
                 <a href="/kontakt" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Kontakta oss</a>
-                <a href="tel:+46703185110" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
+                <a href="tel:+46727222232" className="cta-btn-header-match anim-fade-up" data-anim-delay="250">Ring oss</a>
             </div>
         </div>
     </section>

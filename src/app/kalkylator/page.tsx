@@ -467,7 +467,7 @@ export default function KalkylatorPage() {
                                 <div className="action-row step6-actions">
                                     <div className="step6-primary-group">
                                         <button className="btn-primary" onClick={() => router.push('/kontakt')}>Skicka förfrågan för besök</button>
-                                        <a href="tel:0703185110" className="btn-primary" style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Ring oss: 070-318 51 10</a>
+                                        <a href="tel:0727222232" className="btn-primary" style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Ring oss: 072-722 22 32</a>
                                     </div>
                                     <button className="btn-back" onClick={() => setCurrentStep(1)}>Tillbaka</button>
                                 </div>
