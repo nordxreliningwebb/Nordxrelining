@@ -30,21 +30,21 @@ export default function ProjectCardPreview({
 
   return (
     <div className="flex items-center justify-center h-full w-full bg-[#f8fafc] p-8 overflow-auto">
-      <link rel="stylesheet" href="/style.css" />
       {/* Container to restrict width to a realistic card size */}
       <div className="w-full max-w-[380px]">
         
-        <div className="project-card-v2 premium-blog-card visible shadow-lg" style={{ display: 'block', margin: 0 }}>
-            <div className="project-card-v2-media anim-scale-down-container">
-                <img src={imageUrl} alt={title || 'Projektbild'} className="anim-scale-down" />
+        {/* Card exact Tailwind replica */}
+        <div className="flex flex-col bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] h-full">
+            <div className="h-[210px] overflow-hidden">
+                <img src={imageUrl} alt={title || 'Projektbild'} className="w-full h-full object-cover" />
             </div>
-            <div className="project-card-v2-content">
-                <div className="project-card-v2-meta">
-                    <span>{formattedDate}</span> | <span style={{ textTransform: 'capitalize' }}>{category || 'Kategori'}</span>
+            <div className="p-6 flex flex-col flex-grow text-left">
+                <div className="text-[0.85rem] text-slate-500 mb-3 flex items-center gap-2">
+                    <span>{formattedDate}</span> | <span className="capitalize">{category || 'Kategori'}</span>
                 </div>
-                <h3 className="anim-fade-up">{title || 'Projektets Titel'}</h3>
-                <p className="anim-fade-up line-clamp-3">{subheading || 'Här visas en kort sammanfattning eller underrubrik för projektet.'}</p>
-                <span className="project-card-v2-btn">Läs mer</span>
+                <h3 className="text-xl text-[#1B263B] font-bold mb-2">{title || 'Projektets Titel'}</h3>
+                <p className="text-[0.95rem] text-slate-600 mb-4 line-clamp-3">{subheading || 'Här visas en kort sammanfattning eller underrubrik för projektet.'}</p>
+                <span className="bg-[#0284c7] text-white px-[1.2rem] py-[0.6rem] rounded font-bold w-fit mt-auto text-sm">Läs mer</span>
             </div>
         </div>
 
