@@ -24,7 +24,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
           return (
             <div 
               key={idx} 
-              className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-wrap break-words [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:pl-2 [&_ul]:my-4 [&_ol]:list-decimal [&_ol]:ml-5 [&_ol]:pl-2 [&_ol]:my-4 [&_li]:mb-2 [&_em]:italic [&_i]:italic [&_a]:text-blue-600 [&_a]:underline [&_strong]:font-bold" 
+              className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-wrap break-words [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:list-outside [&_ul]:ml-8 [&_ul]:my-4 [&_ol]:list-decimal [&_ol]:list-outside [&_ol]:ml-8 [&_ol]:my-4 [&_li]:mb-2 [&_li]:pl-1 [&_em]:italic [&_i]:italic [&_a]:text-blue-600 [&_a]:underline [&_strong]:font-bold" 
               dangerouslySetInnerHTML={{ __html: block.content || '' }} 
             />
           );
