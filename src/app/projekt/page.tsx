@@ -18,7 +18,7 @@ export default async function ProjektPage() {
     const { data, error } = await supabase
       .from('projects')
       .select('*')
-      .order('createdAt', { ascending: false });
+      .order('publish_date', { ascending: false });
 
     if (error) {
       // Don't use console.error which triggers Next.js dev overlay, use console.warn or just log the message

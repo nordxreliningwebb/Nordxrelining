@@ -80,21 +80,21 @@ export default function KnowledgeLivePreview(props: KnowledgeLivePreviewProps) {
       {viewMode === 'card' ? (
         <div className="flex-grow flex items-center justify-center p-8 bg-gray-50">
           {/* Card Preview adapted for Knowledge Posts */}
-          <div className="w-full max-w-[380px]">
-            <Link href="#" className="project-card-v2 premium-blog-card visible shadow-lg" onClick={(e) => e.preventDefault()} style={{ display: 'block' }}>
-                <div className="project-card-v2-media anim-scale-down-container">
-                    <img src={props.coverImage || '/construction.jpg'} alt={props.title} className="anim-scale-down" />
-                </div>
-                <div className="project-card-v2-content">
-                    <div className="project-card-v2-meta">
-                        <span>{props.date ? new Date(props.date).toLocaleDateString('sv-SE') : 'Pågående'}</span> | <span style={{ textTransform: 'capitalize' }}>{props.category || 'Okategoriserad'}</span>
-                    </div>
-                    <h3 className="anim-fade-up">{props.title || 'Utan titel'}</h3>
-                    <p className="anim-fade-up">{props.subheading || 'Kort utdrag...'}</p>
-                    <span className="project-card-v2-btn">Läs mer</span>
-                </div>
-            </Link>
-          </div>
+            <div className="w-full max-w-[380px]">
+              <div className="project-card-v2 premium-blog-card visible" style={{ display: 'block', margin: 0 }}>
+                  <div className="project-card-v2-media anim-scale-down-container">
+                      <img src={props.coverImage || '/construction.jpg'} alt={props.title} className="anim-scale-down" />
+                  </div>
+                  <div className="project-card-v2-content">
+                      <div className="project-card-v2-meta">
+                          <span>{props.date ? new Date(props.date).toLocaleDateString('sv-SE', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Pågående'}</span> | <span style={{ textTransform: 'capitalize' }}>{props.category || 'Okategoriserad'}</span>
+                      </div>
+                      <h3 className="anim-fade-up">{props.title || 'Utan titel'}</h3>
+                      <p className="anim-fade-up line-clamp-3">{props.subheading || 'Kort utdrag...'}</p>
+                      <span className="project-card-v2-btn">Läs mer</span>
+                  </div>
+              </div>
+            </div>
         </div>
       ) : (
         <div className="overflow-y-auto flex-grow bg-white preview-scrollbar custom-html-container relative">
