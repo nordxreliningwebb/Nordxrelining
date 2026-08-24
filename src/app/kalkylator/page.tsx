@@ -188,6 +188,11 @@ export default function KalkylatorPage() {
                 }
                 
                 @media (min-width: 769px) {
+                    .calc-card { padding: 60px 70px !important; }
+                    .btn-back { padding: 14px 30px !important; font-size: 1rem !important; }
+                    .step3-grid { display: flex !important; flex-wrap: wrap; justify-content: center; }
+                    .step3-grid .option-card { flex: 1 1 calc(33.333% - 15px); max-width: calc(33.333% - 15px); min-width: 180px; }
+                    
                     .step6-actions { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; padding-top: 0; }
                     .step6-primary-group { display: flex; gap: 15px; }
                     .step6-actions .btn-primary { padding: 14px 24px; font-size: 1rem; font-weight: 600; border: 1px solid #0284c7; box-shadow: none; text-align: center; }
@@ -218,7 +223,7 @@ export default function KalkylatorPage() {
                     {/* Water Wrapper with Overflow Hidden */}
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, borderRadius: '24px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
                         {currentStep === 5 && (
-                            <div className="water-fill-container" style={{ position: 'absolute', bottom: 0, left: 0, height: isFilled ? 'calc(100% - 75px)' : '0%', transform: 'translateY(0)', width: '100%', transition: 'height 1.5s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                            <div className="water-fill-container" style={{ position: 'absolute', bottom: 0, left: 0, height: isFilled ? 'calc(100% - 75px)' : '0%', transform: 'translateY(0)', width: '100%', transition: 'height 3.5s linear' }}>
                                 <svg className="water-fill-wave-1" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ animation: isFilled ? 'wave-sway 5s linear infinite' : 'none', fill: '#7dd3fc' }}>
                                     <path d="M0,60 C150,10 350,110 600,60 C850,10 1050,110 1200,60 L1200,120 L0,120 Z"></path>
                                 </svg>
@@ -373,7 +378,7 @@ export default function KalkylatorPage() {
                                 <h2 className="view-title">Grundläggning</h2>
                                 <p className="view-subtitle">Vilken typ av grund står huset på?</p>
                                 
-                                <div className="options-grid">
+                                <div className="options-grid step3-grid">
                                     {[
                                         { id: "Platta på mark", icon: <svg width="32" height="48" viewBox="0 0 24 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline><rect x="1" y="22" width="22" height="3" rx="0.5"></rect></svg> },
                                         { id: "Källare", icon: <svg width="32" height="48" viewBox="0 0 24 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline><path d="M3 22v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-10"></path><line x1="1" y1="22" x2="23" y2="22"></line><rect x="10" y="25" width="4" height="3"></rect></svg> },
