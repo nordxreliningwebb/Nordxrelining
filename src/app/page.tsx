@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import FrontendLayout from "@/components/FrontendLayout";
 import CampaignPopupClient from "@/components/public/CampaignPopupClient";
 import FAQAccordionClient from "@/components/public/FAQAccordionClient";
@@ -121,13 +121,69 @@ export default async function HomePage() {
 
         </section>
 
-    {/* BOTTOM TO TOP ANNOUNCEMENT BAR (HIDDEN FOR DEMO) */}
-    <div className="top-announcement-bar hide-on-desktop hide-on-mobile" aria-label="Akut Jour" style={{ display: "none" }}>
-        <div className="top-bar-container">
-            <span className="pulse-dot"></span>
-            <span className="top-bar-text">Akut stopp i avloppet? Vi rycker ut dygnet runt.</span>
-            <a href="tel:+46727222232" className="top-bar-link">Ring vår jour: 072-722 22 32</a>
+    {/* MOBILE STICKY BOTTOM BAR */}
+    <div className="mobile-sticky-bottom-bar hide-on-desktop" aria-label="Akut Jour">
+        <div className="mobile-sticky-container">
+            <div className="mobile-sticky-text">
+                <span className="pulse-dot"></span>
+                <strong>Akut stopp i avloppet?</strong>
+            </div>
+            <a href="tel:0727222232" className="mobile-sticky-btn">
+                Ring vår jour
+            </a>
         </div>
+        <style dangerouslySetInnerHTML={{ __html: `
+            .mobile-sticky-bottom-bar {
+                display: none !important;
+            }
+            @media (max-width: 900px) {
+                .mobile-sticky-bottom-bar {
+                    display: block !important;
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    background: #ffffff;
+                    z-index: 9999;
+                    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+                    padding: 12px 0;
+                    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+                    border-top: 1px solid #e2e8f0;
+                }
+                .mobile-sticky-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 12px;
+                    max-width: min(1400px, 94vw);
+                    margin: 0 auto;
+                    padding: 0 1rem;
+                }
+                .mobile-sticky-text {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                    margin-left: 6px;
+                    font-size: 0.95rem;
+                    color: #0f172a;
+                    line-height: 1.2;
+                }
+                .mobile-sticky-text strong {
+                    font-weight: 700;
+                }
+                .mobile-sticky-btn {
+                    background: #0284c7;
+                    color: #fff;
+                    padding: 10px 16px;
+                    border-radius: 8px;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+                }
+            }
+        `}} />
     </div>
 
         {/* INTRODUKTION SEKTION */}
