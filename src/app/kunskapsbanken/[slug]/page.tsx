@@ -1,4 +1,4 @@
-﻿import { supabaseAdmin } from '@/lib/supabase-server';
+import { supabaseAdmin } from '@/lib/supabase-server';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import FrontendLayout from '@/components/FrontendLayout';
@@ -151,7 +151,7 @@ export default async function KnowledgeBankArticlePage({ params }: { params: Pro
                     <div className="relative z-10 w-full max-w-4xl flex flex-col gap-4 text-center items-center" style={{ padding: "3rem 2rem" }}>
                         <h1 className="font-extrabold text-white tracking-tight leading-snug max-w-4xl mx-auto" style={{ fontSize: "3rem", lineHeight: "1.2", marginBottom: "0.5rem" }}>{title}</h1>
                         <div className="text-gray-100 font-light max-w-3xl mx-auto flex flex-col gap-4" style={{ fontSize: "1.25rem" }}>
-                            {(excerpt || '').split(/\n+/).filter(Boolean).map((paragraph, idx) => (
+                            {(excerpt || '').split(/\n+/).filter(Boolean).map((paragraph: string, idx: number) => (
                                 <p key={idx}>{paragraph}</p>
                             ))}
                         </div>
