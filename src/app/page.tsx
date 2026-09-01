@@ -149,6 +149,18 @@ export default async function HomePage() {
                     padding: 12px 0;
                     padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
                     border-top: 1px solid #e2e8f0;
+                    transition: all 0.6s linear;
+                }
+                .mobile-sticky-bottom-bar.is-at-bottom {
+                    bottom: 0;
+                    transform: translateY(calc(-1 * var(--contact-offset, 350px)));
+                    background: #FFD700;
+                    padding-bottom: 12px;
+                    border-radius: 12px;
+                    width: 90%;
+                    left: 5%;
+                    border: none;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
                 }
                 .mobile-sticky-container {
                     display: flex;
@@ -181,6 +193,12 @@ export default async function HomePage() {
                     text-decoration: none;
                     white-space: nowrap;
                     box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+                    transition: all 0.3s ease;
+                }
+                .mobile-sticky-bottom-bar.is-at-bottom .mobile-sticky-btn {
+                    background: #000000;
+                    color: #ffffff;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
                 }
             }
         `}} />
