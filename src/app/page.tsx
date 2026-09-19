@@ -6,11 +6,13 @@ import Preloader from "@/components/public/Preloader";
 import HomeClientLogic from "@/components/public/HomeClientLogic";
 import ProjectSliderLogic from "@/components/public/ProjectSliderLogic";
 import { getActiveCampaign, getPublicFAQs } from "@/lib/data";
+import { getGoogleReviews } from "@/lib/google-reviews";
 import { supabase } from "@/lib/supabase";
 
 export default async function HomePage() {
   const campaigns = await getActiveCampaign();
   const faqs = await getPublicFAQs();
+  const googleData = await getGoogleReviews() || { rating: 0, user_ratings_total: 0, reviews: [] };
   const homeFaqs = faqs.slice(0, 5);
 
   let recentProjects: any[] = [];
@@ -411,14 +413,14 @@ export default async function HomePage() {
                         <svg className="anim-star-pop" style={{ animationDelay: '600ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                         <svg className="anim-star-pop" style={{ animationDelay: '800ms' }} viewBox="0 0 24 24" fill="#fbbf24" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
 </div>
-                    <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "0.5rem", fontWeight: "800" }} className="anim-mask-text"><span className="anim-mask-inner">4.9 / 5 i kundnöjdhet</span></h2>
-                    <p style={{ fontSize: "1.125rem", color: "#bae6fd" }} className="anim-fade-up">Baserat på över 150 verifierade kundomdömen på Google</p>
+                    <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "0.5rem", fontWeight: "800" }} className="anim-mask-text"><span className="anim-mask-inner">{googleData.rating} / 5 i kundnöjdhet</span></h2>
+                    <p style={{ fontSize: "1.125rem", color: "#bae6fd" }} className="anim-fade-up">Baserat på {googleData.user_ratings_total > 150 ? `över 150` : googleData.user_ratings_total} verifierade kundomdömen på Google</p>
                 </div>
 
                 <style dangerouslySetInnerHTML={{ __html: `
                     @keyframes scroll-reviews {
                         0% { transform: translateX(0); }
-                        100% { transform: translateX(calc(-1 * (4 * 380px + 4 * 2rem))); }
+                        100% { transform: translateX(calc(-1 * (${Math.max(googleData.reviews.length, 1)} * 480px + ${Math.max(googleData.reviews.length, 1)} * 2rem))); }
                     }
                     .btn-white {
                         background: #ffffff;
@@ -458,7 +460,7 @@ export default async function HomePage() {
                         animation-play-state: paused;
                     }
                     .review-card {
-                        width: 380px;
+                        width: 480px;
                         background: #ffffff;
                         border: 1px solid #e2e8f0;
                         border-radius: 16px;
@@ -533,231 +535,37 @@ export default async function HomePage() {
                     }
                 ` }} />
 
-                <div className="reviews-carousel anim-stagger-parent">
-                    <div className="reviews-track">
-                        {/* ORIGINAL SET (4 CARDS) */}
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">J</div>
-                                <div className="r-meta">
-                                    <h4 className="">Johan Andersson</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">B</div>
-                                <div className="r-meta">
-                                    <h4 className="">BRF Liljan</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Som bostadsrättsförening är det viktigt med en trygg partner. Nordex relining genomförde rörinspektion och stamspolning för samtliga 45 lägenheter med bravur. Rekommenderas starkt."</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">E</div>
-                                <div className="r-meta">
-                                    <h4 className="">Emma Lindgren</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Grym service! De var på plats samma dag när vi hade akut stopp och löste problemet på nolltid. Mycket trevliga och tydliga killar. Toppbetyg!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">M</div>
-                                <div className="r-meta">
-                                    <h4 className="">Marcus S.</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Trodde vi skulle behöva bila upp hela källaren, men tack vare relining slapp vi det. Killarna skötte det väldigt snyggt och städade noga efter sig."</p>
-                        </div>
-                        
-                        {/* SET 2 (DUPLICATE) */}
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">J</div>
-                                <div className="r-meta">
-                                    <h4 className="">Johan Andersson</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">B</div>
-                                <div className="r-meta">
-                                    <h4 className="">BRF Liljan</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Som bostadsrättsförening är det viktigt med en trygg partner. Nordex relining genomförde rörinspektion och stamspolning för samtliga 45 lägenheter med bravur. Rekommenderas starkt."</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">E</div>
-                                <div className="r-meta">
-                                    <h4 className="">Emma Lindgren</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Grym service! De var på plats samma dag när vi hade akut stopp och löste problemet på nolltid. Mycket trevliga och tydliga killar. Toppbetyg!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">M</div>
-                                <div className="r-meta">
-                                    <h4 className="">Marcus S.</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Trodde vi skulle behöva bila upp hela källaren, men tack vare relining slapp vi det. Killarna skötte det väldigt snyggt och städade noga efter sig."</p>
-                        </div>
-                        
-                        {/* SET 3 (DUPLICATE) */}
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">J</div>
-                                <div className="r-meta">
-                                    <h4 className="">Johan Andersson</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Snabbt, proffsigt och helt utan krångel. Vi anlitade NordX Relining för relining i vår villa och de höll tidsplanen perfekt. Ett rent nöje att ha dem på plats!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">B</div>
-                                <div className="r-meta">
-                                    <h4 className="">BRF Liljan</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Som bostadsrättsförening är det viktigt med en trygg partner. Nordex relining genomförde rörinspektion och stamspolning för samtliga 45 lägenheter med bravur. Rekommenderas starkt."</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">E</div>
-                                <div className="r-meta">
-                                    <h4 className="">Emma Lindgren</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Grym service! De var på plats samma dag när vi hade akut stopp och löste problemet på nolltid. Mycket trevliga och tydliga killar. Toppbetyg!"</p>
-                        </div>
-                        <div className="review-card anim-stagger-child">
-                            <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
-                            <div className="r-header">
-                                <div className="r-avatar">M</div>
-                                <div className="r-meta">
-                                    <h4 className="">Marcus S.</h4>
-                                    <span>Verifierad kund</span>
-                                </div>
-                            </div>
-                            <div className="r-stars">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p className="r-text">"Trodde vi skulle behöva bila upp hela källaren, men tack vare relining slapp vi det. Killarna skötte det väldigt snyggt och städade noga efter sig."</p>
+                {googleData.reviews.length > 0 && (
+                    <div className="reviews-carousel anim-stagger-parent">
+                        <div className="reviews-track">
+                            {[...googleData.reviews, ...googleData.reviews, ...googleData.reviews, ...googleData.reviews].map((review: any, idx: number) => {
+                                const initial = review.author_name ? review.author_name.charAt(0).toUpperCase() : "G";
+                                const ratingCount = review.rating || 5;
+                                const dateObj = new Date(review.time * 1000);
+                                const dateStr = dateObj.toLocaleDateString('sv-SE');
+                                
+                                return (
+                                    <div key={idx} className="review-card anim-stagger-child">
+                                        <svg className="r-google" viewBox="0 0 24 24" width="24" height="24"><path fill="#4285F4" d="M23.745 12.27c0-.825-.07-1.62-.2-2.39H12v4.51h6.63c-.28 1.48-1.12 2.73-2.39 3.56v2.96h3.86c2.26-2.08 3.58-5.14 3.58-8.64z"></path><path fill="#34A853" d="M12 24c3.31 0 6.08-1.09 8.11-2.96l-3.86-2.96c-1.1.74-2.5 1.17-4.25 1.17-3.26 0-6.03-2.2-7.02-5.15H1.03v3.05C3.07 21.2 7.21 24 12 24z"></path><path fill="#FBBC05" d="M4.98 14.1c-.25-.74-.4-1.54-.4-2.35s.15-1.61.4-2.35V6.35H1.03C.37 7.68 0 9.17 0 10.75s.37 3.07 1.03 4.4l3.95-3.05z"></path><path fill="#EA4335" d="M12 4.75c1.8 0 3.42.62 4.69 1.83l3.53-3.53C18.08 1.09 15.31 0 12 0 7.21 0 3.07 2.8 1.03 6.35l3.95 3.05c.99-2.95 3.76-5.15 7.02-5.15z"></path></svg>
+                                        <div className="r-header">
+                                            <div className="r-avatar">{initial}</div>
+                                            <div className="r-meta">
+                                                <h4 className="">{review.author_name}</h4>
+                                                <span>{dateStr} &bull; Verifierad kund</span>
+                                            </div>
+                                        </div>
+                                        <div className="r-stars">
+                                            {Array.from({ length: ratingCount }).map((_, starIdx) => (
+                                                <svg key={starIdx} viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                            ))}
+                                        </div>
+                                        <p className="r-text">"{review.text}"</p>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
-                </div>
+                )}
 
                 <div className="reviews-action">
                     <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener" className="btn-white">

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter, Outfit, Syne } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="sv" className={`${inter.variable} ${outfit.variable} ${syne.variable} h-full antialiased scroll-smooth`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `window.googleTranslateElementInit = function() { new window.google.translate.TranslateElement({pageLanguage: 'sv', autoDisplay: false}, 'google_translate_element'); };` }} />
+        <Script id="google-translate-init" dangerouslySetInnerHTML={{ __html: `window.googleTranslateElementInit = function() { new window.google.translate.TranslateElement({pageLanguage: 'sv', autoDisplay: false}, 'google_translate_element'); };` }} />
         <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
       </head>
       <body className="min-h-full font-sans text-slate-900 bg-white">
