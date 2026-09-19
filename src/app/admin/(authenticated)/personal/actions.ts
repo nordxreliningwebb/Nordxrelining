@@ -1,6 +1,7 @@
 "use server";
 
 import { supabaseAdmin } from "@/lib/supabase-server";
+import { revalidatePath } from "next/cache";
 
 export async function saveEmployeeAction(formData: any) {
   try {
@@ -23,6 +24,7 @@ export async function saveEmployeeAction(formData: any) {
       return { success: false, error: error.message };
     }
 
+    revalidatePath("/admin/personal");
     return { success: true };
   } catch (error: any) {
     console.error("Server Action Exception:", error);
@@ -42,6 +44,7 @@ export async function deleteEmployeeAction(id: string) {
       return { success: false, error: error.message };
     }
 
+    revalidatePath("/admin/personal");
     return { success: true };
   } catch (error: any) {
     console.error("Delete Server Action Exception:", error);

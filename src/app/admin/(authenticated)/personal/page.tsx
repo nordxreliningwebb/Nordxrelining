@@ -105,10 +105,7 @@ export default async function PersonalPage() {
                           <Pencil className="w-4 h-4" />
                         </Link>
                         
-                        <form action={async () => {
-                          "use server";
-                          await deleteEmployeeAction(employee.id);
-                        }}>
+                        <form action={deleteEmployeeAction.bind(null, employee.id)}>
                           <button 
                             type="submit"
                             className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
