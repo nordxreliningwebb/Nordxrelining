@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import FrontendLayout from "@/components/FrontendLayout";
 import { getPublicPricePlans } from "@/lib/data";
 
@@ -29,6 +29,58 @@ export default async function PriserPage() {
       }
     }
 
+    const rawDesc = plan.description || "";
+    let desc = rawDesc;
+    let noticeText = "";
+    if (rawDesc.includes("|||NOTICE|||")) {
+      const parts = rawDesc.split("|||NOTICE|||");
+      desc = parts[0];
+      noticeText = parts[1] || "";
+    }
+
+    const parsePrice = (p: string) => {
+      if (!p) return { main: '3495', suffix: 'kr', isRequest: false };
+      if (p.toLowerCase().includes('förfrågan')) {
+        return { main: p, suffix: '', isRequest: true };
+      }
+      const match = p.match(/^([\d\s]+)(.*)$/);
+      if (match) {
+        return { main: match[1].trim(), suffix: match[2].trim(), isRequest: false };
+      }
+      return { main: p, suffix: '', isRequest: false };
+    };
+
+    const { main, suffix, isRequest } = parsePrice(String(plan.price || ""));
+
+    const renderNotice = (text: string) => {
+      if (!text) return null;
+      return (
+        <div style={{
+          fontSize: "0.85rem", 
+          color: "rgba(255,255,255,0.9)", 
+          background: "transparent", 
+          border: "1px solid rgba(255,255,255,0.3)",
+          padding: "12px 14px", 
+          borderRadius: "8px", 
+          marginBottom: "1.5rem",
+          textAlign: "left",
+          lineHeight: 1.4
+        }}>
+          {text.split(/(\*\*.*?\*\*)/g).map((part, i) => 
+            part.startsWith('**') && part.endsWith('**') ? 
+              <strong key={i} style={{color: "#ffffff", fontWeight: 700}}>{part.slice(2, -2)}</strong> : part
+          )}
+        </div>
+      );
+    };
+
+    const priceMarkup = `
+      <div style="display:flex; justify-content:center; align-items:baseline; flex-wrap:wrap; gap:6px;">
+        <span style="font-size:${isRequest ? '2rem' : '4.5rem'}; font-weight:800; line-height:0.9; letter-spacing:-1px; white-space:${isRequest ? 'nowrap' : 'normal'};">${main}</span>
+        ${suffix ? `<span style="font-size:1.1rem; font-weight:600; white-space:nowrap; opacity:0.9;">${suffix}</span>` : ''}
+      </div>
+    `;
+
     if (plan.isPopular || plan.is_popular) {
       return (
         <article key={plan.id} className="pricing-card water-fill-card wave-2 campaign-card-highlight anim-stagger-child">
@@ -42,20 +94,24 @@ export default async function PriserPage() {
             </div>
             
             <div className="water-fill-content">
-                <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.5rem", color: "#1B263B", marginBottom: "0.5rem", marginTop: "1rem" }}>{plan.title || plan.name}</h3>
-                <p style={{ color: "#64748b", marginBottom: "2rem", fontSize: "0.95rem", minHeight: "80px" }} dangerouslySetInnerHTML={{ __html: plan.description || "" }} />
-                <div style={{ fontSize: "2.2rem", fontWeight: "800", color: "#1B263B", marginBottom: "2rem", fontFamily: "'Outfit', sans-serif", lineHeight: "1.2" }} dangerouslySetInnerHTML={{ __html: String(plan.price || "") }} />
+                <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
+                <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
+                
+                <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
                 
                 {featuresArray && featuresArray.length > 0 && (
-                    <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#475569", flexGrow: 1 }}>
+                    <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1 }}>
                         {featuresArray.map((feature: string, i: number) => (
-                            <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#48bb78" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                            <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4 }}>
+                                <svg style={{flexShrink: 0, marginTop: "2px"}} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                                 <span dangerouslySetInnerHTML={{ __html: feature }} />
                             </li>
                         ))}
                     </ul>
                 )}
+                
+                {renderNotice(noticeText)}
+                
                 <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
             </div>
         </article>
@@ -70,15 +126,16 @@ export default async function PriserPage() {
               <svg className="water-fill-wave-3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path></svg>
           </div>
           <div className="water-fill-content">
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.5rem", color: "#1B263B", marginBottom: "0.5rem" }}>{plan.title || plan.name}</h3>
-              <p style={{ color: "#64748b", marginBottom: "2rem", fontSize: "0.95rem", minHeight: "80px" }} dangerouslySetInnerHTML={{ __html: plan.description || "" }} />
-              <div style={{ fontSize: "3.5rem", fontWeight: "800", color: "#1B263B", marginBottom: "2rem", fontFamily: "'Outfit', sans-serif", lineHeight: "1", whiteSpace: "nowrap" }} dangerouslySetInnerHTML={{ __html: String(plan.price || "") }} />
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
+              <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
+              
+              <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
               
               {featuresArray && featuresArray.length > 0 && (
-                  <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#475569", flexGrow: 1 }}>
+                  <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1 }}>
                       {featuresArray.map((feature: string, i: number) => (
-                          <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                          <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4 }}>
+                              <svg style={{flexShrink: 0, marginTop: "2px"}} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                               <span dangerouslySetInnerHTML={{ __html: feature }} />
                           </li>
                       ))}
@@ -86,8 +143,10 @@ export default async function PriserPage() {
               )}
               
               {!(plan.isPopular || plan.is_popular) && plan.campaign_text && (
-                  <div style={{ fontSize: "0.85rem", color: "#64748b", textAlign: "left", marginBottom: "2rem" }} dangerouslySetInnerHTML={{ __html: plan.campaign_text }} />
+                  <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)", textAlign: "left", marginBottom: "2rem" }} dangerouslySetInnerHTML={{ __html: plan.campaign_text }} />
               )}
+              
+              {renderNotice(noticeText)}
               
               <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
           </div>

@@ -13,8 +13,21 @@ export default async function PricePlansBulkPage() {
     console.error("Error fetching price plans:", error);
   }
 
-  // Typecast or default empty array
-  const allPlans: PricePlan[] = plans || [];
+  // Typecast and unpack notice_text from description
+  const allPlans: PricePlan[] = (plans || []).map((p: any) => {
+    let desc = p.description || "";
+    let notice = "";
+    if (desc.includes("|||NOTICE|||")) {
+      const parts = desc.split("|||NOTICE|||");
+      desc = parts[0];
+      notice = parts[1];
+    }
+    return {
+      ...p,
+      description: desc,
+      notice_text: notice
+    };
+  });
 
   return (
     <div className="h-[calc(100vh-6rem)] flex flex-col font-inter">

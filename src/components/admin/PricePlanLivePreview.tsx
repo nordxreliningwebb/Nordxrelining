@@ -2,6 +2,7 @@ export default function PricePlanLivePreview({
   name, 
   price, 
   description, 
+  noticeText,
   features, 
   isPopular,
   category,
@@ -12,6 +13,7 @@ export default function PricePlanLivePreview({
   name: string, 
   price: string, 
   description: string, 
+  noticeText?: string,
   features: string[], 
   isPopular: boolean,
   category?: string,
@@ -20,6 +22,20 @@ export default function PricePlanLivePreview({
   ctaLink?: string
 }) {
   const buttonText = ctaText ? ctaText : (category === 'Företag' ? 'KONTAKTA OSS' : 'Ring nu');
+
+  const parsePrice = (p: string) => {
+    if (!p) return { main: '3495', suffix: 'kr', isRequest: false };
+    if (p.toLowerCase().includes('förfrågan')) {
+      return { main: p, suffix: '', isRequest: true };
+    }
+    const match = p.match(/^([\d\s]+)(.*)$/);
+    if (match) {
+      return { main: match[1].trim(), suffix: match[2].trim(), isRequest: false };
+    }
+    return { main: p, suffix: '', isRequest: false };
+  };
+
+  const { main, suffix, isRequest } = parsePrice(price);
 
   return (
     <div className="w-full max-w-sm w-[350px]">
@@ -110,17 +126,19 @@ export default function PricePlanLivePreview({
               </p>
               
               {/* PRICE */}
-              <div style={{fontFamily: "'Outfit', sans-serif", marginBottom: "2.5rem", display: "flex", justifyContent: "center", alignItems: "baseline"}}>
-                <span style={{fontSize: "4.5rem", fontWeight: 800, color: "#ffffff", lineHeight: 0.8, letterSpacing: "-1px"}}>
-                  {price.replace(/[^\d]/g, '') || '3495'}
+              <div style={{fontFamily: "'Outfit', sans-serif", marginBottom: "2.5rem", display: "flex", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap", gap: "6px"}}>
+                <span style={{fontSize: isRequest ? "2rem" : "4.5rem", fontWeight: 800, color: "#ffffff", lineHeight: 0.9, letterSpacing: "-1px", whiteSpace: isRequest ? "nowrap" : "normal"}}>
+                  {main}
                 </span>
-                <span style={{fontSize: "1.5rem", fontWeight: 700, color: "#ffffff", marginLeft: "2px"}}>
-                  {price.replace(/[\d\s]/g, '') || 'kr'}
-                </span>
+                {suffix && (
+                  <span style={{fontSize: "1.1rem", fontWeight: 600, color: "rgba(255,255,255,0.9)", whiteSpace: "nowrap"}}>
+                    {suffix}
+                  </span>
+                )}
               </div>
 
               {/* FEATURES */}
-              <ul style={{listStyle: "none", padding: 0, margin: "0 0 2.5rem", textAlign: "left", color: "#ffffff", flexGrow: 1}}>
+              <ul style={{listStyle: "none", padding: 0, margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1}}>
                   {features.length > 0 ? (
                     features.map((feature, idx) => (
                       <li key={idx} style={{marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4}}>
@@ -142,6 +160,26 @@ export default function PricePlanLivePreview({
                   )}
               </ul>
               
+              {/* NOTICE */}
+              {noticeText && (
+                <div style={{
+                  fontSize: "0.85rem", 
+                  color: "rgba(255,255,255,0.9)", 
+                  background: "transparent", 
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  padding: "12px 14px", 
+                  borderRadius: "8px", 
+                  marginBottom: "1.5rem",
+                  textAlign: "left",
+                  lineHeight: 1.4
+                }}>
+                  {noticeText.split(/(\*\*.*?\*\*)/g).map((part, i) => 
+                    part.startsWith('**') && part.endsWith('**') ? 
+                      <strong key={i} style={{color: "#ffffff", fontWeight: 700}}>{part.slice(2, -2)}</strong> : part
+                  )}
+                </div>
+              )}
+
               <div className="water-btn">{buttonText}</div>
           </div>
         </div>

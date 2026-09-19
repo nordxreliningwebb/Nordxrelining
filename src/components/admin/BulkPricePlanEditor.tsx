@@ -11,6 +11,7 @@ export type PricePlan = {
   name: string;
   price: string;
   description: string;
+  notice_text?: string;
   features: string[];
   isPopular: boolean;
   category?: string;
@@ -32,6 +33,7 @@ function ensureThreePlans(plans: PricePlan[], category: string): PricePlan[] {
         name: "",
         price: "",
         description: "",
+        notice_text: "",
         features: [],
         isPopular: false,
         category,
@@ -215,6 +217,18 @@ export default function BulkPricePlanEditor({ allPlans }: { allPlans: PricePlan[
               </div>
 
               <div className="border-t border-gray-100 pt-5">
+                <label className="block text-sm font-semibold text-gray-700 mb-1.5">OBSERVERA</label>
+                <p className="text-[11px] text-gray-500 mb-2">Visas under priset/egenskaperna. Använd **text** för fetmarkering.</p>
+                <textarea 
+                  value={plan.notice_text || ""} 
+                  onChange={(e) => updatePlan(index, "notice_text", e.target.value)} 
+                  rows={2}
+                  placeholder="t.ex. **OBS!** Max 35 km framkörning ingår"
+                  className="w-full border border-gray-200 rounded-lg p-2.5 text-gray-900 focus:ring-2 focus:ring-[#0284c7] focus:border-transparent outline-none transition-all resize-none text-sm"
+                />
+              </div>
+
+              <div className="border-t border-gray-100 pt-5">
                 <label className="block text-sm font-semibold text-gray-700 mb-3">CTA-knapp (Frivillig)</label>
                 <div className="flex flex-col gap-3">
                   <div>
@@ -286,6 +300,7 @@ export default function BulkPricePlanEditor({ allPlans }: { allPlans: PricePlan[
                   name={plan.name}
                   price={plan.price}
                   description={plan.description}
+                  noticeText={plan.notice_text}
                   features={plan.features}
                   isPopular={plan.isPopular}
                   category={plan.category}
