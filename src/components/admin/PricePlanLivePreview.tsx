@@ -117,11 +117,11 @@ export default function PricePlanLivePreview({
         
         <div className="pricing-wave"></div>
         <div className="pricing-blue-bg">
-          <div className="water-fill-content">
+          <div className="water-fill-content" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
               <h3 style={{fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.75rem"}}>
                 {name || 'Paketnamn'}
               </h3>
-              <p style={{color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4}}>
+              <p style={{color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4, flexGrow: 1}}>
                 {description || 'En kort beskrivning av vad som ingår i paketet.'}
               </p>
               
@@ -138,7 +138,7 @@ export default function PricePlanLivePreview({
               </div>
 
               {/* FEATURES */}
-              <ul style={{listStyle: "none", padding: 0, margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1}}>
+              <ul style={{listStyle: "none", padding: 0, margin: "0 0 2rem", textAlign: "left", color: "#ffffff"}}>
                   {features.length > 0 ? (
                     features.map((feature, idx) => (
                       <li key={idx} style={{marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4}}>
@@ -180,7 +180,7 @@ export default function PricePlanLivePreview({
                 </div>
               )}
 
-              <div className="water-btn">{buttonText}</div>
+              <div className="water-btn" style={{ marginTop: "auto" }}>{buttonText}</div>
           </div>
         </div>
       </article>

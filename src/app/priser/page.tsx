@@ -93,14 +93,14 @@ export default async function PriserPage() {
                 <svg className="water-fill-wave-3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path></svg>
             </div>
             
-            <div className="water-fill-content">
+            <div className="water-fill-content" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
-                <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
+                <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4, flexGrow: 1 }} dangerouslySetInnerHTML={{ __html: desc }} />
                 
                 <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
                 
                 {featuresArray && featuresArray.length > 0 && (
-                    <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1 }}>
+                    <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff" }}>
                         {featuresArray.map((feature: string, i: number) => (
                             <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4 }}>
                                 <svg style={{flexShrink: 0, marginTop: "2px"}} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 
@@ -112,7 +112,7 @@ export default async function PriserPage() {
                 
                 {renderNotice(noticeText)}
                 
-                <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+                <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
             </div>
         </article>
       );
@@ -125,14 +125,14 @@ export default async function PriserPage() {
               <svg className="water-fill-wave-2" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C150,110 350,10 600,60 C850,110 1050,10 1200,60 L1200,120 L0,120 Z"></path></svg>
               <svg className="water-fill-wave-3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C250,130 350,-10 600,60 C850,130 950,-10 1200,60 L1200,120 L0,120 Z"></path></svg>
           </div>
-          <div className="water-fill-content">
+          <div className="water-fill-content" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
-              <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
+              <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4, flexGrow: 1 }} dangerouslySetInnerHTML={{ __html: desc }} />
               
               <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
               
               {featuresArray && featuresArray.length > 0 && (
-                  <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff", flexGrow: 1 }}>
+                  <ul style={{ listStyle: "none", padding: "0", margin: "0 0 2rem", textAlign: "left", color: "#ffffff" }}>
                       {featuresArray.map((feature: string, i: number) => (
                           <li key={i} style={{ marginBottom: "1rem", display: "flex", alignItems: "flex-start", gap: "0.75rem", fontSize: "0.95rem", lineHeight: 1.4 }}>
                               <svg style={{flexShrink: 0, marginTop: "2px"}} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 
@@ -148,7 +148,7 @@ export default async function PriserPage() {
               
               {renderNotice(noticeText)}
               
-              <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn">{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+              <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
           </div>
       </article>
     );
