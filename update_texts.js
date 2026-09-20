@@ -9,9 +9,9 @@ const kbDir = path.join(publicDir, 'kunskapsbanken');
 if (fs.existsSync(kbFile)) {
     let content = fs.readFileSync(kbFile, 'utf8');
     content = content.replace(/<title>Blogg –/g, '<title>Kunskapsbanken –');
-    content = content.replace(/Global Constructions blogg:/g, 'Global Constructions kunskapsbank:');
+    content = content.replace(/NordX Relinings blogg:/g, 'NordX Relinings kunskapsbank:');
     content = content.replace(/"name": "Blogg"/g, '"name": "Kunskapsbanken"');
-    content = content.replace(/globalconstruction\.se\/blogg\.html/g, 'globalconstruction.se/kunskapsbanken');
+    content = content.replace(/nordxrelining\.se\/blogg\.html/g, 'nordxrelining.se/kunskapsbanken');
     content = content.replace(/Bloggkategorier/g, 'Kunskapsbankskategorier');
     fs.writeFileSync(kbFile, content, 'utf8');
     console.log('Updated:', kbFile);
@@ -26,8 +26,8 @@ if (fs.existsSync(kbDir)) {
             let content = fs.readFileSync(fullPath, 'utf8');
             let modified = false;
 
-            if (content.includes('href="https://globalconstruction.se/blogg/')) {
-                content = content.replace(/href="https:\/\/globalconstruction\.se\/blogg\//g, 'href="https://globalconstruction.se/kunskapsbanken/');
+            if (content.includes('href="https://nordxrelining.se/blogg/')) {
+                content = content.replace(/href="https:\/\/nordxrelining\.se\/blogg\//g, 'href="https://nordxrelining.se/kunskapsbanken/');
                 modified = true;
             }
             if (content.includes('href="../blogg"')) {

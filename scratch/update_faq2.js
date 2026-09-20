@@ -61,7 +61,7 @@ const faqPaths = [
 ];
 
 for (const p of faqPaths) {
-  const fullPath = path.join('f:/Antigravity/Global Construction', p);
+  const fullPath = path.join('f:/Antigravity/NordX Relining', p);
   let content = fs.readFileSync(fullPath, 'utf8');
 
   // 1. Add Lucide imports

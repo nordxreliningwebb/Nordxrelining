@@ -67,7 +67,7 @@
                             <div class="project-placeholder"></div>
                             <div class="project-content">
                                 <h3>Information uppdateras snart</h3>
-                                <p>Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på Global Construction.</p>
+                                <p>Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på NordX Relining.</p>
                             </div>
                         </article>
                     `;
@@ -102,7 +102,7 @@
                         <div class="project-placeholder"></div>
                         <div class="project-content">
                             <h3>Information uppdateras snart</h3>
-                            <p>Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på Global Construction.</p>
+                            <p>Här kommer vi inom kort att presentera fler spännande projekt. Håll utkik för framtida uppdateringar från oss på NordX Relining.</p>
                         </div>
                     </article>
                 `;

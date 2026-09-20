@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 async function test() {
-  const url = "postgresql://postgres.ubaolkuyccfyurphdmgf:globalconstruction2026@aws-0-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true";
+  const url = "postgresql://postgres.ubaolkuyccfyurphdmgf:nordx2026@aws-0-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true";
   const pool = new pg.Pool({ connectionString: url });
   
   try {

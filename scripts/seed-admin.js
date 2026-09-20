@@ -11,7 +11,7 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  const email = 'admin@globalconstruction.se';
+  const email = 'admin@nordxrelining.se';
   const password = 'GlobalAdmin2026!';
   const hashedPassword = await bcrypt.hash(password, 10);
 

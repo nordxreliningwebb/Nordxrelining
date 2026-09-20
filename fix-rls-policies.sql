@@ -1,4 +1,4 @@
--- KRAFTFULL RLS-FIX FÖR GLOBAL CONSTRUCTION
+-- KRAFTFULL RLS-FIX FÖR NordX Relining
 -- Detta skript rensar alla gamla regler och öppnar upp för både inloggade och anonyma anrop.
 
 DO $$ 

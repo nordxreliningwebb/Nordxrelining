@@ -33,11 +33,11 @@ export async function POST(req: Request) {
     if (process.env.RESEND_API_KEY) {
       const emailHtml = `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2>Välkommen till Global Constructions kunskapsbank!</h2>
+          <h2>Välkommen till NordX Relinings kunskapsbank!</h2>
           <p>Tack för att du prenumererar på vårt nyhetsbrev.</p>
           <p>Vi kommer att hålla dig uppdaterad med de senaste insikterna inom byggkonstruktion och skyddsrum.</p>
           <br>
-          <p>Med vänliga hälsningar,<br>Teamet på Global Construction</p>
+          <p>Med vänliga hälsningar,<br>Teamet på NordX Relining</p>
         </div>
       `;
 
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
           'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
         },
         body: JSON.stringify({
-          from: 'Global Construction <info@globalconstruction.se>', 
+          from: 'NordX Relining <info@nordxrelining.se>', 
           to: [email],
           subject: 'Välkommen till vårt nyhetsbrev!',
           html: emailHtml,

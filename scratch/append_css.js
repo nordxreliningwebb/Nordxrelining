@@ -19,5 +19,5 @@ const css = `
     margin-bottom: 0.5rem;
 }
 `;
-fs.appendFileSync('f:/Antigravity/Global Construction/public/style.css', css, 'utf8');
+fs.appendFileSync('f:/Antigravity/NordX Relining/public/style.css', css, 'utf8');
 console.log("Appended styles");

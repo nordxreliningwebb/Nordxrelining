@@ -38,11 +38,11 @@ async function main() {
 
   console.log('3. Skapar mejl-batch för utskick via Resend...');
   const emailsToSend = subscribers.map(sub => {
-    const unsubscribeUrl = `https://globalconstruction.se/api/newsletter/unsubscribe?id=${sub.id}`;
-    const articleUrl = `https://globalconstruction.se/artikel.html?slug=${testSlug}`;
+    const unsubscribeUrl = `https://nordxrelining.se/api/newsletter/unsubscribe?id=${sub.id}`;
+    const articleUrl = `https://nordxrelining.se/artikel.html?slug=${testSlug}`;
     
     return {
-      from: 'Global Construction <info@globalconstruction.se>',
+      from: 'NordX Relining <info@nordxrelining.se>',
       to: sub.email,
       subject: testTitle,
       html: `

@@ -32,7 +32,7 @@ const externalLinkCode = `
         }} className="p-1.5 text-gray-600 hover:bg-white hover:shadow-sm rounded transition-all" title="Infoga extern länk"><ExternalLink className="w-3.5 h-3.5" /></button>`;
 
 for (const p of paths) {
-  const fullPath = 'f:/Antigravity/Global Construction/' + p;
+  const fullPath = 'f:/Antigravity/NordX Relining/' + p;
   let content = fs.readFileSync(fullPath, 'utf8');
 
   // Add ExternalLink to lucide-react import

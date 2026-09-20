@@ -93,7 +93,7 @@ export default function ResetPasswordPage() {
         <div className="text-center">
           <Image
             src="/logo.png"
-            alt="Global Construction"
+            alt="NordX Relining"
             width={180}
             height={50}
             className="mx-auto brightness-0"

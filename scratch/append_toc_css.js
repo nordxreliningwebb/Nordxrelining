@@ -9,5 +9,5 @@ const css = `
     font-weight: 400;
 }
 `;
-fs.appendFileSync('f:/Antigravity/Global Construction/public/style.css', css, 'utf8');
+fs.appendFileSync('f:/Antigravity/NordX Relining/public/style.css', css, 'utf8');
 console.log("Appended TOC styles");

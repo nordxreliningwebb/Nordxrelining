@@ -11,7 +11,7 @@ function RichTextEditor({ value, onChange, placeholder, editorClassName }: { val
 `;
 // Instead of hardcoding, I'll read projects/new/page.tsx, extract RichTextEditor, and inject it.
 
-const projectNewFile = fs.readFileSync('f:/Antigravity/Global Construction/src/app/admin/content/projects/new/page.tsx', 'utf8');
+const projectNewFile = fs.readFileSync('f:/Antigravity/NordX Relining/src/app/admin/content/projects/new/page.tsx', 'utf8');
 const rteMatch = projectNewFile.match(/\/\/ --- Premium Rich Text Editor ---\nfunction RichTextEditor[\s\S]*?return \([\s\S]*?\);\n\}/);
 
 if (!rteMatch) {
@@ -27,7 +27,7 @@ const faqPaths = [
 ];
 
 for (const p of faqPaths) {
-  const fullPath = path.join('f:/Antigravity/Global Construction', p);
+  const fullPath = path.join('f:/Antigravity/NordX Relining', p);
   let content = fs.readFileSync(fullPath, 'utf8');
 
   // 1. Add Lucide imports

@@ -1,4 +1,4 @@
--- Supabase Schema: Global Construction CMS
+-- Supabase Schema: NordX Relining CMS
 -- Klistra in detta i "SQL Editor" i din Supabase Dashboard och klicka på "Run".
 
 -- 1. Skapa tabell för Blogginlägg (Kunskapsbanken)

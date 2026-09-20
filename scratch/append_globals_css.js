@@ -18,5 +18,5 @@ const css = `
 }
 `;
 
-fs.appendFileSync('f:/Antigravity/Global Construction/src/app/globals.css', css, 'utf8');
+fs.appendFileSync('f:/Antigravity/NordX Relining/src/app/globals.css', css, 'utf8');
 console.log("Appended styles to globals.css");

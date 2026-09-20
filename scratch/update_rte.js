@@ -11,7 +11,7 @@ const paths = [
 ];
 
 for (const p of paths) {
-  const fullPath = path.join('f:/Antigravity/Global Construction', p);
+  const fullPath = path.join('f:/Antigravity/NordX Relining', p);
   if (!fs.existsSync(fullPath)) {
     console.error(`File not found: ${fullPath}`);
     continue;

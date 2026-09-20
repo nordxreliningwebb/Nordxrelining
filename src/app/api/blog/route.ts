@@ -38,11 +38,11 @@ export async function POST(req: Request) {
         
         if (subscribers.length > 0) {
           const emailsToSend = subscribers.map(sub => {
-            const unsubscribeUrl = `https://globalconstruction.se/api/newsletter/unsubscribe?id=${sub.id}`;
-            const articleUrl = `https://globalconstruction.se/artikel.html?slug=${slug}`;
+            const unsubscribeUrl = `https://nordxrelining.se/api/newsletter/unsubscribe?id=${sub.id}`;
+            const articleUrl = `https://nordxrelining.se/artikel.html?slug=${slug}`;
             
             return {
-              from: 'Global Construction <info@globalconstruction.se>',
+              from: 'NordX Relining <info@nordxrelining.se>',
               to: sub.email,
               subject: `Nytt i kunskapsbanken: ${post.title}`,
               html: `
