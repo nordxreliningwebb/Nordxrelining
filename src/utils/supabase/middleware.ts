@@ -37,7 +37,8 @@ export async function updateSession(request: NextRequest) {
   const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
   const isAuthRoute = 
     request.nextUrl.pathname.startsWith('/admin/login') || 
-    request.nextUrl.pathname.startsWith('/admin/reset-password')
+    request.nextUrl.pathname.startsWith('/admin/reset-password') ||
+    request.nextUrl.pathname.startsWith('/admin/forgot-password')
 
   if (isAdminRoute && !isAuthRoute && !user) {
     // If trying to access protected route without being logged in

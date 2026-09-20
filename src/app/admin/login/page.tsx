@@ -1,4 +1,5 @@
 import { login } from './actions'
+import Link from 'next/link'
 
 export default function LoginPage() {
   return (
@@ -32,9 +33,16 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700" htmlFor="password">
-                Lösenord
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="block text-sm font-semibold text-gray-700" htmlFor="password">
+                  Lösenord
+                </label>
+                <div className="text-sm">
+                  <Link href="/admin/forgot-password" className="font-medium text-[#0284c7] hover:text-[#0369a1]">
+                    Glömt lösenord?
+                  </Link>
+                </div>
+              </div>
               <div className="mt-2">
                 <input
                   id="password"
