@@ -26,8 +26,8 @@ h1, h2, h3 {
 
 /* Global Responsive Scale */
 html {
-    /* Extreme fluid base font size: 9.5px on 1280px -> 16px on 1920px */
-    font-size: clamp(9.5px, 1.1vw - 5.1px, 16px);
+    /* Mjukare skalning: 13.5px som minst pa laptop, 16px pa stor skarm */
+    font-size: clamp(11.5px, 0.7vw + 3px, 16px);
     overflow-x: clip; /* CRITICAL: Prevents horizontal scroll/blue edge strip on iOS Safari */
     scroll-behavior: smooth;
 }
@@ -6188,7 +6188,7 @@ body.blog-post-page {
     right: 0;
     background: #0284c7;
 border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 -8px 40px rgba(0,0,0,0.30);
+    box-shadow: none;
     z-index: 99999;
     padding: 1.5rem 2rem;
     transform: translateY(100%);
