@@ -211,7 +211,7 @@ export default async function HomePage() {
             <div className="container intro-container">
                 <div className="intro-image-wrapper anim-scale-down-container">
                     {/* Bild på servicebil, byt till egen bild vid behov */}
-                    <img src="nordxrelining.jpeg" alt="NordX Relining arbetsbil på uppdrag" className="intro-image anim-scale-down" width="800" height="600" loading="lazy" />
+                    <img src="/valkommen.jpeg" alt="NordX Relining arbetsbil på uppdrag" className="intro-image anim-scale-down" width="800" height="600" loading="lazy" />
                 </div>
                 <div className="intro-content">
                     <h2 id="intro-heading" className="intro-title anim-mask-text"><span className="anim-mask-inner">Välkommen till NordX Relining</span></h2>
