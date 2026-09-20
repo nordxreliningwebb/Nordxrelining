@@ -80,7 +80,7 @@ export default function Preloader() {
   if (!isVisible) return null;
 
   return (
-    <div id="preloader-wrapper" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 999999, pointerEvents: "none", display: "flex", flexDirection: "column", justifyContent: "flex-end", transition: "transform 1.8s cubic-bezier(0.5, 0.05, 0.1, 1)" }}>
+    <div suppressHydrationWarning id="preloader-wrapper" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 999999, pointerEvents: "none", display: "flex", flexDirection: "column", justifyContent: "flex-end", transition: "transform 1.8s cubic-bezier(0.5, 0.05, 0.1, 1)" }}>
         <style dangerouslySetInnerHTML={{ __html: `
         @keyframes wave-move {
             0% { transform: translateX(0); }
