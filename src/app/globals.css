@@ -157,5 +157,3 @@ body {
 .frontend-content strong { font-weight: bold; }  
 .frontend-content a { color: #2563eb; text-decoration: underline; }
 
-/* Skip Preloader */
-.skip-preloader #preloader-wrapper { display: none !important; }

@@ -6,13 +6,6 @@ export default function Preloader() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Check if user has already seen the preloader this session
-    if (sessionStorage.getItem('hasSeenPreloader')) {
-      setIsVisible(false);
-      window.dispatchEvent(new Event('preloaderDone'));
-      return;
-    }
-
     const video = document.getElementById("hero-video") as HTMLVideoElement;
     const preloaderCurtain = document.getElementById("preloader-curtain");
     const preloaderWrapper = document.getElementById("preloader-wrapper");
