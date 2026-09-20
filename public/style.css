@@ -4,7 +4,7 @@
     --dark-navy: #1B263B;
     --white: #ffffff;
     --primary-blue: #3b82f6;
-    --transition: 0.4s ease;
+    --transition: 0.26s ease;
 }
 
 * {
@@ -90,7 +90,7 @@ figure {
     width: 100%;
     z-index: 1000;
     background: transparent;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #main-header.sticky {
@@ -169,7 +169,7 @@ figure {
 .logo-link img {
     height: auto;
     width: 165px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .logo-link:hover img {
@@ -187,7 +187,7 @@ figure {
     color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
     font-size: 0.85rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     position: relative;
@@ -201,7 +201,7 @@ figure {
     bottom: -4px;
     left: 0;
     background-color: var(--white);
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -244,7 +244,7 @@ figure {
     min-width: 220px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid rgba(255, 255, 255, 0.25);
     z-index: 1010;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -330,7 +330,7 @@ figure {
     display: flex;
     align-items: center;
     padding: 18rem 4rem 0;
-    transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: flex 0.52s cubic-bezier(0.25, 1, 0.5, 1);
     overflow: hidden;
 }
 
@@ -348,8 +348,8 @@ figure {
     z-index: 0;
     transform: scale(1.08); /* Prevent fuzzy edge bleed under blur */
     filter: blur(25px); /* Completely blurred by default */
-    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1),
-                filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.60s cubic-bezier(0.25, 1, 0.5, 1),
+                filter 0.52s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .panel-left {
@@ -386,7 +386,7 @@ figure {
     width: 100%;
     height: 100%;
     z-index: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.33s ease;
 }
 
 .panel-left::after {
@@ -405,15 +405,15 @@ figure {
     text-align: center;
     opacity: 0.9;
     transform: translateY(20px);
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-                opacity 0.6s ease;
+    transition: transform 0.39s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.39s ease;
 }
 
 /* Blur only text and button, NOT the title */
 .split-panel .panel-text,
 .split-panel .btn-nested-pill {
     filter: blur(15px);
-    transition: filter 0.6s ease;
+    transition: filter 0.39s ease;
 }
 
 .fade-in-up.visible {
@@ -423,11 +423,11 @@ figure {
 
 /* Isometric Floating Animations */
 .iso-floating {
-    animation: isoFloat 4s ease-in-out infinite;
+    animation: isoFloat 2.40s ease-in-out infinite;
 }
 
 .iso-floating-delayed {
-    animation: isoFloat 5s ease-in-out 1s infinite;
+    animation: isoFloat 3s ease-in-out 0.60s infinite;
 }
 
 @keyframes isoFloat {
@@ -440,12 +440,12 @@ figure {
 }
 
 .iso-parallax {
-    transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .iso-hover-lift {
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.26s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .iso-hover-lift:hover {
@@ -544,7 +544,7 @@ figure {
     border-radius: 60px;
     padding: 6px;
     text-decoration: none;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, box-shadow 0.2s ease;
     margin-top: 1.5rem;
     cursor: pointer;
 }
@@ -558,7 +558,7 @@ figure {
     font-size: 0.95rem;
     letter-spacing: 0.05em;
     text-transform: none !important;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     white-space: nowrap;
     text-align: center;
 }
@@ -569,7 +569,7 @@ figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .btn-pill-icon svg {
@@ -592,7 +592,7 @@ figure {
 }
 
 .arrow-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .btn-panel:hover .arrow-icon {
@@ -613,7 +613,7 @@ figure {
     height: 2px;
     background: var(--white);
     border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hide mobile drawer elements on desktop globally */
@@ -688,7 +688,7 @@ figure {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     color: white;
 }
 
@@ -723,7 +723,7 @@ figure {
 .breadcrumbs a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .breadcrumbs a:hover {
@@ -792,7 +792,7 @@ figure {
     object-fit: contain;
     filter: grayscale(1) brightness(3); /* Makes standard logos blend into the dark bg */
     opacity: 0.45;
-    transition: all 0.4s ease;
+    transition: all 0.26s ease;
 }
 
 .ribbon-logo:hover {
@@ -922,7 +922,7 @@ figure {
     align-items: center;
     justify-content: center;
     padding: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .feature-item:hover .feature-icon {
@@ -1139,7 +1139,7 @@ figure {
     height: auto;
     filter: none; /* Colorful logos */
     opacity: 0.9;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.33s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partner-card:hover .partner-logo-container img {
@@ -1161,7 +1161,7 @@ figure {
     text-decoration: none;
     padding-bottom: 4px;
     border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .partner-card:hover .partner-cta {
@@ -1182,7 +1182,7 @@ figure {
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     color: var(--dark-navy); /* Brand Navy from Navbar */
-    transition: color 0.4s ease;
+    transition: color 0.26s ease;
 }
 
 .partner-card:hover .partner-info h3 {
@@ -1254,7 +1254,7 @@ figure {
     height: 420px;
     object-fit: cover;
     display: block;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-image:hover .service-image-reveal img {
@@ -1321,7 +1321,7 @@ figure {
     color: #4a5568;
     font-weight: 500;
     letter-spacing: 0.02em;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .service-tags span:hover {
@@ -1341,7 +1341,7 @@ figure {
     font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.26s cubic-bezier(0.25, 1, 0.5, 1);
     letter-spacing: 0.02em;
 }
 
@@ -1366,7 +1366,7 @@ figure {
 }
 
 .service-cta span {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .service-cta:hover span {
@@ -1377,13 +1377,13 @@ figure {
 .fade-in-left {
     opacity: 0;
     transform: translateX(-60px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.60s cubic-bezier(0.16, 1, 0.3, 1), transform 0.60s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in-right {
     opacity: 0;
     transform: translateX(60px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.60s cubic-bezier(0.16, 1, 0.3, 1), transform 0.60s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in-left.visible,
@@ -1396,7 +1396,7 @@ figure {
 .fade-in-up {
     opacity: 0;
     transform: translateY(60px);
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Mobile responsive */
@@ -1575,7 +1575,7 @@ figure {
     gap: 4rem;
     opacity: 0.6;
     filter: grayscale(1);
-    transition: all 0.5s ease;
+    transition: all 0.33s ease;
 }
 
 .logo-row-container:hover {
@@ -1617,7 +1617,7 @@ figure {
     border-radius: 6px;
     text-align: center;
     border: 1px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1642,7 +1642,7 @@ figure {
     max-width: 220px;
     width: auto;
     object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.33s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: center;
 }
 
@@ -1702,7 +1702,7 @@ figure {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
 
@@ -1775,7 +1775,7 @@ figure {
     background: #d1d5db;
     border: none;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.26s ease;
     padding: 0;
 }
 
@@ -1795,7 +1795,7 @@ figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     color: var(--dark-navy);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -1835,7 +1835,7 @@ figure {
     letter-spacing: 0.15em;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: inline-flex;
     align-items: center;
     box-shadow: 0 4px 15px rgba(27, 38, 59, 0.1);
@@ -1913,7 +1913,7 @@ figure {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.05);
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.26s ease;
 }
 
 .faq-item:hover {
@@ -1943,7 +1943,7 @@ figure {
     content: '+';
     font-size: 1.6rem;
     color: var(--white);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-item.active .faq-question::after {
@@ -1953,7 +1953,7 @@ figure {
 .faq-answer {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: grid-template-rows 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-item.active .faq-answer {
@@ -2001,7 +2001,7 @@ figure {
     display: inline-flex;
     border-radius: 4px;
     font-weight: 600;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
     position: relative;
     z-index: 2;
     text-decoration: none;
@@ -2047,7 +2047,7 @@ figure {
 .footer-socials a {
     color: var(--dark-navy);
     opacity: 0.6;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 .footer-socials a:hover {
@@ -2073,7 +2073,7 @@ figure {
     text-decoration: none;
     font-size: 1rem;
     line-height: 1.6;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
@@ -2108,7 +2108,7 @@ figure {
 .footer-legal a {
     color: #4a5568;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .footer-legal a:hover {
@@ -2128,7 +2128,7 @@ figure {
         top: 0; left: 0; width: 100vw; height: 100vh;
         background: rgba(0,0,0,0.4);
         opacity: 0; visibility: hidden;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.2s ease;
         z-index: 10000;
     }
     .mobile-drawer-overlay.active {
@@ -2141,7 +2141,7 @@ figure {
         width: 85%; max-width: 380px; height: 100vh;
         background: #ffffff;
         z-index: 10001;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: right 0.26s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: -5px 0 25px rgba(0,0,0,0.1);
         padding: 70px 30px 30px;
         overflow-y: auto;
@@ -2159,7 +2159,7 @@ figure {
         cursor: pointer;
         line-height: 1;
         padding: 0;
-        transition: transform 0.2s;
+        transition: transform 0.15s;
     }
     .close-drawer-btn:hover {
         transform: scale(1.1);
@@ -2179,7 +2179,7 @@ figure {
     .mobile-submenu {
         list-style: none; padding: 0; margin: 0;
         max-height: 0; overflow: hidden;
-        transition: max-height 0.35s ease-out;
+        transition: max-height 0.23s ease-out;
     }
     .mobile-submenu li a {
         display: block;
@@ -2198,7 +2198,7 @@ figure {
         max-height: 500px;
     }
     .arrow {
-        font-size: 0.8rem; transition: transform 0.3s ease;
+        font-size: 0.8rem; transition: transform 0.2s ease;
     }
     
     .menu-toggle {
@@ -2239,7 +2239,7 @@ figure {
         width: 100% !important;
         border-radius: 12px !important;
         transform: none !important;
-        transition: all 0.3s ease !important;
+        transition: all 0.2s ease !important;
     }
 
     .dropdown.active > a::after {
@@ -2506,7 +2506,7 @@ figure {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.52s ease-out, transform 0.52s ease-out;
 }
 .fade-in.visible {
     opacity: 1;
@@ -2516,7 +2516,7 @@ figure {
 .fade-in-left {
     opacity: 0;
     transform: translateX(-40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.52s ease-out, transform 0.52s ease-out;
 }
 .fade-in-left.visible {
     opacity: 1;
@@ -2526,7 +2526,7 @@ figure {
 .fade-in-right {
     opacity: 0;
     transform: translateX(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.52s ease-out, transform 0.52s ease-out;
 }
 .fade-in-right.visible {
     opacity: 1;
@@ -2536,8 +2536,8 @@ figure {
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.60s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.60s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in-up.visible {
@@ -2809,7 +2809,7 @@ figure {
     border-radius: 16px;
     border: 1px solid rgba(16, 24, 40, 0.06);
     border-top: 3px solid transparent;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-top-color 0.35s ease;
+    transition: transform 0.23s ease, box-shadow 0.23s ease, border-top-color 0.23s ease;
 }
 
 .vision-item:hover {
@@ -2911,7 +2911,7 @@ figure {
     background: var(--white);
     border: 3px solid #48bb78;
     z-index: 2;
-    transition: all 0.4s ease;
+    transition: all 0.26s ease;
 }
 
 .timeline-item:hover .timeline-marker {
@@ -2969,7 +2969,7 @@ figure {
     object-fit: cover;
     display: block;
     border-radius: 8px;
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .approach-image:hover img {
@@ -3143,7 +3143,7 @@ figure {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .team-person:hover .team-person-avatar img {
@@ -3173,11 +3173,11 @@ figure {
 .team-person-grid .team-person:nth-child(2) { transition-delay: 0.05s; }
 .team-person-grid .team-person:nth-child(3) { transition-delay: 0.1s; }
 .team-person-grid .team-person:nth-child(4) { transition-delay: 0.15s; }
-.team-person-grid .team-person:nth-child(5) { transition-delay: 0.2s; }
+.team-person-grid .team-person:nth-child(5) { transition-delay: 0.15s; }
 .team-person-grid .team-person:nth-child(6) { transition-delay: 0.25s; }
-.team-person-grid .team-person:nth-child(7) { transition-delay: 0.3s; }
-.team-person-grid .team-person:nth-child(8) { transition-delay: 0.35s; }
-.team-person-grid .team-person:nth-child(9) { transition-delay: 0.4s; }
+.team-person-grid .team-person:nth-child(7) { transition-delay: 0.2s; }
+.team-person-grid .team-person:nth-child(8) { transition-delay: 0.23s; }
+.team-person-grid .team-person:nth-child(9) { transition-delay: 0.26s; }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -3257,7 +3257,7 @@ figure {
     color: #475569;
     cursor: pointer;
     border-radius: 100px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -3279,7 +3279,7 @@ figure {
     padding: 0.1rem 0.6rem;
     border-radius: 100px;
     font-weight: 700;
-    transition: all 0.2s;
+    transition: all 0.15s;
 }
 
 .filter-btn.active .filter-count {
@@ -3315,7 +3315,7 @@ figure {
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0,0,0,0.05);
@@ -3340,7 +3340,7 @@ figure {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.39s ease;
 }
 
 .project-card:hover .project-card-media img {
@@ -3362,7 +3362,7 @@ figure {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.12);
     z-index: 2;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
 }
 
 .tag-konstruktion, .tag-skyddsrum { 
@@ -3410,7 +3410,7 @@ figure {
 .projects-grid .project-card:nth-child(2) { transition-delay: 0.05s; }
 .projects-grid .project-card:nth-child(3) { transition-delay: 0.1s; }
 .projects-grid .project-card:nth-child(4) { transition-delay: 0.15s; }
-.projects-grid .project-card:nth-child(5) { transition-delay: 0.2s; }
+.projects-grid .project-card:nth-child(5) { transition-delay: 0.15s; }
 .projects-grid .project-card:nth-child(6) { transition-delay: 0.25s; }
 
 /* Responsive adjustments for Projects */
@@ -3501,7 +3501,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     border-radius: 50px;
     padding: 6px;
     box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscribe-form:focus-within {
@@ -3529,7 +3529,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .subscribe-form button:hover {
@@ -3565,7 +3565,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     cursor: pointer;
     position: relative;
     white-space: nowrap;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .blog-filter-nav button:hover {
@@ -3609,13 +3609,13 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     text-decoration: none;
     opacity: 0;
     transform: translateY(40px) scale(0.98);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.60s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.60s cubic-bezier(0.16, 1, 0.3, 1);
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .premium-blog-card:hover {
@@ -3642,8 +3642,8 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
 
 /* Stagger entrance animations */
 .premium-blog-card:nth-child(2) { transition-delay: 0.1s; }
-.premium-blog-card:nth-child(3) { transition-delay: 0.2s; }
-.premium-blog-card:nth-child(4) { transition-delay: 0.3s; }
+.premium-blog-card:nth-child(3) { transition-delay: 0.15s; }
+.premium-blog-card:nth-child(4) { transition-delay: 0.2s; }
 
 /* --- CTA Section --- */
 .blog-cta-section {
@@ -3687,7 +3687,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     border-radius: 50px;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     border: none;
 }
 
@@ -3819,7 +3819,7 @@ body.blog-page #main-header:not(.sticky) .btn-ghost {
     font-size: 1rem !important;
     letter-spacing: 0.1em !important;
     text-decoration: none !important;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -3927,7 +3927,7 @@ footer address,
 .footer-legal a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .footer-legal a:hover {
@@ -3946,7 +3946,7 @@ footer address,
 
 .footer-socials a {
     color: #1a202c;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-socials a:hover {
@@ -3964,7 +3964,7 @@ footer address,
     color: #94a3b8;
     text-decoration: none;
     display: inline-block;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .webix-link:hover {
@@ -3980,7 +3980,7 @@ footer address,
 .footer-contact-col a {
     color: inherit !important;
     text-decoration: none !important;
-    transition: opacity 0.3s ease !important;
+    transition: opacity 0.2s ease !important;
 }
 
 .footer-contact-col a:hover {
@@ -4144,7 +4144,7 @@ footer address,
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-pill-contact:hover {
@@ -4207,7 +4207,7 @@ footer address,
     font-family: inherit;
     font-size: 1rem;
     color: var(--dark-navy);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .premium-form textarea {
@@ -4261,7 +4261,7 @@ footer address,
     padding: 0.25rem 0.25rem 0.25rem 3.5rem;
     position: relative;
     min-height: 58px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .file-box:focus-within {
@@ -4285,7 +4285,7 @@ footer address,
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     flex-shrink: 0;
     line-height: 1;
     display: inline-flex;
@@ -4339,7 +4339,7 @@ footer address,
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-family: var(--font-syne), sans-serif;
 }
 
@@ -4462,7 +4462,7 @@ footer address,
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.33s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid rgba(0,0,0,0.04);
     display: flex;
     flex-direction: column;
@@ -4484,7 +4484,7 @@ footer address,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    transition: transform 0.52s ease;
 }
 
 .project-card:hover .project-card-media img {
@@ -4557,7 +4557,7 @@ footer address,
     width: fit-content;
     text-transform: none !important;
     letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     box-shadow: 0 4px 15px rgba(27, 38, 59, 0.2);
 }
 
@@ -4626,7 +4626,7 @@ footer address,
     background: linear-gradient(135deg, rgba(65, 90, 119, 0.08), rgba(27, 38, 59, 0.05));
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     z-index: 0;
-    animation: blob-float 15s infinite ease-in-out alternate;
+    animation: blob-float 9.0s infinite ease-in-out alternate;
 }
 
 .pink-blob {
@@ -4650,7 +4650,7 @@ footer address,
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.52s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .service-row:hover .service-image img {
@@ -4729,7 +4729,7 @@ footer address,
     letter-spacing: 0.1em;
     padding-bottom: 4px;
     border-bottom: 2px solid #48bb78;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .service-cta:hover {
@@ -4817,7 +4817,7 @@ footer address,
     border-radius: 20px;
     padding: 5rem 3rem;
     text-align: center;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.39s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4839,7 +4839,7 @@ footer address,
     height: 4px;
     background: linear-gradient(to right, #48bb78, #38a169);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.26s ease;
 }
 
 .partner-card-white:hover {
@@ -4865,7 +4865,7 @@ footer address,
     max-width: 85%; /* Standard base */
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.39s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Optical Symmetry Balancing */
@@ -4921,7 +4921,7 @@ footer address,
     text-decoration: none;
     text-transform: none !important;
     letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -5075,7 +5075,7 @@ body.blog-post-page {
     text-decoration: none;
     font-weight: 600;
     border-bottom: 2px solid transparent;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
 }
 
 .premium-article-body a:hover {
@@ -5173,7 +5173,7 @@ body.blog-post-page {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.39s ease;
 }
 
 .featured-card-link:hover .featured-post-img {
@@ -5341,7 +5341,7 @@ body.blog-post-page {
     border-radius: 30px;
     overflow: hidden;
     padding: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .inline-subscribe-form:focus-within {
@@ -5507,7 +5507,7 @@ body.blog-post-page {
 .blog-v2-header-area .breadcrumbs a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .blog-v2-header-area .breadcrumbs a:hover {
@@ -5633,7 +5633,7 @@ body.blog-post-page {
     font-weight: 700 !important;
     font-family: var(--font-inter), sans-serif !important;
     color: #475569 !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0 !important;
     font-size: 0.9rem !important;
 }
@@ -5661,7 +5661,7 @@ body.blog-post-page {
     display: flex;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .inline-subscribe-form:focus-within {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
@@ -5692,7 +5692,7 @@ body.blog-post-page {
     font-family: var(--font-inter), sans-serif !important;
     width: auto !important;
     height: auto !important;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5715,7 +5715,7 @@ body.blog-post-page {
 
 /* 3. Re-style the Subscribe button hover (animate up, keep navy color) */
 .inline-subscribe-form button {
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 .inline-subscribe-form button:hover {
     background: var(--dark-navy) !important; /* Enforce navy */
@@ -5849,7 +5849,7 @@ body.blog-post-page {
     z-index: 10000;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gdpr-modal-overlay.active {
@@ -5865,7 +5865,7 @@ body.blog-post-page {
     width: 90%;
     position: relative;
     transform: translateY(40px) scale(0.95);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+    transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     text-align: center;
 }
@@ -5882,7 +5882,7 @@ body.blog-post-page {
     border: none;
     color: #94a3b8;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 .modal-close:hover {
@@ -5946,7 +5946,7 @@ body.blog-post-page {
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .gdpr-cancel {
@@ -5988,7 +5988,7 @@ body.blog-post-page {
 }
 
 .gdpr-cancel {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     background: #ffffff !important;
 }
 
@@ -6081,7 +6081,7 @@ body.blog-post-page {
     color: var(--secondary-blue) !important; /* #415A77 ΓÇô samma teal/slate som p├Ñ Om oss */
     text-decoration: none !important;
     font-weight: 600 !important;
-    transition: color 0.3s ease !important;
+    transition: color 0.2s ease !important;
 }
 
 .blog-v2-header-area .breadcrumbs a:hover {
@@ -6109,7 +6109,7 @@ body.blog-post-page {
 
 .faq-extra.is-open {
     display: block;
-    animation: faqSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: faqSlideDown 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes faqSlideDown {
@@ -6137,7 +6137,7 @@ body.blog-post-page {
     font-weight: 700;
     letter-spacing: 0.1em;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-faq-expand:hover {
@@ -6148,7 +6148,7 @@ body.blog-post-page {
 }
 
 .btn-faq-expand .expand-icon {
-    transition: transform 0.35s ease;
+    transition: transform 0.23s ease;
 }
 
 .btn-faq-expand[aria-expanded="true"] .expand-icon {
@@ -6168,7 +6168,7 @@ body.blog-post-page {
     background: var(--dark-navy) !important;
     border: 1.5px solid var(--dark-navy) !important;
     color: #ffffff !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-faq-expand:hover {
@@ -6192,7 +6192,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 99999;
     padding: 1.5rem 2rem;
     transform: translateY(100%);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.33s cubic-bezier(0.16, 1, 0.3, 1);
     width: 100vw;
     box-sizing: border-box;
 }
@@ -6255,7 +6255,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     letter-spacing: 0.05em;
     cursor: pointer;
     font-family: var(--font-inter), sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cookie-accept:hover {
@@ -6273,7 +6273,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8rem;
     cursor: pointer;
     font-family: var(--font-inter), sans-serif;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-cookie-reject:hover {
@@ -6292,7 +6292,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-family: var(--font-inter), sans-serif;
     text-decoration: underline;
     padding: 0.5rem;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 .btn-cookie-settings:hover {
@@ -6342,7 +6342,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .cookie-modal-overlay.active {
@@ -6358,7 +6358,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     width: 90%;
     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     transform: translateY(30px) scale(0.97);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
 }
 
 .cookie-modal-overlay.active .cookie-modal {
@@ -6422,7 +6422,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: #e2e8f0;
     border-radius: 100px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
 }
 
 .cookie-toggle-slider::before {
@@ -6434,7 +6434,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     left: 3px;
     top: 3px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
@@ -6468,7 +6468,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     cursor: pointer;
     font-family: var(--font-inter), sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cookie-save:hover {
@@ -6543,7 +6543,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     gap: 12rem;
     width: max-content;
-    animation: scroll-marquee 50s linear infinite;
+    animation: scroll-marquee 30.0s linear infinite;
     padding-left: 12rem; /* Matches the gap so spacing stays consistent when looping */
 }
 
@@ -6565,7 +6565,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 100%;
     object-fit: contain;
     filter: brightness(0) invert(1) opacity(0.6);
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
 .logo-marquee-item img:hover {
@@ -6629,7 +6629,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(to right, var(--white) 0%, transparent 100%);
     left: 3px;
     top: 3px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
@@ -6663,7 +6663,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     cursor: pointer;
     font-family: var(--font-inter), sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cookie-save:hover {
@@ -6738,7 +6738,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     gap: 12rem;
     width: max-content;
-    animation: scroll-marquee 50s linear infinite;
+    animation: scroll-marquee 30.0s linear infinite;
     padding-left: 12rem; /* Matches the gap so spacing stays consistent when looping */
 }
 
@@ -6760,7 +6760,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 100%;
     object-fit: contain;
     filter: brightness(0) invert(1) opacity(0.6);
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
 .logo-marquee-item img:hover {
@@ -6834,7 +6834,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 100% !important;
     object-fit: contain !important;
     filter: invert(0) grayscale(100%) opacity(0.5) !important;
-    transition: all 0.3s ease !important;
+    transition: all 0.2s ease !important;
 }
 
 .cookie-toggle input:checked + .cookie-toggle-slider::before {
@@ -6863,7 +6863,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     cursor: pointer;
     font-family: var(--font-inter), sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cookie-save:hover {
@@ -6937,7 +6937,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     align-items: center;
     gap: 0;
     width: max-content;
-    animation: mission-scroll-marquee 60s linear infinite;
+    animation: mission-scroll-marquee 36.0s linear infinite;
     padding-left: 0;
 }
 
@@ -6964,7 +6964,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 80px; 
     max-width: 100%;
     object-fit: contain;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: invert(0) grayscale(100%);
     opacity: 0.4;
 }
@@ -7050,7 +7050,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     gap: 12rem;
     width: max-content;
-    animation: scroll-marquee 50s linear infinite;
+    animation: scroll-marquee 30.0s linear infinite;
     padding-left: 12rem; /* Matches the gap so spacing stays consistent when looping */
 }
 
@@ -7072,7 +7072,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 100%;
     object-fit: contain;
     filter: brightness(0) invert(1) opacity(0.6);
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
 .logo-marquee-item img:hover {
@@ -7162,7 +7162,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     align-items: center;
     gap: 6rem;
     width: max-content;
-    animation: mission-scroll-marquee 50s linear infinite;
+    animation: mission-scroll-marquee 30.0s linear infinite;
     padding-left: 15rem;
 }
 
@@ -7189,7 +7189,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 80px; 
     max-width: 100%;
     object-fit: contain;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: invert(0) grayscale(100%);
     opacity: 0.4;
 }
@@ -7445,7 +7445,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-decoration: underline;
     text-decoration-color: #cbd5e1;
     text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease;
+    transition: text-decoration-color 0.15s ease;
 }
 
 .journal-content a:hover {
@@ -7489,7 +7489,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 .journal-toc a:hover {
@@ -7557,7 +7557,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white !important;
     font-size: 0.95rem;
     margin-bottom: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     outline: none;
 }
 
@@ -7586,7 +7586,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: none !important;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .journal-newsletter-box .journal-cta-btn:hover,
@@ -7700,7 +7700,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .journal-cta-socials a {
     color: #9ca3af;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 .journal-cta-socials a:hover {
     color: white;
@@ -7767,7 +7767,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     align-items: center;
     gap: 6rem;
     width: max-content;
-    animation: mission-scroll-marquee 50s linear infinite;
+    animation: mission-scroll-marquee 30.0s linear infinite;
     padding-left: 15rem;
 }
 
@@ -7794,7 +7794,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 80px; 
     max-width: 100%;
     object-fit: contain;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: invert(0) sepia(0) grayscale(100%);
     opacity: 0.4;
 }
@@ -7884,7 +7884,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
     margin-bottom: 2rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
@@ -7988,11 +7988,11 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
    ISOMETRIC ANIMATIONS & INTERACTION
    ===================================================== */
 .iso-floating {
-    animation: isoFloat 4s ease-in-out infinite;
+    animation: isoFloat 2.40s ease-in-out infinite;
 }
 
 .iso-floating-delayed {
-    animation: isoFloat 5s ease-in-out 1s infinite;
+    animation: isoFloat 3s ease-in-out 0.60s infinite;
 }
 
 @keyframes isoFloat {
@@ -8005,12 +8005,12 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .iso-parallax {
-    transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .iso-hover-lift {
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.26s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.26s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .iso-hover-lift:hover {
@@ -8025,7 +8025,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
    ===================================================== */
 .iso-hover-expand {
     display: inline-block;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.39s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .iso-hover-expand:hover {
@@ -8133,7 +8133,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     box-shadow: 0 40px 120px rgba(0, 0, 0, 0.07);
     position: relative;
-    transition: transform 0.4s ease;
+    transition: transform 0.26s ease;
 }
 
 .testimonial-premium-card:hover {
@@ -8283,7 +8283,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     height: 35px;
     width: auto;
     filter: grayscale(1) opacity(0.4);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .partners-sub-logos img:hover {
@@ -8347,7 +8347,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     .mobile-pop-standby {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+        transition: opacity 0.52s ease-out, transform 0.52s ease-out !important;
     }
     .mobile-pop-standby.mobile-pop-active {
         opacity: 1;
@@ -8484,7 +8484,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 2.5rem;
     border-radius: 100px;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .faq-cta-strip a:hover {
@@ -8602,25 +8602,25 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
     border: 1px solid #f1f5f9;
-    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.60s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.60s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.26s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Stagger fade-in-up delays */
 .partners-grid-item:nth-child(1) { transition-delay: 0s; }
 .partners-grid-item:nth-child(2) { transition-delay: 0.1s; }
-.partners-grid-item:nth-child(3) { transition-delay: 0.2s; }
-.partners-grid-item:nth-child(4) { transition-delay: 0.3s; }
-.partners-grid-item:nth-child(5) { transition-delay: 0.4s; }
-.partners-grid-item:nth-child(6) { transition-delay: 0.5s; }
+.partners-grid-item:nth-child(3) { transition-delay: 0.15s; }
+.partners-grid-item:nth-child(4) { transition-delay: 0.2s; }
+.partners-grid-item:nth-child(5) { transition-delay: 0.26s; }
+.partners-grid-item:nth-child(6) { transition-delay: 0.33s; }
 
 .partners-grid-item img {
     max-width: 90%;
     max-height: 80px; /* Increased max-height of logo images */
     object-fit: contain;
     filter: none; /* Display logos in full color */
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Premium Hover Animations */
@@ -9097,7 +9097,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
     width: fit-content;
     border: none;
 }
@@ -9117,7 +9117,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     width: fit-content;
     border: 2px solid #fff;
 }
@@ -9144,7 +9144,7 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
     justify-content: center;
     color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .video-control-btn:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -9197,7 +9197,7 @@ section {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid #eee;
 }
 .service-card:hover {
@@ -9329,7 +9329,7 @@ section {
     border-radius: 6px;
     font-family: var(--font-inter), sans-serif;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.2s;
 }
 .form-group input:focus,
 .form-group textarea:focus {
@@ -9347,7 +9347,7 @@ section {
     border-radius: 50px;
     cursor: pointer;
     width: 100%;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
     font-family: var(--font-syne), sans-serif;
 }
 .btn-primary:hover {
@@ -9469,7 +9469,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
     font-size: 1rem !important;
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 .service-link:hover {
     transform: translateX(5px);
@@ -9700,7 +9700,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
     background: #0fb3ff !important;
     color: #ffffff !important;
     border: 1px solid #0fb3ff !important; /* Adding solid border to match hover layout size */
-    transition: all 0.3s ease !important;
+    transition: all 0.2s ease !important;
 }
 
 #main-header .btn-ghost:hover, 
@@ -9730,7 +9730,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
     position: sticky !important;
     top: 0;
     z-index: 9999;
-    transition: all 0.4s ease !important;
+    transition: all 0.26s ease !important;
 }
 
 #main-header.sticky {
@@ -9746,7 +9746,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, .section
     left: 0;
     width: 100%;
     z-index: 9999;
-    transition: all 0.4s ease !important; /* Smooth transitions for hover/shadows */
+    transition: all 0.26s ease !important; /* Smooth transitions for hover/shadows */
 }
 
 /* Offset the body so the header doesn't cover the top of the hero section */
@@ -9778,7 +9778,7 @@ body {
     position: relative;
     display: inline-block;
     text-decoration: none;
-    transition: color 0.3s ease !important;
+    transition: color 0.2s ease !important;
 }
 .footer-links-col a::after {
     content: '';
@@ -9788,7 +9788,7 @@ body {
     bottom: -2px;
     left: 0;
     background-color: #0fb3ff;
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
 }
 .footer-links-col a:hover {
     color: #0fb3ff !important;
@@ -9807,7 +9807,7 @@ body {
 
 /* Hover pop-up for footer logo */
 .footer-brand img {
-    transition: transform 0.3s ease !important;
+    transition: transform 0.2s ease !important;
 }
 .footer-brand img:hover {
     transform: scale(1.05) translateY(-2px) !important;
@@ -9903,7 +9903,7 @@ body {
     display: block;
 }
 .pulse-ring {
-    animation: pulse 2s infinite ease-out;
+    animation: pulse 1.20s infinite ease-out;
 }
 @keyframes pulse {
     0% { r: 10; opacity: 1; stroke-width: 2; }
@@ -9983,7 +9983,7 @@ body.light-theme .rorinspektion-svg {
     padding: 1.5rem;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.15s, box-shadow 0.15s;
 }
 .process-step:hover {
     transform: translateY(-2px);
@@ -10079,7 +10079,7 @@ body.light-theme .service-animation-wrapper {
     color: #0b0b0b;
     font-weight: 700;
     text-decoration: underline;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
 }
 .top-bar-link:hover {
     opacity: 0.7;
@@ -10104,7 +10104,7 @@ body.light-theme .service-animation-wrapper {
     bottom: -4px;
     border-radius: 50%;
     border: 2px solid #ff3b30;
-    animation: pulse 1.5s linear infinite;
+    animation: pulse 0.90s linear infinite;
 }
 @keyframes pulse {
     0% { transform: scale(0.5); opacity: 1; }
@@ -10166,7 +10166,7 @@ body.light-theme .service-animation-wrapper {
     bottom: -5px;
     border-radius: 50%;
     border: 2px solid #ff3b30;
-    animation: pulse 1.5s linear infinite;
+    animation: pulse 0.90s linear infinite;
 }
 .sticky-jour-text {
     flex-grow: 1;
@@ -10259,7 +10259,7 @@ body.light-theme .service-animation-wrapper {
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .btn-cta-box:hover {
     transform: translateY(-3px);
@@ -10286,7 +10286,7 @@ body.light-theme .service-animation-wrapper {
 
 .top-bar-link {
     text-decoration: underline;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
 }
 .top-bar-link:hover {
     opacity: 0.7;
@@ -10311,7 +10311,7 @@ body.light-theme .service-animation-wrapper {
     bottom: -4px;
     border-radius: 50%;
     border: 2px solid #ff3b30;
-    animation: pulse 1.5s linear infinite;
+    animation: pulse 0.90s linear infinite;
 }
 @keyframes pulse {
     0% { transform: scale(0.5); opacity: 1; }
@@ -10373,7 +10373,7 @@ body.light-theme .service-animation-wrapper {
     bottom: -5px;
     border-radius: 50%;
     border: 2px solid #ff3b30;
-    animation: pulse 1.5s linear infinite;
+    animation: pulse 0.90s linear infinite;
 }
 .sticky-jour-text {
     flex-grow: 1;
@@ -10466,7 +10466,7 @@ body.light-theme .service-animation-wrapper {
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .btn-cta-box:hover {
     transform: translateY(-3px);
@@ -10550,7 +10550,7 @@ body.home-page #main-header:not(.sticky) .nav-links a {
     letter-spacing: 2px;
     z-index: 10;
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
 }
 .scroll-indicator:hover {
     opacity: 1;
@@ -10571,7 +10571,7 @@ body.home-page #main-header:not(.sticky) .nav-links a {
     top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    animation: scrollWheel 2s infinite ease-in-out;
+    animation: scrollWheel 1.20s infinite ease-in-out;
 }
 @keyframes scrollWheel {
     0% { top: 6px; opacity: 1; }
@@ -10598,7 +10598,7 @@ body.home-page #main-header:not(.sticky) .nav-links a {
     display: flex;
     gap: 3rem;
     white-space: nowrap;
-    animation: marqueeScroll 30s linear infinite;
+    animation: marqueeScroll 18.0s linear infinite;
     font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -10741,7 +10741,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     height: 100%;
     z-index: 1;
     transform: translateY(100%);
-    transition: transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 1.08s cubic-bezier(0.2, 0.8, 0.2, 1);
     pointer-events: none;
 }
 .water-fill-card.is-filled .water-fill-container {
@@ -10761,7 +10761,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     width: 100%;
     height: 120px;
     fill: #0fb3ff;
-    animation: wave-sway 6s linear infinite;
+    animation: wave-sway 3.60s linear infinite;
     animation-play-state: paused;
 }
 .water-fill-card:hover .water-fill-wave {
@@ -10780,7 +10780,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     padding: 0 !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
 }
 .water-fill-card:hover {
     transform: translateY(-8px);
@@ -10800,7 +10800,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 .water-fill-content p, 
 .water-fill-content a.read-more {
     color: #0f172a !important;
-    transition: color 1.2s ease 0.6s !important;
+    transition: color 0.72s ease 0.39s !important;
 }
 .water-fill-card.is-filled .water-fill-content h3, 
 .water-fill-card.is-filled .water-fill-content p, 
@@ -10812,7 +10812,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 .water-fill-content .water-btn {
     background: #0284c7;
     color: #ffffff !important;
-    transition: background 1.2s ease 0.6s, color 1.2s ease 0.6s !important;
+    transition: background 0.72s ease 0.39s, color 0.72s ease 0.39s !important;
     position: relative;
     z-index: 2;
     text-align: center;
@@ -10838,10 +10838,10 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     height: 0%;
     z-index: 1;
     background: linear-gradient(to bottom, transparent 45px, #0284c7 45px); /* Transparent top allows wave surface */
-    transition: height 4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: height 2.40s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .water-fill-card.is-filled .water-fill-container {
-    height: calc(100% - 60px);
+    height: calc(100% - 15px);
 }
 
 /* The Waves */
@@ -10854,7 +10854,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     fill: #7dd3fc;
     opacity: 0.4;
     z-index: 1;
-    animation: wave-sway 5s linear infinite;
+    animation: wave-sway 3s linear infinite;
     pointer-events: none;
 }
 .water-fill-wave-2 {
@@ -10866,7 +10866,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     fill: #38bdf8;
     opacity: 0.7;
     z-index: 2;
-    animation: wave-sway 3.5s linear infinite;
+    animation: wave-sway 2.10s linear infinite;
     pointer-events: none;
 }
 .water-fill-wave-3 {
@@ -10877,7 +10877,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     height: 40px;
     fill: #0284c7;
     z-index: 3;
-    animation: wave-sway 2.5s linear infinite;
+    animation: wave-sway 1.50s linear infinite;
     pointer-events: none;
 }
 .water-fill-wave-1,
@@ -10917,7 +10917,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     transform: translateX(0);
 }
 .project-card:hover .project-card-media::after {
-    animation: wave-sway 3s linear infinite;
+    animation: wave-sway 1.80s linear infinite;
 }
     /* Pipes - Exact dimensions as divider (26px height) */
     .p-pipe { position: absolute; z-index: 20; }
@@ -11039,7 +11039,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s ease;
+    transition: transform 0.45s ease;
 }
 .featured-project:hover img {
     transform: scale(1.03);
@@ -11080,7 +11080,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     display: inline-block;
     width: fit-content;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
 }
 .featured-project-btn:hover { background: #0369a1;
 }
@@ -11096,7 +11096,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     text-decoration: none;
     color: inherit;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 .project-card-v2:hover {
     transform: translateY(-5px);
@@ -11106,7 +11106,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.33s ease;
 }
 .project-card-v2:hover .project-card-v2-media img {
     transform: scale(1.05);
@@ -11143,7 +11143,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 
 .project-card-v2-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
 .project-card-v2-content p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-.project-card-v2-btn { background: #0284c7; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 700; text-align: center; transition: background 0.3s ease; display: inline-block; width: fit-content; margin-top: auto; }
+.project-card-v2-btn { background: #0284c7; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 700; text-align: center; transition: background 0.2s ease; display: inline-block; width: fit-content; margin-top: auto; }
 .project-card-v2:hover .project-card-v2-btn { background: #0369a1; }
 
 
@@ -11162,7 +11162,7 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
     margin-bottom: 3rem;
     align-items: center;
 }
-.nordx-filter-btn { padding: 0.6rem 1.5rem; border-radius: 4px; border: 1px solid #e2e8f0; background: #ffffff; color: #1B263B; font-weight: 700; font-family: var(--font-inter), sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; letter-spacing: 0.5px; }
+.nordx-filter-btn { padding: 0.6rem 1.5rem; border-radius: 4px; border: 1px solid #e2e8f0; background: #ffffff; color: #1B263B; font-weight: 700; font-family: var(--font-inter), sans-serif; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; letter-spacing: 0.5px; }
 .nordx-filter-btn:hover { color: #0284c7; background: rgba(2, 132, 199, 0.05); border-color: #0284c7; }
 .nordx-filter-btn.active { background: #0284c7; color: #ffffff; border-color: #0284c7; box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2); }
 .nordx-filter-btn.active:hover { background: #0369a1; border-color: #0369a1; color: #ffffff; }
@@ -11172,11 +11172,11 @@ body.journal-page #main-header .header-cta .btn-ghost:hover,
 
 
 /* Water Fill Card Pricing Extensions */
-.water-fill-content ul { transition: color 1.2s ease 0.6s !important; }
-.water-fill-content li { transition: color 1.2s ease 0.6s !important; }
-.water-fill-content div { transition: color 1.2s ease 0.6s !important; }
-.water-fill-content span { transition: color 1.2s ease 0.6s !important; }
-.water-fill-content svg { transition: stroke 1.2s ease 0.6s !important; }
+.water-fill-content ul { transition: color 0.72s ease 0.39s !important; }
+.water-fill-content li { transition: color 0.72s ease 0.39s !important; }
+.water-fill-content div { transition: color 0.72s ease 0.39s !important; }
+.water-fill-content span { transition: color 0.72s ease 0.39s !important; }
+.water-fill-content svg { transition: stroke 0.72s ease 0.39s !important; }
 
 .water-fill-card.is-filled .water-fill-content ul,
 .water-fill-card.is-filled .water-fill-content li,
@@ -11243,7 +11243,7 @@ body.home-page #main-header.sticky #logo-img {
     }
 
     .nav-links .desktop-has-submenu .dropdown-icon {
-        transition: transform 0.3s ease;
+        transition: transform 0.2s ease;
     }
 
     .nav-links .desktop-has-submenu:hover .dropdown-icon {
@@ -11262,7 +11262,7 @@ body.home-page #main-header.sticky #logo-img {
         padding: 0.5rem 0;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         z-index: 100;
         display: flex;
         flex-direction: column;
@@ -11284,7 +11284,7 @@ body.home-page #main-header.sticky #logo-img {
         padding: 0.75rem 1.5rem;
         color: #1B263B !important;
         font-weight: 500;
-        transition: background 0.2s ease, color 0.2s ease;
+        transition: background 0.15s ease, color 0.15s ease;
         text-align: left;
     }
 
@@ -11344,7 +11344,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     grid-area: 1 / 1;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+    transition: opacity 0.52s ease-in-out, visibility 0.52s;
     pointer-events: none;
     z-index: 1;
 }
@@ -11400,7 +11400,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     justify-content: center;
     color: #64748b;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .project-slider-pagination .nav-btn:hover {
     color: #1e293b;
@@ -11417,7 +11417,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     background: #cbd5e1;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .project-slider-pagination .dot.active {
     background: #0284c7;
@@ -11482,7 +11482,7 @@ body.home-page #main-header:not(.sticky) .nav-links .desktop-submenu a:hover {
     border-radius: 6px;
     font-weight: 600;
     font-family: var(--font-inter), sans-serif;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     align-self: flex-start;
     border: 1px solid transparent;
 }
@@ -11648,7 +11648,7 @@ body.journal-page {
 
 .anim-transitioning,
 .anim-mask-text.anim-transitioning .anim-mask-inner {
-    transition-duration: 1.5s !important;
+    transition-duration: 0.90s !important;
     transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1) !important;
     transition-property: opacity, transform !important;
     will-change: opacity, transform;
@@ -11775,19 +11775,19 @@ body.journal-page {
 .intro-wave-1 {
     fill: #0284c7;
     opacity: 0.25;
-    animation: wave-sway 14s linear infinite;
+    animation: wave-sway 8.4s linear infinite;
     bottom: 40px;
 }
 .intro-wave-2 {
     fill: #0284c7;
     opacity: 0.5;
-    animation: wave-sway 10s linear infinite;
+    animation: wave-sway 6.0s linear infinite;
     bottom: 20px;
 }
 .intro-wave-3 {
     fill: #0284c7;
     opacity: 1;
-    animation: wave-sway 7s linear infinite;
+    animation: wave-sway 4.20s linear infinite;
     bottom: 0px;
 }
 @media (max-width: 768px) {
@@ -11842,13 +11842,13 @@ body.journal-page {
     transform: scale(0);
 }
 .anim-star-pop.anim-active {
-    animation: star-pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation: star-pop 0.52s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 
 /* Team Member Card Animation */
 .team-member-card {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.26s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .team-member-card:hover {
     transform: translateY(-12px);
@@ -11909,7 +11909,7 @@ body { top: 0px !important; }
 
 
 /* Globe Icon adaptive color */
-.globe-icon { color: #111111; transition: color 0.3s; }
+.globe-icon { color: #111111; transition: color 0.2s; }
 body.home-page #main-header:not(.sticky) .globe-icon { color: #ffffff !important; }
 body.light-theme #main-header .globe-icon { color: var(--primary-color) !important; }
 

@@ -17,7 +17,7 @@ export async function getGoogleReviews() {
   }
 
   try {
-    const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&reviews_sort=newest&language=sv&key=${apiKey}`, { next: { revalidate: 3600 } });
+    const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&reviews_sort=newest&language=sv&key=${apiKey}`, { next: { revalidate: 86400 } });
     if (!res.ok) throw new Error("Failed to fetch google reviews");
     const data = await res.json();
     if (data.status !== 'OK') {
@@ -27,7 +27,7 @@ export async function getGoogleReviews() {
     return {
       rating: data.result.rating,
       user_ratings_total: data.result.user_ratings_total,
-      reviews: data.result.reviews || []
+      reviews: (data.result.reviews || []).filter((r: any) => r.rating >= 4)
     };
   } catch (error) {
     console.error("Error fetching google reviews:", error);

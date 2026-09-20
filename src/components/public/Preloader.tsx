@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from 'react';
 
@@ -6,6 +6,13 @@ export default function Preloader() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Check if user has already seen the preloader this session
+    if (sessionStorage.getItem('hasSeenPreloader')) {
+      setIsVisible(false);
+      window.dispatchEvent(new Event('preloaderDone'));
+      return;
+    }
+
     const video = document.getElementById("hero-video") as HTMLVideoElement;
     const preloaderCurtain = document.getElementById("preloader-curtain");
     const preloaderWrapper = document.getElementById("preloader-wrapper");
@@ -44,6 +51,7 @@ export default function Preloader() {
             setTimeout(() => {
                 if (preloaderWrapper) preloaderWrapper.style.display = "none";
                 setIsVisible(false);
+                sessionStorage.setItem('hasSeenPreloader', 'true');
                 window.dispatchEvent(new Event('preloaderDone'));
             }, 1900); // 1900ms ensures 1.8s transition is 100% finished
         }, 300);

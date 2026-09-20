@@ -76,7 +76,8 @@ body {
         }
 
         /* FAQ Styling */
-        .nordx-faq-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .nordx-faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+        @media (max-width: 768px) { .nordx-faq-list { grid-template-columns: 1fr; } }
         .nordx-faq-card {
             background: #0284c7;
             border-radius: 12px;
