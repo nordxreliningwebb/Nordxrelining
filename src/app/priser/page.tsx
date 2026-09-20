@@ -112,7 +112,7 @@ export default async function PriserPage() {
                 
                 {renderNotice(noticeText)}
                 
-                <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+                <a href={(plan.cta_link ? (plan.cta_link.match(/^[0-9+\s-]+$/) ? 'tel:' + plan.cta_link.replace(/\s+/g, '') : plan.cta_link) : null) || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
             </div>
         </article>
       );
@@ -148,7 +148,7 @@ export default async function PriserPage() {
               
               {renderNotice(noticeText)}
               
-              <a href={plan.cta_link || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
+              <a href={(plan.cta_link ? (plan.cta_link.match(/^[0-9+\s-]+$/) ? 'tel:' + plan.cta_link.replace(/\s+/g, '') : plan.cta_link) : null) || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "/kontakt" : "tel:0727222232")} className="water-btn" style={{ marginTop: "auto" }}>{plan.cta_text || (plan.category?.toLowerCase() === "företag" || plan.category?.toLowerCase() === "fA retag" || plan.category?.toLowerCase() === "foretag" ? "KONTAKTA OSS" : "Ring nu")}</a>
           </div>
       </article>
     );
