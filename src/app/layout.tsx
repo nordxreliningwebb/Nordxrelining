@@ -24,6 +24,13 @@ export default function RootLayout({
   return (
     <html lang="sv" className={`${inter.variable} ${outfit.variable} ${syne.variable} h-full antialiased scroll-smooth`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          try {
+            if (sessionStorage.getItem('hasSeenPreloader')) {
+              document.documentElement.classList.add('skip-preloader');
+            }
+          } catch(e) {}
+        ` }} />
         <Script id="google-tag-manager" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

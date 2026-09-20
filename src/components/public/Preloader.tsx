@@ -110,12 +110,6 @@ export default function Preloader() {
                 <div style={{ color: "#ffffff", fontFamily: "monospace", letterSpacing: "3px", marginTop: "1.5rem", fontSize: "1rem", fontWeight: 600 }} id="loading-text">INSPEKTERAR RÖR...</div>
             </div>
         </div>
-        {/* Run synchronously to prevent flashing before React hydrates */}
-        <script dangerouslySetInnerHTML={{ __html: `
-            if (sessionStorage.getItem('hasSeenPreloader')) {
-                document.getElementById('preloader-wrapper').style.display = 'none';
-            }
-        ` }} />
     </div>
   );
 }
