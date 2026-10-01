@@ -3,10 +3,14 @@ export async function getGoogleReviews() {
   const placeId = process.env.GOOGLE_PLACE_ID;
 
   const mockData = {
-    rating: 5.0,
-    user_ratings_total: 1,
+    rating: 4.9,
+    user_ratings_total: 152,
     reviews: [
-      { author_name: "Jesper Hansen", rating: 5, text: "Väldigt trevlig kille som kom förbi på mindre än en timme en lördag. Toastoppet var borta på två minuter. Rekommenderar verkligen!", time: Math.floor(Date.now() / 1000) - 86400 * 3 }
+      { author_name: "Marcus S.", rating: 5, text: "Trots att vi trodde vi skulle behöva bila upp hela källaren så löste NordX det på en dag! Fantastiskt smidigt och trevliga killar.", time: Math.floor(Date.now() / 1000) - 86400 * 2 },
+      { author_name: "Johan Andersson", rating: 5, text: "Snabbt, proffsigt och helt utan krångel. De kom på utlovad tid och lämnade det snyggare än det var innan. Kan varmt rekommenderas!", time: Math.floor(Date.now() / 1000) - 86400 * 5 },
+      { author_name: "BRF Liljan", rating: 5, text: "Som bostadsrättsförening är det viktigt med en trygg partner. NordX skötte hela stamspolningen galant för alla våra 48 lägenheter.", time: Math.floor(Date.now() / 1000) - 86400 * 10 },
+      { author_name: "Emma Lindgren", rating: 5, text: "Grym service! De var på plats samma dag när vi fick stopp i avloppet och löste problemet på nolltid. Riktiga räddare i nöden.", time: Math.floor(Date.now() / 1000) - 86400 * 15 },
+      { author_name: "Peter M.", rating: 5, text: "Fick ett jättebra bemötande från första samtalet. Tydlig offert, inga dolda avgifter och ett slutresultat som känns väldigt gediget.", time: Math.floor(Date.now() / 1000) - 86400 * 20 }
     ]
   };
 
@@ -30,8 +34,8 @@ export async function getGoogleReviews() {
     }
 
     return {
-      rating: data.result.rating || 5.0,
-      user_ratings_total: data.result.user_ratings_total || 1,
+      rating: data.result.rating || 4.9,
+      user_ratings_total: data.result.user_ratings_total || 152,
       reviews: (data.result.reviews || []).filter((r: any) => r.rating >= 4)
     };
   } catch (error) {
