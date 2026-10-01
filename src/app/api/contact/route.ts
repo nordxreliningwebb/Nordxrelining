@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: 'onboarding@resend.dev', // Resends test-avsändare
-        to: ['NordX Relining.webb@gmail.com'], // TODO: Byt till info@nordxrelining.se när domänen är verifierad
+        from: 'info@nordxrelining.se', // Resends test-avsändare
+        to: ['info@nordxrelining.se'], // TODO: Byt till info@nordxrelining.se när domänen är verifierad
         reply_to: email,
         subject: type === 'offert' ? 'Ny offertförfrågan från Kalkylatorn' : `Ny förfrågan via hemsidan: ${service}`,
         html: htmlContent,
