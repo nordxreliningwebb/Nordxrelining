@@ -568,7 +568,7 @@ export default async function HomePage() {
                 )}
 
                 <div className="reviews-action">
-                    <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" target="_blank" rel="noopener" className="btn-white">
+                    <a href="https://www.google.com/search?q=NordX+Relining+AB" target="_blank" rel="noopener" className="btn-white">
                         Läs alla recensioner på Google
                     </a>
                 </div>
