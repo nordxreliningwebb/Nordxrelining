@@ -95,7 +95,7 @@ export default async function PriserPage() {
             
             <div className="water-fill-content" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
-                <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4, flexGrow: 1 }} dangerouslySetInnerHTML={{ __html: desc }} />
+                <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "130px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
                 
                 <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
                 
@@ -127,7 +127,7 @@ export default async function PriserPage() {
           </div>
           <div className="water-fill-content" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.75rem", color: "#ffffff", marginBottom: "0.75rem" }}>{plan.title || plan.name}</h3>
-              <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "70px", lineHeight: 1.4, flexGrow: 1 }} dangerouslySetInnerHTML={{ __html: desc }} />
+              <p style={{ color: "rgba(255,255,255,0.95)", marginBottom: "1.5rem", fontSize: "0.95rem", minHeight: "130px", lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: desc }} />
               
               <div style={{ color: "#ffffff", marginBottom: "2.5rem", fontFamily: "'Outfit', sans-serif" }} dangerouslySetInnerHTML={{ __html: priceMarkup }} />
               
